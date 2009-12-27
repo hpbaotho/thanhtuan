@@ -309,7 +309,8 @@ namespace WindowsFormsApplication4.Controls
             if(r==null)
             {
                 MyItem item = new MyItem(myItem1.Width, myItem1.Height);
-                item.Id = id + 1;
+                item.Id = id;
+                i++;
                 return item; 
             }
             return r;   
@@ -435,15 +436,37 @@ namespace WindowsFormsApplication4.Controls
                 o.changeQuality(sl);
             }
         }
-        //public delegate void call_delegate(this.Form_test.);
-        //protected override void OnClick(EventArgs e)
-        //{
-        //    FrmBanHang tmp = (FrmBanHang)this.Parent;
-        //    //this.Invoke(call_delegate);
-        //    bool flag = false;
-        //    if()
-        //    this.Invoke(new EventHandler(tmp.call), this, null);
-        //    base.OnClick(e);
-        //}
+        public void deSelected()
+        {
+            for (int k = 1; k <= hash.Count; k++)
+            {
+                MyItem tmp = (MyItem)hash[k];
+                if (tmp.Add)
+                {
+                    if(tmp.Selected&&tmp.Click)
+                    {
+                        tmp.Click = false;
+                        tmp.Invalidate();
+                    }          
+                }
+            } 
+        }
+        private void SetItemClick()
+        {
+            for (int j = 1; j <= hash.Count; j++)
+            {
+                MyItem item = (MyItem)hash[j];
+                if (item.Selected)
+                {
+                    item.Click = true;
+                }
+            }
+        }
+        public void DeleteAll()
+        {
+       
+            SetItemClick();
+            delete_RowSelected();
+        }
     }
 }
