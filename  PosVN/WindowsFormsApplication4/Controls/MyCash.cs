@@ -435,15 +435,22 @@ namespace WindowsFormsApplication4.Controls
                 o.changeQuality(sl);
             }
         }
-        //public delegate void call_delegate(this.Form_test.);
-        //protected override void OnClick(EventArgs e)
-        //{
-        //    FrmBanHang tmp = (FrmBanHang)this.Parent;
-        //    //this.Invoke(call_delegate);
-        //    bool flag = false;
-        //    if()
-        //    this.Invoke(new EventHandler(tmp.call), this, null);
-        //    base.OnClick(e);
-        //}
+        private void SetItemClick()
+        {
+            for (int j = 1; j <= hash.Count; j++)
+            {
+                MyItem item = (MyItem)hash[j];
+                if (item.Selected)
+                {
+                    item.Click = true;
+                }
+            }
+        }
+        public void DeleteAll()
+        {
+
+            SetItemClick();
+            delete_RowSelected();
+        }
     }
 }
