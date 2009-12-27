@@ -1,0 +1,7 @@
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\bin\Release\Forms.exe
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\bin\Release\Forms.pdb
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\obj\Release\Forms.Properties.Resources.resources
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\obj\Release\Forms.csproj.GenerateResource.Cache
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\obj\Release\Forms.exe
+C:\Documents and Settings\Nguyen Dinh Thanh\Desktop\WindowsFormsApplication4\WindowsFormsApplication4\Forms\obj\Release\Forms.pdb
