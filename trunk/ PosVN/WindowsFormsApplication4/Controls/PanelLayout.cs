@@ -104,6 +104,7 @@ namespace WindowsFormsApplication4.Controls
                         confirm.label1.Text = "Bạn có thực sự muốn gộp với bàn " + ((TransButton)sender).tableName + " ?";
                         if (confirm.ShowDialog() == DialogResult.OK)
                         {
+                            formLayout.formBanHang.combine(((TransButton)sender).tableName, this.Text, ((TransButton)sender).invoiceNum);
                             MessageBox.Show("Đã gộp sang bàn " + ((TransButton) sender).tableName);
                         }
                     }
