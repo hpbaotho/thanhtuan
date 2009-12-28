@@ -608,6 +608,23 @@ namespace WindowsFormsApplication4
             myCash1.Label_Ban.Text = tableName;
         }
 
+        public void combine(string newTable,string sectionID,string InvoiceNumOld)
+        {
+            getGui.DeleteInvoiceOnhold(StaticClass.storeId,InvoiceNumOld);
+            DataTable oldInvoiceItemized = getGui.GetInvoiceItemized(StaticClass.storeId, InvoiceNumOld);
+            for (int i = 0; i < oldInvoiceItemized.Rows.Count; i++)
+            {
+                oldInvoiceItemized.Rows[i]["Invoice_Number"] = invoiceNum;
+                oldInvoiceItemized.Rows[i]["LineNum"] = myCash1.listInvoiceItem.Rows.Count + 1;
+                myCash1.listInvoiceItem.Rows.Add(oldInvoiceItemized.Rows[i].ItemArray);
+                decimal price = Convert.ToDecimal(oldInvoiceItemized.Rows[i]["Quantity"]) * Convert.ToDecimal(oldInvoiceItemized.Rows[i]["PricePer"]) * (1 - Convert.ToDecimal(oldInvoiceItemized.Rows[i]["LineDisc"]));
+                myCash1.addRow(oldInvoiceItemized.Rows[i]["DiffItemName"].ToString(), String.Format("{0:0.00}", oldInvoiceItemized.Rows[i]["Quantity"]), String.Format("{0:0.00}", price));
+            }
+            UpdateInfo();
+            getGui.UpdateCombine(StaticClass.storeId,InvoiceNumOld,invoiceNum);
+
+        }
+
         private void button64_Click(object sender, EventArgs e)
         {
             FrmLayout formchuyen = new FrmLayout(StaticClass.cashierId);

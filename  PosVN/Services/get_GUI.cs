@@ -15,7 +15,7 @@ namespace Services
         public get_GUI()
         {
             sr = new Server();
-            sr.Server_name = @"THANH\SQLEXPRESS";
+            sr.Server_name = @"TUAN\SQLEXPRESS";
             sr.Database_name = "POS";
             //cmd=new SqlCommand();
         }
@@ -309,6 +309,23 @@ namespace Services
             DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateTransfer");
             cmd.Dispose();
         }
-        
+
+        public void DeleteInvoiceOnhold(string Store_ID, string InvoiceNum)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID","@Invoice_Number"};
+            string[] value = { Store_ID, InvoiceNum};
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteInvoiceOnhold");
+            cmd.Dispose();
+        }
+
+        public void UpdateCombine(string Store_ID, string InvoiceNum, string InvoiceNumNew)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Invoice_Number", "@Invoice_Number_New" };
+            string[] value = { Store_ID, InvoiceNum,InvoiceNumNew };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateCombine");
+            cmd.Dispose();
+        }
     }
 }
