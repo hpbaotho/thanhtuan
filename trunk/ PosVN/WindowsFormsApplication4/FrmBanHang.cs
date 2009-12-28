@@ -194,7 +194,7 @@ namespace WindowsFormsApplication4
                     Decimal quan = Convert.ToDecimal(c[3]);
                     Decimal pricePer = Convert.ToDecimal(c[5]);
                     Decimal price = quan*pricePer; 
-                    myCash1.addRow(c[13].ToString(), String.Format("{0:0.00}",c[3]), String.Format("{0:0.00}", price));
+                    myCash1.addRow(c[13].ToString(), String.Format("{0:0.00}",c[3]), String.Format("{0:0}", price));
                 }
             }
             for (int i = 1; i < 8;i++ )
@@ -241,7 +241,7 @@ namespace WindowsFormsApplication4
             }
             object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, price, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, null, null, null, null, null, StaticClass.storeId, price, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
             myCash1.listInvoiceItem.Rows.Add(newrow);
-            myCash1.addRow(itemName,"1.00", String.Format("{0:0.00}",price));
+            myCash1.addRow(itemName,"1.00", String.Format("{0:0}",price));
             UpdateInfo();
 
         }
@@ -484,7 +484,7 @@ namespace WindowsFormsApplication4
                 myCash1.listInvoiceItem.Rows[item.Id - 1][6] = Tax1Per;
                 myCash1.listInvoiceItem.Rows[item.Id - 1][7] = Tax2Per;
                 myCash1.listInvoiceItem.Rows[item.Id - 1][8] = Tax3Per;
-                item.changeItem(String.Format("{0:0.00}", myCash1.listInvoiceItem.Rows[item.Id - 1][3]), String.Format("{0:0.00}", price));
+                item.changeItem(String.Format("{0:0.00}", myCash1.listInvoiceItem.Rows[item.Id - 1][3]), String.Format("{0:0}", price));
             }
 
             UpdateInfo();
@@ -618,7 +618,7 @@ namespace WindowsFormsApplication4
                 oldInvoiceItemized.Rows[i]["LineNum"] = myCash1.listInvoiceItem.Rows.Count + 1;
                 myCash1.listInvoiceItem.Rows.Add(oldInvoiceItemized.Rows[i].ItemArray);
                 decimal price = Convert.ToDecimal(oldInvoiceItemized.Rows[i]["Quantity"]) * Convert.ToDecimal(oldInvoiceItemized.Rows[i]["PricePer"]) * (1 - Convert.ToDecimal(oldInvoiceItemized.Rows[i]["LineDisc"]));
-                myCash1.addRow(oldInvoiceItemized.Rows[i]["DiffItemName"].ToString(), String.Format("{0:0.00}", oldInvoiceItemized.Rows[i]["Quantity"]), String.Format("{0:0.00}", price));
+                myCash1.addRow(oldInvoiceItemized.Rows[i]["DiffItemName"].ToString(), String.Format("{0:0.00}", oldInvoiceItemized.Rows[i]["Quantity"]), String.Format("{0:0}", price));
             }
             UpdateInfo();
             getGui.UpdateCombine(StaticClass.storeId,InvoiceNumOld,invoiceNum);
@@ -665,6 +665,59 @@ namespace WindowsFormsApplication4
             {
                 myCash1.invoiceTotal.Rows[0]["Discount"] = Convert.ToDecimal(frmKeyBoard.value) / 100;
                 UpdateInfo();
+            }
+        }
+
+        private void button54_Click(object sender, EventArgs e)
+        {
+            
+            if(myCash1.listInvoiceItem.Rows.Count != 0)
+            {
+                FrmPay frmPay = new FrmPay();
+                frmPay.textBox1.Text = frmPay.textBox2.Text = String.Format("{0:0,0}", Convert.ToDecimal(myCash1.label_Total.Text));
+                if(frmPay.ShowDialog() == DialogResult.OK)
+                {
+                    myCash1.invoiceTotal.Rows[0]["Amt_Tendered"] = frmPay.tienTra;
+                    myCash1.invoiceTotal.Rows[0]["Amt_Change"] = frmPay.tienThoi;
+                    myCash1.invoiceTotal.Rows[0]["Status"] = "C";
+                    myCash1.invoiceTotal.Rows[0]["Payment_Method"] = frmPay.hinhThucTra;
+                    if(frmPay.hinhThucTra == "CA")
+                    {
+                        myCash1.invoiceTotal.Rows[0]["CA_Amount"] = Convert.ToDecimal(myCash1.label_Total.Text);
+
+                    }
+                    else if (frmPay.hinhThucTra == "CC")
+                    {
+                        myCash1.invoiceTotal.Rows[0]["CC_Amount"] = Convert.ToDecimal(myCash1.label_Total.Text);
+                    }
+                    else if (frmPay.hinhThucTra == "DC")
+                    {
+                        myCash1.invoiceTotal.Rows[0]["DC_Amount"] = Convert.ToDecimal(myCash1.label_Total.Text);
+                    }
+
+
+                    getGui.DeleteInvoiceItemized(StaticClass.storeId, this.invoiceNum);
+                    if (myCash1.listInvoiceItem.Rows.Count == 0)
+                    {
+                        myCash1.invoiceTotal.Rows[0][15] = "V";
+                        getGui.CloseTable(StaticClass.storeId, invoiceNum);
+                    }
+                    else
+                    {
+                        foreach (DataRow c in myCash1.listInvoiceItem.Rows)
+                        {
+                            getGui.UpdateInvoiceItemized(StaticClass.storeId, invoiceNum, c[2].ToString(), c[3].ToString(), c[12].ToString(), c[1].ToString(), c[6].ToString(), c[7].ToString(), c[8].ToString());
+                        }
+                    }
+                    UpdateInvoiceTotals();
+                    getGui.DeleteInvoiceOnhold(StaticClass.storeId,invoiceNum);
+                    this.Dispose();
+                    formLayout.FrmLayout_Load(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hóa đơn chưa có hàng");
             }
         }
     }
