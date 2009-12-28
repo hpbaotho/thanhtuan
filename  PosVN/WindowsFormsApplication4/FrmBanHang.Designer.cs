@@ -861,6 +861,7 @@
             this.button54.TabIndex = 12;
             this.button54.Text = "Thanh toán";
             this.button54.UseOwnColor = false;
+            this.button54.Click += new System.EventHandler(this.button54_Click);
             // 
             // panel4
             // 
@@ -1056,7 +1057,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.myCash1);
             this.Controls.Add(this.button54);
@@ -1071,6 +1071,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Name = "FrmBanHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
