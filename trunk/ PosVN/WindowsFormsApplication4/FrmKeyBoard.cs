@@ -102,5 +102,14 @@ namespace WindowsFormsApplication4
             value = textBox1.Text;
             this.DialogResult = DialogResult.OK;
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                value = textBox1.Text;
+                this.DialogResult = DialogResult.OK;
+            }
+        }
     }
 }
