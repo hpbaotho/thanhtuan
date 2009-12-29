@@ -114,6 +114,8 @@
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // panel3
             // 
@@ -157,6 +159,7 @@
             this.button24.TabIndex = 27;
             this.button24.Text = "500,000";
             this.button24.UseOwnColor = false;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
             // 
             // button23
             // 
@@ -169,6 +172,7 @@
             this.button23.TabIndex = 26;
             this.button23.Text = "200,000";
             this.button23.UseOwnColor = false;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // button22
             // 
@@ -181,6 +185,7 @@
             this.button22.TabIndex = 25;
             this.button22.Text = "100,000";
             this.button22.UseOwnColor = false;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button21
             // 
@@ -193,6 +198,7 @@
             this.button21.TabIndex = 24;
             this.button21.Text = "50,000";
             this.button21.UseOwnColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
             // button20
             // 
@@ -205,6 +211,7 @@
             this.button20.TabIndex = 23;
             this.button20.Text = "20,000";
             this.button20.UseOwnColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button19
             // 

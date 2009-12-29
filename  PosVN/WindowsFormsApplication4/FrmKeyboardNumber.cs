@@ -29,8 +29,17 @@ namespace WindowsFormsApplication4
 
         private void button15_Click(object sender, EventArgs e)
         {
-            value = textBox1.Text;
-            this.DialogResult = DialogResult.OK;
+            decimal de;
+            if(Decimal.TryParse(textBox1.Text,out de))
+            {
+                value = textBox1.Text;
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Giá trị nhập vào không hợp lệ");
+            }
+            
         }
 
         private void button13_Click(object sender, EventArgs e)
