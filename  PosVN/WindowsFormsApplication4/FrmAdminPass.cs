@@ -38,5 +38,14 @@ namespace WindowsFormsApplication4
                 textBox1.Text = frmKeyBoard.value;
             }
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                this.DialogResult = DialogResult.OK;
+                text = textBox1.Text;
+            }
+        }
     }
 }
