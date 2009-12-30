@@ -389,13 +389,13 @@ namespace WindowsFormsApplication4
             int check = serviceGet.Login(textBox1.Text, textBox2.Text, "1001");
             if(check == 0)
             {
-                MessageBox.Show("Đăng nhập sai mã nhân viên !");
+                Alert.Show("Đăng nhập sai mã nhân\n viên !",Color.Red);
                 this.FrmLogin_Load(null,null);
                 textBox1.Focus();
             }
             else if(check == 1)
             {
-                MessageBox.Show("Password không đúng !");
+                Alert.Show("Password không đúng !",Color.Red);
                 this.FrmLogin_Load(null, null);
             }
             else if(check == 2)

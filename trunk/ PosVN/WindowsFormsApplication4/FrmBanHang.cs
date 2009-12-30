@@ -326,7 +326,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Hủy hoặc giữ hóa đơn trước khi thoát !");
+                Alert.Show("Hủy hoặc giữ hóa đơn \ntrước khi thoát !",Color.Red);
             }
             
         }
@@ -495,11 +495,19 @@ namespace WindowsFormsApplication4
             FrmKeyboardNumber kb = new FrmKeyboardNumber("Nhập số lượng :");
             if(kb.ShowDialog() == DialogResult.OK)
             {
-                foreach (MyItem item in myCash1.get_RowSelected())
+                if(Convert.ToDecimal(kb.value) == 0)
                 {
-                    myCash1.listInvoiceItem.Rows[item.Id - 1][3] = kb.value;
+                    Alert.Show("Không thể nhập số lượng \nbằng 0",Color.Red);
                 }
-                UpdateItemSelect();
+                else
+                {
+                    foreach (MyItem item in myCash1.get_RowSelected())
+                    {
+                        myCash1.listInvoiceItem.Rows[item.Id - 1][3] = kb.value;
+                    }
+                    UpdateItemSelect();
+                }
+                
             }
         }
 
@@ -750,7 +758,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Hóa đơn chưa có hàng");
+                Alert.Show("Hóa đơn chưa có hàng",Color.Red);
             }
         }
     }

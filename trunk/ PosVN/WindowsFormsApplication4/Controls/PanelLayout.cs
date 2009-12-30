@@ -105,7 +105,7 @@ namespace WindowsFormsApplication4.Controls
                         if (confirm.ShowDialog() == DialogResult.OK)
                         {
                             formLayout.formBanHang.combine(((TransButton)sender).tableName, this.Text, ((TransButton)sender).invoiceNum);
-                            MessageBox.Show("Đã gộp sang bàn " + ((TransButton) sender).tableName);
+                            Alert.Show("Đã gộp sang bàn " + ((TransButton) sender).tableName);
                         }
                     }
                     else
@@ -114,7 +114,7 @@ namespace WindowsFormsApplication4.Controls
                         if (confirm.ShowDialog() == DialogResult.OK)
                         {
                             formLayout.formBanHang.transfer(((TransButton) sender).tableName,this.Text);
-                            MessageBox.Show("Đã chuyển sang bàn :" + ((TransButton) sender).tableName);
+                            Alert.Show("Đã chuyển sang bàn :" + ((TransButton) sender).tableName);
                         }
                     }
                 

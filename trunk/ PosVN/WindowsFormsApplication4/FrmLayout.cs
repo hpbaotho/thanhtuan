@@ -195,7 +195,7 @@ namespace WindowsFormsApplication4
                 }
                 else
                 {
-                    MessageBox.Show("Bạn đã nhập sai mật khẩu !");
+                    Alert.Show("Bạn đã nhập sai \nmật khẩu !",Color.Red);
                 }           
             }
 

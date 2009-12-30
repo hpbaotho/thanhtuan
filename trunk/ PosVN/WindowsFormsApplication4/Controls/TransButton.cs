@@ -23,6 +23,7 @@ namespace WindowsFormsApplication4.Controls
             // 
             // TransButton
             // 
+            this.Font = new Font("Arial", 16);
             this.Name = "TransButton";
             this.Size = new System.Drawing.Size(width, height);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.TransButton_Paint);

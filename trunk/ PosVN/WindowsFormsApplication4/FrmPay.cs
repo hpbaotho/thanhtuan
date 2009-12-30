@@ -32,7 +32,7 @@ namespace WindowsFormsApplication4
             {
                 if (Convert.ToDecimal(textBox1.Text) < Convert.ToDecimal(textBox2.Text))
                 {
-                    MessageBox.Show("Số tiền trả thấp hơn số tiền nợ");
+                    Alert.Show("Số tiền trả thấp hơn \nsố tiền nợ",Color.Red);
                 }
                 else
                 {
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Tiền nhập vào không hợp lệ");
+                Alert.Show("Tiền nhập vào không hợp \nlệ",Color.Red);
             } 
         }
 
@@ -162,7 +162,7 @@ namespace WindowsFormsApplication4
             {
                 if (Convert.ToDecimal(textBox1.Text) < Convert.ToDecimal(textBox2.Text))
                 {
-                    MessageBox.Show("Số tiền trả thấp hơn số tiền nợ");
+                    Alert.Show("Số tiền trả thấp hơn \nsố tiền nợ",Color.Red);
                 }
                 else
                 {
@@ -174,7 +174,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Tiền nhập vào không hợp lệ");
+                Alert.Show("Tiền nhập vào không hợp \nlệ",Color.Red);
             }
             
         }
@@ -200,7 +200,7 @@ namespace WindowsFormsApplication4
             {
                 if (Convert.ToDecimal(textBox1.Text) < Convert.ToDecimal(textBox2.Text))
                 {
-                    MessageBox.Show("Số tiền trả thấp hơn số tiền nợ");
+                    Alert.Show("Số tiền trả thấp hơn \nsố tiền nợ",Color.Red);
                 }
                 else
                 {
@@ -212,7 +212,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Tiền nhập vào không hợp lệ");
+                Alert.Show("Tiền nhập vào không hợp \nlệ",Color.Red);
             }
         }
 
@@ -222,7 +222,7 @@ namespace WindowsFormsApplication4
             {
                 if (Convert.ToDecimal(textBox1.Text) < Convert.ToDecimal(textBox2.Text))
                 {
-                    MessageBox.Show("Số tiền trả thấp hơn số tiền nợ");
+                    Alert.Show("Số tiền trả thấp hơn \nsố tiền nợ",Color.Red);
                 }
                 else
                 {
@@ -234,7 +234,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Tiền nhập vào không hợp lệ");
+                Alert.Show("Tiền nhập vào không hợp \nlệ",Color.Red);
             }
         }
 

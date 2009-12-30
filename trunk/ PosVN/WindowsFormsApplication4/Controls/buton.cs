@@ -300,24 +300,24 @@ namespace WindowsFormsApplication4.Controls
             base.Dispose(disposing);
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                case Keys.Left:
-                    Parent.SelectNextControl(this, false, true, true, true);
-                    break;
-                case Keys.Down:
-                case Keys.Right:
-                    Parent.SelectNextControl(this, true, true, true, true);
-                    break;
-                case Keys.Enter:
-                    OnClick(new EventArgs());
-                    break;
-            }
-        }
+        //protected override void OnKeyDown(KeyEventArgs e)
+        //{
+        //    base.OnKeyDown(e);
+        //    switch (e.KeyCode)
+        //    {
+        //        case Keys.Up:
+        //        case Keys.Left:
+        //            Parent.SelectNextControl(this, false, true, true, true);
+        //            break;
+        //        case Keys.Down:
+        //        case Keys.Right:
+        //            Parent.SelectNextControl(this, true, true, true, true);
+        //            break;
+        //        case Keys.Enter:
+        //            OnClick(new EventArgs());
+        //            break;
+        //    }
+        //}
 
         public new bool Enabled
         {

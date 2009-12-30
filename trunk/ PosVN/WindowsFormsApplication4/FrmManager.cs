@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using WindowsFormsApplication4.Controls;
+
+namespace WindowsFormsApplication4
+{
+    public partial class FrmManager : FrmPOS
+    {
+        private string selectedButton;
+        public FrmManager()
+        {
+            InitializeComponent();
+            selectedButton = "";
+        }
+        public void SelectChange(string select,string panelName)
+        {
+            if(select != selectedButton)
+            {
+                if(selectedButton !="")
+                {
+                    ((button)this.Controls[selectedButton]).changeColor(Color.White, Color.FromArgb(0, 170, 0));
+                }
+                
+                ((button)this.Controls[select]).changeColor(Color.White,Color.Lime);
+                this.Controls[panelName].BringToFront();
+                
+                
+                selectedButton = select;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SelectChange(((button)sender).Name,"panel1");
+        }
+
+        private void FrmManager_Load(object sender, EventArgs e)
+        {
+            SelectChange("button1","panel1");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SelectChange(((button)sender).Name, "panel2");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SelectChange(((button)sender).Name, "panel1");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SelectChange(((button)sender).Name, "panel1");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SelectChange(((button)sender).Name, "panel1");
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+    }
+}
