@@ -489,7 +489,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Hãy chọn 1 bàn để xóa !");
+                Alert.Show("Hãy chọn 1 bàn để xóa !");
             }
         }
 

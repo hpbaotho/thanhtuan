@@ -37,7 +37,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                MessageBox.Show("Giá trị nhập vào không hợp lệ");
+                Alert.Show("Giá trị nhập vào không \nhợp lệ",Color.Red);
             }
             
         }
@@ -56,8 +56,16 @@ namespace WindowsFormsApplication4
         {
             if(e.KeyChar == 13)
             {
-                value = textBox1.Text;
-                this.DialogResult = DialogResult.OK;
+                decimal de;
+                if (Decimal.TryParse(textBox1.Text, out de))
+                {
+                    value = textBox1.Text;
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    Alert.Show("Giá trị nhập vào không \nhợp lệ", Color.Red);
+                }
             }
         }
 
