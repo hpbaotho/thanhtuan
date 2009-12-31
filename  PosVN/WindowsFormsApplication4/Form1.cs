@@ -14,14 +14,9 @@ namespace WindowsFormsApplication4
         public Form1()
         {
             InitializeComponent();
-            panel1.TextChanged += new EventHandler(panel1_TextChanged);
-        }
-
-        void panel1_TextChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("sadsa");
            
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {

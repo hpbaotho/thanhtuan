@@ -15,7 +15,7 @@ namespace Services
         public get_GUI()
         {
             sr = new Server();
-            sr.Server_name = @"TUAN\SQLEXPRESS";
+            sr.Server_name = @"THANH\SQLEXPRESS";
             sr.Database_name = "POS";
             //cmd=new SqlCommand();
         }
@@ -44,6 +44,34 @@ namespace Services
             catch (Exception ex)
             {
                 Console.Write(ex.ToString());
+            }
+            return dataset;
+        }
+        private DataTable FillDataset2(SqlCommand cmd, CommandType type, String[] para, object[] value, string strSP)
+        {
+            DataTable dataset = new DataTable();
+            try
+            {
+                cmd.Connection = DataProvider.ConnectionData(sr);
+                cmd.CommandType = type;
+                cmd.CommandText = strSP;
+
+                for (int i = 0; i < para.Length; i++)
+                {
+                    SqlParameter pa = new SqlParameter();
+                    pa.ParameterName = para[i];
+                    pa.SqlValue = value[i];
+                    cmd.Parameters.Add(pa);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                adap.Fill(dataset);
+                adap.Dispose();
+                DataProvider.close_connection();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine(ex.ToString());
             }
             return dataset;
         }
@@ -196,7 +224,7 @@ namespace Services
         public void DeleteDept(string Dept_ID, string Store_ID)
         {
             cmd = new SqlCommand();
-            string[] pa = { "@Dept_ID", "@Dept_ID" };
+            string[] pa = { "@Dept_ID", "@Store_ID" };
             string[] value = { Dept_ID, Store_ID};
             DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteDepartment");
             cmd.Dispose();
@@ -310,22 +338,173 @@ namespace Services
             cmd.Dispose();
         }
 
-        public void DeleteInvoiceOnhold(string Store_ID, string InvoiceNum)
+        public DataTable GetAllCategories(string Store_ID)
         {
             cmd = new SqlCommand();
-            string[] pa = { "@Store_ID","@Invoice_Number"};
-            string[] value = { Store_ID, InvoiceNum};
-            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteInvoiceOnhold");
+            string[] pa = {"@Store_ID"};
+            string[] value = {Store_ID};
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_GetAllCategories");
+            cmd.Dispose();
+            return re;
+        }
+        public DataTable GetAllDepartments2(string Store_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID" };
+            string[] value = { Store_ID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_GetAllDepartments");
+            cmd.Dispose();
+            return re;
+        }
+        public DataTable GetAllDepartmentsBySubType(string Store_ID, string SubType)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@SubType" };
+            string[] value = { Store_ID, SubType };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllDepartmentsBySubType");
+            cmd.Dispose();
+            return re;
+        }
+        public void UpdateCategory(string Cat_ID,string Store_ID,string Description)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Cat_ID", "@Store_ID", "@Description" };
+            string[] value = { Cat_ID, Store_ID, Description };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateCategory");
+            cmd.Dispose();
+        }
+        public void InsertCategory(string Cat_ID,string Store_ID,string Description)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Cat_ID", "@Store_ID", "@Description" };
+            string[] value = { Cat_ID, Store_ID, Description };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_InsertCategory");
+            cmd.Dispose();
+        }
+        
+        public void DeleteCategory(string Cat_ID,string Store_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Cat_ID", "@Store_ID"};
+            string[] value = { Cat_ID, Store_ID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteCategory");
+            cmd.Dispose();
+        }
+        public DataTable GetAllDepartmentsByDeptId(string Dept_ID, string Store_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Dept_ID", "@Store_ID" };
+            string[] value = { Dept_ID, Store_ID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllDepartmentsByCatId");
+            cmd.Dispose();
+            return re;
+        }
+        public DataTable CreateDepartment(string Dept_ID, string Store_ID, string Cat_ID, string Description, byte Type, bool Print_Dept_Notes, string Dept_Notes, bool Require_Permission,
+                                            bool Require_Serials, bool BarTaxInclusive, double Cost_Calculation_Percentage, int Square_Footage, string Station_ID, string Picture,
+                                            int Function, string Option1, int @BackColor, int ForeColor)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Dept_ID", "@Store_ID", "@Cat_ID", "@Description", "@Type", "@Print_Dept_Notes", "@Dept_Notes", "@Require_Permission",
+                           "@Require_Serials","@BarTaxInclusive","@Cost_Calculation_Percentage","@Square_Footage","@Station_ID","@Picture" ,
+                            "@Function","@Option1","@BackColor","@ForeColor"};
+            object[] value = { Dept_ID, Store_ID, Cat_ID, Description, Type, Print_Dept_Notes, Dept_Notes, Require_Permission, Require_Serials, BarTaxInclusive, Cost_Calculation_Percentage, Square_Footage, Station_ID, Picture, Function, Option1, BackColor, ForeColor };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_CreateDepartment");
+            cmd.Dispose();
+            return re;
+        }
+        public DataTable GetAllInventoryByDept(string Store_ID, string Dept_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Dept_ID" };
+            string[] value = { Store_ID, Dept_ID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllInventoryByDept");
+            cmd.Dispose();
+            return re;
+        }
+
+        public void UpdateDepartment(string OldDept_ID, string Dept_ID, string Store_ID, string Cat_ID, string Description, byte Type, bool Print_Dept_Notes, string Dept_Notes, bool Require_Permission,
+                                        bool Require_Serials, bool BarTaxInclusive, double Cost_Calculation_Percentage, int Square_Footage, string Station_ID, string Picture,
+                                        int Function, string Option1, int @BackColor, int ForeColor)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "OldDept_ID", "@Dept_ID", "@Store_ID", "@Cat_ID", "@Description", "@Type", "@Print_Dept_Notes","@Dept_Notes", "@Require_Permission",
+                           "Require_Serials","@BarTaxInclusive","@Cost_Calculation_Percentage","@Square_Footage","@Station_ID","@Picture" ,
+                            "@Function","@Option1","@BackColor","@ForeColor"};
+            object[] value = {OldDept_ID, Dept_ID, Store_ID, Cat_ID, Description, Type, Print_Dept_Notes, Dept_Notes, Require_Permission, Require_Serials, BarTaxInclusive, Cost_Calculation_Percentage, Square_Footage, Station_ID, Picture, Function, Option1, BackColor, ForeColor };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateDepartment");
             cmd.Dispose();
         }
 
-        public void UpdateCombine(string Store_ID, string InvoiceNum, string InvoiceNumNew)
+        public DataTable GetAllInventoryByDept_Button(byte @ScheduleIndex, string Dept_ID, string Store_ID)
         {
             cmd = new SqlCommand();
-            string[] pa = { "@Store_ID", "@Invoice_Number", "@Invoice_Number_New" };
-            string[] value = { Store_ID, InvoiceNum,InvoiceNumNew };
-            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateCombine");
+            string[] pa = { "@ScheduleIndex", "@Dept_ID", "@Store_ID" };
+            object[] value = { ScheduleIndex, Dept_ID, Store_ID };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetInventoryByDept");
             cmd.Dispose();
+            return re;
+        }
+        
+        public DataTable GetAllInventory(string Store_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = {"@Store_ID" };
+            string[] value = { Store_ID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllInventory");
+            cmd.Dispose();
+            return re;
+        }
+        public DataTable CreateInventory(string ItemNum,string ItemName,string Store_ID,string Cost,string Price,float In_Stock,bool Tax_1,bool Tax_2,bool Tax_3,string Dept_ID,bool IsModifier,bool Exclude_Acct_Limit,
+									 bool Use_Serial_Numbers,bool IsRental,bool AutoWeigh,bool FoodStampable,byte ItemType,bool Prompt_Price,bool Prompt_Quantity,bool Check_ID,
+										int Inactive,bool Allow_BuyBack,string Picture,bool Special_Permission,bool Check_ID2,bool Count_This_Item,bool Print_On_Receipt,string Station_ID,int Function,string Option1,int BackColor,int ForeColor)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@ItemNum","@ItemName","@Store_ID","@Cost", "@Price", "@In_Stock", "@Tax_1","@Tax_2","@Tax_3","@Dept_ID","@IsModifier","@Exclude_Acct_Limit",
+									  "@Use_Serial_Numbers","@IsRental","@AutoWeigh","@FoodStampable","@ItemType","@Prompt_Price","@Prompt_Quantity","@Check_ID",
+										"@Inactive","@Allow_BuyBack","@Picture","@Special_Permission","@Check_ID2","@Count_This_Item","@Print_On_Receipt","@Station_ID",
+                                        "@Function","@Option1","@BackColor","@ForeColor"};
+            object[] value = { ItemNum, ItemName, Store_ID, Cost, Price, In_Stock, Tax_1, Tax_2, Tax_3, Dept_ID, IsModifier,Exclude_Acct_Limit, Use_Serial_Numbers,IsRental,
+                                AutoWeigh,FoodStampable,ItemType,Prompt_Price,Prompt_Quantity,Check_ID,Inactive,Allow_BuyBack,Picture,Special_Permission,
+                               Check_ID2,Count_This_Item,Print_On_Receipt, Station_ID, Function, Option1, BackColor, ForeColor };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_T_CreateInventory");
+            cmd.Dispose();
+            return re;
+        }
+
+        public void DeleteInventory(string ItemNum, string Store_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = {"@ItemNum", "@Store_ID" };
+            string[] value = {ItemNum, Store_ID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_DeleteInventory");
+            cmd.Dispose();
+        }
+
+
+        public void UpdateInventory(string OldInvent_ID, string ItemNum, string ItemName, string Store_ID, string Cost, string Price, float In_Stock, bool Tax_1, bool Tax_2, bool Tax_3, string Dept_ID, bool IsModifier, bool Exclude_Acct_Limit,
+									 bool Use_Serial_Numbers,bool IsRental,bool AutoWeigh,bool FoodStampable,byte ItemType,bool Prompt_Price,bool Prompt_Quantity,bool Check_ID,
+										int Inactive,bool Allow_BuyBack,string Picture,bool Special_Permission,bool Check_ID2,bool Count_This_Item,bool Print_On_Receipt,string Station_ID,int Function,string Option1,int BackColor,int ForeColor)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@OldInvent_ID","@ItemNum","@ItemName","@Store_ID","@Cost", "@Price", "@In_Stock", "@Tax_1","@Tax_2","@Tax_3","@Dept_ID","@IsModifier","@Exclude_Acct_Limit",
+									  "@Use_Serial_Numbers","@IsRental","@AutoWeigh","@FoodStampable","@ItemType","@Prompt_Price","@Prompt_Quantity","@Check_ID",
+										"@Inactive","@Allow_BuyBack","@Picture","@Special_Permission","@Check_ID2","@Count_This_Item","@Print_On_Receipt","@Station_ID",
+                                        "@Function","@Option1","@BackColor","@ForeColor"};
+            object[] value = {OldInvent_ID, ItemNum, ItemName, Store_ID, Cost, Price, In_Stock, Tax_1, Tax_2, Tax_3, Dept_ID, IsModifier,Exclude_Acct_Limit, Use_Serial_Numbers,IsRental,
+                                AutoWeigh,FoodStampable,ItemType,Prompt_Price,Prompt_Quantity,Check_ID,Inactive,Allow_BuyBack,Picture,Special_Permission,
+                               Check_ID2,Count_This_Item,Print_On_Receipt, Station_ID, Function, Option1, BackColor, ForeColor };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateInventory");
+            cmd.Dispose();
+        }
+
+        public DataTable GetInvoiceItemizedByItemNum(string Store_ID,string ItemNum)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@ItemNum" };
+            string[] value = { Store_ID, ItemNum };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetInvoiceItemizedByItemNum");
+            cmd.Dispose();
+            return re;
         }
     }
 }
