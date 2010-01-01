@@ -25,5 +25,13 @@ namespace WindowsFormsApplication4
         public static byte NumberofSettupButonTS = 14;
         public static byte ButtonTypeInventory = 0;
         public static byte ButtonTypeDepartment = 1;
+
+        #region database
+        public static string serverName = "";
+        public static string databaseName = "";
+        public static string userName = "";
+        public static string password = "";
+        public static string mode = "";
+        #endregion
     }
 }
