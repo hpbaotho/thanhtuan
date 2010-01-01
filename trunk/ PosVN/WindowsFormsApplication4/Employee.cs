@@ -20,38 +20,44 @@ namespace WindowsFormsApplication4
             switch (grantNum)
             {
                 case XEM_BAN_KHAC:
-                    if(emp.Rows[0][XEM_BAN_KHAC].ToString() == "P")
-                    {
-                        return true;
-                    }
-                    else if (emp.Rows[0][XEM_BAN_KHAC].ToString() == "Y")
-                    {
-                        FrmAdminPass frm = new FrmAdminPass();
-                        if (frm.ShowDialog() == DialogResult.OK)
-                        {
-                            if (!service.checkAdminPass(frm.text, storeId))
-                            {
-                                MessageBox.Show("Password không đúng !");
-                                return false;
-                            }
-                            else
-                            {
-                                return true;
-                            }
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                    break;
+                    return check(storeId, cashierId, "CFA_Other_Tables");
                 default:
                     return false;
 
+            }
+        }
+        private static bool check(string storeId, string cashierId, string columnName)
+        {
+            get_GUI getGui = new get_GUI();
+            DataTable emp = getGui.GetEmpById(cashierId);
+            Service.ServiceGet service = new ServiceGet();
+            if (emp.Rows[0][columnName].ToString() == "P")
+            {
+                return true;
+            }
+            else if (emp.Rows[0][columnName].ToString() == "Y")
+            {
+                FrmAdminPass frm = new FrmAdminPass();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    if (!service.checkAdminPass(frm.text, storeId))
+                    {
+                        Alert.Show("Password không đúng !");
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 
