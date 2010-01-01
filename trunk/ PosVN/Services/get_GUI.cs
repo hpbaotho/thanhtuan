@@ -17,7 +17,7 @@ namespace Services
         public get_GUI()
         {
             sr = new Server();
-            sr.Server_name = @"THANH\SQLEXPRESS";
+            sr.Server_name = @"TUAN\SQLEXPRESS";
             sr.Database_name = "POS";
             //sr.Server_name = serverName;
             //sr.Database_name = databaseName;

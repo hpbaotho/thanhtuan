@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,11 @@ namespace WindowsFormsApplication4
     {
         private FrmLayout layout;
         private ServiceGet serviceGet;
-        private get_GUI getGui  = new get_GUI();
+        private get_GUI getGui;
         public FrmLogin()
         {
             InitializeComponent();
-            serviceGet = new ServiceGet();
+            
             
         }
 
@@ -30,7 +31,37 @@ namespace WindowsFormsApplication4
 
         public void FrmLogin_Load(object sender, EventArgs e)
         {
-            
+            OleDbConnection m_cnADONetConnection = new OleDbConnection();
+            OleDbDataAdapter m_daDataAdapter;
+            OleDbCommandBuilder m_cbCommandBuilder;
+            DataTable m_dtDict = new DataTable();
+
+            m_cnADONetConnection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + System.Windows.Forms.Application.StartupPath + @"\ConfigDatabase.mdb";
+
+            m_cnADONetConnection.Open();
+            m_daDataAdapter = new OleDbDataAdapter("Select * From DatabaseInfo", m_cnADONetConnection);
+            m_cbCommandBuilder = new OleDbCommandBuilder(m_daDataAdapter);
+            m_daDataAdapter.Fill(m_dtDict);
+            if (m_dtDict.Rows.Count != 0)
+            {
+                StaticClass.mode = m_dtDict.Rows[0]["Mode"].ToString();
+                if (m_dtDict.Rows[0]["InstanceName"].ToString() == "" )
+                {
+                    StaticClass.serverName = m_dtDict.Rows[0]["ServerName"].ToString();
+                }
+                else
+                {
+                    StaticClass.serverName = m_dtDict.Rows[0]["ServerName"].ToString() + "\\" + m_dtDict.Rows[0]["InstanceName"].ToString();
+                }
+                
+                StaticClass.databaseName = m_dtDict.Rows[0]["DatabaseName"].ToString();
+                Services.get_GUI.serverName = StaticClass.serverName;
+                Services.get_GUI.databaseName = StaticClass.databaseName;
+               
+            }
+            serviceGet = new ServiceGet();
+            getGui = new get_GUI();
+
             button45.changeColor(Color.White, Color.Red);
             button46.changeColor(Color.White,Color.FromArgb(0,150,0));
             button9.changeColor(Color.White, Color.Red);
@@ -438,6 +469,32 @@ namespace WindowsFormsApplication4
             if (e.KeyChar == 13)
             {
                 button46_Click(null,null);
+            }
+        }
+
+        private void chọnDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdminPass frm = new FrmAdminPass();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                if (!serviceGet.checkAdminPass(frm.text, StaticClass.storeId))
+                {
+                    Alert.Show("Password không đúng !");
+                }
+                else
+                {
+                    FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
+                    frmConfigDatabase.ShowDialog();
+                }
+            }
+        }
+
+        private void button53_Click(object sender, EventArgs e)
+        {
+            if(Alert.ShowAdminPassRequest())
+            {
+                FrmManager frmManager = new FrmManager();
+                frmManager.ShowDialog();
             }
         }
     }

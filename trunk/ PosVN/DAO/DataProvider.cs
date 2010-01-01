@@ -23,5 +23,24 @@ namespace DAO
                 cn.Close();
 
         }
+        public static bool TestConnection(string mode,string serverName,string databaseName,string userName,string pass)
+        {
+            try
+            {
+                if(mode == "AUT")
+                {
+                    string cnStr = @"Server =" + serverName + @";Database = " + databaseName + @"; Integrated Security = True; Asynchronous Processing = True";
+                    cn = new SqlConnection(cnStr);
+                    cn.Open();
+                    cn.Close();
+                }   
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

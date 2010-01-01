@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
 {
@@ -16,7 +17,39 @@ namespace WindowsFormsApplication4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            GetDatabaseInfo getDatabaseInfo = new GetDatabaseInfo();
+            if (!getDatabaseInfo.isconfiged)
+            {
+                FrmDelete requestconn = new FrmDelete();
+                requestconn.label1.Text =
+                "Chưa có kết nối database.\n Bạn có muốn chọn database không?";
+                if (requestconn.ShowDialog() == DialogResult.OK)
+                {
+                    FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
+                    frmConfigDatabase.ShowDialog();
+                }
+            }
+            else
+            {
+                if(DAO.DataProvider.TestConnection(getDatabaseInfo.mode, getDatabaseInfo.serverName,
+                                                getDatabaseInfo.databaseName, getDatabaseInfo.user, getDatabaseInfo.pass))
+
+                {
+                    Application.Run(new FrmLogin());
+                }
+                else
+                {
+                    FrmDelete requestconn = new FrmDelete();
+                    requestconn.label1.Text =
+                    "Kết nối không thành công.\n Bạn có muốn chọn database không?";
+                    if (requestconn.ShowDialog() == DialogResult.OK)
+                    {
+                        FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
+                        frmConfigDatabase.ShowDialog();
+                    }
+                }
+                    
+            }
         }
     }
 }

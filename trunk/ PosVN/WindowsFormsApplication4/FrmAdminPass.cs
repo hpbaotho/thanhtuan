@@ -35,7 +35,7 @@ namespace WindowsFormsApplication4
             FrmKeyBoard frmKeyBoard = new FrmKeyBoard(true);
             if(frmKeyBoard.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Text = frmKeyBoard.value;
+                textBox1.Text = frmKeyBoard.value.ToLower();
             }
         }
 
