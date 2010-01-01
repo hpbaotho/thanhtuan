@@ -426,7 +426,7 @@ namespace WindowsFormsApplication4
             decimal invoiceDiscount = Convert.ToDecimal(myCash1.invoiceTotal.Rows[0]["Discount"]);
 
             SumTax = taxInvoice1*SumPice*(1 - invoiceDiscount);
-            GranTotal  = SumTax + SumPice;
+            GranTotal = SumTax + SumPice * (1 - invoiceDiscount);
 
 
             myCash1.invoiceTotal.Rows[0]["Total_Tax1"] = SumTax;
@@ -566,6 +566,8 @@ namespace WindowsFormsApplication4
             if (myCash1.listInvoiceItem.Rows.Count != 0)
             {
                 CrystalReport5 xxx = new CrystalReport5();
+
+                xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
                 ParameterFieldDefinitions crParameterFieldDefinitions;
                 ParameterFieldDefinition crParameterFieldDefinition;
                 ParameterValues crParameterValues = new ParameterValues();
@@ -595,7 +597,7 @@ namespace WindowsFormsApplication4
                 crParameterValues1.Add(crParameterDiscreteValue1);
                 crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
 
-
+                xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName,StaticClass.databaseName,true);
                 xxx.PrintToPrinter(1, true, 1, 1);
             }
             this.Dispose();
@@ -723,6 +725,8 @@ namespace WindowsFormsApplication4
                     formLayout.FrmLayout_Load(null, null);
 
                     Re_ThanhToan xxx = new Re_ThanhToan();
+
+                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
                     ParameterFieldDefinitions crParameterFieldDefinitions;
                     ParameterFieldDefinition crParameterFieldDefinition;
                     ParameterValues crParameterValues = new ParameterValues();
@@ -752,7 +756,7 @@ namespace WindowsFormsApplication4
                     crParameterValues1.Add(crParameterDiscreteValue1);
                     crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
 
-
+                    
                     xxx.PrintToPrinter(1, true, 1, 1);
                 }
             }

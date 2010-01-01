@@ -69,5 +69,17 @@ namespace WindowsFormsApplication4
         {
             this.Dispose();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FrmInventory frmInventory = new FrmInventory();
+            frmInventory.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FrmDept frmDept = new FrmDept();
+            frmDept.ShowDialog();
+        }
     }
 }

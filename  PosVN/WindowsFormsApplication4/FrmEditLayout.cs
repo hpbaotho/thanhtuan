@@ -293,10 +293,10 @@ namespace WindowsFormsApplication4
 
         private void but_AddSec_Click(object sender, EventArgs e)
         {
-            Form2 a = new Form2();
+            FrmKeyBoard a = new FrmKeyBoard();
             if(a.ShowDialog() == DialogResult.OK)
             {
-                string secName = a.text;
+                string secName = a.value;
                 listPanel.Add(secName, new panel(secName));
                 sections.Add(secName);
                 this.Controls.Add((panel)listPanel[secName]);
@@ -367,6 +367,7 @@ namespace WindowsFormsApplication4
                 var tmp = (panel)listPanel[sections[selectedSection - 1]];
                 var tmpBut = new MyButton(100, 100, 100, 100, MyButton.ButtonStyles.Rectangle);
                 tmpBut.Text_pro = a.value;
+                tmpBut.isNew = true;
                 tmp.addButton(tmpBut);
             }
         }
