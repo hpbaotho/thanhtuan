@@ -12,11 +12,16 @@ namespace Services
     {
         Server sr;
         private SqlCommand cmd;
+        public static string serverName = "";
+        public static string databaseName = "";
         public get_GUI()
         {
             sr = new Server();
             sr.Server_name = @"THANH\SQLEXPRESS";
             sr.Database_name = "POS";
+            //sr.Server_name = serverName;
+            //sr.Database_name = databaseName;
+
             //cmd=new SqlCommand();
         }
         private DataTable FillDataset(SqlCommand cmd,CommandType type, String[] para, string[] value, string strSP)
