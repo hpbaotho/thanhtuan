@@ -23,6 +23,8 @@ namespace POSReport
         private void button1_Click(object sender, EventArgs e)
         {
             CrystalReport5 xxx = new CrystalReport5();
+            xxx.DataSourceConnections[0].SetConnection("TUAN\\SQLEXPRESS","POSMIENNAM",true);
+            MessageBox.Show(xxx.DataSourceConnections[0].DatabaseName);
             ParameterFieldDefinitions crParameterFieldDefinitions;
             ParameterFieldDefinition crParameterFieldDefinition;
             ParameterValues crParameterValues = new ParameterValues();
