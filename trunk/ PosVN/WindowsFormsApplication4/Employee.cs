@@ -14,17 +14,25 @@ namespace WindowsFormsApplication4
         public const int XEM_BAN_KHAC = 45;
         public static bool CheckGrant(string storeId,string cashierId,int grantNum)
         {
-            get_GUI getGui = new get_GUI();
-            DataTable emp = getGui.GetEmpById(cashierId);
-            Service.ServiceGet service = new ServiceGet();
-            switch (grantNum)
+            if(!StaticClass.isAdmin)
             {
-                case XEM_BAN_KHAC:
-                    return check(storeId, cashierId, "CFA_Other_Tables");
-                default:
-                    return false;
+                get_GUI getGui = new get_GUI();
+                DataTable emp = getGui.GetEmpById(cashierId);
+                Service.ServiceGet service = new ServiceGet();
+                switch (grantNum)
+                {
+                    case XEM_BAN_KHAC:
+                        return check(storeId, cashierId, "CFA_Other_Tables");
+                    default:
+                        return false;
 
+                }
             }
+            else
+            {
+                return true;
+            }
+            
         }
         private static bool check(string storeId, string cashierId, string columnName)
         {
