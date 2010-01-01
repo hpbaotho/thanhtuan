@@ -168,7 +168,6 @@ namespace WindowsFormsApplication4.Service
         public bool checkAdminPass(string pass,string storeId)
         {
             if(pass == getGui.GetAdminPass(storeId).Rows[0][1].ToString())
-            if(pass == getGui.GetAdminPass(storeId).Rows[0][1].ToString())
             {
                 return true;
             }
