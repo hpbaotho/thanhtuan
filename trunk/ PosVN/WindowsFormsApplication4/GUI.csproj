@@ -69,13 +69,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Alert.cs" />
+    <Compile Include="Const\Categories.cs" />
+    <Compile Include="Const\Department.cs" />
+    <Compile Include="Const\Inventory.cs" />
+    <Compile Include="Const\Invoice_Itemized.cs" />
     <Compile Include="Controls\buton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -100,12 +97,6 @@
     </Compile>
     <Compile Include="Controls\CreTextBox.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="FrmManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmManager.Designer.cs">
-      <DependentUpon>FrmManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IControlPlus.cs" />
     <Compile Include="Controls\MyCash.cs">
@@ -185,6 +176,12 @@
     <Compile Include="FrmEditLayout.designer.cs">
       <DependentUpon>FrmEditLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventory.Designer.cs">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmKeyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,34 +206,26 @@
     <Compile Include="FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPay.Designer.cs">
-      <DependentUpon>FrmPay.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmPOS.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPOS.designer.cs">
       <DependentUpon>FrmPOS.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessBox.cs">
+    <Compile Include="FrmQuanLyDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MessBox.Designer.cs">
-      <DependentUpon>MessBox.cs</DependentUpon>
+    <Compile Include="FrmQuanLyDanhMuc.Designer.cs">
+      <DependentUpon>FrmQuanLyDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearch.Designer.cs">
+      <DependentUpon>FrmSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmManager.resx">
-      <DependentUpon>FrmManager.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MyCash.resx">
       <DependentUpon>MyCash.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -273,6 +262,10 @@
       <DependentUpon>FrmEditLayout.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventory.resx">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmKeyBoard.resx">
       <DependentUpon>FrmKeyBoard.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -289,16 +282,16 @@
       <DependentUpon>FrmLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPay.resx">
-      <DependentUpon>FrmPay.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmPOS.resx">
       <DependentUpon>FrmPOS.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessBox.resx">
-      <DependentUpon>MessBox.cs</DependentUpon>
+    <EmbeddedResource Include="FrmQuanLyDanhMuc.resx">
+      <DependentUpon>FrmQuanLyDanhMuc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearch.resx">
+      <DependentUpon>FrmSearch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -321,6 +314,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Service\ServiceGet.cs" />
+    <Compile Include="Service\Util.cs" />
     <Compile Include="StaticClass.cs" />
   </ItemGroup>
   <ItemGroup>
