@@ -511,5 +511,22 @@ namespace Services
             cmd.Dispose();
             return re;
         }
+        public void DeleteInvoiceOnhold(string Store_ID, string InvoiceNum)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Invoice_Number" };
+            string[] value = { Store_ID, InvoiceNum };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteInvoiceOnhold");
+            cmd.Dispose();
+        }
+
+        public void UpdateCombine(string Store_ID, string InvoiceNum, string InvoiceNumNew)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Invoice_Number", "@Invoice_Number_New" };
+            string[] value = { Store_ID, InvoiceNum, InvoiceNumNew };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateCombine");
+            cmd.Dispose();
+        }
     }
 }
