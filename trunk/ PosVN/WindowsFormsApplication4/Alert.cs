@@ -39,5 +39,29 @@ namespace WindowsFormsApplication4
             }
             return false;
         }
+        public static bool ShowClockInRequest()
+        {
+            ServiceGet serviceGet = new ServiceGet();
+            FrmClockIn frmClockIn = new FrmClockIn();
+            if(frmClockIn.ShowDialog() == DialogResult.OK)
+            {
+                int check = serviceGet.Login(frmClockIn.MaNV, frmClockIn.pass.ToLower(), StaticClass.storeId);
+                if(check ==2 )
+                {
+                    return true;
+                }
+                if (check == 0)
+                {
+                    Alert.Show("Đăng nhập sai mã nhân\n viên !", Color.Red);
+                    return false;
+                }
+                if (check == 1)
+                {
+                    Alert.Show("Password không đúng !", Color.Red);
+                    return false;
+                }
+            }
+            return false;
+        }
     }
 }
