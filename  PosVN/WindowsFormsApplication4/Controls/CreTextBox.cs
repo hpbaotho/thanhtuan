@@ -12,6 +12,7 @@ namespace WindowsFormsApplication4.Controls
     public partial class CreTextBox : TextBox
     {
         public bool isKeyNumber = false;
+        public bool isPass = false;
         public CreTextBox()
         {
             
@@ -39,7 +40,7 @@ namespace WindowsFormsApplication4.Controls
             }
             else
             {
-                FrmKeyBoard frmKeyboardNumber = new FrmKeyBoard();
+                FrmKeyBoard frmKeyboardNumber = new FrmKeyBoard(isPass);
                 if (frmKeyboardNumber.ShowDialog() == DialogResult.OK)
                 {
                     this.Text = frmKeyboardNumber.value;

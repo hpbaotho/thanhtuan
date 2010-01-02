@@ -491,7 +491,7 @@ namespace WindowsFormsApplication4
 
         private void button53_Click(object sender, EventArgs e)
         {
-            if(Alert.ShowAdminPassRequest())
+            if(Alert.ShowClockInRequest())
             {
                 FrmManager frmManager = new FrmManager();
                 frmManager.ShowDialog();
