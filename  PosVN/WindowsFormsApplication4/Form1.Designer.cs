@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -39,6 +40,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
             this.tabControl1.SuspendLayout();
             this.pnlLayout.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -73,7 +75,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 64);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(389, 179);
+            this.tabPage2.Size = new System.Drawing.Size(389, 109);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -83,7 +85,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 64);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(389, 179);
+            this.tabPage4.Size = new System.Drawing.Size(389, 109);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -93,7 +95,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 64);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(389, 179);
+            this.tabPage5.Size = new System.Drawing.Size(389, 109);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -151,11 +153,24 @@
             this.tabPage6.Text = "Additional Info";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(12, 76);
+            this.button1.Name = "button1";
+            this.button1.OwnDrawColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(143, 113);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseOwnColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(807, 659);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlLayout);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.myButton1);
@@ -182,5 +197,6 @@
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage6;
+        private WindowsFormsApplication4.Controls.button button1;
     }
 }
