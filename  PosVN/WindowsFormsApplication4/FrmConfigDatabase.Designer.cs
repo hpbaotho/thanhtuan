@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button6 = new WindowsFormsApplication4.Controls.button();
+            this.button7 = new WindowsFormsApplication4.Controls.button();
             this.cmb_DatabaseNames = new System.Windows.Forms.ComboBox();
+            this.button4 = new WindowsFormsApplication4.Controls.button();
+            this.button3 = new WindowsFormsApplication4.Controls.button();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txt_Pass = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txt_ID = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button7 = new WindowsFormsApplication4.Controls.button();
-            this.button4 = new WindowsFormsApplication4.Controls.button();
-            this.button3 = new WindowsFormsApplication4.Controls.button();
-            this.txt_Pass = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txt_ID = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txt_InstanceName = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txt_ServerName = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new WindowsFormsApplication4.Controls.button();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
-            this.button6 = new WindowsFormsApplication4.Controls.button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +80,32 @@
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // button6
+            // 
+            this.button6.Color2 = System.Drawing.Color.Blue;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(213, 305);
+            this.button6.Name = "button6";
+            this.button6.OwnDrawColor = System.Drawing.Color.White;
+            this.button6.Size = new System.Drawing.Size(138, 72);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "Lấy tên máy";
+            this.button6.UseOwnColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // button7
+            // 
+            this.button7.Color2 = System.Drawing.Color.Blue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(23, 305);
+            this.button7.Name = "button7";
+            this.button7.OwnDrawColor = System.Drawing.Color.White;
+            this.button7.Size = new System.Drawing.Size(139, 72);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "Load Database";
+            this.button7.UseOwnColor = false;
+            this.button7.Click += new System.EventHandler(this.button6_Click);
+            // 
             // cmb_DatabaseNames
             // 
             this.cmb_DatabaseNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,6 +114,32 @@
             this.cmb_DatabaseNames.Name = "cmb_DatabaseNames";
             this.cmb_DatabaseNames.Size = new System.Drawing.Size(183, 32);
             this.cmb_DatabaseNames.TabIndex = 14;
+            // 
+            // button4
+            // 
+            this.button4.Color2 = System.Drawing.Color.Red;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(610, 305);
+            this.button4.Name = "button4";
+            this.button4.OwnDrawColor = System.Drawing.Color.White;
+            this.button4.Size = new System.Drawing.Size(121, 72);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Hủy";
+            this.button4.UseOwnColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button3
+            // 
+            this.button3.Color2 = System.Drawing.Color.Lime;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(423, 305);
+            this.button3.Name = "button3";
+            this.button3.OwnDrawColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(121, 72);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Hoàn tất";
+            this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label7
             // 
@@ -122,6 +174,15 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Password";
             // 
+            // txt_Pass
+            // 
+            this.txt_Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Pass.Location = new System.Drawing.Point(558, 114);
+            this.txt_Pass.Name = "txt_Pass";
+            this.txt_Pass.PasswordChar = '*';
+            this.txt_Pass.Size = new System.Drawing.Size(183, 31);
+            this.txt_Pass.TabIndex = 8;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -131,6 +192,14 @@
             this.label5.Size = new System.Drawing.Size(128, 25);
             this.label5.TabIndex = 7;
             this.label5.Text = "User Name";
+            // 
+            // txt_ID
+            // 
+            this.txt_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ID.Location = new System.Drawing.Point(558, 68);
+            this.txt_ID.Name = "txt_ID";
+            this.txt_ID.Size = new System.Drawing.Size(183, 31);
+            this.txt_ID.TabIndex = 6;
             // 
             // label4
             // 
@@ -152,6 +221,14 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên Instance";
             // 
+            // txt_InstanceName
+            // 
+            this.txt_InstanceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_InstanceName.Location = new System.Drawing.Point(168, 68);
+            this.txt_InstanceName.Name = "txt_InstanceName";
+            this.txt_InstanceName.Size = new System.Drawing.Size(183, 31);
+            this.txt_InstanceName.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -161,6 +238,14 @@
             this.label2.Size = new System.Drawing.Size(125, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên server";
+            // 
+            // txt_ServerName
+            // 
+            this.txt_ServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ServerName.Location = new System.Drawing.Point(168, 21);
+            this.txt_ServerName.Name = "txt_ServerName";
+            this.txt_ServerName.Size = new System.Drawing.Size(183, 31);
+            this.txt_ServerName.TabIndex = 0;
             // 
             // panel2
             // 
@@ -173,98 +258,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(766, 423);
             this.panel2.TabIndex = 14;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 29);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Thông tin Database";
-            // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 24;
-            this.listBox1.Location = new System.Drawing.Point(76, 73);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(437, 220);
-            this.listBox1.TabIndex = 4;
-            // 
-            // button7
-            // 
-            this.button7.Color2 = System.Drawing.Color.Blue;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(23, 305);
-            this.button7.Name = "button7";
-            this.button7.OwnDrawColor = System.Drawing.Color.White;
-            this.button7.Size = new System.Drawing.Size(139, 72);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "Load Database";
-            this.button7.UseOwnColor = false;
-            this.button7.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button4
-            // 
-            this.button4.Color2 = System.Drawing.Color.Red;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(610, 305);
-            this.button4.Name = "button4";
-            this.button4.OwnDrawColor = System.Drawing.Color.White;
-            this.button4.Size = new System.Drawing.Size(121, 72);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Hủy";
-            this.button4.UseOwnColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Color2 = System.Drawing.Color.Lime;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(423, 305);
-            this.button3.Name = "button3";
-            this.button3.OwnDrawColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(121, 72);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Hoàn tất";
-            this.button3.UseOwnColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // txt_Pass
-            // 
-            this.txt_Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Pass.Location = new System.Drawing.Point(558, 114);
-            this.txt_Pass.Name = "txt_Pass";
-            this.txt_Pass.PasswordChar = '*';
-            this.txt_Pass.Size = new System.Drawing.Size(183, 31);
-            this.txt_Pass.TabIndex = 8;
-            // 
-            // txt_ID
-            // 
-            this.txt_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ID.Location = new System.Drawing.Point(558, 68);
-            this.txt_ID.Name = "txt_ID";
-            this.txt_ID.Size = new System.Drawing.Size(183, 31);
-            this.txt_ID.TabIndex = 6;
-            // 
-            // txt_InstanceName
-            // 
-            this.txt_InstanceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_InstanceName.Location = new System.Drawing.Point(168, 68);
-            this.txt_InstanceName.Name = "txt_InstanceName";
-            this.txt_InstanceName.Size = new System.Drawing.Size(183, 31);
-            this.txt_InstanceName.TabIndex = 2;
-            // 
-            // txt_ServerName
-            // 
-            this.txt_ServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ServerName.Location = new System.Drawing.Point(168, 21);
-            this.txt_ServerName.Name = "txt_ServerName";
-            this.txt_ServerName.Size = new System.Drawing.Size(183, 31);
-            this.txt_ServerName.TabIndex = 0;
             // 
             // button5
             // 
@@ -305,18 +298,25 @@
             this.button1.UseOwnColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button6
+            // label1
             // 
-            this.button6.Color2 = System.Drawing.Color.Blue;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(213, 305);
-            this.button6.Name = "button6";
-            this.button6.OwnDrawColor = System.Drawing.Color.White;
-            this.button6.Size = new System.Drawing.Size(138, 72);
-            this.button6.TabIndex = 17;
-            this.button6.Text = "Lấy tên máy";
-            this.button6.UseOwnColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(71, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 29);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Thông tin Database";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 24;
+            this.listBox1.Location = new System.Drawing.Point(76, 73);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(437, 220);
+            this.listBox1.TabIndex = 4;
             // 
             // FrmConfigDatabase
             // 
@@ -328,6 +328,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmConfigDatabase";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmConfigDatabase";
             this.Load += new System.EventHandler(this.FrmConfigDatabase_Load);

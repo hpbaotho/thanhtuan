@@ -681,6 +681,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "FrmKeyBoard";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmKeyBoard";
             this.Load += new System.EventHandler(this.FrmKeyBoard_Load);

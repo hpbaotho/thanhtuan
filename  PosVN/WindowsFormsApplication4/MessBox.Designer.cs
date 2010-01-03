@@ -69,6 +69,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MessBox";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MessBox";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MessBox_KeyPress);

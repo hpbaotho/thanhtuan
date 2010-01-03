@@ -115,6 +115,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmClockIn";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmClockIn";
             this.ResumeLayout(false);

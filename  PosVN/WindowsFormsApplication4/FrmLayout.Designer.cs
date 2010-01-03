@@ -257,6 +257,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Name = "FrmLayout";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLayout";
             this.Load += new System.EventHandler(this.FrmLayout_Load);
