@@ -288,6 +288,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "FrmKeyboardNumber";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmKeyboardNumber";
             this.Load += new System.EventHandler(this.FrmKeyboardNumber_Load);

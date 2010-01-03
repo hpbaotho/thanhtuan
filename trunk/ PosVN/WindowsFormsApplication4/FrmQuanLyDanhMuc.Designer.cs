@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_thoat = new WindowsFormsApplication4.Controls.button();
+            this.btn_xoa = new WindowsFormsApplication4.Controls.button();
+            this.btn_capnhat = new WindowsFormsApplication4.Controls.button();
+            this.btn_Them = new WindowsFormsApplication4.Controls.button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,10 +42,6 @@
             this.creComboBox1 = new WindowsFormsApplication4.Controls.CreComboBox();
             this.txtMota = new WindowsFormsApplication4.Controls.CreTextBox();
             this.button1 = new WindowsFormsApplication4.Controls.button();
-            this.btn_thoat = new WindowsFormsApplication4.Controls.button();
-            this.btn_xoa = new WindowsFormsApplication4.Controls.button();
-            this.btn_capnhat = new WindowsFormsApplication4.Controls.button();
-            this.btn_Them = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,58 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(141, 228);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_thoat
+            // 
+            this.btn_thoat.Color2 = System.Drawing.Color.Salmon;
+            this.btn_thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thoat.Location = new System.Drawing.Point(10, 171);
+            this.btn_thoat.Name = "btn_thoat";
+            this.btn_thoat.OwnDrawColor = System.Drawing.Color.White;
+            this.btn_thoat.Size = new System.Drawing.Size(114, 47);
+            this.btn_thoat.TabIndex = 3;
+            this.btn_thoat.Text = "Thoát";
+            this.btn_thoat.UseOwnColor = false;
+            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
+            // 
+            // btn_xoa
+            // 
+            this.btn_xoa.Color2 = System.Drawing.Color.Red;
+            this.btn_xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xoa.Location = new System.Drawing.Point(10, 118);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.OwnDrawColor = System.Drawing.Color.White;
+            this.btn_xoa.Size = new System.Drawing.Size(114, 47);
+            this.btn_xoa.TabIndex = 2;
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.UseOwnColor = false;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
+            // 
+            // btn_capnhat
+            // 
+            this.btn_capnhat.Color2 = System.Drawing.Color.Green;
+            this.btn_capnhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_capnhat.Location = new System.Drawing.Point(10, 65);
+            this.btn_capnhat.Name = "btn_capnhat";
+            this.btn_capnhat.OwnDrawColor = System.Drawing.Color.White;
+            this.btn_capnhat.Size = new System.Drawing.Size(114, 47);
+            this.btn_capnhat.TabIndex = 1;
+            this.btn_capnhat.Text = "Cập nhật";
+            this.btn_capnhat.UseOwnColor = false;
+            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
+            // 
+            // btn_Them
+            // 
+            this.btn_Them.Color2 = System.Drawing.Color.Green;
+            this.btn_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Them.Location = new System.Drawing.Point(10, 12);
+            this.btn_Them.Name = "btn_Them";
+            this.btn_Them.OwnDrawColor = System.Drawing.Color.White;
+            this.btn_Them.Size = new System.Drawing.Size(114, 47);
+            this.btn_Them.TabIndex = 0;
+            this.btn_Them.Text = "Thêm";
+            this.btn_Them.UseOwnColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // label1
             // 
@@ -159,58 +211,6 @@
             this.button1.UseOwnColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btn_thoat
-            // 
-            this.btn_thoat.Color2 = System.Drawing.Color.Salmon;
-            this.btn_thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thoat.Location = new System.Drawing.Point(10, 171);
-            this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.OwnDrawColor = System.Drawing.Color.White;
-            this.btn_thoat.Size = new System.Drawing.Size(114, 47);
-            this.btn_thoat.TabIndex = 3;
-            this.btn_thoat.Text = "Thoát";
-            this.btn_thoat.UseOwnColor = false;
-            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
-            // 
-            // btn_xoa
-            // 
-            this.btn_xoa.Color2 = System.Drawing.Color.Red;
-            this.btn_xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_xoa.Location = new System.Drawing.Point(10, 118);
-            this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.OwnDrawColor = System.Drawing.Color.White;
-            this.btn_xoa.Size = new System.Drawing.Size(114, 47);
-            this.btn_xoa.TabIndex = 2;
-            this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.UseOwnColor = false;
-            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
-            // 
-            // btn_capnhat
-            // 
-            this.btn_capnhat.Color2 = System.Drawing.Color.Green;
-            this.btn_capnhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_capnhat.Location = new System.Drawing.Point(10, 65);
-            this.btn_capnhat.Name = "btn_capnhat";
-            this.btn_capnhat.OwnDrawColor = System.Drawing.Color.White;
-            this.btn_capnhat.Size = new System.Drawing.Size(114, 47);
-            this.btn_capnhat.TabIndex = 1;
-            this.btn_capnhat.Text = "Cập nhật";
-            this.btn_capnhat.UseOwnColor = false;
-            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
-            // 
-            // btn_Them
-            // 
-            this.btn_Them.Color2 = System.Drawing.Color.Green;
-            this.btn_Them.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Them.Location = new System.Drawing.Point(10, 12);
-            this.btn_Them.Name = "btn_Them";
-            this.btn_Them.OwnDrawColor = System.Drawing.Color.White;
-            this.btn_Them.Size = new System.Drawing.Size(114, 47);
-            this.btn_Them.TabIndex = 0;
-            this.btn_Them.Text = "Thêm";
-            this.btn_Them.UseOwnColor = false;
-            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
             // FrmQuanLyDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +221,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmQuanLyDanhMuc";
+            this.ShowInTaskbar = false;
             this.Text = "Quản Lý Danh Mục";
             this.Load += new System.EventHandler(this.FrmQuanLyDanhMuc_Load);
             this.panel1.ResumeLayout(false);

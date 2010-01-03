@@ -473,6 +473,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmDept";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDept";
             this.Load += new System.EventHandler(this.FrmDept_Load);

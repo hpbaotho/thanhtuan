@@ -596,6 +596,7 @@ namespace WindowsFormsApplication4
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Name = "FrmManager";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmManager";
             this.Load += new System.EventHandler(this.FrmManager_Load);

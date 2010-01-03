@@ -1074,6 +1074,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Name = "FrmBanHang";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBanHang";
             this.Load += new System.EventHandler(this.FrmBanHang_Load);
