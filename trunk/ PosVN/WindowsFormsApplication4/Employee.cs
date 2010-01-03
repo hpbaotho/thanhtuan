@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -39,18 +40,18 @@ namespace WindowsFormsApplication4
             get_GUI getGui = new get_GUI();
             DataTable emp = getGui.GetEmpById(cashierId);
             Service.ServiceGet service = new ServiceGet();
-            if (emp.Rows[0][columnName].ToString() == "P")
+            if (emp.Rows[0][columnName].ToString() == "Y")
             {
                 return true;
             }
-            else if (emp.Rows[0][columnName].ToString() == "Y")
+            else if (emp.Rows[0][columnName].ToString() == "P")
             {
                 FrmAdminPass frm = new FrmAdminPass();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
                     if (!service.checkAdminPass(frm.text, storeId))
                     {
-                        Alert.Show("Password không đúng !");
+                        Alert.Show("Password không đúng !",Color.Red);
                         return false;
                     }
                     else
@@ -63,10 +64,12 @@ namespace WindowsFormsApplication4
                     return false;
                 }
             }
-            else
+            else if (emp.Rows[0][columnName].ToString() == "N")
             {
+                Alert.Show("Bạn không có quyền để\n thực hiện chức năng này",Color.Red);
                 return false;
             }
+            return false;
         }
 
     }

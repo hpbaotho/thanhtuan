@@ -132,6 +132,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Tùy chọn";
             this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
