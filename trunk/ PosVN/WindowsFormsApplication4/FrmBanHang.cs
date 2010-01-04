@@ -37,6 +37,7 @@ namespace WindowsFormsApplication4
         public bool isOnHold;
         private decimal taxInvoice1;
         private decimal taxInvoice2;
+        private int numOfItem;
         
         public FrmBanHang()
         {
@@ -186,6 +187,8 @@ namespace WindowsFormsApplication4
             myCash1.listInvoiceItem = getGui.GetInvoiceItemized(StaticClass.storeId, this.invoiceNum);
             myCash1.invoiceTotal = getGui.GetInvoiceTotal(StaticClass.storeId, invoiceNum);
             taxInvoice1 = Convert.ToDecimal(myCash1.invoiceTotal.Rows[0]["InvoiceTax"]);
+            numOfItem = myCash1.listInvoiceItem.Rows.Count;
+
             if(isOnHold)
                 
             {
