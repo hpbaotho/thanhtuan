@@ -134,6 +134,7 @@ namespace WindowsFormsApplication4
                 if(i!=6)
                     this.Controls["button" + i.ToString()].Enabled = true;
             }
+            button2.Enabled = false;
             button7.Text = "Thoát";
             button1.Text = "Thêm các mặt hàng";
             ckb_Sua.Enabled = true;
@@ -270,15 +271,17 @@ namespace WindowsFormsApplication4
         {
             if (ckb_Sua.Checked)
             {
+                button2.Enabled = true;
                 txtDeptID.Enabled = true;
                 txtDeptID.Focus();
                 txtDeptID.SelectionLength = txtDeptID.Text.Length;
                 OldDept_ID = txtDeptID.Text;
                 return;
             }
-            txtDeptID.Enabled = false;
-            txtDeptDesc.Focus();
-            txtDeptDesc.SelectionLength = txtDeptDesc.Text.Length;
+            //txtDeptID.Enabled = false;
+            //txtDeptDesc.Focus();
+            //txtDeptDesc.SelectionLength = txtDeptDesc.Text.Length;
+            button2.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
