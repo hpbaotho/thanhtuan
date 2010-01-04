@@ -13,6 +13,9 @@ namespace WindowsFormsApplication4
     class Employee
     {
         public const int XEM_BAN_KHAC = 45;
+        public const int CFA_INVOICE_DELETE_ITEMS = 30;
+        public const int CFA_INVOICE_DISCOUNT = 28;
+        public const int CFA_INVOICE_PRICE_CHANGE = 29;
         public static bool CheckGrant(string storeId,string cashierId,int grantNum)
         {
             if(!StaticClass.isAdmin)
@@ -24,6 +27,12 @@ namespace WindowsFormsApplication4
                 {
                     case XEM_BAN_KHAC:
                         return check(storeId, cashierId, "CFA_Other_Tables");
+                    case CFA_INVOICE_DELETE_ITEMS:
+                        return check(storeId, cashierId, "CFA_Invoice_DeleteItems");
+                    case CFA_INVOICE_DISCOUNT:
+                        return check(storeId, cashierId, "CFA_Invoice_Discount");
+                    case CFA_INVOICE_PRICE_CHANGE:
+                        return check(storeId, cashierId, "CFA_Invoice_PriceChange");
                     default:
                         return false;
 
