@@ -197,7 +197,7 @@ namespace WindowsFormsApplication4
                     Decimal quan = Convert.ToDecimal(c[3]);
                     Decimal pricePer = Convert.ToDecimal(c[5]);
                     Decimal price = quan*pricePer; 
-                    myCash1.addRow(c[13].ToString(), String.Format("{0:0.##}",c[3]), String.Format("{0:0,0}", price));
+                    myCash1.addRow(">"+c[13].ToString(), String.Format("{0:0.##}",c[3]), String.Format("{0:0,0}", price));
                 }
             }
             for (int i = 1; i < 8;i++ )
