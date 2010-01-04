@@ -686,6 +686,7 @@
             // button6
             // 
             this.button6.Color2 = System.Drawing.Color.DarkGreen;
+            this.button6.Enabled = false;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(557, 569);
             this.button6.Name = "button6";

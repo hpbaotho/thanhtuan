@@ -278,7 +278,7 @@ namespace WindowsFormsApplication4
             button3.Enabled = true;
             button4.Enabled = true;
             button5.Enabled = true;
-            button6.Enabled = true;
+            button6.Enabled = false;
             button8.Enabled = true;
             button9.Enabled = true;
             button10.Enabled = true;
@@ -300,15 +300,17 @@ namespace WindowsFormsApplication4
         {
             if (ckb_Sua.Checked)
             {
+                button6.Enabled = true;
                 txtInvenId.Enabled = true;
                 txtInvenId.Focus();
                 txtInvenId.SelectionLength = txtInvenId.Text.Length;
                 OldInvent_ID = txtInvenId.Text;
                 return;
             }
-            txtInvenId.Enabled = false;
-            txtInventDesc.Focus();
-            txtInventDesc.SelectionLength = txtInventDesc.Text.Length;
+            //txtInvenId.Enabled = false;
+            //txtInventDesc.Focus();
+            //txtInventDesc.SelectionLength = txtInventDesc.Text.Length;
+            button6.Enabled = false;
         }
 
         private void button5_Click(object sender, EventArgs e)
