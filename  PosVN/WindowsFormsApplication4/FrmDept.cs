@@ -278,7 +278,7 @@ namespace WindowsFormsApplication4
                 OldDept_ID = txtDeptID.Text;
                 return;
             }
-            //txtDeptID.Enabled = false;
+            txtDeptID.Enabled = false;
             //txtDeptDesc.Focus();
             //txtDeptDesc.SelectionLength = txtDeptDesc.Text.Length;
             button2.Enabled = false;
