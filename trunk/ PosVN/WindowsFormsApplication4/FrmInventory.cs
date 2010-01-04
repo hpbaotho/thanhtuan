@@ -307,7 +307,7 @@ namespace WindowsFormsApplication4
                 OldInvent_ID = txtInvenId.Text;
                 return;
             }
-            //txtInvenId.Enabled = false;
+            txtInvenId.Enabled = false;
             //txtInventDesc.Focus();
             //txtInventDesc.SelectionLength = txtInventDesc.Text.Length;
             button6.Enabled = false;
