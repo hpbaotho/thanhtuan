@@ -982,7 +982,7 @@
             // 
             this.button58.Color2 = System.Drawing.Color.Blue;
             this.button58.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button58.Location = new System.Drawing.Point(479, 75);
+            this.button58.Location = new System.Drawing.Point(498, 75);
             this.button58.Name = "button58";
             this.button58.OwnDrawColor = System.Drawing.Color.White;
             this.button58.Size = new System.Drawing.Size(111, 77);
@@ -995,7 +995,7 @@
             // 
             this.button65.Color2 = System.Drawing.Color.Blue;
             this.button65.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button65.Location = new System.Drawing.Point(362, 75);
+            this.button65.Location = new System.Drawing.Point(381, 75);
             this.button65.Name = "button65";
             this.button65.OwnDrawColor = System.Drawing.Color.White;
             this.button65.Size = new System.Drawing.Size(111, 77);
@@ -1011,9 +1011,9 @@
             this.button64.Location = new System.Drawing.Point(245, 75);
             this.button64.Name = "button64";
             this.button64.OwnDrawColor = System.Drawing.Color.White;
-            this.button64.Size = new System.Drawing.Size(111, 77);
+            this.button64.Size = new System.Drawing.Size(130, 77);
             this.button64.TabIndex = 3;
-            this.button64.Text = "Chuyển bàn";
+            this.button64.Text = "Chuyển bàn / Gộp bàn";
             this.button64.UseOwnColor = false;
             this.button64.Click += new System.EventHandler(this.button64_Click);
             // 
@@ -1057,6 +1057,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.myCash1);
             this.Controls.Add(this.button54);
@@ -1072,7 +1073,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel5);
             this.Name = "FrmBanHang";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -516,16 +516,20 @@ namespace WindowsFormsApplication4
 
         private void button56_Click(object sender, EventArgs e)
         {
-            FrmKeyboardNumber kb = new FrmKeyboardNumber("Nhập % khấu trừ");
-            if (kb.ShowDialog() == DialogResult.OK)
+            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_DISCOUNT))
             {
-                foreach (MyItem item in myCash1.get_RowSelected())
+                FrmKeyboardNumber kb = new FrmKeyboardNumber("Nhập % khấu trừ");
+                if (kb.ShowDialog() == DialogResult.OK)
                 {
-                    Decimal disc = Convert.ToDecimal(kb.value)/100;
-                    myCash1.listInvoiceItem.Rows[item.Id - 1][12] = disc;
+                    foreach (MyItem item in myCash1.get_RowSelected())
+                    {
+                        Decimal disc = Convert.ToDecimal(kb.value)/100;
+                        myCash1.listInvoiceItem.Rows[item.Id - 1][12] = disc;
+                    }
+                    UpdateItemSelect();
                 }
-                UpdateItemSelect();
             }
+            
         }
 
         private void button52_Click(object sender, EventArgs e)
@@ -540,11 +544,14 @@ namespace WindowsFormsApplication4
 
         private void button62_Click(object sender, EventArgs e)
         {
-            myCash1.invoiceTotal.Rows[0][15] = "V";
-            UpdateInvoiceTotals();
-            getGui.CloseTable(StaticClass.storeId, invoiceNum);
-            this.Dispose();
-            formLayout.FrmLayout_Load(null, null);
+            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_VOID))
+            {
+                myCash1.invoiceTotal.Rows[0][15] = "V";
+                UpdateInvoiceTotals();
+                getGui.CloseTable(StaticClass.storeId, invoiceNum);
+                this.Dispose();
+                formLayout.FrmLayout_Load(null, null);
+            }
         }
 
         private void button51_Click(object sender, EventArgs e)
@@ -609,10 +616,14 @@ namespace WindowsFormsApplication4
 
         private void button60_Click(object sender, EventArgs e)
         {
-            FrmLayout formchuyen = new FrmLayout(StaticClass.cashierId);
-            formchuyen.isTransfer = true;
-            formchuyen.formBanHang = this;
-            formchuyen.ShowDialog();
+            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_TRANSFER_TABLE))
+            {
+                FrmLayout formchuyen = new FrmLayout(StaticClass.cashierId);
+                formchuyen.isTransfer = true;
+                formchuyen.formBanHang = this;
+                formchuyen.ShowDialog();
+            }
+            
         }
         public void transfer(string newTableName,string sectionID)
         {
@@ -640,10 +651,14 @@ namespace WindowsFormsApplication4
 
         private void button64_Click(object sender, EventArgs e)
         {
-            FrmLayout formchuyen = new FrmLayout(StaticClass.cashierId);
-            formchuyen.isTransfer = true;
-            formchuyen.formBanHang = this;
-            formchuyen.ShowDialog();
+            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_TRANSFER_TABLE))
+            {
+                FrmLayout formchuyen = new FrmLayout(StaticClass.cashierId);
+                formchuyen.isTransfer = true;
+                formchuyen.formBanHang = this;
+                formchuyen.ShowDialog();
+            }
+            
         }
 
         private void button61_Click(object sender, EventArgs e)
@@ -673,12 +688,16 @@ namespace WindowsFormsApplication4
 
         private void button63_Click(object sender, EventArgs e)
         {
-            FrmKeyboardNumber frmKeyBoard = new FrmKeyboardNumber("Nhập % khấu trừ : ");
-            if(frmKeyBoard.ShowDialog() == DialogResult.OK )
+            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.storeId,Employee.CFA_INVOICE_DISCOUNT))
             {
-                myCash1.invoiceTotal.Rows[0]["Discount"] = Convert.ToDecimal(frmKeyBoard.value) / 100;
-                UpdateInfo();
+                FrmKeyboardNumber frmKeyBoard = new FrmKeyboardNumber("Nhập % khấu trừ : ");
+                if (frmKeyBoard.ShowDialog() == DialogResult.OK)
+                {
+                    myCash1.invoiceTotal.Rows[0]["Discount"] = Convert.ToDecimal(frmKeyBoard.value) / 100;
+                    UpdateInfo();
+                }
             }
+            
         }
 
         private void button54_Click(object sender, EventArgs e)
