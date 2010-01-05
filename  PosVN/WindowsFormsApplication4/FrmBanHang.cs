@@ -713,7 +713,7 @@ namespace WindowsFormsApplication4
 
         private void button63_Click(object sender, EventArgs e)
         {
-            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.storeId,Employee.CFA_INVOICE_DISCOUNT))
+            if(Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_DISCOUNT))
             {
                 FrmKeyboardNumber frmKeyBoard = new FrmKeyboardNumber("Nhập % khấu trừ : ");
                 if (frmKeyBoard.ShowDialog() == DialogResult.OK)
