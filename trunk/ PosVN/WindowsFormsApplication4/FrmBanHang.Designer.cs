@@ -772,6 +772,7 @@
             this.button47.TabIndex = 5;
             this.button47.Text = "Quản lý";
             this.button47.UseOwnColor = false;
+            this.button47.Click += new System.EventHandler(this.button47_Click);
             // 
             // button48
             // 
