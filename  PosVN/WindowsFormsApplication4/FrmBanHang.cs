@@ -37,7 +37,7 @@ namespace WindowsFormsApplication4
         public bool isOnHold;
         private decimal taxInvoice1;
         private decimal taxInvoice2;
-        private int numOfItem;
+        private int numOfItemSended;
         
         public FrmBanHang()
         {
@@ -187,7 +187,7 @@ namespace WindowsFormsApplication4
             myCash1.listInvoiceItem = getGui.GetInvoiceItemized(StaticClass.storeId, this.invoiceNum);
             myCash1.invoiceTotal = getGui.GetInvoiceTotal(StaticClass.storeId, invoiceNum);
             taxInvoice1 = Convert.ToDecimal(myCash1.invoiceTotal.Rows[0]["InvoiceTax"]);
-            numOfItem = myCash1.listInvoiceItem.Rows.Count;
+            numOfItemSended = myCash1.listInvoiceItem.Rows.Count;
 
             if(isOnHold)
                 
@@ -392,6 +392,13 @@ namespace WindowsFormsApplication4
 
         private void button55_Click(object sender, EventArgs e)
         {
+            if(checkItemSended())
+            {
+                if(!Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_DELETE_ITEMS))
+                {
+                    return;
+                }
+            }
             int i = 0;
             foreach (MyItem item in myCash1.get_RowSelected())
             {
@@ -401,6 +408,17 @@ namespace WindowsFormsApplication4
             myCash1.delete_RowSelected();
             changeLayout(false,null);
             UpdateInfo();
+        }
+        private bool checkItemSended()
+        {
+            foreach (MyItem item in myCash1.get_RowSelected())
+            {
+                if(item.Id -1 < numOfItemSended)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void UpdateInfo()
@@ -495,6 +513,13 @@ namespace WindowsFormsApplication4
 
         private void button57_Click(object sender, EventArgs e)
         {
+            if(checkItemSended())
+            {
+                if(!Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_PRICE_CHANGE))
+                {
+                    return;
+                }
+            }
             FrmKeyboardNumber kb = new FrmKeyboardNumber("Nhập số lượng :");
             if(kb.ShowDialog() == DialogResult.OK)
             {
@@ -786,6 +811,12 @@ namespace WindowsFormsApplication4
             {
                 Alert.Show("Hóa đơn chưa có hàng",Color.Red);
             }
+        }
+
+        private void button47_Click(object sender, EventArgs e)
+        {
+            FrmManager frmManager = new FrmManager();
+            frmManager.ShowDialog();
         }
     }
 }
