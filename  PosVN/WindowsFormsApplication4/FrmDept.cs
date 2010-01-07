@@ -185,7 +185,7 @@ namespace WindowsFormsApplication4
             {
                 if(txtDeptID.Text.Equals(""))
                 {
-                    MessageBox.Show("Bạn phải nhập mã");
+                    Alert.Show("Bạn phải nhập mã",Color.Red);
                     return;
                 }
                 //cmbCate.SelectedIndex = 0;
@@ -193,7 +193,7 @@ namespace WindowsFormsApplication4
                 DataTable tmp = get_service.GetAllDepartmentsByDeptId(txtDeptID.Text, StaticClass.storeId);
                 if(tmp.Rows.Count>0)
                 {
-                    MessageBox.Show("Mã đã có rùi");
+                    Alert.Show("Mã đã có rùi",Color.Red);
                     return;
                 }
                 int function = 0;
@@ -310,14 +310,14 @@ namespace WindowsFormsApplication4
             //string CatId = item.Row[0].ToString();
             if (txtDeptID.Text.Equals("NONE"))
             {
-                MessageBox.Show("Bạn không được xóa mặt hàng này");
+                Alert.Show("Bạn không được xóa mặt hàng này",Color.Red);
                 return;
             }
             DataTable tmp = get_service.GetAllInventoryByDept(StaticClass.storeId,txtDeptID.Text);
 
             if (tmp.Rows.Count > 0)
             {
-                if (MessageBox.Show("neu xoa thi nhung mat hang thuoc loai nay se dc set None", "chu y", MessageBoxButtons.YesNo).Equals(System.Windows.Forms.DialogResult.Yes))
+                if (MessBox2Choice.ShowBox("neu xoa thi nhung mat hang thuoc loai nay se dc set None",Color.YellowGreen).Equals(System.Windows.Forms.DialogResult.Yes))
                     get_service.DeleteDept(txtDeptID.Text, StaticClass.storeId);
                 return;
             }
@@ -332,7 +332,7 @@ namespace WindowsFormsApplication4
         {
             if (OldDept_ID.Equals("NONE"))
             {
-                MessageBox.Show("Bạn không được sửa mặt hàng này");
+                Alert.Show("Bạn không được sửa mặt hàng này",Color.Red);
                 return;
             }
             DataRowView item = (DataRowView)cmbCate.SelectedItem;
@@ -345,7 +345,7 @@ namespace WindowsFormsApplication4
             departs = get_service.GetAllDepartments2(StaticClass.storeId);
             ckb_Sua.Checked = false;
 
-            MessageBox.Show("Bạn đã thay đổi thành công");
+            Alert.Show("Bạn đã thay đổi thành công",Color.Blue);
         }
 
         private void button4_Click(object sender, EventArgs e)

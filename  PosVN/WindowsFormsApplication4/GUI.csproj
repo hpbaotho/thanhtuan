@@ -32,6 +32,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.VSDesigner, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -56,6 +58,11 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -74,6 +81,7 @@
     <Compile Include="Const\Department.cs" />
     <Compile Include="Const\Inventory.cs" />
     <Compile Include="Const\Invoice_Itemized.cs" />
+    <Compile Include="Const\Invoice_Totals.cs" />
     <Compile Include="Controls\buton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -99,6 +107,9 @@
     <Compile Include="Controls\CreTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\CustomComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\IControlPlus.cs" />
     <Compile Include="Controls\MyCash.cs">
       <SubType>UserControl</SubType>
@@ -112,6 +123,7 @@
     <Compile Include="Controls\MyListbox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\OldNewEvent.cs" />
     <Compile Include="Controls\panel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -126,6 +138,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\PanelLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PopupControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\TransButton.cs">
@@ -255,6 +270,18 @@
     <Compile Include="MessBox.Designer.cs">
       <DependentUpon>MessBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessBox2Choice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessBox2Choice.Designer.cs">
+      <DependentUpon>MessBox2Choice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyReport.designer.cs">
+      <DependentUpon>MyReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\MyCash.resx">
@@ -345,6 +372,14 @@
       <DependentUpon>MessBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="MessBox2Choice.resx">
+      <DependentUpon>MessBox2Choice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReport.resx">
+      <DependentUpon>MyReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -382,6 +417,9 @@
       <Project>{9FA0EFE1-AD8D-406B-B869-B489480D8D8B}</Project>
       <Name>Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

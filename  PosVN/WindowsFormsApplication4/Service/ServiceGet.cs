@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using CrystalDecisions.CrystalReports.Engine;
+using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.Controls;
 
@@ -172,6 +174,19 @@ namespace WindowsFormsApplication4.Service
                 return true;
             }
             return false;
+        }
+        public DataTable InvoiceTotal(string Store_ID, DateTime DateTime1, DateTime DateTime2)
+        {
+            return getGui.GetInvoiceTotalByStoreID(Store_ID, DateTime1, DateTime2);
+        }
+
+        public void FillDataReport(ReportClass report,string[] para, object[] value,bool mode)
+        {
+            report.DataSourceConnections[0].SetConnection(Services.get_GUI.serverName, Services.get_GUI.databaseName, true);
+            for (int i = 0; i < para.Length; i++)
+            {
+                report.SetParameterValue(para[i], value[i].ToString());
+            }
         }
     }
 }

@@ -170,7 +170,7 @@ namespace WindowsFormsApplication4
             }
             if(txtMa.Text.Equals(""))
             {
-                MessageBox.Show("ban pai nhap ma danh muc");
+                Alert.Show("Bạn phải nhập mã danh mục",Color.Red);
                 txtMa.Focus();
                 return;
             }
@@ -212,14 +212,15 @@ namespace WindowsFormsApplication4
             string CatId = creComboBox1.GetItemText(creComboBox1.SelectedItem);
             if(CatId.Equals("NONE"))
             {
-                MessageBox.Show("Bạn không được xóa thư mục này");
+                //MessageBox.Show("Bạn không được xóa thư mục này");
+                Alert.Show("Bạn không được xóa thư mục này",Color.Red);
                 return;
             }
             DataTable tmp = services.GetAllDepartmentsBySubType(StaticClass.storeId,CatId);
             
             if(tmp.Rows.Count>0)
             {
-                if(MessageBox.Show("neu xoa thi nhung mat hang thuoc loai nay se dc set None","chu y",MessageBoxButtons.YesNo).Equals(System.Windows.Forms.DialogResult.Yes))
+                if(MessBox2Choice.ShowBox("neu xoa thi nhung mat hang thuoc loai nay se dc set None",Color.YellowGreen).Equals(System.Windows.Forms.DialogResult.Yes))
                     services.DeleteCategory(creComboBox1.GetItemText(creComboBox1.SelectedItem),StaticClass.storeId);
                 return;
             }
