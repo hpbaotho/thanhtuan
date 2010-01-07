@@ -16,14 +16,14 @@ namespace POSReport.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Re_ThanhToan : ReportClass {
+    public class rptInvoiceTotalsDaily : ReportClass {
         
-        public Re_ThanhToan() {
+        public rptInvoiceTotalsDaily() {
         }
         
         public override string ResourceName {
             get {
-                return "Re_ThanhToan.rpt";
+                return "rptInvoiceTotalsDaily.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace POSReport.Report {
         
         public override string FullResourceName {
             get {
-                return "POSReport.Report.Re_ThanhToan.rpt";
+                return "POSReport.Report.rptInvoiceTotalsDaily.rpt";
             }
             set {
                 // Do nothing
@@ -58,7 +58,7 @@ namespace POSReport.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
             get {
                 return this.ReportDefinition.Sections[1];
             }
@@ -66,7 +66,7 @@ namespace POSReport.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace POSReport.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace POSReport.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,23 +90,7 @@ namespace POSReport.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Store_ID {
+        public CrystalDecisions.Shared.IParameterField Parameter_Report_Title_Param {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -114,7 +98,7 @@ namespace POSReport.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_Invoice_Number {
+        public CrystalDecisions.Shared.IParameterField Parameter_Store_ID {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -122,9 +106,9 @@ namespace POSReport.Report {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRe_ThanhToan : Component, ICachedReport {
+    public class CachedrptInvoiceTotalsDaily : Component, ICachedReport {
         
-        public CachedRe_ThanhToan() {
+        public CachedrptInvoiceTotalsDaily() {
         }
         
         [Browsable(false)]
@@ -161,7 +145,7 @@ namespace POSReport.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Re_ThanhToan rpt = new Re_ThanhToan();
+            rptInvoiceTotalsDaily rpt = new rptInvoiceTotalsDaily();
             rpt.Site = this.Site;
             return rpt;
         }
