@@ -604,11 +604,9 @@ namespace WindowsFormsApplication4
 
                 xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
                 ParameterFieldDefinitions crParameterFieldDefinitions;
-                ParameterFieldDefinition crParameterFieldDefinition;
                 ParameterValues crParameterValues = new ParameterValues();
 
                 ParameterFieldDefinitions crParameterFieldDefinitions1;
-                ParameterFieldDefinition crParameterFieldDefinition1;
                 ParameterValues crParameterValues1 = new ParameterValues();
                 ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
                 ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
@@ -616,7 +614,7 @@ namespace WindowsFormsApplication4
 
                 crParameterDiscreteValue.Value = StaticClass.storeId;
                 crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                ParameterFieldDefinition crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
                 crParameterValues = crParameterFieldDefinition.CurrentValues;
 
                 crParameterValues.Clear();
@@ -625,7 +623,7 @@ namespace WindowsFormsApplication4
 
                 crParameterDiscreteValue1.Value = invoiceNum;
                 crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                ParameterFieldDefinition crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
                 crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
 
                 crParameterValues1.Clear();

@@ -195,7 +195,7 @@ namespace WindowsFormsApplication4
             {
                 if (txtInvenId.Text.Equals(""))
                 {
-                    MessageBox.Show("Bạn phải nhập mã");
+                    Alert.Show("Bạn phải nhập mã đã!",Color.Red);
                     return;
                 }
                 //cmbCate.SelectedIndex = 0;
@@ -203,7 +203,7 @@ namespace WindowsFormsApplication4
                 DataTable tmp = get_service.GetInventoryByItemNum(StaticClass.storeId, txtInvenId.Text);
                 if (tmp.Rows.Count > 0)
                 {
-                    MessageBox.Show("Mã đã có rùi");
+                    Alert.Show("Mã này đã tồn tại",Color.Red);
                     return;
                 }
                 
@@ -319,8 +319,7 @@ namespace WindowsFormsApplication4
             if(inventory.Rows.Count>0)
             {
                 DialogResult t =
-                    MessageBox.Show("Mặt hàng mà bạn xóa hiện đã có người đang đặt.\n Bạn có muốn xóa không", "Chú ý",
-                                    MessageBoxButtons.YesNo);
+                    MessBox2Choice.ShowBox("Mặt hàng mà bạn xóa \nhiện đã có người đang đặt.\n Bạn có muốn xóa không", Color.YellowGreen);
                 if(t.Equals(System.Windows.Forms.DialogResult.No))
                     return;
                 
@@ -344,7 +343,7 @@ namespace WindowsFormsApplication4
 
             if (OldInvent_ID.Equals("Non_Inventory"))
             {
-                MessageBox.Show("Bạn không được sửa mặt hàng này");
+                Alert.Show("Bạn không được sửa mặt hàng này",Color.Red);
                 return;
             }
             DataRowView item = (DataRowView)cmbDept.SelectedItem;
@@ -358,12 +357,12 @@ namespace WindowsFormsApplication4
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             ckb_Sua.Checked = false;
 
-            MessageBox.Show("Bạn đã thay đổi thành công");
+            Alert.Show("Bạn đã thay đổi thành công",Color.Blue);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("CHỨC NĂNG ĐANG XÂY DỰNG");
+            Alert.Show("Chức năng đang được xây dựng", Color.Blue);
         }
 
         private void button10_Click(object sender, EventArgs e)

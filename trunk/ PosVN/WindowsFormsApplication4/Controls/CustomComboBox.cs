@@ -485,7 +485,7 @@ namespace WindowsFormsApplication4.Controls
         #endregion
     }
 
-    internal class CustomComboBoxDesigner : System.Windows.Forms.Design.ParentControlDesigner
+    internal class CustomComboBoxDesigner : ParentControlDesigner
     {
         #region ParentControlDesigner Overrides
 
