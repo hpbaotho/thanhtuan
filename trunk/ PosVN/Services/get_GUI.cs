@@ -12,12 +12,15 @@ namespace Services
     {
         Server sr;
         private SqlCommand cmd;
-        public static string serverName = "";
-        public static string databaseName = "";
+        public static string serverName = "THANH\\SQLEXPRESS";
+        public static string databaseName = "POS";
+        public static bool Mode;
+        public static string UserName;
+        public static string Password;
         public get_GUI()
         {
             sr = new Server();
-            sr.Server_name = @"TUAN\SQLEXPRESS";
+            sr.Server_name = @"THANH\SQLEXPRESS";
             sr.Database_name = "POS";
             //sr.Server_name = serverName;
             //sr.Database_name = databaseName;
@@ -440,7 +443,7 @@ namespace Services
             cmd.Dispose();
         }
 
-        public DataTable GetAllInventoryByDept_Button(byte @ScheduleIndex, string Dept_ID, string Store_ID)
+        public DataTable GetAllInventoryByDept_Button(byte ScheduleIndex, string Dept_ID, string Store_ID)
         {
             cmd = new SqlCommand();
             string[] pa = { "@ScheduleIndex", "@Dept_ID", "@Store_ID" };
@@ -527,6 +530,17 @@ namespace Services
             string[] value = { Store_ID, InvoiceNum, InvoiceNumNew };
             DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateCombine");
             cmd.Dispose();
+        }
+
+
+        public DataTable GetInvoiceTotalByStoreID(string Store_ID, DateTime DateTime1, DateTime DateTime2)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2" };
+            object[] value = { Store_ID, DateTime1, DateTime2 };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetInvoiceTotalByStoreID");
+            cmd.Dispose();
+            return re;
         }
     }
 }
