@@ -631,6 +631,7 @@ namespace WindowsFormsApplication4
                 crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
 
                 xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName,StaticClass.databaseName,true);
+                xxx.PrintOptions.PrinterName = "Send To OneNote 2007";
                 xxx.PrintToPrinter(1, true, 1, 1);
             }
             this.Dispose();
