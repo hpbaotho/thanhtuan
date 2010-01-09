@@ -348,7 +348,7 @@ namespace WindowsFormsApplication4
             this.button6.OwnDrawColor = System.Drawing.Color.White;
             this.button6.Size = new System.Drawing.Size(131, 71);
             this.button6.TabIndex = 29;
-            this.button6.Text = "Quản lý kho hàng";
+            this.button6.Text = "Quản lý mặt hàng";
             this.button6.UseOwnColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 

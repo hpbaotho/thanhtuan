@@ -264,6 +264,12 @@
     <Compile Include="FrmSearch.Designer.cs">
       <DependentUpon>FrmSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSetupPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetupPrinter.Designer.cs">
+      <DependentUpon>FrmSetupPrinter.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,12 +281,6 @@
     </Compile>
     <Compile Include="MessBox2Choice.Designer.cs">
       <DependentUpon>MessBox2Choice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MyReport.designer.cs">
-      <DependentUpon>MyReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -368,16 +368,16 @@
       <DependentUpon>FrmSearch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetupPrinter.resx">
+      <DependentUpon>FrmSetupPrinter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="MessBox.resx">
       <DependentUpon>MessBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MessBox2Choice.resx">
       <DependentUpon>MessBox2Choice.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyReport.resx">
-      <DependentUpon>MyReport.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
