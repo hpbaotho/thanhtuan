@@ -631,7 +631,8 @@ namespace WindowsFormsApplication4
                 crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
 
                 xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName,StaticClass.databaseName,true);
-                xxx.PrintOptions.PrinterName = "Send To OneNote 2007";
+                //xxx.PrintOptions.PrinterName = "Send To OneNote 2007";
+                xxx.PrintOptions.ApplyPageMargins(new PageMargins(1,2,1,0));
                 xxx.PrintToPrinter(1, true, 1, 1);
             }
             this.Dispose();
@@ -801,8 +802,7 @@ namespace WindowsFormsApplication4
                     crParameterValues1.Clear();
                     crParameterValues1.Add(crParameterDiscreteValue1);
                     crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
-
-                    
+                    xxx.PrintOptions.ApplyPageMargins(new PageMargins(1,2,1,0));
                     xxx.PrintToPrinter(1, true, 1, 1);
                 }
             }
