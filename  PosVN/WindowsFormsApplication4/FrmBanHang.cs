@@ -12,6 +12,7 @@ using CrystalDecisions.Shared;
 using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.Controls;
+using WindowsFormsApplication4.Persistence;
 using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
@@ -600,40 +601,44 @@ namespace WindowsFormsApplication4
 
             if (myCash1.listInvoiceItem.Rows.Count != 0)
             {
-                CrystalReport5 xxx = new CrystalReport5();
+                Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
+                if(!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+                {
+                    CrystalReport5 xxx = new CrystalReport5();
 
-                xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
-                ParameterFieldDefinitions crParameterFieldDefinitions;
-                ParameterValues crParameterValues = new ParameterValues();
+                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                    ParameterFieldDefinitions crParameterFieldDefinitions;
+                    ParameterValues crParameterValues = new ParameterValues();
 
-                ParameterFieldDefinitions crParameterFieldDefinitions1;
-                ParameterValues crParameterValues1 = new ParameterValues();
-                ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
-                ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
+                    ParameterFieldDefinitions crParameterFieldDefinitions1;
+                    ParameterValues crParameterValues1 = new ParameterValues();
+                    ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+                    ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
 
 
-                crParameterDiscreteValue.Value = StaticClass.storeId;
-                crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                ParameterFieldDefinition crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
-                crParameterValues = crParameterFieldDefinition.CurrentValues;
+                    crParameterDiscreteValue.Value = StaticClass.storeId;
+                    crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
+                    ParameterFieldDefinition crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                    crParameterValues = crParameterFieldDefinition.CurrentValues;
 
-                crParameterValues.Clear();
-                crParameterValues.Add(crParameterDiscreteValue);
-                crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+                    crParameterValues.Clear();
+                    crParameterValues.Add(crParameterDiscreteValue);
+                    crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
 
-                crParameterDiscreteValue1.Value = invoiceNum;
-                crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                ParameterFieldDefinition crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
-                crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
+                    crParameterDiscreteValue1.Value = invoiceNum;
+                    crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
+                    ParameterFieldDefinition crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                    crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
 
-                crParameterValues1.Clear();
-                crParameterValues1.Add(crParameterDiscreteValue1);
-                crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
+                    crParameterValues1.Clear();
+                    crParameterValues1.Add(crParameterDiscreteValue1);
+                    crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
 
-                xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName,StaticClass.databaseName,true);
-                //xxx.PrintOptions.PrinterName = "Send To OneNote 2007";
-                xxx.PrintOptions.ApplyPageMargins(new PageMargins(1,2,1,0));
-                xxx.PrintToPrinter(1, true, 1, 1);
+                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                    xxx.PrintOptions.PrinterName = printer.Details;
+                    xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
+                    xxx.PrintToPrinter(1, true, 1, 1);
+                }
             }
             this.Dispose();
             formLayout.FrmLayout_Load(null, null); 
@@ -771,39 +776,47 @@ namespace WindowsFormsApplication4
                     this.Dispose();
                     formLayout.FrmLayout_Load(null, null);
 
-                    Re_ThanhToan xxx = new Re_ThanhToan();
 
-                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
-                    ParameterFieldDefinitions crParameterFieldDefinitions;
-                    ParameterFieldDefinition crParameterFieldDefinition;
-                    ParameterValues crParameterValues = new ParameterValues();
+                     Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
+                     if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+                     {
+                         Re_ThanhToan xxx = new Re_ThanhToan();
 
-                    ParameterFieldDefinitions crParameterFieldDefinitions1;
-                    ParameterFieldDefinition crParameterFieldDefinition1;
-                    ParameterValues crParameterValues1 = new ParameterValues();
-                    ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
-                    ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
+                         xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                         ParameterFieldDefinitions crParameterFieldDefinitions;
+                         ParameterFieldDefinition crParameterFieldDefinition;
+                         ParameterValues crParameterValues = new ParameterValues();
+
+                         ParameterFieldDefinitions crParameterFieldDefinitions1;
+                         ParameterFieldDefinition crParameterFieldDefinition1;
+                         ParameterValues crParameterValues1 = new ParameterValues();
+                         ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+                         ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
 
 
-                    crParameterDiscreteValue.Value = StaticClass.storeId;
-                    crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                    crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
-                    crParameterValues = crParameterFieldDefinition.CurrentValues;
+                         crParameterDiscreteValue.Value = StaticClass.storeId;
+                         crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
+                         crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                         crParameterValues = crParameterFieldDefinition.CurrentValues;
 
-                    crParameterValues.Clear();
-                    crParameterValues.Add(crParameterDiscreteValue);
-                    crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+                         crParameterValues.Clear();
+                         crParameterValues.Add(crParameterDiscreteValue);
+                         crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
 
-                    crParameterDiscreteValue1.Value = invoiceNum;
-                    crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                    crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
-                    crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
+                         crParameterDiscreteValue1.Value = invoiceNum;
+                         crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
+                         crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                         crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
 
-                    crParameterValues1.Clear();
-                    crParameterValues1.Add(crParameterDiscreteValue1);
-                    crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
-                    xxx.PrintOptions.ApplyPageMargins(new PageMargins(1,2,1,0));
-                    xxx.PrintToPrinter(1, true, 1, 1);
+                         crParameterValues1.Clear();
+                         crParameterValues1.Add(crParameterDiscreteValue1);
+                         xxx.PrintOptions.PrinterName = printer.Details;
+                         crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
+                         xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
+                         xxx.PrintToPrinter(1, true, 1, 1);
+                     }
+
+                    
                 }
             }
             else

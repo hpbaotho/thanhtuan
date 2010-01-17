@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using WindowsFormsApplication4.lic;
 
 namespace WindowsFormsApplication4
 {
@@ -25,6 +26,8 @@ namespace WindowsFormsApplication4
         public static byte NumberofSettupButonTS = 14;
         public static byte ButtonTypeInventory = 0;
         public static byte ButtonTypeDepartment = 1;
+        public static Lc.Version version = Lc.Version.Demo;
+        public static int m_Version = 0; 
 
         #region database
         public static string serverName = "";

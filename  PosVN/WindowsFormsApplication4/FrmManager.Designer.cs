@@ -94,7 +94,7 @@ namespace WindowsFormsApplication4
             this.button2.OwnDrawColor = System.Drawing.Color.White;
             this.button2.Size = new System.Drawing.Size(147, 71);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Setup";
+            this.button2.Text = "Cài đặt";
             this.button2.UseOwnColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -565,9 +565,9 @@ namespace WindowsFormsApplication4
             this.button35.OwnDrawColor = System.Drawing.Color.White;
             this.button35.Size = new System.Drawing.Size(131, 71);
             this.button35.TabIndex = 30;
-            this.button35.Text = "Quản lý loại hàng";
+            this.button35.Text = "Máy in";
             this.button35.UseOwnColor = false;
-            this.button35.Visible = false;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // button36
             // 
@@ -587,14 +587,14 @@ namespace WindowsFormsApplication4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(729, 490);
-            this.Controls.Add(this.button21);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button21);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel2);
             this.Name = "FrmManager";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

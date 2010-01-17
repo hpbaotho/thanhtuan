@@ -83,6 +83,26 @@ namespace Services
             }
             return dataset;
         }
+        private DataTable FillDataset3(SqlCommand cmd, CommandType type,string strSP)
+        {
+            DataTable dataset = new DataTable();
+            try
+            {
+                cmd.Connection = DataProvider.ConnectionData(sr);
+                cmd.CommandType = type;
+                cmd.CommandText = strSP;
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                adap.Fill(dataset);
+                adap.Dispose();
+                DataProvider.close_connection();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine(ex.ToString());
+            }
+            return dataset;
+        }
         public DataTable get_Array_button(string strore_id, string section_id)
         {     
            //string query= "select * from Table_Diagram where Store_ID=" +strore_id+ "and "
@@ -541,6 +561,63 @@ namespace Services
             DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetInvoiceTotalByStoreID");
             cmd.Dispose();
             return re;
+        }
+
+        public DataTable GetPrinters(string Store_ID, string Station_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Station_ID" };
+            object[] value = { Store_ID,Station_ID};
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_GetPrinters");
+            cmd.Dispose();
+            return re;
+        }
+
+        public void InsertPrinter(string Store_ID, string Station_ID, string PrinterName,bool Disabled,bool Two_Color_Printing,bool CutReceipt,string LocalPort,string NetworkPort,string Details)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Station_ID","@PrinterName","@Disabled","@Two_Color_Printing","@CutReceipt","@LocalPort","@NetworkPort","@Details" };
+            object[] value = { Store_ID, Station_ID,PrinterName,Disabled,Two_Color_Printing,CutReceipt,LocalPort,NetworkPort,Details };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_InsertPrinter");
+            cmd.Dispose();
+            //return re;
+        }
+        public void DeletePrinter(string Store_ID, string Station_ID, string PrinterName)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Station_ID", "@PrinterName" };
+            object[] value = { Store_ID, Station_ID,PrinterName };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_DeletePrinter");
+            cmd.Dispose();
+        }
+        public void UpdatePrinter(string Store_ID, string Station_ID, string PrinterName, bool Disabled, bool Two_Color_Printing, bool CutReceipt, string LocalPort, string NetworkPort, string Details)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Station_ID", "@PrinterName", "@Disabled", "@Two_Color_Printing", "@CutReceipt", "@LocalPort", "@NetworkPort", "@Details" };
+            object[] value = { Store_ID, Station_ID, PrinterName, Disabled, Two_Color_Printing, CutReceipt, LocalPort, NetworkPort, Details };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdatePrinter");
+            cmd.Dispose();
+            //return re;
+        }
+        public DataTable GetPrinterByName(string Store_ID, string Station_ID, string PrinterName)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Station_ID", "@PrinterName" };
+            object[] value = { Store_ID, Station_ID, PrinterName };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_GetPrinterByName");
+            cmd.Dispose();
+            return re;
+        }
+        public int GetNumOfInvoice()
+        {
+            cmd = new SqlCommand();
+            DataTable re = FillDataset3(cmd, CommandType.Text, "select count(*) from Invoice_Totals");
+            if(re.Rows.Count > 0 )
+            {
+                return (int) re.Rows[0][0];
+            }
+            cmd.Dispose();
+            return 0;
         }
     }
 }
