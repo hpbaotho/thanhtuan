@@ -81,5 +81,11 @@ namespace WindowsFormsApplication4
             FrmDept frmDept = new FrmDept();
             frmDept.ShowDialog();
         }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            FrmSetupPrinter frmSetupPrinter = new FrmSetupPrinter();
+            frmSetupPrinter.ShowDialog();
+        }
     }
 }

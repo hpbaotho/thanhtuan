@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Services;
+using WindowsFormsApplication4.lic;
 using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
@@ -31,36 +32,38 @@ namespace WindowsFormsApplication4
 
         public void FrmLogin_Load(object sender, EventArgs e)
         {
-            OleDbConnection m_cnADONetConnection = new OleDbConnection();
-            OleDbDataAdapter m_daDataAdapter;
-            OleDbCommandBuilder m_cbCommandBuilder;
-            DataTable m_dtDict = new DataTable();
+            //OleDbConnection m_cnADONetConnection = new OleDbConnection();
+            //OleDbDataAdapter m_daDataAdapter;
+            //OleDbCommandBuilder m_cbCommandBuilder;
+            //DataTable m_dtDict = new DataTable();
 
-            m_cnADONetConnection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + System.Windows.Forms.Application.StartupPath + @"\ConfigDatabase.mdb";
+            //m_cnADONetConnection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + System.Windows.Forms.Application.StartupPath + @"\ConfigDatabase.mdb";
 
-            m_cnADONetConnection.Open();
-            m_daDataAdapter = new OleDbDataAdapter("Select * From DatabaseInfo", m_cnADONetConnection);
-            m_cbCommandBuilder = new OleDbCommandBuilder(m_daDataAdapter);
-            m_daDataAdapter.Fill(m_dtDict);
-            if (m_dtDict.Rows.Count != 0)
-            {
-                StaticClass.mode = m_dtDict.Rows[0]["Mode"].ToString();
-                if (m_dtDict.Rows[0]["InstanceName"].ToString() == "" )
-                {
-                    StaticClass.serverName = m_dtDict.Rows[0]["ServerName"].ToString();
-                }
-                else
-                {
-                    StaticClass.serverName = m_dtDict.Rows[0]["ServerName"].ToString() + "\\" + m_dtDict.Rows[0]["InstanceName"].ToString();
-                }
+            //m_cnADONetConnection.Open();
+            //m_daDataAdapter = new OleDbDataAdapter("Select * From DatabaseInfo", m_cnADONetConnection);
+            //m_cbCommandBuilder = new OleDbCommandBuilder(m_daDataAdapter);
+            //m_daDataAdapter.Fill(m_dtDict);
+            //if (m_dtDict.Rows.Count != 0)
+            //{
+            //    StaticClass.mode = m_dtDict.Rows[0]["Mode"].ToString();
+            //    if (m_dtDict.Rows[0]["InstanceName"].ToString() == "" )
+            //    {
+            //        StaticClass.serverName = m_dtDict.Rows[0]["ServerName"].ToString();
+            //    }
+            //    else
+            //    {
+            //        StaticClass.serverName = m_dtDict.Rows[0]["ServerName"].ToString() + "\\" + m_dtDict.Rows[0]["InstanceName"].ToString();
+            //    }
                 
-                StaticClass.databaseName = m_dtDict.Rows[0]["DatabaseName"].ToString();
-                Services.get_GUI.serverName = StaticClass.serverName;
-                Services.get_GUI.databaseName = StaticClass.databaseName;
+            //    StaticClass.databaseName = m_dtDict.Rows[0]["DatabaseName"].ToString();
+            //    Services.get_GUI.serverName = StaticClass.serverName;
+            //    Services.get_GUI.databaseName = StaticClass.databaseName;
                
-            }
+            //}
+           
             serviceGet = new ServiceGet();
             getGui = new get_GUI();
+
 
             button45.changeColor(Color.White, Color.Red);
             button46.changeColor(Color.White,Color.FromArgb(0,150,0));
@@ -105,8 +108,7 @@ namespace WindowsFormsApplication4
             bool focus = textBox1.Focus();
             bool f = textBox1.Focused;
             this.Refresh();
-           
-           
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -496,6 +498,12 @@ namespace WindowsFormsApplication4
                 FrmManager frmManager = new FrmManager();
                 frmManager.ShowDialog();
             }
+        }
+
+        private void đăngKíToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRegister frmRegister = new FrmRegister();
+            frmRegister.ShowDialog();
         }
     }
 }
