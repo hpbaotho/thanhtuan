@@ -39,6 +39,7 @@
             this.chọnDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngKíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button55 = new WindowsFormsApplication4.Controls.button();
             this.button54 = new WindowsFormsApplication4.Controls.button();
             this.button53 = new WindowsFormsApplication4.Controls.button();
@@ -94,7 +95,6 @@
             this.button16 = new WindowsFormsApplication4.Controls.button();
             this.button15 = new WindowsFormsApplication4.Controls.button();
             this.button14 = new WindowsFormsApplication4.Controls.button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -256,6 +256,18 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication4.Properties.Resources.RS_Dessert;
+            this.pictureBox1.InitialImage = global::WindowsFormsApplication4.Properties.Resources.RS_Sandwich;
+            this.pictureBox1.Location = new System.Drawing.Point(580, 94);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(424, 321);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button55
             // 
@@ -970,17 +982,6 @@
             this.button14.Text = "1";
             this.button14.UseOwnColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApplication4.Properties.Resources.RS_Dessert;
-            this.pictureBox1.InitialImage = global::WindowsFormsApplication4.Properties.Resources.RS_Sandwich;
-            this.pictureBox1.Location = new System.Drawing.Point(580, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(424, 321);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmLogin
             // 

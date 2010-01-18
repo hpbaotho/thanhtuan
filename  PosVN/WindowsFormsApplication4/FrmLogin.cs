@@ -505,5 +505,15 @@ namespace WindowsFormsApplication4
             FrmRegister frmRegister = new FrmRegister();
             frmRegister.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+            if(openFileDialog.FileName != "")
+            {
+                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
     }
 }
