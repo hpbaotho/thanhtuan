@@ -411,6 +411,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\Services.get_GUI.datasource" />
     <None Include="Properties\Settings.settings">
@@ -449,6 +450,57 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BURGER.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiquorShelf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PastramiSandwich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizzatoss.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Dessert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Ice%25Cream.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Sandwich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Steak%25Dinner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Steak%25House.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Sushi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-CELL.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-Cigars.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-Gift%25Shop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-Greeting%25Cards.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-LIQUOR.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SteakTurq.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water lilies.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
