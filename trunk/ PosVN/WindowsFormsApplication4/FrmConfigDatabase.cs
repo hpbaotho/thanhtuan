@@ -172,6 +172,7 @@ namespace WindowsFormsApplication4
                 this.FrmConfigDatabase_Load(null,null);
                 panel1.Visible = false;
                 panel2.Visible = true;
+                Application.Restart();
             }
             else
             {

@@ -14,7 +14,7 @@ namespace Services
         private SqlCommand cmd;
         public static string serverName = "THANH\\SQLEXPRESS";
         public static string databaseName = "POS";
-        public static bool Mode;
+        public static string Mode;
         public static string UserName;
         public static string Password;
         public get_GUI()
@@ -24,6 +24,9 @@ namespace Services
             //sr.Database_name = "POS";
             sr.Server_name = serverName;
             sr.Database_name = databaseName;
+            sr.Mode = Mode;
+            sr.UserName = UserName;
+            sr.Password = Password;
 
             //cmd=new SqlCommand();
         }
@@ -618,6 +621,14 @@ namespace Services
             }
             cmd.Dispose();
             return 0;
+        }
+        public void UpdateTax(string Store_ID, decimal t1, decimal t2, decimal t3)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Tax1_Rate", "@Tax2_Rate", "@Tax3_Rate" };
+            object[] value = { Store_ID, t1, t2,t3 };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateTax");
+            cmd.Dispose();
         }
     }
 }

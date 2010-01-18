@@ -263,6 +263,7 @@
             this.button16.TabIndex = 18;
             this.button16.Text = "Thẻ ghi nợ";
             this.button16.UseOwnColor = false;
+            this.button16.Visible = false;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button15

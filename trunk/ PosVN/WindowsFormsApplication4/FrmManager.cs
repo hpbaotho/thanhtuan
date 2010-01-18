@@ -87,5 +87,11 @@ namespace WindowsFormsApplication4
             FrmSetupPrinter frmSetupPrinter = new FrmSetupPrinter();
             frmSetupPrinter.ShowDialog();
         }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            FrmSetupTax frmSetupTax = new FrmSetupTax();
+            frmSetupTax.ShowDialog();
+        }
     }
 }

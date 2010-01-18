@@ -35,9 +35,10 @@ namespace WindowsFormsApplication4
             string regPath = System.Windows.Forms.Application.StartupPath + @"\regc.reg";
             if(a)
             {
-                Alert.Show("Đăng kí thành công !\n Chạy lại chương trình \nđể sử dụng");
                 FileReadWrite.WriteFile(actPath, creTextBox2.Text);
                 FileReadWrite.WriteFile(regPath, creTextBox3.Text);
+                Alert.Show("Đăng kí thành công !");
+                Application.Restart();
             }
             this.Dispose();
         }

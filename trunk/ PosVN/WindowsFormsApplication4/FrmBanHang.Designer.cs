@@ -89,6 +89,8 @@
             this.button53 = new WindowsFormsApplication4.Controls.button();
             this.button54 = new WindowsFormsApplication4.Controls.button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button67 = new WindowsFormsApplication4.Controls.button();
+            this.button66 = new WindowsFormsApplication4.Controls.button();
             this.button61 = new WindowsFormsApplication4.Controls.button();
             this.button60 = new WindowsFormsApplication4.Controls.button();
             this.button57 = new WindowsFormsApplication4.Controls.button();
@@ -866,6 +868,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.button67);
+            this.panel4.Controls.Add(this.button66);
             this.panel4.Controls.Add(this.button61);
             this.panel4.Controls.Add(this.button60);
             this.panel4.Controls.Add(this.button57);
@@ -876,11 +880,37 @@
             this.panel4.Size = new System.Drawing.Size(658, 563);
             this.panel4.TabIndex = 16;
             // 
+            // button67
+            // 
+            this.button67.Color2 = System.Drawing.Color.Purple;
+            this.button67.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button67.Location = new System.Drawing.Point(539, 295);
+            this.button67.Name = "button67";
+            this.button67.OwnDrawColor = System.Drawing.Color.White;
+            this.button67.Size = new System.Drawing.Size(113, 67);
+            this.button67.TabIndex = 9;
+            this.button67.Text = "Trả lại";
+            this.button67.UseOwnColor = false;
+            this.button67.Click += new System.EventHandler(this.button67_Click);
+            // 
+            // button66
+            // 
+            this.button66.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button66.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button66.Location = new System.Drawing.Point(539, 222);
+            this.button66.Name = "button66";
+            this.button66.OwnDrawColor = System.Drawing.Color.White;
+            this.button66.Size = new System.Drawing.Size(113, 67);
+            this.button66.TabIndex = 8;
+            this.button66.Text = "Đổi giá";
+            this.button66.UseOwnColor = false;
+            this.button66.Click += new System.EventHandler(this.button66_Click);
+            // 
             // button61
             // 
             this.button61.Color2 = System.Drawing.Color.Blue;
             this.button61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button61.Location = new System.Drawing.Point(537, 295);
+            this.button61.Location = new System.Drawing.Point(539, 441);
             this.button61.Name = "button61";
             this.button61.OwnDrawColor = System.Drawing.Color.White;
             this.button61.Size = new System.Drawing.Size(113, 67);
@@ -893,7 +923,7 @@
             // 
             this.button60.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button60.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button60.Location = new System.Drawing.Point(539, 222);
+            this.button60.Location = new System.Drawing.Point(539, 368);
             this.button60.Name = "button60";
             this.button60.OwnDrawColor = System.Drawing.Color.White;
             this.button60.Size = new System.Drawing.Size(113, 67);
@@ -1058,7 +1088,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1024, 768);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.myCash1);
             this.Controls.Add(this.button54);
@@ -1073,6 +1102,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Name = "FrmBanHang";
             this.ShowInTaskbar = false;
@@ -1167,5 +1197,7 @@
         private WindowsFormsApplication4.Controls.button button63;
         private WindowsFormsApplication4.Controls.button button59;
         private WindowsFormsApplication4.Controls.button button58;
+        private WindowsFormsApplication4.Controls.button button66;
+        private WindowsFormsApplication4.Controls.button button67;
     }
 }

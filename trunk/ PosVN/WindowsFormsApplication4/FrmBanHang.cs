@@ -409,7 +409,17 @@ namespace WindowsFormsApplication4
             myCash1.delete_RowSelected();
             changeLayout(false,null);
             UpdateInfo();
+            UpdateLineNum();
         }
+
+        private void UpdateLineNum()
+        {
+            for (int i = 0; i < myCash1.listInvoiceItem.Rows.Count; i++)
+            {
+                myCash1.listInvoiceItem.Rows[i]["LineNum"] = i + 1;
+            }
+        }
+
         private bool checkItemSended()
         {
             foreach (MyItem item in myCash1.get_RowSelected())
@@ -672,10 +682,12 @@ namespace WindowsFormsApplication4
                 oldInvoiceItemized.Rows[i]["LineNum"] = myCash1.listInvoiceItem.Rows.Count + 1;
                 myCash1.listInvoiceItem.Rows.Add(oldInvoiceItemized.Rows[i].ItemArray);
                 decimal price = Convert.ToDecimal(oldInvoiceItemized.Rows[i]["Quantity"]) * Convert.ToDecimal(oldInvoiceItemized.Rows[i]["PricePer"]) * (1 - Convert.ToDecimal(oldInvoiceItemized.Rows[i]["LineDisc"]));
-                myCash1.addRow(oldInvoiceItemized.Rows[i]["DiffItemName"].ToString(), String.Format("{0:0.##}", oldInvoiceItemized.Rows[i]["Quantity"]), String.Format("{0:0,0}", price));
+                myCash1.addRow(">"+oldInvoiceItemized.Rows[i]["DiffItemName"].ToString(), String.Format("{0:0.##}", oldInvoiceItemized.Rows[i]["Quantity"]), String.Format("{0:0,0}", price));
             }
             UpdateInfo();
+
             getGui.UpdateCombine(StaticClass.storeId,InvoiceNumOld,invoiceNum);
+            numOfItemSended = myCash1.listInvoiceItem.Rows.Count;
 
         }
 
@@ -830,5 +842,62 @@ namespace WindowsFormsApplication4
             FrmManager frmManager = new FrmManager();
             frmManager.ShowDialog();
         }
+
+        private void button66_Click(object sender, EventArgs e)
+        {
+            if (checkItemSended())
+            {
+                if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_INVOICE_PRICE_CHANGE))
+                {
+                    return;
+                }
+            }
+            FrmKeyboardNumber kb = new FrmKeyboardNumber("Nhập giá :");
+            if (kb.ShowDialog() == DialogResult.OK)
+            {
+
+                    foreach (MyItem item in myCash1.get_RowSelected())
+                    {
+                        myCash1.listInvoiceItem.Rows[item.Id - 1]["origPricePer"] = kb.value;
+                    }
+                    UpdateItemSelect();
+            }
+        }
+
+        private void button67_Click(object sender, EventArgs e)
+        {
+            ArrayList arrayList = myCash1.get_RowSelected();
+            if(arrayList.Count > 1)
+            {
+                Alert.Show("Chỉ chọn một món để trả lại.",Color.Red);
+            }
+            else
+            {
+                FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Nhập số lượng trả lại");
+                if(frmKeyboardNumber.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    decimal oldQuan = Convert.ToDecimal(myCash1.listInvoiceItem.Rows[((MyItem)arrayList[0]).Id - 1]["Quantity"]);
+                    string itemNum = myCash1.listInvoiceItem.Rows[((MyItem)arrayList[0]).Id - 1]["ItemNum"].ToString();
+                    decimal returnQuan = Convert.ToDecimal(frmKeyboardNumber.value);
+                    if(oldQuan >= returnQuan)
+                    {
+                        object[] newrow = myCash1.listInvoiceItem.Rows[((MyItem) arrayList[0]).Id - 1].ItemArray;
+                        newrow[3] = 0 - returnQuan;
+                        newrow[1] = myCash1.listInvoiceItem.Rows.Count + 1;
+                        decimal price = (0 - returnQuan)*Convert.ToDecimal(newrow[5]);
+                        string itemName = myCash1.listInvoiceItem.Rows[((MyItem)arrayList[0]).Id - 1]["DiffItemName"].ToString();
+                       
+                        myCash1.listInvoiceItem.Rows.Add(newrow);
+                        myCash1.addRow(itemName, String.Format("{0:0.##}",0-returnQuan), String.Format("{0:0,0}", price));
+                        UpdateInfo();
+                    }
+                    else
+                    {
+                        Alert.Show("Số lượng trả vượt quá số\n lượng bán.",Color.Red);
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -11,11 +11,30 @@ namespace DAO
         //private Server ser;
         private static SqlConnection cn;
         public static SqlConnection ConnectionData(Server ser)
-        {      
-            string cnStr = @"Server =" +  ser.Server_name+  @";Database = " + ser.Database_name+  @"; Integrated Security = True; Asynchronous Processing = True";
-            cn = new SqlConnection(cnStr);
-            cn.Open();
-            return cn;
+        {
+            try
+            {
+                string cnStr = "";
+                if (ser.Mode == "AUT")
+                {
+                    cnStr = @"Server =" + ser.Server_name + @";Database = " + ser.Database_name + @"; Integrated Security = True; Asynchronous Processing = True";
+                    cn = new SqlConnection(cnStr);
+                    cn.Open();
+                    return cn;
+                }
+                else if (ser.Mode == "SQL")
+                {
+                    cnStr = @"Server =" + ser.Server_name + @";Database = " + ser.Database_name + @"; User ID=" + ser.UserName + ";Password=" + ser.Password + ";Trusted_Connection=False;";
+                    cn = new SqlConnection(cnStr);
+                    cn.Open();
+                    return cn;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public static SqlConnection ConnectionData(Server ser,string mode,string username,string pass)
         {
