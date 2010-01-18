@@ -404,6 +404,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetupTax.resx">
+      <DependentUpon>FrmSetupTax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -421,6 +425,12 @@
     <Compile Include="Service\GetDatabaseInfo.cs" />
     <Compile Include="Service\ServiceGet.cs" />
     <Compile Include="Service\Util.cs" />
+    <Compile Include="FrmSetupTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetupTax.Designer.cs">
+      <DependentUpon>FrmSetupTax.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaticClass.cs" />
   </ItemGroup>
   <ItemGroup>

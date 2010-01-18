@@ -580,6 +580,7 @@ namespace WindowsFormsApplication4
             this.button36.TabIndex = 29;
             this.button36.Text = "Thuế";
             this.button36.UseOwnColor = false;
+            this.button36.Click += new System.EventHandler(this.button36_Click);
             // 
             // FrmManager
             // 
