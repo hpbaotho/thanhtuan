@@ -17,6 +17,33 @@ namespace DAO
             cn.Open();
             return cn;
         }
+        public static SqlConnection ConnectionData(Server ser,string mode,string username,string pass)
+        {
+            try
+            {
+                string cnStr = "";
+                if (mode == "AUT")
+                {
+                    cnStr = @"Server =" + ser.Server_name + @";Database = " + ser.Database_name + @"; Integrated Security = True; Asynchronous Processing = True";
+                    cn = new SqlConnection(cnStr);
+                    cn.Open();
+                    return cn;
+                }
+                else if (mode == "SQL")
+                {
+                    cnStr = @"Server =" + ser.Server_name + @";Database = " + ser.Database_name + @"; User ID="+username+";Password="+pass +";Trusted_Connection=False;";
+                    cn = new SqlConnection(cnStr);
+                    cn.Open();
+                    return cn;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
         public static void close_connection()
         {
             if(cn.State==ConnectionState.Open)
