@@ -73,9 +73,17 @@ namespace DAO
         {
             try
             {
+                string cnStr = "";
                 if(mode == "AUT")
                 {
-                    string cnStr = @"Server =" + serverName + @";Database = " + databaseName + @"; Integrated Security = True; Asynchronous Processing = True";
+                    cnStr = @"Server =" + serverName + @";Database = " + databaseName + @"; Integrated Security = True; Asynchronous Processing = True";
+                    cn = new SqlConnection(cnStr);
+                    cn.Open();
+                    cn.Close();
+                }
+                else if(mode == "SQL")
+                {
+                    cnStr = @"Server =" + serverName + @";Database = " + databaseName + @"; User ID=" + userName + ";Password=" + pass + ";Trusted_Connection=False;";
                     cn = new SqlConnection(cnStr);
                     cn.Open();
                     cn.Close();
