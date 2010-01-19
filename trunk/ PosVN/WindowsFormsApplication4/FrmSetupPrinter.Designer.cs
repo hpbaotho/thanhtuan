@@ -163,7 +163,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "FrmSetupPrinter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSetupPrinter";
+            this.Text = "Cài đặt máy in";
             this.Load += new System.EventHandler(this.FrmSetupPrinter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

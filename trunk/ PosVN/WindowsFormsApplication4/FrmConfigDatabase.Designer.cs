@@ -330,7 +330,7 @@
             this.Name = "FrmConfigDatabase";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmConfigDatabase";
+            this.Text = "Cài đặt Database";
             this.Load += new System.EventHandler(this.FrmConfigDatabase_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

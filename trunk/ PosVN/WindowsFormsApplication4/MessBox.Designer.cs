@@ -71,7 +71,7 @@
             this.Name = "MessBox";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MessBox";
+            this.Text = "Thông báo";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MessBox_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
