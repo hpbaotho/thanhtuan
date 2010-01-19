@@ -214,10 +214,11 @@ namespace WindowsFormsApplication4
                 {
                     serverNa += "\\" + txt_InstanceName.Text;
                 }
-
                 dbConnectionString = "Data Source=" + serverNa + ";Integrated Security = True;";
-                //dbConnectionString = dbConnectionString + " User ID=" + dlg.Username + "; Password=" + dlg.Password + ";";
-
+                if (comboBox1.SelectedItem.ToString() == "SQL Server")
+                {
+                    dbConnectionString = dbConnectionString + " User ID=" + txt_ID.Text + "; Password=" + txt_Pass.Text + ";Trusted_Connection=False;";
+                }
                 SqlConnection dbConnection = new SqlConnection(dbConnectionString);
                 dbConnection.Open();
                 DataTable database = dbConnection.GetSchema("Databases");
