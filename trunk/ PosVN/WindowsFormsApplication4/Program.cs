@@ -36,6 +36,9 @@ namespace WindowsFormsApplication4
                 {
                     Services.get_GUI.serverName = getDatabaseInfo.serverName;
                     Services.get_GUI.databaseName = getDatabaseInfo.databaseName;
+                    Services.get_GUI.Mode = getDatabaseInfo.mode;
+                    Services.get_GUI.UserName = getDatabaseInfo.user;
+                    Services.get_GUI.Password = getDatabaseInfo.pass;
                     Application.Run(new FrmLogin());
                 }
                 else
