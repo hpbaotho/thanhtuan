@@ -208,5 +208,10 @@ namespace WindowsFormsApplication4
             FrmManager frmManager = new FrmManager();
             frmManager.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.FrmLayout_Load(null,null);
+        }
     }
 }

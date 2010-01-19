@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(890, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 31);
+            this.label1.Size = new System.Drawing.Size(78, 32);
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
             // 
@@ -118,8 +118,9 @@
             this.button4.OwnDrawColor = System.Drawing.Color.White;
             this.button4.Size = new System.Drawing.Size(109, 61);
             this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
+            this.button4.Text = "Refresh";
             this.button4.UseOwnColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
