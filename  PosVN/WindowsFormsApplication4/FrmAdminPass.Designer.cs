@@ -95,7 +95,7 @@
             this.Name = "FrmAdminPass";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FrmAdminPass";
+            this.Text = "Mật khẩu quản lý";
             this.ResumeLayout(false);
             this.PerformLayout();
 

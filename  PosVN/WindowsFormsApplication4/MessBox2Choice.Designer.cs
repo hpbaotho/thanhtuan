@@ -80,7 +80,7 @@
             this.MinimizeBox = false;
             this.Name = "MessBox2Choice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MessBox2Choice";
+            this.Text = "Xac nhận";
             this.Load += new System.EventHandler(this.MessBox2Choice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

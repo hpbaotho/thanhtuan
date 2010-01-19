@@ -521,46 +521,46 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Location = new System.Drawing.Point(4, 81);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(800, 299);
+            this.tabPage2.Size = new System.Drawing.Size(800, 259);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pending Orders";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 41);
+            this.tabPage3.Location = new System.Drawing.Point(4, 81);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(800, 299);
+            this.tabPage3.Size = new System.Drawing.Size(800, 259);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Properties";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 41);
+            this.tabPage4.Location = new System.Drawing.Point(4, 81);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(800, 299);
+            this.tabPage4.Size = new System.Drawing.Size(800, 259);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Notes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 41);
+            this.tabPage5.Location = new System.Drawing.Point(4, 81);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(800, 299);
+            this.tabPage5.Size = new System.Drawing.Size(800, 259);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Modifiers";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage6
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 41);
+            this.tabPage6.Location = new System.Drawing.Point(4, 81);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(800, 299);
+            this.tabPage6.Size = new System.Drawing.Size(800, 259);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Price Levels";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -845,7 +845,7 @@
             this.Name = "FrmInventory";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmInventory";
+            this.Text = "Quản lý mặt hàng";
             this.Load += new System.EventHandler(this.FrmInventory_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

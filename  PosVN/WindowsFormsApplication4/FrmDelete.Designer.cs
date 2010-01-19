@@ -39,7 +39,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(316, 20);
+            this.label1.Size = new System.Drawing.Size(325, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bạn có thực sự muốn xóa bàn này không ?";
             // 
@@ -78,7 +78,7 @@
             this.Name = "FrmDelete";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmDelete";
+            this.Text = "Xác nhận";
             this.ResumeLayout(false);
             this.PerformLayout();
 
