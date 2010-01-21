@@ -290,11 +290,11 @@ namespace Services
             cmd.Dispose();
             return re;
         }
-        public void UpdateInvoiceItemized(string Store_ID,string Invoice_Number,string ItemNum,string Quantity,string LineDisc,string LineNum,string Tax1per,string Tax2per,string Tax3per)
+        public void UpdateInvoiceItemized(string Store_ID,string Invoice_Number,string ItemNum,string Quantity,string LineDisc,string LineNum,string Tax1per,string Tax2per,string Tax3per,string PricePer,string OrgPrice)
         {
             cmd = new SqlCommand();
-            string[] pa = { "@Store_ID", "@Invoice_Number","@ItemNum","@Quantity","@LineDisc","@LineNum","@Tax1per","@Tax2per","@Tax3per" };
-            string[] value = { Store_ID, Invoice_Number, ItemNum, Quantity, LineDisc, LineNum, Tax1per, Tax2per, Tax3per };
+            string[] pa = { "@Store_ID", "@Invoice_Number", "@ItemNum", "@Quantity", "@LineDisc", "@LineNum", "@Tax1per", "@Tax2per", "@Tax3per", "@PricePer", "@OrgPrice1" };
+            string[] value = { Store_ID, Invoice_Number, ItemNum, Quantity, LineDisc, LineNum, Tax1per, Tax2per, Tax3per,PricePer,OrgPrice };
             DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateInvoiceItemized");
             cmd.Dispose();
         }
@@ -628,6 +628,23 @@ namespace Services
             string[] pa = { "@Store_ID", "@Tax1_Rate", "@Tax2_Rate", "@Tax3_Rate" };
             object[] value = { Store_ID, t1, t2,t3 };
             DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateTax");
+            cmd.Dispose();
+        }
+        public DataTable GetSetupByStore(string Store_ID)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID" };
+            object[] value = { Store_ID };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_GetSetupByStore");
+            cmd.Dispose();
+            return re;
+        }
+        public void UpdateInvoiceNotes(string Store_ID, string Invoice_Notes_1,string Invoice_Notes_2,string Invoice_Notes_3,string Invoice_Notes_4,string Invoice_Notes_5,string Invoice_Notes_6,string Invoice_Notes_7,string Invoice_Notes_8,string Invoice_Notes_9,string Invoice_Notes_10)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID", "@Invoice_Notes_1", "@Invoice_Notes_2", "@Invoice_Notes_3", "@Invoice_Notes_4", "@Invoice_Notes_5", "@Invoice_Notes_6", "@Invoice_Notes_7", "@Invoice_Notes_8", "@Invoice_Notes_9", "@Invoice_Notes_10" };
+            object[] value = { Store_ID,Invoice_Notes_1,Invoice_Notes_2,Invoice_Notes_3,Invoice_Notes_4,Invoice_Notes_5,Invoice_Notes_6,Invoice_Notes_7,Invoice_Notes_8,Invoice_Notes_9,Invoice_Notes_10 };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateInvoiceNotes");
             cmd.Dispose();
         }
     }
