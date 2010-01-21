@@ -93,5 +93,11 @@ namespace WindowsFormsApplication4
             FrmSetupTax frmSetupTax = new FrmSetupTax();
             frmSetupTax.ShowDialog();
         }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            FrmSetupInvoiceNotes frmSetupInvoiceNotes = new FrmSetupInvoiceNotes();
+            frmSetupInvoiceNotes.ShowDialog();
+        }
     }
 }
