@@ -18,6 +18,9 @@ namespace WindowsFormsApplication4
         public const int CFA_INVOICE_PRICE_CHANGE = 29;
         public const int CFA_INVOICE_VOID = 31;
         public const int CFA_TRANSFER_TABLE = 57;
+        public const int CFA_INVOICE_QUAN_CHANGE = 0;
+        public const int CFA_INVOICE_RETURN = 1;
+
         public static bool CheckGrant(string storeId,string cashierId,int grantNum)
         {
             if(!StaticClass.isAdmin)
@@ -39,6 +42,8 @@ namespace WindowsFormsApplication4
                         return check(storeId, cashierId, "CFA_Invoice_Void");
                     case CFA_TRANSFER_TABLE:
                         return check(storeId, cashierId, "CFA_Transfer_Tables");
+                    case CFA_INVOICE_QUAN_CHANGE:
+                        return check(storeId, cashierId, "CFA_ENDTRANS_CASH");
                     default:
                         return false;
 
