@@ -109,6 +109,7 @@ namespace WindowsFormsApplication4
             this.button3.TabIndex = 2;
             this.button3.Text = "button3";
             this.button3.UseOwnColor = false;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
@@ -122,6 +123,7 @@ namespace WindowsFormsApplication4
             this.button4.TabIndex = 3;
             this.button4.Text = "button4";
             this.button4.UseOwnColor = false;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
@@ -135,6 +137,7 @@ namespace WindowsFormsApplication4
             this.button5.TabIndex = 4;
             this.button5.Text = "button5";
             this.button5.UseOwnColor = false;
+            this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel1
@@ -552,9 +555,9 @@ namespace WindowsFormsApplication4
             this.button34.OwnDrawColor = System.Drawing.Color.White;
             this.button34.Size = new System.Drawing.Size(131, 71);
             this.button34.TabIndex = 31;
-            this.button34.Text = "Quản lý khách hàng";
+            this.button34.Text = "Ghi chú hóa đơn";
             this.button34.UseOwnColor = false;
-            this.button34.Visible = false;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
             // 
             // button35
             // 
