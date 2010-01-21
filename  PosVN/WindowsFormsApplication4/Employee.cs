@@ -20,6 +20,13 @@ namespace WindowsFormsApplication4
         public const int CFA_TRANSFER_TABLE = 57;
         public const int CFA_INVOICE_QUAN_CHANGE = 0;
         public const int CFA_INVOICE_RETURN = 1;
+        public const int CFA_SETUP_TAX = 2;
+        public const int CFA_SETUP_PRINTER = 3;
+        public const int CFA_SETUP_RECEIPT_NOTES = 4;
+        public const int CFA_SETUP_DEPTS_EDIT = 5;
+        public const int CFA_SETUP_INVENT_EDIT = 6;
+        public const int CFA_SETUP_EDIT_EMP = 7;
+        public const int CFA_REPORT_DISPLAY = 8;
 
         public static bool CheckGrant(string storeId,string cashierId,int grantNum)
         {
@@ -44,6 +51,22 @@ namespace WindowsFormsApplication4
                         return check(storeId, cashierId, "CFA_Transfer_Tables");
                     case CFA_INVOICE_QUAN_CHANGE:
                         return check(storeId, cashierId, "CFA_ENDTRANS_CASH");
+                    case CFA_INVOICE_RETURN:
+                        return check(storeId, cashierId, "CFA_Refund_Item");
+                    case CFA_SETUP_TAX:
+                        return check(storeId, cashierId, "CFA_Setup_Tax");
+                    case CFA_SETUP_PRINTER:
+                        return check(storeId, cashierId, "CFA_Setup_DefPrinter");
+                    case CFA_SETUP_RECEIPT_NOTES:
+                        return check(storeId, cashierId, "CFA_SETUP_RECEIPT_NOTES");
+                    case CFA_SETUP_DEPTS_EDIT:
+                        return check(storeId, cashierId, "CFA_Depts_Edit");
+                    case CFA_SETUP_INVENT_EDIT:
+                        return check(storeId, cashierId, "CFA_Inven_Edit");
+                    case CFA_SETUP_EDIT_EMP:
+                        return check(storeId, cashierId, "CFA_SETUP_EDIT_EMPLOYEES");
+                    case CFA_REPORT_DISPLAY:
+                        return check(storeId, cashierId, "CFA_Reports_Display");
                     default:
                         return false;
 
