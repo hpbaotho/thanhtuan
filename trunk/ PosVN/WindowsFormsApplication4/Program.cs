@@ -15,46 +15,43 @@ namespace WindowsFormsApplication4
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            GetDatabaseInfo getDatabaseInfo = new GetDatabaseInfo();
-            if (!getDatabaseInfo.isconfiged)
-            {
-                FrmDelete requestconn = new FrmDelete();
-                requestconn.label1.Text =
-                "Chưa có kết nối database.\n Bạn có muốn chọn database không?";
-                if (requestconn.ShowDialog() == DialogResult.OK)
-                {
-                    FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
-                    frmConfigDatabase.ShowDialog();
-                }
-            }
-            else
-            {
-                if (DAO.DataProvider.TestConnection(getDatabaseInfo.mode, getDatabaseInfo.serverName,
-                                                getDatabaseInfo.databaseName, getDatabaseInfo.user, getDatabaseInfo.pass))
-                {
-                    Services.get_GUI.serverName = getDatabaseInfo.serverName;
-                    Services.get_GUI.databaseName = getDatabaseInfo.databaseName;
-                    Services.get_GUI.Mode = getDatabaseInfo.mode;
-                    Services.get_GUI.UserName = getDatabaseInfo.user;
-                    Services.get_GUI.Password = getDatabaseInfo.pass;
-                    Application.Run(new FrmLogin());
-                }
-                else
-                {
-                    FrmDelete requestconn = new FrmDelete();
-                    requestconn.label1.Text =
-                    "Kết nối không thành công.\n Bạn có muốn chọn database không?";
-                    if (requestconn.ShowDialog() == DialogResult.OK)
-                    {
-                        FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
-                        frmConfigDatabase.ShowDialog();
-                    }
-                }
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //GetDatabaseInfo getDatabaseInfo = new GetDatabaseInfo();
+            //if (!getDatabaseInfo.isconfiged)
+            //{
+            //    FrmDelete requestconn = new FrmDelete();
+            //    requestconn.label1.Text =
+            //    "Chưa có kết nối database.\n Bạn có muốn chọn database không?";
+            //    if (requestconn.ShowDialog() == DialogResult.OK)
+            //    {
+            //        FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
+            //        frmConfigDatabase.ShowDialog();
+            //    }
+            //}
+            //else
+            //{
+            //    if (DAO.DataProvider.TestConnection(getDatabaseInfo.mode, getDatabaseInfo.serverName,
+            //                                    getDatabaseInfo.databaseName, getDatabaseInfo.user, getDatabaseInfo.pass))
+            //    {
+            //        Services.get_GUI.serverName = getDatabaseInfo.serverName;
+            //        Services.get_GUI.databaseName = getDatabaseInfo.databaseName;
+            //        Application.Run(new FrmLogin());
+            //    }
+            //    else
+            //    {
+            //        FrmDelete requestconn = new FrmDelete();
+            //        requestconn.label1.Text =
+            //        "Kết nối không thành công.\n Bạn có muốn chọn database không?";
+            //        if (requestconn.ShowDialog() == DialogResult.OK)
+            //        {
+            //            FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
+            //            frmConfigDatabase.ShowDialog();
+            //        }
+            //    }
 
-            }
-            //Application.Run(new FrmInventory());
+            //}
+            Application.Run(new FrmReporting());
         }
     }
 }

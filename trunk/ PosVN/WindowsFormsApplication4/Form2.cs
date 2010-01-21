@@ -34,10 +34,31 @@ namespace WindowsFormsApplication4
 
             ReportClass invoiceT = new InvoiceTotal();
             invoiceT.DataSourceConnections[0].SetConnection(Services.get_GUI.serverName, Services.get_GUI.databaseName, true);           
-            //DataTable InvoiceTotal = test.InvoiceTotal(StaticClass.storeId, DateTime1, DateTime2);
+           
             invoiceT.SetParameterValue("@Store_ID", StaticClass.storeId);
             invoiceT.SetParameterValue("@DateTime1", DateTime1);
             invoiceT.SetParameterValue("@DateTime2", DateTime2);
+
+            //ReportClass invoice = new rptItemDept();
+            //string[] pa = {"@Store_ID","Report_Title_Param"};
+            //string[] value = {StaticClass.storeId,"mat hang"};
+            //test.FillDataReport(invoice,pa,value,true);
+            //crystalReportViewer1.ReportSource = invoice;
+
+
+
+            //ReportClass invoice = new rptInventoryByApha();
+            //string[] pa = { "@Store_ID", "Report_Title_Param" };
+            //string[] value = { StaticClass.storeId, "mat hang" };
+            //test.FillDataReport(invoice, pa, value, true);
+            //crystalReportViewer1.ReportSource = invoice;
+
+
+            ReportClass invoice = new rptInvoiceTotalsDaily();
+            string[] pa = { "@Store_ID", "Report_Title_Param" };
+            string[] value = { StaticClass.storeId, "mat hang" };
+            test.FillDataReport(invoice, pa, value, true);
+            crystalReportViewer1.ReportSource = invoice;
             ////string[] para = {"@Store_ID", "Report_Title_Param" };
             ////string[] value = {StaticClass.storeId,"Invoice Daily"};
 
@@ -50,9 +71,9 @@ namespace WindowsFormsApplication4
             //string[] value = { StaticClass.storeId, "Invoice Daily" };
             //rptItemDept t = new rptItemDept();
             //test.FillDataReport(t, para, value, true);
-            crystalReportViewer1.ReportSource = invoiceT;
-            //crystalReportViewer1.Update();
-            invoiceT.PrintToPrinter(1, false, 1, 1);
+            //crystalReportViewer1.ReportSource = invoiceT};
+            ////crystalReportViewer1.Update();
+            //invoiceT.PrintToPrinter(1, false, 1, 1);
 
             //string result = MessBox2Choice.ShowBox("Do you want to exit?",Color.Red);
             //if (result.Equals("1"))
