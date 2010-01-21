@@ -178,6 +178,12 @@
     <Compile Include="FrmBanHang.Designer.cs">
       <DependentUpon>FrmBanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCanlendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCanlendar.Designer.cs">
+      <DependentUpon>FrmCanlendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClockIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,12 @@
     <Compile Include="FrmRegister.Designer.cs">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporting.Designer.cs">
+      <DependentUpon>FrmReporting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +297,18 @@
     </Compile>
     <Compile Include="FrmSetupPrinter.Designer.cs">
       <DependentUpon>FrmSetupPrinter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTime.Designer.cs">
+      <DependentUpon>FrmTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewReporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewReporting.Designer.cs">
+      <DependentUpon>FrmViewReporting.cs</DependentUpon>
     </Compile>
     <Compile Include="lic\FileReadWrite.cs" />
     <Compile Include="lic\Lc.cs" />
@@ -327,6 +351,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBanHang.resx">
       <DependentUpon>FrmBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCanlendar.resx">
+      <DependentUpon>FrmCanlendar.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClockIn.resx">
@@ -389,6 +417,10 @@
       <DependentUpon>FrmRegister.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporting.resx">
+      <DependentUpon>FrmReporting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSearch.resx">
       <DependentUpon>FrmSearch.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -399,6 +431,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetupPrinter.resx">
       <DependentUpon>FrmSetupPrinter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTime.resx">
+      <DependentUpon>FrmTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewReporting.resx">
+      <DependentUpon>FrmViewReporting.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MessBox.resx">

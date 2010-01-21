@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApplication4
 {
-    partial class Form2
+    partial class MyReport
     {
         /// <summary>
         /// Required designer variable.
@@ -36,33 +36,35 @@
             // 
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(12, 12);
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.SelectionFormula = "";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(816, 640);
-            this.crystalReportViewer1.TabIndex = 3;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(573, 483);
+            this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ViewTimeSelectionFormula = "";
+            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(163, 46);
+            this.button1.Location = new System.Drawing.Point(154, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form2
+            // MyReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 677);
+            this.ClientSize = new System.Drawing.Size(573, 483);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "Form2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Name = "MyReport";
+            this.Text = "MyReport";
+            this.Load += new System.EventHandler(this.MyReport_Load);
             this.ResumeLayout(false);
 
         }
@@ -71,6 +73,5 @@
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private System.Windows.Forms.Button button1;
-
     }
 }
