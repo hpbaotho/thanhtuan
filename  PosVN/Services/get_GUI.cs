@@ -647,5 +647,11 @@ namespace Services
             DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateInvoiceNotes");
             cmd.Dispose();
         }
+        public void UpdateLogoPath(string store_ID,string path)
+        {
+            cmd = new SqlCommand();
+            FillDataset3(cmd, CommandType.Text, "Update Setup set Company_Info_5 ='" + path + "' where Store_ID ='"+store_ID+"'");
+            cmd.Dispose();
+        }
     }
 }
