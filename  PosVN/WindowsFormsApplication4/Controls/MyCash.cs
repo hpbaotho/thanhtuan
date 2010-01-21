@@ -379,7 +379,15 @@ namespace WindowsFormsApplication4.Controls
             }
             return re;
         }
-
+        public ArrayList get_All_Rows()
+        {
+            ArrayList re = new ArrayList();
+            for (int k = 1; k <= hash.Count; k++)
+            {
+                re.Add(hash[k]);
+            }
+            return re;
+        }
         public void invadiate_NonMultiSelected(MyItem item)
         {
             if(item.Add)
