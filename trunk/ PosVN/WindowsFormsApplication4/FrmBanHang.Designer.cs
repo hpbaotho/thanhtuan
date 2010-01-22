@@ -915,7 +915,7 @@
             this.button61.OwnDrawColor = System.Drawing.Color.White;
             this.button61.Size = new System.Drawing.Size(113, 67);
             this.button61.TabIndex = 7;
-            this.button61.Text = "Quay lại";
+            this.button61.Text = "Ghi chú";
             this.button61.UseOwnColor = false;
             this.button61.Click += new System.EventHandler(this.button61_Click);
             // 

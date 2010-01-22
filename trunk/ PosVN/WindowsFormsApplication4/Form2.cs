@@ -86,5 +86,11 @@ namespace WindowsFormsApplication4
             //    MessageBox.Show("Cancel Button was Clicked");
             //}
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CrystalReport1 crystalReport1 = new CrystalReport1();
+            
+        }
     }
 }
