@@ -40,5 +40,15 @@ namespace WindowsFormsApplication4
             get_GUI.UpdateInvoiceNotes(StaticClass.storeId,creTextBox1.Text,creTextBox2.Text,creTextBox3.Text,creTextBox4.Text,creTextBox5.Text,creTextBox6.Text,creTextBox7.Text,creTextBox8.Text,creTextBox9.Text,textBox1.Text);
             this.Dispose();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+            if (openFileDialog.FileName != "")
+            {
+                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
     }
 }

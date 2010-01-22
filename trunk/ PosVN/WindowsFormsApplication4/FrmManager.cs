@@ -99,5 +99,11 @@ namespace WindowsFormsApplication4
             FrmSetupInvoiceNotes frmSetupInvoiceNotes = new FrmSetupInvoiceNotes();
             frmSetupInvoiceNotes.ShowDialog();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            FrmReporting frmReporting = new FrmReporting();
+            frmReporting.ShowDialog();
+        }
     }
 }

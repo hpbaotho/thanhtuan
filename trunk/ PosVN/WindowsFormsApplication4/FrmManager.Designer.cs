@@ -301,9 +301,9 @@ namespace WindowsFormsApplication4
             this.button10.OwnDrawColor = System.Drawing.Color.White;
             this.button10.Size = new System.Drawing.Size(131, 71);
             this.button10.TabIndex = 33;
-            this.button10.Text = "button10";
+            this.button10.Text = "Báo cáo";
             this.button10.UseOwnColor = false;
-            this.button10.Visible = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -591,7 +591,6 @@ namespace WindowsFormsApplication4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(729, 490);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button5);
@@ -599,6 +598,7 @@ namespace WindowsFormsApplication4
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel2);
             this.Name = "FrmManager";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
