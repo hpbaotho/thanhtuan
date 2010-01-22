@@ -83,6 +83,7 @@
     <Compile Include="Alert.cs" />
     <Compile Include="Const\Categories.cs" />
     <Compile Include="Const\Department.cs" />
+    <Compile Include="Const\Employee_Prop.cs" />
     <Compile Include="Const\Inventory.cs" />
     <Compile Include="Const\Invoice_Itemized.cs" />
     <Compile Include="Const\Invoice_Totals.cs" />

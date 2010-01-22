@@ -243,7 +243,7 @@ namespace WindowsFormsApplication4
             {
                 Tax3Per = price * Tax3Rate;
             }
-            object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, price, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, null, null, null, null, null, StaticClass.storeId, price, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+            object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, price, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, price, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
             myCash1.listInvoiceItem.Rows.Add(newrow);
             myCash1.addRow(itemName,"1", String.Format("{0:0,0}",price));
             UpdateInfo();
@@ -351,6 +351,7 @@ namespace WindowsFormsApplication4
                 }
             }
             UpdateInvoiceTotals();
+            SendToKitchen();
             this.Dispose();
             formLayout.FrmLayout_Load(null,null);
             //formLogin.FrmLogin_Load(null, null);
@@ -705,7 +706,15 @@ namespace WindowsFormsApplication4
 
         private void button61_Click(object sender, EventArgs e)
         {
-            
+            FrmKeyBoard frmKeyBoard = new FrmKeyBoard();
+            if (frmKeyBoard.ShowDialog() == DialogResult.OK)
+            {
+                foreach (MyItem item in myCash1.get_RowSelected())
+                {
+                    myCash1.listInvoiceItem.Rows[item.Id - 1]["Kit_ItemNum"] = frmKeyBoard.value;
+                }
+            }
+           
         }
 
         private void button65_Click(object sender, EventArgs e)
@@ -894,6 +903,52 @@ namespace WindowsFormsApplication4
                     else
                     {
                         Alert.Show("Số lượng trả vượt quá số\n lượng bán.",Color.Red);
+                    }
+                }
+            }
+        }
+
+        private void SendToKitchen()
+        {
+            if(myCash1.listInvoiceItem.Rows.Count>0)
+            {
+                bool kt = false;
+                foreach (Printer c in serviceGet.getPrinters(StaticClass.storeId, StaticClass.stationId))
+                {
+                    kt = false;
+                    if (!c.Disable)
+                    {
+                        foreach (MyItem c1 in myCash1.get_All_Rows())
+                        {
+                            if (!(c1.Mota.StartsWith(">") || Convert.ToDecimal(c1.Soluong) < 0))
+                            {
+                                DataTable inventPrinter = getGui.GetInventPrinter(StaticClass.storeId, myCash1.listInvoiceItem.Rows[0]["ItemNum"].ToString(), c.PrinterName);
+                                if (inventPrinter.Rows.Count > 0)
+                                {
+                                    string lineNum = myCash1.listInvoiceItem.Rows[c1.Id -1]["LineNum"].ToString();
+                                    string itemNum = myCash1.listInvoiceItem.Rows[c1.Id - 1]["ItemNum"].ToString();
+                                    string quan = myCash1.listInvoiceItem.Rows[c1.Id - 1]["Quantity"].ToString();
+                                    string note = myCash1.listInvoiceItem.Rows[c1.Id - 1]["Kit_ItemNum"].ToString();
+                                    string itemname = myCash1.listInvoiceItem.Rows[c1.Id - 1]["DiffItemName"].ToString();
+                                    getGui.InsertItemsToPrintToKit(StaticClass.storeId, invoiceNum, lineNum, itemNum, quan, note, itemname);
+                                    kt = true;
+                                }
+                            }
+                        }
+                        if (kt)
+                        {
+                            rpt_PrintToKit xxx = new rpt_PrintToKit();
+
+                            xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                            string[] para = { "@Store_ID", "@Invoice_Number","@Table" };
+                            string[] value = {StaticClass.storeId,invoiceNum,tableName};
+                            serviceGet.FillDataReport(xxx,para,value,true);
+
+                            xxx.PrintOptions.PrinterName = c.Details;
+                            xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
+                            xxx.PrintToPrinter(1, true, 1, 1);
+                            getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
+                        }
                     }
                 }
             }

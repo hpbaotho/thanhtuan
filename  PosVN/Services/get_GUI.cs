@@ -653,5 +653,30 @@ namespace Services
             FillDataset3(cmd, CommandType.Text, "Update Setup set Company_Info_5 ='" + path + "' where Store_ID ='"+store_ID+"'");
             cmd.Dispose();
         }
+        public void InsertItemsToPrintToKit(string storeID,string InvoiceNum,string lineNum,string itemNum,string quan,string note,string itemName)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Invoice_Number","@LineNum","@Store_ID","@ItemNum","@Quantity","@Note","@ItemName" };
+            string[] value = { InvoiceNum,lineNum,storeID,itemNum,quan,note,itemName };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_InsertItemsToPrintToKit");
+            cmd.Dispose();
+        }
+        public void DeleteItemsPrintToKit(string storeID, string InvoiceNum)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Invoice_Number", "@Store_ID"};
+            string[] value = { InvoiceNum, storeID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteItemsPrintToKit");
+            cmd.Dispose();
+        }
+        public DataTable GetInventPrinter(string storeID, string itemNum,string printerName)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@ItemNum", "@Store_ID", "@PrinterName" };
+            string[] value = { itemNum, storeID,printerName };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_GetInventPrinters");
+            cmd.Dispose();
+            return re;
+        }
     }
 }

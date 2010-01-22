@@ -66,16 +66,6 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
@@ -92,9 +82,11 @@
             this.txtInventDesc = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtInvenId = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
+            this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
+            this.button2 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.pnlLayout.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -102,6 +94,7 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabPage14.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -252,7 +245,6 @@
             // 
             // pnlLayout
             // 
-            this.pnlLayout.Controls.Add(this.tabControl1);
             this.pnlLayout.Location = new System.Drawing.Point(1, 203);
             this.pnlLayout.Name = "pnlLayout";
             this.pnlLayout.Size = new System.Drawing.Size(806, 350);
@@ -263,18 +255,8 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Controls.Add(this.tabPage9);
-            this.tabControl1.Controls.Add(this.tabPage10);
-            this.tabControl1.Controls.Add(this.tabPage11);
-            this.tabControl1.Controls.Add(this.tabPage12);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(-2, 3);
+            this.tabControl1.Location = new System.Drawing.Point(-1, 206);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -285,12 +267,12 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tabControl2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 81);
+            this.tabPage1.Location = new System.Drawing.Point(4, 41);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(800, 259);
+            this.tabPage1.Size = new System.Drawing.Size(800, 299);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Optional Info";
+            this.tabPage1.Text = "Thông tin";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabControl2
@@ -521,103 +503,16 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 81);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.creListBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(800, 259);
+            this.tabPage2.Size = new System.Drawing.Size(800, 299);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pending Orders";
+            this.tabPage2.Text = "Máy in";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 81);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(800, 259);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Properties";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 81);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(800, 259);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Notes";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 81);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(800, 259);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Modifiers";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 81);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(800, 259);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Price Levels";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 81);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(800, 259);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Ordering Info";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 81);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(800, 259);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Special Pricing";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 81);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(800, 259);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Matrix";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Location = new System.Drawing.Point(4, 81);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(800, 259);
-            this.tabPage10.TabIndex = 9;
-            this.tabPage10.Text = "Sales History";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 81);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(800, 259);
-            this.tabPage11.TabIndex = 10;
-            this.tabPage11.Text = "Printers";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 81);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(800, 259);
-            this.tabPage12.TabIndex = 11;
-            this.tabPage12.Text = "Recipe";
-            this.tabPage12.UseVisualStyleBackColor = true;
             // 
             // ckb_Sua
             // 
@@ -813,12 +708,46 @@
             this.cmbDept.TabIndex = 15;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
             // 
+            // creListBox1
+            // 
+            this.creListBox1.FormattingEnabled = true;
+            this.creListBox1.ItemHeight = 29;
+            this.creListBox1.Location = new System.Drawing.Point(253, 27);
+            this.creListBox1.Name = "creListBox1";
+            this.creListBox1.Size = new System.Drawing.Size(519, 236);
+            this.creListBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(29, 27);
+            this.button1.Name = "button1";
+            this.button1.OwnDrawColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(156, 96);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Thêm máy in";
+            this.button1.UseOwnColor = false;
+            // 
+            // button2
+            // 
+            this.button2.Color2 = System.Drawing.Color.Blue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(29, 167);
+            this.button2.Name = "button2";
+            this.button2.OwnDrawColor = System.Drawing.Color.White;
+            this.button2.Size = new System.Drawing.Size(156, 96);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Xóa máy in";
+            this.button2.UseOwnColor = false;
+            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 661);
             this.ControlBox = false;
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.ckb_Sua);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
@@ -851,7 +780,6 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.pnlLayout.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -860,6 +788,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage14.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -900,16 +829,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage9;
-        private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.TabPage tabPage14;
@@ -931,5 +850,8 @@
         private WindowsFormsApplication4.Controls.CreCheckBox creCheckBox2;
         private WindowsFormsApplication4.Controls.CreCheckBox creCheckBox1;
         private System.Windows.Forms.CheckBox ckb_Sua;
+        private WindowsFormsApplication4.Controls.button button2;
+        private WindowsFormsApplication4.Controls.button button1;
+        private WindowsFormsApplication4.Controls.CreListBox creListBox1;
     }
 }

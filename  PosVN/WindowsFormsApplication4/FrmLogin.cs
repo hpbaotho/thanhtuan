@@ -109,6 +109,13 @@ namespace WindowsFormsApplication4
             bool f = textBox1.Focused;
             this.Refresh();
 
+            DataTable setup =  getGui.GetSetupByStore(StaticClass.storeId);
+            string path = setup.Rows[0]["Company_Info_5"].ToString();
+            if(path != "")
+            {
+                pictureBox1.Image = Image.FromFile(path);
+            }
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -513,6 +520,7 @@ namespace WindowsFormsApplication4
             if(openFileDialog.FileName != "")
             {
                 pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+                getGui.UpdateLogoPath(StaticClass.storeId,openFileDialog.FileName);
             }
         }
     }
