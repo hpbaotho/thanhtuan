@@ -605,11 +605,11 @@ namespace WindowsFormsApplication4
                 myCash1.invoiceTotal.Rows[0][57] = Convert.ToInt32(myCash1.invoiceTotal.Rows[0][57]) + 1;
                 foreach (DataRow c in myCash1.listInvoiceItem.Rows)
                 {
-                    //getGui.UpdateInvoiceItemized(StaticClass.storeId, invoiceNum, c[2].ToString(), c[3].ToString(), c[12].ToString(), c[1].ToString(), c[6].ToString(), c[7].ToString(), c[8].ToString(), c[5].ToString(), c[19].ToString());
+                    getGui.UpdateInvoiceItemized(StaticClass.storeId, invoiceNum, c[2].ToString(), c[3].ToString(), c[12].ToString(), c[1].ToString(), c[6].ToString(), c[7].ToString(), c[8].ToString(), c[5].ToString(), c[19].ToString());
                 }
             }
             UpdateInvoiceTotals();
-
+            SendToKitchen();
             if (myCash1.listInvoiceItem.Rows.Count != 0)
             {
                 Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
@@ -794,6 +794,7 @@ namespace WindowsFormsApplication4
                     }
                     UpdateInvoiceTotals();
                     getGui.DeleteInvoiceOnhold(StaticClass.storeId,invoiceNum);
+                    SendToKitchen();
                     this.Dispose();
                     formLayout.FrmLayout_Load(null, null);
 
@@ -920,9 +921,9 @@ namespace WindowsFormsApplication4
                     {
                         foreach (MyItem c1 in myCash1.get_All_Rows())
                         {
-                            if (!(c1.Mota.StartsWith(">") || Convert.ToDecimal(c1.Soluong) < 0))
+                            if (!(c1.Mota.StartsWith(">")))
                             {
-                                DataTable inventPrinter = getGui.GetInventPrinter(StaticClass.storeId, myCash1.listInvoiceItem.Rows[0]["ItemNum"].ToString(), c.PrinterName);
+                                DataTable inventPrinter = getGui.GetInventPrinter(StaticClass.storeId, myCash1.listInvoiceItem.Rows[c1.Id - 1]["ItemNum"].ToString(), c.PrinterName);
                                 if (inventPrinter.Rows.Count > 0)
                                 {
                                     string lineNum = myCash1.listInvoiceItem.Rows[c1.Id -1]["LineNum"].ToString();
