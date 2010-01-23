@@ -729,5 +729,26 @@ namespace Services
             }
 
         }
+
+        public void ClearAllInvoice()
+        {
+            cmd = new SqlCommand();
+            string deleteSQL = "Delete From Invoice_OnHold";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = "Delete From Invoice_Itemized";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = "Delete From Invoice_Totals_Notes";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = "Delete From Invoice_Totals";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+        public void UpdateAdminPass(string StoreId,string NewPass)
+        {
+            cmd = new SqlCommand();
+            string query = "Update Setup Set Admin_Pass = '" + NewPass + "' where Store_ID ='" + StoreId+"'";
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
     }
 }
