@@ -106,5 +106,14 @@ namespace WindowsFormsApplication4
         {
             LoadImage();
         }
+
+        private void textBox1_DoubleClick(object sender, EventArgs e)
+        {
+            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(textBox1.Text);
+            if(frmKeyBoard.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = frmKeyBoard.value;
+            }
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace WindowsFormsApplication4
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,10 +37,9 @@ namespace WindowsFormsApplication4
             {
                 FileReadWrite.WriteFile(actPath, creTextBox2.Text);
                 FileReadWrite.WriteFile(regPath, creTextBox3.Text);
-                Alert.Show("Đăng kí thành công !\nKhởi động lại chương trình để sử dụng");
+                Alert.Show("Đăng kí thành công !\nKhởi động lại chương trình \nđể sử dụng");
                 Application.Exit();
             }
-            this.Dispose();
         }
     }
 }

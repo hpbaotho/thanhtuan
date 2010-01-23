@@ -117,7 +117,7 @@ namespace WindowsFormsApplication4
             {
                 pictureBox1.Image = Image.FromFile(path);
             }
-
+            label3.Text = setup.Rows[0]["Invoice_Notes_10"].ToString();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -530,6 +530,38 @@ namespace WindowsFormsApplication4
         {
             //label3.Text = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
             //label4.Text = String.Format("{0:hh:mm:ss tt}", DateTime.Now);
+        }
+
+        private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbout frmAbout = new FrmAbout();
+            frmAbout.ShowDialog();
+        }
+
+        private void xóaHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAdminPass adminPass = new FrmAdminPass();
+            if (adminPass.ShowDialog() == DialogResult.OK)
+            {
+                if (serviceGet.checkAdminPass(adminPass.text, "1001"))
+                {
+                    if (MessBox2Choice.ShowBox("Bạn có muốn xóa tất cả \nhóa đơn không ?", Color.Red) == DialogResult.Yes)
+                    {
+                        getGui.ClearAllInvoice();
+                    }
+                }
+                else
+                {
+                    Alert.Show("Bạn đã nhập sai \nmật khẩu !", Color.Red);
+                }
+            }
+           
+        }
+
+        private void đổiMậtKhẩuQuảnLýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmChangePassAdmin frmChangePassAdmin = new FrmChangePassAdmin();
+            frmChangePassAdmin.ShowDialog();
         }
     }
 }
