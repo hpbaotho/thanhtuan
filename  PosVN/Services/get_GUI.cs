@@ -678,5 +678,56 @@ namespace Services
             cmd.Dispose();
             return re;
         }
+        public DataTable GetAllInventPrinter(string storeID, string itemNum)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@ItemNum", "@Store_ID" };
+            string[] value = { itemNum, storeID };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_GetAllInventPrinters");
+            cmd.Dispose();
+            return re;
+        }
+        public void DeleteInventPrinter(string storeID, string itemNum,string pName)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@ItemNum", "@Store_ID", "@PrinterName" };
+            string[] value = { itemNum, storeID,pName };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteInventPrinter");
+            cmd.Dispose();
+        }
+        public void InsertInventPrinter(string storeID, string itemNum, string pName,string port)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@ItemNum", "@Store_ID", "@Port", "@PrinterName" };
+            string[] value = { itemNum, storeID,port, pName };
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_InsertInventPrinter");
+            cmd.Dispose();
+        }
+
+        public void UpdateLogo(byte[] logo, string storeID)
+        {
+            
+            try
+            {
+                cmd = new SqlCommand();
+                string str = "";
+                if (cmd.Parameters.Count == 0)
+                {
+                    str = "UPDATE Setup SET Logo = @Picture WHERE Store_ID = @storeID";
+                    cmd.Parameters.Add("@storeID", System.Data.SqlDbType.NVarChar, 10);
+                    cmd.Parameters.Add("@Picture", System.Data.SqlDbType.Image);
+                }
+                cmd.Parameters["@storeID"].Value = storeID;
+                cmd.Parameters["@Picture"].Value = logo;
+                FillDataset3(cmd, CommandType.Text, str);
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw;
+
+            }
+
+        }
     }
 }
