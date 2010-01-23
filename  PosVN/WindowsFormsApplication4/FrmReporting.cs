@@ -67,7 +67,7 @@ namespace WindowsFormsApplication4
         }
         private ArrayList viewInv()
         {
-            return new ArrayList(new string[] { "Các mặt còn trong kho", "Tình hình bán mặt hàng theo mặt hàng" });
+            return new ArrayList(new string[] { "Các mặt còn trong kho", "Tình hình bán mặt hàng theo Loại hàng" });
         }
 
         //private ArrayList viewInv()
