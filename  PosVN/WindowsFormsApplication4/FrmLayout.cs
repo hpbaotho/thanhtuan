@@ -24,8 +24,14 @@ namespace WindowsFormsApplication4
         public ServiceGet serviceGet = new ServiceGet();
         public bool isTransfer = false;
         public FrmBanHang formBanHang; // Xu ly transfer
+        private static FrmLayout  m_Instance;
 
-
+        public static FrmLayout GetInstance()
+        {
+            if (m_Instance == null)
+                m_Instance = new FrmLayout();
+            return m_Instance;
+        }
         public FrmLayout()
         {
             InitializeComponent();
@@ -212,6 +218,10 @@ namespace WindowsFormsApplication4
         private void button4_Click(object sender, EventArgs e)
         {
             this.FrmLayout_Load(null,null);
+        }
+        public void RefreshForm()
+        {
+            this.FrmLayout_Load(null, null);
         }
     }
 }
