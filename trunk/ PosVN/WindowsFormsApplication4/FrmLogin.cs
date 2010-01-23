@@ -523,5 +523,11 @@ namespace WindowsFormsApplication4
                 getGui.UpdateLogoPath(StaticClass.storeId,openFileDialog.FileName);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //label3.Text = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
+            //label4.Text = String.Format("{0:hh:mm:ss tt}", DateTime.Now);
+        }
     }
 }

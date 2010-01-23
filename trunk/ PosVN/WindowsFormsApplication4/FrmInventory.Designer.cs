@@ -66,6 +66,9 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new WindowsFormsApplication4.Controls.button();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
+            this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
@@ -82,9 +85,6 @@
             this.txtInventDesc = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtInvenId = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
-            this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
-            this.button1 = new WindowsFormsApplication4.Controls.button();
-            this.button2 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -514,6 +514,41 @@
             this.tabPage2.Text = "Máy in";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Color2 = System.Drawing.Color.Blue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(29, 167);
+            this.button2.Name = "button2";
+            this.button2.OwnDrawColor = System.Drawing.Color.White;
+            this.button2.Size = new System.Drawing.Size(156, 96);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Xóa máy in";
+            this.button2.UseOwnColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(29, 27);
+            this.button1.Name = "button1";
+            this.button1.OwnDrawColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(156, 96);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Thêm máy in";
+            this.button1.UseOwnColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // creListBox1
+            // 
+            this.creListBox1.FormattingEnabled = true;
+            this.creListBox1.ItemHeight = 29;
+            this.creListBox1.Location = new System.Drawing.Point(253, 27);
+            this.creListBox1.Name = "creListBox1";
+            this.creListBox1.Size = new System.Drawing.Size(519, 236);
+            this.creListBox1.TabIndex = 0;
+            // 
             // ckb_Sua
             // 
             this.ckb_Sua.AutoSize = true;
@@ -707,39 +742,6 @@
             this.cmbDept.Size = new System.Drawing.Size(255, 32);
             this.cmbDept.TabIndex = 15;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
-            // 
-            // creListBox1
-            // 
-            this.creListBox1.FormattingEnabled = true;
-            this.creListBox1.ItemHeight = 29;
-            this.creListBox1.Location = new System.Drawing.Point(253, 27);
-            this.creListBox1.Name = "creListBox1";
-            this.creListBox1.Size = new System.Drawing.Size(519, 236);
-            this.creListBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Color2 = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(29, 27);
-            this.button1.Name = "button1";
-            this.button1.OwnDrawColor = System.Drawing.Color.White;
-            this.button1.Size = new System.Drawing.Size(156, 96);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm máy in";
-            this.button1.UseOwnColor = false;
-            // 
-            // button2
-            // 
-            this.button2.Color2 = System.Drawing.Color.Blue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(29, 167);
-            this.button2.Name = "button2";
-            this.button2.OwnDrawColor = System.Drawing.Color.White;
-            this.button2.Size = new System.Drawing.Size(156, 96);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Xóa máy in";
-            this.button2.UseOwnColor = false;
             // 
             // FrmInventory
             // 
