@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,22 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Services;
+using WindowsFormsApplication4.Persistence;
+using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
 {
     public partial class FrmInventory : Form
     {
         private Services.get_GUI get_service;
+        private Service.ServiceGet serviceGet;
         private string text_header = "Thông tin chung cho ";
         private int currentIndex;
         private int limit;
         private DataTable departs;
         private DataTable inventory;
         private string OldInvent_ID;
+        private ArrayList InventPrinters;
         public FrmInventory()
         {
             InitializeComponent();
             get_service=new get_GUI();
+            serviceGet = new ServiceGet();
+            InventPrinters = new ArrayList();
             departs = get_service.GetAllDepartments2(StaticClass.storeId);
             Service.Util.UpdateDataTableForCombo(cmbDept, departs, 2);
             for (int j = 0; j < departs.Rows.Count; j++)
@@ -91,6 +98,15 @@ namespace WindowsFormsApplication4
             bool tax3 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_3]);
             checkedAttribute(Modifier_Item, Exclude, CheckId, CheckId2, CountThisItem, PrintOnRe, AllowBuy, PromptPrice,
                              PromptQua, DisableItem, SpecialPer, UseSerial, Auto, Food,Type,cost,price,tax1,tax2,tax3);
+            InventPrinters = serviceGet.getAllInventPrinter(StaticClass.storeId,
+                                                            table.Rows[rowIndex][Const.Inventory.ItemNum].ToString());
+            creListBox1.Items.Clear();
+            for (int i = 0; i < InventPrinters.Count; i++)
+            {
+                Printer printer = (Printer) InventPrinters[i];
+                creListBox1.Items.Add(printer);
+                //creListBox1.DisplayMember = "PrinterName";
+            }
         }
 
 
@@ -144,10 +160,10 @@ namespace WindowsFormsApplication4
 
         private void TabPage_Change(object sender, EventArgs e)
         {
-            if(!tabControl1.SelectedTab.Text.Equals("Optional Info"))
-            {
-                MessageBox.Show("Đang xây dựng");
-            }
+            //if(!tabControl1.SelectedTab.Text.Equals("Optional Info"))
+            //{
+            //    MessageBox.Show("Đang xây dựng");
+            //}
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -357,6 +373,7 @@ namespace WindowsFormsApplication4
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             ckb_Sua.Checked = false;
 
+            serviceGet.UpdateInventPrinter(InventPrinters,txtInvenId.Text);
             Alert.Show("Bạn đã thay đổi thành công",Color.Blue);
         }
 
@@ -372,6 +389,51 @@ namespace WindowsFormsApplication4
             FrmSearch search = new FrmSearch(inventory, column);
             search.passdata = new FrmSearch.PassData(changeState);
             search.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(creListBox1.SelectedItem != null)
+            {
+                Printer printer = (Printer) creListBox1.SelectedItem;
+                printer.isDelete = true;
+                creListBox1.ClearSelected();
+                creListBox1.Items.Remove(printer);
+            }
+            else
+            {
+                Alert.Show("Chưa chọn máy in",Color.Red);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmPrinterChoice frmPrinterChoice =new FrmPrinterChoice();
+            if(frmPrinterChoice.ShowDialog() == DialogResult.OK)
+            {
+                if(CheckPrinterExist(frmPrinterChoice.PrinterName))
+                {
+                    Printer printer = new Printer(frmPrinterChoice.PrinterName);
+                    printer.isNew = true;
+                    InventPrinters.Add(printer);
+                    creListBox1.Items.Add(printer);
+                }
+                else
+                {
+                    Alert.Show("Máy in đã có rồi",Color.Red);
+                }
+            }
+        }
+        private bool CheckPrinterExist(string pName)
+        {
+            foreach (Printer c in creListBox1.Items)
+            {
+                if(c.PrinterName == pName)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
     }

@@ -28,5 +28,15 @@ namespace WindowsFormsApplication4.Persistence
             isNew = false;
             isDelete = false;
         }
+        public Printer(string pName)
+        {
+            PrinterName = pName;
+            isNew = false;
+            isDelete = false;
+        }
+        public override string ToString()
+        {
+            return PrinterName;
+        }
     }
 }

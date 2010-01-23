@@ -228,5 +228,31 @@ namespace WindowsFormsApplication4.Service
             }
             return null;
         }
+        public ArrayList getAllInventPrinter(string storeId,string itemNum)
+        {
+            DataTable p = getGui.GetAllInventPrinter(storeId, itemNum);
+            ArrayList printers = new ArrayList();
+            for (int i = 0; i < p.Rows.Count; i++)
+            {
+                string pName = p.Rows[i]["PrinterName"].ToString();
+                Printer printer = new Printer(pName);
+                printers.Add(printer);
+            }
+            return printers;
+        }
+        public void UpdateInventPrinter(ArrayList printers,string itemNum)
+        {
+            foreach (Printer o in printers)
+            {
+                if(o.isDelete == true && o.isNew == false)
+                {
+                    getGui.DeleteInventPrinter(StaticClass.storeId,itemNum,o.PrinterName);
+                }
+                else if (o.isDelete == false && o.isNew == true)
+                {
+                    getGui.InsertInventPrinter(StaticClass.storeId,itemNum,o.PrinterName,"123");
+                }
+            }
+        }
     }
 }
