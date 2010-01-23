@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(890, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 32);
+            this.label1.Size = new System.Drawing.Size(82, 31);
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
             // 
@@ -87,6 +87,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "button7";
             this.button7.UseOwnColor = false;
+            this.button7.Visible = false;
             // 
             // button6
             // 
@@ -98,6 +99,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "button6";
             this.button6.UseOwnColor = false;
+            this.button6.Visible = false;
             // 
             // button5
             // 
@@ -109,6 +111,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "button5";
             this.button5.UseOwnColor = false;
+            this.button5.Visible = false;
             // 
             // button4
             // 

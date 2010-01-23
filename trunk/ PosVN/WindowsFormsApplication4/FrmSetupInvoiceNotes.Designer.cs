@@ -73,7 +73,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(376, 346);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Ghi chú trên";
+            this.tabPage1.Text = "Thông tin";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // textBox1
@@ -83,6 +83,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(363, 333);
             this.textBox1.TabIndex = 0;
+            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             // 
             // tabPage2
             // 
@@ -246,6 +247,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FrmSetupInvoiceNotes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSetupInvoiceNotes";
             this.Load += new System.EventHandler(this.FrmSetupInvoiceNotes_Load);
             this.tabControl1.ResumeLayout(false);

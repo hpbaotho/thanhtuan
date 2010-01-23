@@ -146,9 +146,9 @@ namespace WindowsFormsApplication4.Service
             {
                 string cashierPass = getCashierpass.Rows[0][1].ToString();
                 string adminPass = getGui.GetAdminPass(storeId).Rows[0][1].ToString();
-                if(pass == cashierPass || pass == adminPass)
+                if(pass.ToLower() == cashierPass.ToLower() || pass.ToLower() == adminPass.ToLower())
                 {
-                    if (pass == cashierPass)
+                    if (pass.ToLower() == cashierPass.ToLower())
                     {
                         StaticClass.isAdmin = false;
                     }
@@ -170,7 +170,7 @@ namespace WindowsFormsApplication4.Service
         }
         public bool checkAdminPass(string pass,string storeId)
         {
-            if(pass == getGui.GetAdminPass(storeId).Rows[0][1].ToString())
+            if(pass.ToLower() == getGui.GetAdminPass(storeId).Rows[0][1].ToString().ToLower())
             {
                 return true;
             }
