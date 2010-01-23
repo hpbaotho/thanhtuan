@@ -266,8 +266,8 @@ namespace WindowsFormsApplication4
                             return null;
                         }
                         POSReport.Report.InvoiceTotal invoiceTotal = new POSReport.Report.InvoiceTotal();
-                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2" };
-                        object[] value = { StaticClass.storeId, DateTime1, DateTime2 };
+                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2","@Status" };
+                        object[] value = { StaticClass.storeId, DateTime1, DateTime2,Const.Invoice_Status.THANH_TOAN_ROI};
                         test.FillDataReport(invoiceTotal, pa, value, true);
                         return invoiceTotal;
                     }
@@ -275,8 +275,8 @@ namespace WindowsFormsApplication4
                 case 1:
                     {
                         POSReport.Report.rptInvoiceTotalsDaily invoiceTotalsDaily = new rptInvoiceTotalsDaily();
-                        string[] pa = { "@Store_ID", "Report_Title_Param" };
-                        object[] value = { StaticClass.storeId, "Tình hình bán hàng" };
+                        string[] pa = { "@Store_ID", "Report_Title_Param" ,"@Status"};
+                        object[] value = { StaticClass.storeId, "Tình hình bán hàng" ,Const.Invoice_Status.THANH_TOAN_ROI};
                         test.FillDataReport(invoiceTotalsDaily, pa, value, true);
                         return invoiceTotalsDaily;
                     }

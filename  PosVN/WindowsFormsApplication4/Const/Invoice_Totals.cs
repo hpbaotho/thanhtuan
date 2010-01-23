@@ -19,5 +19,13 @@ namespace WindowsFormsApplication4.Const
         public const string Grand_Total = "Grand_Total";
         public const string Cashier_ID = "Cashier_ID";
         public const string Payment_Method="Payment_Method";
+        public const string Status = "Status";
+    }
+
+    public static class Invoice_Status
+    {
+        public const string HUY = "V";
+        public const string THANH_TOAN_ROI = "C";
+        public const string KHACH_AN = "O";
     }
 }
