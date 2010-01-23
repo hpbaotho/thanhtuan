@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -111,7 +112,8 @@ namespace WindowsFormsApplication4
 
             DataTable setup =  getGui.GetSetupByStore(StaticClass.storeId);
             string path = setup.Rows[0]["Company_Info_5"].ToString();
-            if(path != "")
+            FileInfo fi = new FileInfo(path);
+            if(path != ""&& fi.Exists)
             {
                 pictureBox1.Image = Image.FromFile(path);
             }
