@@ -706,10 +706,12 @@ namespace WindowsFormsApplication4
 
         private void button61_Click(object sender, EventArgs e)
         {
-            FrmKeyBoard frmKeyBoard = new FrmKeyBoard();
+            ArrayList myItems = myCash1.get_RowSelected();
+            MyItem myItem = (MyItem)myItems[0];
+            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(myCash1.listInvoiceItem.Rows[myItem.Id - 1]["Kit_ItemNum"].ToString());
             if (frmKeyBoard.ShowDialog() == DialogResult.OK)
             {
-                foreach (MyItem item in myCash1.get_RowSelected())
+                foreach (MyItem item in myItems)
                 {
                     myCash1.listInvoiceItem.Rows[item.Id - 1]["Kit_ItemNum"] = frmKeyBoard.value;
                 }
