@@ -14,7 +14,7 @@ namespace Services
         private SqlCommand cmd;
         public static string serverName = "THANH\\SQLEXPRESS";
         public static string databaseName = "POS";
-        public static string Mode;
+        public static string Mode="AUT";
         public static string UserName;
         public static string Password;
         public get_GUI()

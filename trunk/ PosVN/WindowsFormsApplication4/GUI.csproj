@@ -87,6 +87,7 @@
     <Compile Include="Const\Inventory.cs" />
     <Compile Include="Const\Invoice_Itemized.cs" />
     <Compile Include="Const\Invoice_Totals.cs" />
+    <Compile Include="Const\NetWorking_Content.cs" />
     <Compile Include="Controls\buton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -173,6 +174,7 @@
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormManage.cs" />
     <Compile Include="FrmAdminPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +325,7 @@
     <Compile Include="FrmViewReporting.Designer.cs">
       <DependentUpon>FrmViewReporting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\UpdateFormHandler.cs" />
     <Compile Include="lic\FileReadWrite.cs" />
     <Compile Include="lic\Lc.cs" />
     <Compile Include="lic\Sc.cs" />
@@ -339,6 +342,8 @@
     <Compile Include="MessBox2Choice.Designer.cs">
       <DependentUpon>MessBox2Choice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Networking\BTcpClient.cs" />
+    <Compile Include="Networking\DataPackage.cs" />
     <Compile Include="Persistence\Printer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -495,6 +500,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Service\GetDatabaseInfo.cs" />
+    <Compile Include="Service\IPosInService.cs" />
+    <Compile Include="Service\IPosOutService.cs" />
     <Compile Include="Service\ServiceGet.cs" />
     <Compile Include="Service\Util.cs" />
     <Compile Include="FrmSetupTax.cs">
@@ -504,6 +511,7 @@
       <DependentUpon>FrmSetupTax.cs</DependentUpon>
     </Compile>
     <Compile Include="StaticClass.cs" />
+    <Compile Include="Utilities\GetIP.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

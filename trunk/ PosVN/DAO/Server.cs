@@ -9,7 +9,7 @@ namespace DAO
     {
         private string server_name;
         private string database_name;
-        public string Mode;
+        public string Mode="AUT";
         public string UserName;
         public string Password;
         public  string Server_name
