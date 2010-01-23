@@ -37,8 +37,8 @@ namespace WindowsFormsApplication4
             {
                 FileReadWrite.WriteFile(actPath, creTextBox2.Text);
                 FileReadWrite.WriteFile(regPath, creTextBox3.Text);
-                Alert.Show("Đăng kí thành công !");
-                Application.Restart();
+                Alert.Show("Đăng kí thành công !\nKhởi động lại chương trình để sử dụng");
+                Application.Exit();
             }
             this.Dispose();
         }

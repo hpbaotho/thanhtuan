@@ -24,6 +24,12 @@ namespace WindowsFormsApplication4
             InitializeComponent();
             this.isPass = isPass;
         }
+        public FrmKeyBoard(string text)
+        {
+            InitializeComponent();
+            textBox1.Text = text;
+            textBox1.SelectAll();
+        }
         
         private string[] bangChucai;
         private string[] bangChuCaiShift;
