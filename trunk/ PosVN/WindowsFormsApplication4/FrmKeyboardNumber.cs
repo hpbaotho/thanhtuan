@@ -12,6 +12,7 @@ namespace WindowsFormsApplication4
     public partial class FrmKeyboardNumber : FrmPOS
     {
         public string value;
+        public decimal de;
         public FrmKeyboardNumber()
         {
             InitializeComponent();
@@ -66,57 +67,126 @@ namespace WindowsFormsApplication4
                 {
                     Alert.Show("Giá trị nhập vào không \nhợp lệ", Color.Red);
                 }
+                return;
             }
+            
+            if (!Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+
+            }
+            if (Char.IsDigit(e.KeyChar))
+            {
+                textBox1.AppendText(e.KeyChar.ToString());
+            }
+            if (textBox1.Text != "")
+            {
+                if (Decimal.TryParse(textBox1.Text, out de))
+                {
+                    textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                }
+            }
+            if (e.KeyChar.ToString() == ".")
+            {
+                button10_Click(null, null);
+                return;
+            }
+            if (e.KeyChar.ToString() == "-")
+            {
+                button12_Click(null, null);
+                return;
+            }
+
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("0");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("1");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("2");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("3");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("4");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("5");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("6");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("7");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("8");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("9");
+            if (Decimal.TryParse(textBox1.Text, out de))
+            {
+                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
