@@ -162,6 +162,7 @@
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Name = "FrmSetupPrinter";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cài đặt máy in";
             this.Load += new System.EventHandler(this.FrmSetupPrinter_Load);

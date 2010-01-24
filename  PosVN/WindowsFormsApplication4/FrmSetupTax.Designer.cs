@@ -177,6 +177,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSetupTax";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cài đặt thuế";
             this.Load += new System.EventHandler(this.FrmSetupTax_Load);

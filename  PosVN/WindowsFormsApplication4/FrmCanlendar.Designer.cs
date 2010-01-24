@@ -160,6 +160,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Name = "FrmCanlendar";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCanlendar";
             this.ResumeLayout(false);

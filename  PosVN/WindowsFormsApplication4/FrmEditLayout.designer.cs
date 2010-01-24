@@ -108,6 +108,7 @@
             this.button12.TabIndex = 8;
             this.button12.Text = "button12";
             this.button12.UseOwnColor = false;
+            this.button12.Visible = false;
             // 
             // button19
             // 
@@ -119,6 +120,7 @@
             this.button19.TabIndex = 7;
             this.button19.Text = "button19";
             this.button19.UseOwnColor = false;
+            this.button19.Visible = false;
             // 
             // button20
             // 
@@ -130,6 +132,7 @@
             this.button20.TabIndex = 6;
             this.button20.Text = "button20";
             this.button20.UseOwnColor = false;
+            this.button20.Visible = false;
             // 
             // button13
             // 
@@ -181,6 +184,7 @@
             this.button17.TabIndex = 1;
             this.button17.Text = "Thêm nhiều bàn";
             this.button17.UseOwnColor = false;
+            this.button17.Visible = false;
             // 
             // but_AddSec
             // 

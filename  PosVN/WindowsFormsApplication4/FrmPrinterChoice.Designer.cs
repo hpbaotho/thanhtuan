@@ -78,6 +78,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.creListBox1);
             this.Name = "FrmPrinterChoice";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPrinterChoice";
             this.Load += new System.EventHandler(this.FrmPrinterChoice_Load);

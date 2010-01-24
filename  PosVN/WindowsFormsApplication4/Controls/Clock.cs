@@ -14,6 +14,7 @@ namespace WindowsFormsApplication4.Controls
         public Clock()
         {
             InitializeComponent();
+            timer1.Enabled = true;
         }
 
         private void Clock_Load(object sender, EventArgs e)
