@@ -730,19 +730,30 @@ namespace Services
 
         }
 
-        public void ClearAllInvoice()
+        public void ClearAllInvoice(string storeId)
         {
             cmd = new SqlCommand();
-            string deleteSQL = "Delete From Invoice_OnHold";
+            string deleteSQL ;
+            //FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = "Delete From Invoice_Itemized where Store_ID ='" + storeId + "'";
             FillDataset3(cmd, CommandType.Text, deleteSQL);
-            deleteSQL = "Delete From Invoice_Itemized";
+            deleteSQL = "Delete From Invoice_Totals_Notes where Store_ID ='" + storeId + "'";
             FillDataset3(cmd, CommandType.Text, deleteSQL);
-            deleteSQL = "Delete From Invoice_Totals_Notes";
+            deleteSQL = "Delete From Invoice_Totals where Store_ID ='" + storeId + "'";
             FillDataset3(cmd, CommandType.Text, deleteSQL);
-            deleteSQL = "Delete From Invoice_Totals";
+            deleteSQL = "Update Setup_Corp set LastIN = '0'";
             FillDataset3(cmd, CommandType.Text, deleteSQL);
             cmd.Dispose();
         }
+        public int OnholdNumber(string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = "Select count(*) from Invoice_OnHold where Store_ID ='"+ storeId+"'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return Convert.ToInt32(re.Rows[0][0]); 
+        }
+
         public void UpdateAdminPass(string StoreId,string NewPass)
         {
             cmd = new SqlCommand();
