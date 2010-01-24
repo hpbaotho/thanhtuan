@@ -61,11 +61,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 146);
+            this.label3.Location = new System.Drawing.Point(34, 138);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 24);
+            this.label3.Size = new System.Drawing.Size(270, 48);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Số điện thoại :";
+            this.label3.Text = "Số điện thoại : 08-62967772\r\n                        0903 676197";
             // 
             // label4
             // 
@@ -73,19 +73,19 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(34, 196);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 24);
+            this.label4.Size = new System.Drawing.Size(346, 48);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Địa chỉ :";
+            this.label4.Text = "Địa chỉ : 745/15A LẠC LONG QUÂN,\r\n              F.10, TÂN BÌNH, HCM";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 240);
+            this.label5.Location = new System.Drawing.Point(34, 263);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(317, 24);
+            this.label5.Size = new System.Drawing.Size(309, 24);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Để đăng kí sử dụng chương trình";
+            this.label5.Text = "Để đăng ký bản quyền sử dụng.";
             // 
             // button1
             // 
