@@ -89,7 +89,7 @@
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(427, 17);
             this.labelProductName.TabIndex = 19;
-            this.labelProductName.Text = "Tên sản phẩm : RestPro";
+            this.labelProductName.Text = "Tên sản phẩm : Restaurant Pro";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion

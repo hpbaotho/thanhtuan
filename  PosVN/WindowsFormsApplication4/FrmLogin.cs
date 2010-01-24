@@ -23,6 +23,8 @@ namespace WindowsFormsApplication4
         {
             InitializeComponent();
             timer2.Enabled = true;
+            panel1.Focus();
+            textBox1.Focus();
             
         }
 
@@ -571,9 +573,9 @@ namespace WindowsFormsApplication4
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-           if(label4.Left == 1012)
+           if(label4.Left >= 1012)
            {
-               label4.Left = 12;
+               label4.Left = 12 - label4.Width;
            }
            else
            {
