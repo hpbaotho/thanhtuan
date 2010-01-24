@@ -136,6 +136,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.creTextBox1);
             this.Name = "FrmChangePassAdmin";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thay đổi mật khẩu";
             this.ResumeLayout(false);

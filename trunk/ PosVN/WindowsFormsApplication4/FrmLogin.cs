@@ -22,7 +22,7 @@ namespace WindowsFormsApplication4
         public FrmLogin()
         {
             InitializeComponent();
-            
+            timer2.Enabled = true;
             
         }
 
@@ -562,6 +562,18 @@ namespace WindowsFormsApplication4
         {
             FrmChangePassAdmin frmChangePassAdmin = new FrmChangePassAdmin();
             frmChangePassAdmin.ShowDialog();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+           if(label4.Left == 1012)
+           {
+               label4.Left = 12;
+           }
+           else
+           {
+               label4.Left += 5;
+           }
         }
     }
 }

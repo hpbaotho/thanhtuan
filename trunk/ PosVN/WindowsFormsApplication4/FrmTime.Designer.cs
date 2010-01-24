@@ -484,6 +484,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "FrmTime";
+            this.ShowInTaskbar = false;
             this.Text = "FrmTime";
             this.ResumeLayout(false);
             this.PerformLayout();

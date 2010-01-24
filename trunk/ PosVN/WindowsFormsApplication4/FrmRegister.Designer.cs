@@ -133,6 +133,7 @@
             this.Controls.Add(this.creTextBox2);
             this.Controls.Add(this.creTextBox1);
             this.Name = "FrmRegister";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegister";
             this.Load += new System.EventHandler(this.FrmRegister_Load);

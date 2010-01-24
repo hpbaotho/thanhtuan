@@ -32,8 +32,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.creTextBox1 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creTextBox2 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creTextBox3 = new WindowsFormsApplication4.Controls.CreTextBox();
@@ -43,7 +41,9 @@
             this.creTextBox8 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creTextBox6 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creTextBox7 = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button3 = new WindowsFormsApplication4.Controls.button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.tabControl1.SuspendLayout();
@@ -103,28 +103,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ghi chú dưới";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 33);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(376, 346);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Logo";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 120);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // creTextBox1
             // 
@@ -199,6 +177,17 @@
             this.creTextBox7.Size = new System.Drawing.Size(334, 26);
             this.creTextBox7.TabIndex = 6;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.pictureBox1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 33);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(376, 346);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Logo";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.Color2 = System.Drawing.Color.Blue;
@@ -210,6 +199,17 @@
             this.button3.Text = "Thay đổi";
             this.button3.UseOwnColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(64, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button2
             // 
@@ -247,6 +247,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "FrmSetupInvoiceNotes";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSetupInvoiceNotes";
             this.Load += new System.EventHandler(this.FrmSetupInvoiceNotes_Load);
