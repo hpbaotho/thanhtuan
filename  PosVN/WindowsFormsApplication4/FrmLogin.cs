@@ -545,9 +545,14 @@ namespace WindowsFormsApplication4
             {
                 if (serviceGet.checkAdminPass(adminPass.text, "1001"))
                 {
+                    if (getGui.OnholdNumber(StaticClass.storeId) != 0)
+                    {
+                        Alert.Show("Vẫn còn hóa đơn chưa\n thanh toán.",Color.Red);
+                        return;
+                    }
                     if (MessBox2Choice.ShowBox("Bạn có muốn xóa tất cả \nhóa đơn không ?", Color.Red) == DialogResult.Yes)
                     {
-                        getGui.ClearAllInvoice();
+                        getGui.ClearAllInvoice(StaticClass.storeId);
                     }
                 }
                 else
