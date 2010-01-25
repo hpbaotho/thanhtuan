@@ -26,6 +26,8 @@ namespace WindowsFormsApplication4
         private int state = 0;
         private Services.get_GUI get_service;
         private DataTable Employee;
+        private string StatusInvoice=Const.Invoice_Status.THANH_TOAN_ROI;
+        private string Cashier_ID = "ALL";
         public FrmReporting()
         {
             InitializeComponent();
@@ -36,14 +38,15 @@ namespace WindowsFormsApplication4
             txtEndDate.Text = DateTime.Now.ToShortDateString();
             DateTime1 = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,0,0,0);
 
-            DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 0);
+            DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
             txtStartTime.Text = "12" + ":00"  + ":" + "00" + " " + "AM";
-            txtEndTime.Text = "11" + ":59" + ":" + "00" + " " + "PM";
+            txtEndTime.Text = "11" + ":59" + ":" + "59" + " " + "PM";
             setChoseButton(btnSale);
             get_service=new get_GUI();
-            lstCashier.DisplayMember = Const.Employee_Prop.Cashier_ID;
-            lstCashier.DataSource=Employee = get_service.GetAllEmployee(StaticClass.storeId);
-
+            
+            Employee = get_service.GetAllEmployee(StaticClass.storeId);
+            lstCashier.Items.Add("ALL");
+            lstKindOfInvo.DataSource = viewKindOfInvoic();
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -54,7 +57,15 @@ namespace WindowsFormsApplication4
             setChoseButton(btnEmployee);
             EnableDateTime();
         }
-
+        #region PopularData
+        private void PopularDatain2lstCashier()
+        {
+            for(int i=0;i<Employee.Rows.Count;i++)
+            {
+                lstCashier.Items.Add(Employee.Rows[i][Const.Employee_Prop.Cashier_ID]);
+            }
+        }
+        #endregion
         #region Views
         private ArrayList viewSale()
         {
@@ -77,10 +88,10 @@ namespace WindowsFormsApplication4
             return new ArrayList(new string[] { "Các mặt còn trong kho", "Báo cáo chi tiết bán hàng theo nhóm" });
         }
 
-        //private ArrayList viewInv()
-        //{
-        //    return new ArrayList(new string[] { });
-        //}
+        private ArrayList viewKindOfInvoic()
+        {
+            return new ArrayList(new string[] { "Đã thanh toán","Hủy"});
+        }
         #endregion
         
         private void txtStartDate_TextChanged(object sender, EventArgs e)
@@ -243,6 +254,11 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         return;
                     }
+                case 2:
+                    {
+                        EnableDateTime0(true);
+                        return;
+                    }
                 case 40:
                     {
                         EnableDateTime0(false);
@@ -273,8 +289,8 @@ namespace WindowsFormsApplication4
                             return null;
                         }
                         POSReport.Report.InvoiceTotal invoiceTotal = new POSReport.Report.InvoiceTotal();
-                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2","@Status" };
-                        object[] value = { StaticClass.storeId, DateTime1, DateTime2,Const.Invoice_Status.THANH_TOAN_ROI};
+                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID" };
+                        object[] value = { StaticClass.storeId, DateTime1, DateTime2,StatusInvoice,Cashier_ID};
                         test.FillDataReport(invoiceTotal, pa, value, true);
                         return invoiceTotal;
                     }
@@ -282,14 +298,19 @@ namespace WindowsFormsApplication4
                 case 1:
                     {
                         POSReport.Report.rptInvoiceTotalsDaily invoiceTotalsDaily = new rptInvoiceTotalsDaily();
-                        string[] pa = { "@Store_ID", "Report_Title_Param" ,"@Status"};
-                        object[] value = { StaticClass.storeId, "Báo cáo hóa đơn theo từng ngày" ,Const.Invoice_Status.THANH_TOAN_ROI};
+                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status", "@Cashier_ID" };
+                        object[] value = { StaticClass.storeId, "Báo cáo hóa đơn theo từng ngày", StatusInvoice, Cashier_ID };
                         test.FillDataReport(invoiceTotalsDaily, pa, value, true);
                         return invoiceTotalsDaily;
                     }
                 case 2:
                     {
-                        return;
+
+                        POSReport.Report.rptDetailSaleReport DetailSaleReport = new rptDetailSaleReport();
+                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID", "Report Title", };
+                        object[] value = { StaticClass.storeId, DateTime1, DateTime2, StatusInvoice, Cashier_ID, "Báo cáo bán hàng chi tiết trong ngày" };
+                        test.FillDataReport(DetailSaleReport, pa, value, true);
+                        return DetailSaleReport;
                     }
                 case 40:
                     {
@@ -303,8 +324,8 @@ namespace WindowsFormsApplication4
                 case 41:
                     {
                         POSReport.Report.rptItemDept invoice = new rptItemDept();
-                        string[] pa = { "@Store_ID", "Report_Title_Param" };
-                        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm" };
+                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status"};
+                        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm",StatusInvoice};
                         test.FillDataReport(invoice, pa, value, true);
                         return invoice;
                     }
@@ -332,5 +353,31 @@ namespace WindowsFormsApplication4
             return hour;
         }
         #endregion
+
+
+        private void lstKindOfInvo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (lstKindOfInvo.SelectedIndex)
+            {
+                case 0:
+                    StatusInvoice = Const.Invoice_Status.THANH_TOAN_ROI;
+                    break;
+                case 1:
+                    StatusInvoice = Const.Invoice_Status.HUY;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void lstCashier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cashier_ID = lstCashier.Items[lstCashier.SelectedIndex].ToString();
+        }
+
+        private void FrmReporting_Load(object sender, EventArgs e)
+        {
+            PopularDatain2lstCashier();
+        }
     }
 }

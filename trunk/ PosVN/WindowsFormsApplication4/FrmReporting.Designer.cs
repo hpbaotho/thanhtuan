@@ -45,13 +45,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.lstCashier = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lstKindOfInvo = new System.Windows.Forms.ListBox();
             this.button6 = new WindowsFormsApplication4.Controls.button();
             this.btnInvoice = new WindowsFormsApplication4.Controls.button();
             this.btnRestaurant = new WindowsFormsApplication4.Controls.button();
             this.btnEmployee = new WindowsFormsApplication4.Controls.button();
             this.btnCustomer = new WindowsFormsApplication4.Controls.button();
             this.btnSale = new WindowsFormsApplication4.Controls.button();
-            this.btnAll = new WindowsFormsApplication4.Controls.button();
             this.SuspendLayout();
             // 
             // label1
@@ -228,6 +229,30 @@
             this.lstCashier.ScrollAlwaysVisible = true;
             this.lstCashier.Size = new System.Drawing.Size(175, 84);
             this.lstCashier.TabIndex = 23;
+            this.lstCashier.SelectedIndexChanged += new System.EventHandler(this.lstCashier_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(324, 215);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(164, 29);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Loại hóa đơn";
+            // 
+            // lstKindOfInvo
+            // 
+            this.lstKindOfInvo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstKindOfInvo.FormattingEnabled = true;
+            this.lstKindOfInvo.ItemHeight = 20;
+            this.lstKindOfInvo.Location = new System.Drawing.Point(329, 247);
+            this.lstKindOfInvo.Name = "lstKindOfInvo";
+            this.lstKindOfInvo.ScrollAlwaysVisible = true;
+            this.lstKindOfInvo.Size = new System.Drawing.Size(175, 84);
+            this.lstKindOfInvo.TabIndex = 26;
+            this.lstKindOfInvo.SelectedIndexChanged += new System.EventHandler(this.lstKindOfInvo_SelectedIndexChanged);
             // 
             // button6
             // 
@@ -311,23 +336,13 @@
             this.btnSale.UseOwnColor = false;
             this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
-            // btnAll
-            // 
-            this.btnAll.Color2 = System.Drawing.Color.Blue;
-            this.btnAll.Location = new System.Drawing.Point(261, 218);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.OwnDrawColor = System.Drawing.Color.White;
-            this.btnAll.Size = new System.Drawing.Size(31, 26);
-            this.btnAll.TabIndex = 24;
-            this.btnAll.Text = "ALL";
-            this.btnAll.UseOwnColor = false;
-            // 
             // FrmReporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 510);
-            this.Controls.Add(this.btnAll);
+            this.Controls.Add(this.lstKindOfInvo);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lstCashier);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button3);
@@ -355,6 +370,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReporting";
+            this.Load += new System.EventHandler(this.FrmReporting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,7 +401,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lstCashier;
-        private WindowsFormsApplication4.Controls.button btnAll;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox lstKindOfInvo;
 
     }
 }
