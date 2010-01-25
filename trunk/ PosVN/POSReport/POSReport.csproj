@@ -91,6 +91,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptDetailSaleReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptDetailSaleReport_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDetailSaleReport_21.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rptInventoryByApha.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptInventoryByApha.cs</LastGenOutput>
@@ -102,6 +106,10 @@
     <EmbeddedResource Include="Report\rptItemDept.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptItemDept.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptReturn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReturn.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\rpt_PrintToKit.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -151,6 +159,12 @@
       <DependentUpon>rptDetailSaleReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\rptDetailSaleReport_21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDetailSaleReport_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rptInventoryByApha.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -167,6 +181,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptItemDept.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptReturn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReturn.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\rpt_PrintToKit.cs">

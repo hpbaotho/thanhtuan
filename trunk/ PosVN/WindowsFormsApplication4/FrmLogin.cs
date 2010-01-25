@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.lic;
 using WindowsFormsApplication4.Service;
@@ -581,6 +583,28 @@ namespace WindowsFormsApplication4
            {
                label4.Left += 5;
            }
+        }
+        public ServiceGet test = new ServiceGet();
+        private void xemSốTiềnBánTrongNgàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Alert.ShowClockInRequest())
+            {
+                DateTime DateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+
+                DateTime DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
+                POSReport.Report.rptDetailSaleReport_2 DetailSaleReport = new rptDetailSaleReport_2();
+                string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID", "Report Title", };
+
+                object[] value = { StaticClass.storeId, DateTime1, DateTime2, "C", StaticClass.cashierId, "Báo cáo bán hàng chi tiết trong ngày" };
+                test.FillDataReport(DetailSaleReport, pa, value, true);
+                ReportClass reportClass = DetailSaleReport;
+                if (reportClass == null)
+                    return;
+                FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
+                frmViewReporting.Show();
+
+            }
+
         }
     }
 }
