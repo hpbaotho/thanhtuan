@@ -761,5 +761,14 @@ namespace Services
             FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
         }
+        public DataTable GetAllEmployee(string storeId)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Store_ID"};
+            object[] value = { storeId };
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllEmployee");
+            cmd.Dispose();
+            return re;
+        }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Web;
 using POSReport.Report;
+using Services;
 using WindowsFormsApplication4.Controls;
 using WindowsFormsApplication4.Service;
 using CrystalDecisions.CrystalReports;
@@ -23,7 +24,8 @@ namespace WindowsFormsApplication4
         private DateTime DateTime1;
         private DateTime DateTime2;
         private int state = 0;
-        
+        private Services.get_GUI get_service;
+        private DataTable Employee;
         public FrmReporting()
         {
             InitializeComponent();
@@ -38,6 +40,10 @@ namespace WindowsFormsApplication4
             txtStartTime.Text = "12" + ":00"  + ":" + "00" + " " + "AM";
             txtEndTime.Text = "11" + ":59" + ":" + "00" + " " + "PM";
             setChoseButton(btnSale);
+            get_service=new get_GUI();
+            lstCashier.DisplayMember = Const.Employee_Prop.Cashier_ID;
+            lstCashier.DataSource=Employee = get_service.GetAllEmployee(StaticClass.storeId);
+
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -52,7 +58,7 @@ namespace WindowsFormsApplication4
         #region Views
         private ArrayList viewSale()
         {
-            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày" });
+            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày" ,"Báo cáo bán hàng chi tiết trong ngày"});
         }
         private ArrayList viewRes()
         {
@@ -281,7 +287,10 @@ namespace WindowsFormsApplication4
                         test.FillDataReport(invoiceTotalsDaily, pa, value, true);
                         return invoiceTotalsDaily;
                     }
-                   
+                case 2:
+                    {
+                        return;
+                    }
                 case 40:
                     {
                         POSReport.Report.rptInventoryByApha rptInventoryByApha = new rptInventoryByApha();
