@@ -69,7 +69,7 @@ namespace WindowsFormsApplication4
         #region Views
         private ArrayList viewSale()
         {
-            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày" ,"Báo cáo bán hàng chi tiết trong ngày"});
+            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày" ,"Báo cáo bán hàng chi tiết trong ngày","Báo cáo các mặt hàng trả lại"});
         }
         private ArrayList viewRes()
         {
@@ -259,6 +259,11 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         return;
                     }
+                case 3:
+                    {
+                        EnableDateTime0(true);
+                        return;
+                    }
                 case 40:
                     {
                         EnableDateTime0(false);
@@ -311,6 +316,14 @@ namespace WindowsFormsApplication4
                         object[] value = { StaticClass.storeId, DateTime1, DateTime2, StatusInvoice, Cashier_ID, "Báo cáo bán hàng chi tiết trong ngày" };
                         test.FillDataReport(DetailSaleReport, pa, value, true);
                         return DetailSaleReport;
+                    }
+                case 3:
+                    {
+                        POSReport.Report.rptReturn rptReturn = new rptReturn();
+                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID", "Report_Title", };
+                        object[] value = { StaticClass.storeId, DateTime1, DateTime2, StatusInvoice, Cashier_ID, "Báo cáo các mặt hàng trả lại" };
+                        test.FillDataReport(rptReturn, pa, value, true);
+                        return rptReturn;
                     }
                 case 40:
                     {

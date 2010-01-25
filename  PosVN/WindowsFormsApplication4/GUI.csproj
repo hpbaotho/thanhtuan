@@ -542,6 +542,7 @@
     </Compile>
     <Compile Include="StaticClass.cs" />
     <Compile Include="Utilities\GetIP.cs" />
+    <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
