@@ -17,6 +17,7 @@ namespace WindowsFormsApplication4
         {
             newMessageBox = new MessBox2Choice();
             newMessageBox.label1.Text = txtMessage;
+            newMessageBox.label1.Left = (newMessageBox.Width - newMessageBox.label1.Width)/2;
             newMessageBox.BackColor = c;
             newMessageBox.ShowDialog();
             return Button_id;
