@@ -43,12 +43,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lstCashier = new System.Windows.Forms.ListBox();
             this.button6 = new WindowsFormsApplication4.Controls.button();
             this.btnInvoice = new WindowsFormsApplication4.Controls.button();
             this.btnRestaurant = new WindowsFormsApplication4.Controls.button();
             this.btnEmployee = new WindowsFormsApplication4.Controls.button();
             this.btnCustomer = new WindowsFormsApplication4.Controls.button();
             this.btnSale = new WindowsFormsApplication4.Controls.button();
+            this.btnAll = new WindowsFormsApplication4.Controls.button();
             this.SuspendLayout();
             // 
             // label1
@@ -204,6 +207,28 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Blue;
+            this.label8.Location = new System.Drawing.Point(112, 214);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(129, 29);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Nhân viên";
+            // 
+            // lstCashier
+            // 
+            this.lstCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstCashier.FormattingEnabled = true;
+            this.lstCashier.ItemHeight = 20;
+            this.lstCashier.Location = new System.Drawing.Point(117, 246);
+            this.lstCashier.Name = "lstCashier";
+            this.lstCashier.ScrollAlwaysVisible = true;
+            this.lstCashier.Size = new System.Drawing.Size(175, 84);
+            this.lstCashier.TabIndex = 23;
+            // 
             // button6
             // 
             this.button6.Color2 = System.Drawing.Color.Blue;
@@ -286,11 +311,25 @@
             this.btnSale.UseOwnColor = false;
             this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
+            // btnAll
+            // 
+            this.btnAll.Color2 = System.Drawing.Color.Blue;
+            this.btnAll.Location = new System.Drawing.Point(261, 218);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.OwnDrawColor = System.Drawing.Color.White;
+            this.btnAll.Size = new System.Drawing.Size(31, 26);
+            this.btnAll.TabIndex = 24;
+            this.btnAll.Text = "ALL";
+            this.btnAll.UseOwnColor = false;
+            // 
             // FrmReporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(726, 510);
+            this.Controls.Add(this.btnAll);
+            this.Controls.Add(this.lstCashier);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -344,6 +383,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox lstCashier;
+        private WindowsFormsApplication4.Controls.button btnAll;
 
     }
 }
