@@ -261,12 +261,12 @@ namespace Services
             cmd.Dispose();
         }
         
-        public DataTable OpenTable(string Store_ID,string Section_ID,string Station_ID,string OnHoldID,string Cashier_ID,string CustNum,string DateTime,string Line1,string Line2,string Line3,string Line4,string Line5 )
+        public DataTable OpenTable(string Store_ID,string Section_ID,string Station_ID,string OnHoldID,string Cashier_ID,string CustNum,DateTime DateTime,string Line1,string Line2,string Line3,string Line4,string Line5 )
         {
             cmd = new SqlCommand();
             string[] pa = { "@Store_ID", "@Section_ID","@Station_ID","@OnHoldID","@Cashier_ID","@CustNum","@DateTime","@Line1","@Line2","@Line3","@Line4","@Line5" };
-            string[] value = {  Store_ID, Section_ID, Station_ID, OnHoldID, Cashier_ID, CustNum, DateTime, Line1, Line2, Line3, Line4, Line5};
-            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_OpenTable");
+            object[] value = {  Store_ID, Section_ID, Station_ID, OnHoldID, Cashier_ID, CustNum, DateTime, Line1, Line2, Line3, Line4, Line5};
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_OpenTable");
             
             cmd.Dispose();
             return re;

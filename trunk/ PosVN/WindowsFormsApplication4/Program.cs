@@ -48,9 +48,9 @@ namespace WindowsFormsApplication4
                     {
                         int num = getGUI.GetNumOfInvoice();
                         FrmRegisterInfo frmRegisterInfo;
-                        if(num > 100)
+                        if (num > 100)
                         {
-                            frmRegisterInfo = new FrmRegisterInfo("Quá 100 hóa đơn.",false);
+                            frmRegisterInfo = new FrmRegisterInfo("Quá 100 hóa đơn.", false);
                             //frmRegisterInfo.ShowDialog();
                             Application.Run(frmRegisterInfo);
                             //if (MessBox2Choice.ShowBox("Quá 100 hóa đơn.\n Bạn có muốn đăng kí không?", Color.Red) == DialogResult.Yes)
@@ -85,7 +85,7 @@ namespace WindowsFormsApplication4
                 }
 
             }
-            //Application.Run(new FrmInventory());
+            //Application.Run(new FrmReporting());
         }
     }
 }
