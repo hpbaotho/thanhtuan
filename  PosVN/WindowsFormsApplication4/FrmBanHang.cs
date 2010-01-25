@@ -388,8 +388,8 @@ namespace WindowsFormsApplication4
 
         private void button50_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 20; i++)
-                myCash1.addRow("mota", i.ToString(), "gia");
+            //for (int i = 0; i < 20; i++)
+            //    myCash1.addRow("mota", i.ToString(), "gia");
         }
 
         private void button55_Click(object sender, EventArgs e)

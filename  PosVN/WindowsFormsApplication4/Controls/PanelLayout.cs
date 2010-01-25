@@ -144,7 +144,7 @@ namespace WindowsFormsApplication4.Controls
                 {
                     banhang.isOnHold = true;
                 }
-                DataTable InvoiceNumTab = getGui.OpenTable(StaticClass.storeId,this.Text,StaticClass.stationId,tmpBut.tableName,StaticClass.cashierId,StaticClass.custNum,DateTime.Now.ToString(),"","","","","");
+                DataTable InvoiceNumTab = getGui.OpenTable(StaticClass.storeId,this.Text,StaticClass.stationId,tmpBut.tableName,StaticClass.cashierId,StaticClass.custNum,DateTime.Now,"","","","","");
                 string InvoiceNum = InvoiceNumTab.Rows[0][0].ToString();
                 banhang.invoiceNum = InvoiceNum;
                 banhang.tableName = tmpBut.tableName;

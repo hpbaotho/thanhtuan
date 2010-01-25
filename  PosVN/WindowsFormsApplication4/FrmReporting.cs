@@ -32,10 +32,11 @@ namespace WindowsFormsApplication4
             listBox1.DataSource = viewSale();
             txtStartDate.Text = DateTime.Now.ToShortDateString();
             txtEndDate.Text = DateTime.Now.ToShortDateString();
-            DateTime1 = DateTime.Now;
-            DateTime2 = DateTime.Now;
+            DateTime1 = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,0,0,0);
+
+            DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 0);
             txtStartTime.Text = "12" + ":00"  + ":" + "00" + " " + "AM";
-            txtEndTime.Text = "12" + ":00" + ":" + "00" + " " + "AM";
+            txtEndTime.Text = "11" + ":59" + ":" + "00" + " " + "PM";
             setChoseButton(btnSale);
         }
 
@@ -51,7 +52,7 @@ namespace WindowsFormsApplication4
         #region Views
         private ArrayList viewSale()
         {
-            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Tình hình bán cho tới ngày hiện tại" });
+            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày" });
         }
         private ArrayList viewRes()
         {
@@ -67,7 +68,7 @@ namespace WindowsFormsApplication4
         }
         private ArrayList viewInv()
         {
-            return new ArrayList(new string[] { "Các mặt còn trong kho", "Tình hình bán mặt hàng theo Loại hàng" });
+            return new ArrayList(new string[] { "Các mặt còn trong kho", "Báo cáo chi tiết bán hàng theo nhóm" });
         }
 
         //private ArrayList viewInv()
@@ -276,7 +277,7 @@ namespace WindowsFormsApplication4
                     {
                         POSReport.Report.rptInvoiceTotalsDaily invoiceTotalsDaily = new rptInvoiceTotalsDaily();
                         string[] pa = { "@Store_ID", "Report_Title_Param" ,"@Status"};
-                        object[] value = { StaticClass.storeId, "Tình hình bán hàng" ,Const.Invoice_Status.THANH_TOAN_ROI};
+                        object[] value = { StaticClass.storeId, "Báo cáo hóa đơn theo từng ngày" ,Const.Invoice_Status.THANH_TOAN_ROI};
                         test.FillDataReport(invoiceTotalsDaily, pa, value, true);
                         return invoiceTotalsDaily;
                     }
@@ -294,7 +295,7 @@ namespace WindowsFormsApplication4
                     {
                         POSReport.Report.rptItemDept invoice = new rptItemDept();
                         string[] pa = { "@Store_ID", "Report_Title_Param" };
-                        string[] value = { StaticClass.storeId, "Báo cáo các mặt hàng" };
+                        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm" };
                         test.FillDataReport(invoice, pa, value, true);
                         return invoice;
                     }
