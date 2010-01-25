@@ -82,7 +82,7 @@ namespace Services
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.WriteLine(ex.ToString());
+                Console.Write(ex.ToString());
             }
             return dataset;
         }
@@ -345,18 +345,7 @@ namespace Services
             cmd = new SqlCommand();
             string[] pa = { "@Invoice_Number", "@Store_ID", "@CustNum", "@DateTime", "@Total_Cost", "@Discount", "@Total_Price", "@Total_Tax1", "@Total_Tax2", "@Total_Tax3", "@Grand_Total", "@Amt_Tendered", "@Amt_Change", "@ShipToUsed", "@InvoiceNotesUsed", "@Status", "@Cashier_ID", "@Station_ID", "@Payment_Method", "@Acct_Balance_Due", "@Acct_FullyPaid_Date", "@Taxed_1", "@Taxed_Sales", "@NonTaxed_Sales", "@Tax_Exempt_Sales", "@CA_Amount", "@CH_Amount", "@CC_Amount", "@OA_Amount", "@GC_Amount", "@Tip_Amount", "@Old_Balance", "@Num_People_Party", "@AcctBalanceBefore", "@Salesperson", "@Dirty", "@Zip_Code", "@InvType", "@FS_Amount", "@Amt_FS_AmtTend", "@Amt_FS_Change", "@DC_Amount", "@OA_Amount_Limited", "@Cost_Center_Index", "@Orig_OnHoldID", "@Total_FixedTax", "@Total_GC_Sold", "@Tax_Rate_ID", "@Tax_Rate1_Percent", "@Amt_CA_Sec", "@Exchange_Rate", "@IsLayaway", "@Amt_Deposit", "@LAY_Amount", "@Total_GC_Free", "@MacromatixSyncStatus", "@TotalLiability", "@SoLanInCheck", "@InvoiceTax" };
             string[] value = new string[param.Length];
-            for (int i = 0; i < param.Length; i++)
-            {
-                if(param[i] != null)
-                {
-                    value[i] = param[i].ToString();
-                }
-                else
-                {
-                    value[i] = "";
-                }     
-            }
-            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateImvoiceTotal");
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, param, "sp_UpdateImvoiceTotal");
             cmd.Dispose();
         }
 
