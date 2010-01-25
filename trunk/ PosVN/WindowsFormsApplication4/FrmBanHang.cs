@@ -780,7 +780,7 @@ namespace WindowsFormsApplication4
                         myCash1.invoiceTotal.Rows[0]["DC_Amount"] = Convert.ToDecimal(myCash1.label_Total.Text);
                     }
 
-
+                    myCash1.invoiceTotal.Rows[0]["Cashier_ID"] = StaticClass.cashierId;
                     getGui.DeleteInvoiceItemized(StaticClass.storeId, this.invoiceNum);
                     if (myCash1.listInvoiceItem.Rows.Count == 0)
                     {
