@@ -19,6 +19,7 @@ namespace WindowsFormsApplication4
         {
             InitializeComponent();
             label1.Text = text;
+            label1.Left = (this.Width - label1.Width)/2;
             button1.Focus();
         }
 
