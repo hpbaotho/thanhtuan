@@ -7,6 +7,8 @@ namespace WindowsFormsApplication4.Persistence
 {
     public class Printer
     {
+        public static string PrinterBaocao = "Báo cáo";
+        public static string PrinterHoadon = "Hóa đơn";
         public string PrinterName;
         public string LocalPort;
         public string NetworkPort;
