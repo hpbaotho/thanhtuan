@@ -69,7 +69,7 @@ namespace WindowsFormsApplication4
         #region Views
         private ArrayList viewSale()
         {
-            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày" ,"Báo cáo bán hàng chi tiết trong ngày","Báo cáo các mặt hàng trả lại"});
+            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày", "Báo cáo bán hàng chi tiết trong ngày", "Báo cáo các mặt hàng trả lại", "Báo cáo chi tiết bán hàng theo nhóm" });
         }
         private ArrayList viewRes()
         {
@@ -85,7 +85,7 @@ namespace WindowsFormsApplication4
         }
         private ArrayList viewInv()
         {
-            return new ArrayList(new string[] { "Các mặt còn trong kho", "Báo cáo chi tiết bán hàng theo nhóm" });
+            return new ArrayList(new string[] { "Các mặt còn trong kho"});
         }
 
         private ArrayList viewKindOfInvoic()
@@ -264,17 +264,22 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         return;
                     }
+                case 4:
+                    {
+                        EnableDateTime0(false);
+                        return;
+                    }
                 case 40:
                     {
                         EnableDateTime0(false);
                         return;
                     }
 
-                case 41:
-                    {
-                        EnableDateTime0(false);
-                        return;
-                    }
+                //case 41:
+                //    {
+                //        EnableDateTime0(false);
+                //        return;
+                //    }
                 default:
                     EnableDateTime0(false);
                     return ;
@@ -325,6 +330,14 @@ namespace WindowsFormsApplication4
                         test.FillDataReport(rptReturn, pa, value, true);
                         return rptReturn;
                     }
+                case 4:
+                    {
+                        POSReport.Report.rptItemDept invoice = new rptItemDept();
+                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status" };
+                        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm", StatusInvoice };
+                        test.FillDataReport(invoice, pa, value, true);
+                        return invoice;
+                    }
                 case 40:
                     {
                         POSReport.Report.rptInventoryByApha rptInventoryByApha = new rptInventoryByApha();
@@ -334,14 +347,14 @@ namespace WindowsFormsApplication4
                         return rptInventoryByApha; 
                     }
 
-                case 41:
-                    {
-                        POSReport.Report.rptItemDept invoice = new rptItemDept();
-                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status"};
-                        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm",StatusInvoice};
-                        test.FillDataReport(invoice, pa, value, true);
-                        return invoice;
-                    }
+                //case 41:
+                //    {
+                //        POSReport.Report.rptItemDept invoice = new rptItemDept();
+                //        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status"};
+                //        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm",StatusInvoice};
+                //        test.FillDataReport(invoice, pa, value, true);
+                //        return invoice;
+                //    }
 
                 default:
                     return null;
