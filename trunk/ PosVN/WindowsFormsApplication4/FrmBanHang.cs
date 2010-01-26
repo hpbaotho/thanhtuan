@@ -352,8 +352,10 @@ namespace WindowsFormsApplication4
             }
             UpdateInvoiceTotals();
             SendToKitchen();
+            formLogin.RequestMess("UpdateForm");
             this.Dispose();
             formLayout.FrmLayout_Load(null,null);
+
             //formLogin.FrmLogin_Load(null, null);
         }
 

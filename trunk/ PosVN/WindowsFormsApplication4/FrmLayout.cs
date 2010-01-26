@@ -32,11 +32,17 @@ namespace WindowsFormsApplication4
                 m_Instance = new FrmLayout();
             return m_Instance;
         }
+        public static bool isInstance()
+        {
+            if (m_Instance == null)
+                return false;
+            return true;
+        }
         public FrmLayout()
         {
             InitializeComponent();
             sections = new ArrayList();
-           
+            m_Instance = this;
             for (int i = 1; i < 8; i++)
             {
                 sections.Add(i.ToString());
@@ -51,7 +57,7 @@ namespace WindowsFormsApplication4
         }
         public FrmLayout(string userName)
         {
-            
+            m_Instance = this;
             InitializeComponent();
             label1.Text = userName;
             
@@ -182,6 +188,7 @@ namespace WindowsFormsApplication4
         {
             if(!isTransfer)
             {
+                formLogin.DisposeLogin();
                 formLogin.FrmLogin_Load(null,null);
             }
             //formLogin.Dispose();
@@ -219,9 +226,19 @@ namespace WindowsFormsApplication4
         {
             this.FrmLayout_Load(null,null);
         }
+        public delegate void RefreshFormDelegate();
         public void RefreshForm()
         {
-            this.FrmLayout_Load(null, null);
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new RefreshFormDelegate(RefreshForm));
+            }
+            else
+            {
+                this.FrmLayout_Load(null, null);
+            }
+
+
         }
     }
 }
