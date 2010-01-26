@@ -12,8 +12,10 @@ using CrystalDecisions.Web;
 using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.Controls;
+using WindowsFormsApplication4.Persistence;
 using WindowsFormsApplication4.Service;
 using CrystalDecisions.CrystalReports;
+using WindowsFormsApplication4.Utilities;
 
 namespace WindowsFormsApplication4
 {
@@ -404,6 +406,14 @@ namespace WindowsFormsApplication4
         private void FrmReporting_Load(object sender, EventArgs e)
         {
             PopularDatain2lstCashier();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ReportClass reportClass = ViewReport(state);
+            if (reportClass == null)
+                return;
+            Utils.Print(reportClass,Printer.PrinterHoadon);
         }
     }
 }
