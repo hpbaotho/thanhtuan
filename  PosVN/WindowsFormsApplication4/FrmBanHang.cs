@@ -648,7 +648,7 @@ namespace WindowsFormsApplication4
                     xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
                     xxx.PrintOptions.PrinterName = printer.Details;
                     xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                    xxx.PrintToPrinter(1, true, 1, 1);
+                    xxx.PrintToPrinter(1, false, 0, 0);
                 }
             }
             this.Dispose();
@@ -837,7 +837,7 @@ namespace WindowsFormsApplication4
                          xxx.PrintOptions.PrinterName = printer.Details;
                          crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
                          xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                         xxx.PrintToPrinter(1, true, 1, 1);
+                         xxx.PrintToPrinter(1, false, 0, 0);
                      }
 
                     
@@ -949,7 +949,7 @@ namespace WindowsFormsApplication4
 
                             xxx.PrintOptions.PrinterName = c.Details;
                             xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                            xxx.PrintToPrinter(1, true, 1, 1);
+                            xxx.PrintToPrinter(1, false, 0, 0);
                             getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
                         }
                     }
