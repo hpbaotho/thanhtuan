@@ -7,12 +7,13 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.lic;
-using WindowsFormsApplication4.Persistence;
+using WindowsFormsApplication4.Networking;
 using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
@@ -22,8 +23,19 @@ namespace WindowsFormsApplication4
         private FrmLayout layout;
         private ServiceGet serviceGet;
         private get_GUI getGui;
+        private Thread LoginThread;
+        private Networking.ClientNetwork login;
+        private static FrmLogin m_Instance;
+
+        public static FrmLogin GetInstance()
+        {
+            if (m_Instance == null)
+                m_Instance = new FrmLogin();
+            return m_Instance;
+        }
         public FrmLogin()
         {
+            m_Instance = this;
             InitializeComponent();
             timer2.Enabled = true;
             panel1.Focus();
@@ -448,6 +460,7 @@ namespace WindowsFormsApplication4
             else if(check == 2)
             {
                 //StaticClass.cashierId = textBox1.Text;
+                
                 string tmp = "";
                 if(StaticClass.thongTinNV["EmpName"].ToString() == "")
                 {
@@ -457,6 +470,8 @@ namespace WindowsFormsApplication4
                 {
                     tmp = StaticClass.thongTinNV["EmpName"].ToString();
                 }
+                LoginThread =new Thread(BeginLogin);
+                LoginThread.Start(tmp);
                 StaticClass.taxRate = getGui.GetTaxRate(StaticClass.storeId).Rows[0];
                 layout = new FrmLayout(tmp);
                 layout.formLogin = this;
@@ -464,6 +479,22 @@ namespace WindowsFormsApplication4
             }
 
             
+        }
+        //slgn
+        public void RequestMess(string s)
+        {
+            login.Request(s);
+        }
+        public void DisposeLogin()
+        {
+            login.LogOut();
+            LoginThread.Abort();
+        }
+        public void BeginLogin(object tmp)
+        {
+            login=new ClientNetwork();
+            //StaticClass.socket = login;
+            login.Login(Utilities.GetIP.getIP(),1000,tmp.ToString());
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -601,7 +632,9 @@ namespace WindowsFormsApplication4
                 ReportClass reportClass = DetailSaleReport;
                 if (reportClass == null)
                     return;
-                Utilities.Utils.Print(reportClass,Printer.PrinterHoadon);
+                FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
+                frmViewReporting.Show();
+
             }
 
         }

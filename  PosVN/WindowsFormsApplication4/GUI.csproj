@@ -361,6 +361,7 @@
       <DependentUpon>MessBox2Choice.cs</DependentUpon>
     </Compile>
     <Compile Include="Networking\BTcpClient.cs" />
+    <Compile Include="Networking\ClientNetwork.cs" />
     <Compile Include="Networking\DataPackage.cs" />
     <Compile Include="Persistence\Printer.cs" />
     <Compile Include="Program.cs" />

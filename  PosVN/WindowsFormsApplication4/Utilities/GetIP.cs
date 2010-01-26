@@ -8,7 +8,7 @@ namespace WindowsFormsApplication4.Utilities
 {
     public static class GetIP
     {
-        static string getIP()
+        public static string getIP()
         {
             String strHostName = Dns.GetHostName();
 
