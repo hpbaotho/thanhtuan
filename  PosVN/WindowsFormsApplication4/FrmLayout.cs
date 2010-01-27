@@ -41,6 +41,8 @@ namespace WindowsFormsApplication4
         public FrmLayout()
         {
             InitializeComponent();
+            pageIndex = 1;
+            selectedSection = 0;
             sections = new ArrayList();
             m_Instance = this;
             for (int i = 1; i < 8; i++)
@@ -60,7 +62,8 @@ namespace WindowsFormsApplication4
             m_Instance = this;
             InitializeComponent();
             label1.Text = userName;
-            
+            pageIndex = 1;
+            selectedSection = 0;
            
         }
 
@@ -102,8 +105,7 @@ namespace WindowsFormsApplication4
             }
 
 
-            pageIndex = 1;
-            selectedSection = 0;
+            
             if (listPanel.Count % 4 == 0)
             {
                 pageNum = listPanel.Count / 4;
@@ -119,7 +121,7 @@ namespace WindowsFormsApplication4
                 tmp.Click += new EventHandler(tmp_Click);
             }
             LoadSectionButton();
-            var tmppanel = (PanelLayout)listPanel[sections[0].ToString()];
+            var tmppanel = (PanelLayout)listPanel[sections[selectedSection].ToString()];
             tmppanel.BringToFront();
             this.Refresh();
         }
