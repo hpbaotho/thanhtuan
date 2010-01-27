@@ -802,7 +802,7 @@ namespace WindowsFormsApplication4
                     this.Dispose();
                     formLayout.FrmLayout_Load(null, null);
 
-
+                    formLogin.RequestMess("UpdateForm");
                      Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
                      if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
                      {
