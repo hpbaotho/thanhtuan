@@ -148,7 +148,9 @@ namespace WindowsFormsApplication4.Controls
                 string InvoiceNum = InvoiceNumTab.Rows[0][0].ToString();
                 banhang.invoiceNum = InvoiceNum;
                 banhang.tableName = tmpBut.tableName;
+                banhang.formLogin.RequestMess("UpdateForm");
                 banhang.ShowDialog();
+                
             }
            
             
