@@ -105,13 +105,14 @@ namespace WindowsFormsApplication4.Networking
             {
                 Console.WriteLine("Loi " + ex.ToString() + " Connect phia client");
             }
-
+            
         }
         private void OnSend(IAsyncResult ar)
         {
             try
             {
                 clientSocket.EndSend(ar);
+                MessageBox.Show("Onsend");
                 //strName = txtName.Text;
                 ////DialogResult = DialogResult.OK;
                 //Close();
