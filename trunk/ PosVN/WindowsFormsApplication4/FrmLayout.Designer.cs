@@ -73,7 +73,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(890, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 31);
+            this.label1.Size = new System.Drawing.Size(78, 32);
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
             // 
@@ -225,6 +225,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "khu 1";
             this.button10.UseOwnColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button9
             // 
