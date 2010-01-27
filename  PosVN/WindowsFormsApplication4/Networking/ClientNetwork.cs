@@ -124,23 +124,31 @@ namespace WindowsFormsApplication4.Networking
 
         public void Request(string strMess)
         {
-            Data msgToSend = new Data();
-            msgToSend.cmdCommand = Command.Message;
-            msgToSend.strName = strName;
-            msgToSend.strMessage = strMess;
+            try
+            {
+                Data msgToSend = new Data();
+                msgToSend.cmdCommand = Command.Message;
+                msgToSend.strName = strName;
+                msgToSend.strMessage = strMess;
 
-            byteData = msgToSend.ToByte();
+                byteData = msgToSend.ToByte();
 
-            clientSocket.BeginSend(byteData, 0, byteData.Length, SocketFlags.None, new AsyncCallback(OnSend), null);
+                clientSocket.BeginSend(byteData, 0, byteData.Length, SocketFlags.None, new AsyncCallback(OnSend), null);
 
-            //byteData = new byte[1024];
-            //Start listening to the data asynchronously
-            //clientSocket.BeginReceive(byteData,
-            //                           0,
-            //                           byteData.Length,
-            //                           SocketFlags.None,
-            //                           new AsyncCallback(OnReceive),
-            //                           null);
+                //byteData = new byte[1024];
+                //Start listening to the data asynchronously
+                //clientSocket.BeginReceive(byteData,
+                //                           0,
+                //                           byteData.Length,
+                //                           SocketFlags.None,
+                //                           new AsyncCallback(OnReceive),
+                //                           null);
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         private void OnReceive(IAsyncResult ar)
