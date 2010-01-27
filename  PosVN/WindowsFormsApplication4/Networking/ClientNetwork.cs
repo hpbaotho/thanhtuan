@@ -112,7 +112,7 @@ namespace WindowsFormsApplication4.Networking
             try
             {
                 clientSocket.EndSend(ar);
-                MessageBox.Show("Onsend");
+                //MessageBox.Show("Onsend");
                 //strName = txtName.Text;
                 ////DialogResult = DialogResult.OK;
                 //Close();

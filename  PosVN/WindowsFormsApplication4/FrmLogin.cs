@@ -494,7 +494,7 @@ namespace WindowsFormsApplication4
         {
             login=new ClientNetwork();
             //StaticClass.socket = login;
-            login.Login(Utilities.GetIP.getIP(),1000,tmp.ToString());
+            login.Login(Utilities.GetIP.getIP(),9999,tmp.ToString());
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
