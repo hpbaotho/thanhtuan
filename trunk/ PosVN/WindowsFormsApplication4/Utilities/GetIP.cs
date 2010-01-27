@@ -23,7 +23,7 @@ namespace WindowsFormsApplication4.Utilities
             //    return IPStr;
             //}
             //return IPStr;
-            return "10.254.75.24";
+            return "192.168.1.3";
         }
     }
 }
