@@ -217,6 +217,12 @@
     <Compile Include="FrmConfigDatabase.Designer.cs">
       <DependentUpon>FrmConfigDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConfigServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigServer.Designer.cs">
+      <DependentUpon>FrmConfigServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,9 +366,9 @@
     <Compile Include="MessBox2Choice.Designer.cs">
       <DependentUpon>MessBox2Choice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Networking\BTcpClient.cs" />
-    <Compile Include="Networking\ClientNetwork.cs" />
-    <Compile Include="Networking\DataPackage.cs" />
+    <Compile Include="Controls\Networking\BTcpClient.cs" />
+    <Compile Include="Controls\Networking\ClientNetwork.cs" />
+    <Compile Include="Controls\Networking\DataPackage.cs" />
     <Compile Include="Persistence\Printer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -413,6 +419,9 @@
     <EmbeddedResource Include="FrmConfigDatabase.resx">
       <DependentUpon>FrmConfigDatabase.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigServer.resx">
+      <DependentUpon>FrmConfigServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDelete.resx">
       <DependentUpon>FrmDelete.cs</DependentUpon>
