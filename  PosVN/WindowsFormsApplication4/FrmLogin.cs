@@ -35,11 +35,32 @@ namespace WindowsFormsApplication4
         }
         public FrmLogin()
         {
-            m_Instance = this;
-            InitializeComponent();
-            timer2.Enabled = true;
-            panel1.Focus();
-            textBox1.Focus();
+            try
+            {
+                string filename = Application.StartupPath + "\\ConfigServer.reg";
+                m_Instance = this;
+                InitializeComponent();
+                timer2.Enabled = true;
+                panel1.Focus();
+                textBox1.Focus();
+                string data=lic.FileReadWrite.ReadFile(filename);
+                if(data!=string.Empty)
+                {
+                    string[] p = data.Split('@');
+                    StaticClass.ipServer = p[0];
+                    StaticClass.portSever = p[1]; 
+                }
+            }
+            catch (Exception)
+            {
+                m_Instance = this;
+                InitializeComponent();
+                timer2.Enabled = true;
+                panel1.Focus();
+                textBox1.Focus();
+            }
+           
+            
             
         }
 
@@ -494,7 +515,7 @@ namespace WindowsFormsApplication4
         {
             login=new ClientNetwork();
             //StaticClass.socket = login;
-            login.Login(Utilities.GetIP.getIP(),9999,tmp.ToString());
+            login.Login(StaticClass.ipServer, Convert.ToInt32(StaticClass.portSever), tmp.ToString());
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -637,6 +658,12 @@ namespace WindowsFormsApplication4
 
             }
 
+        }
+
+        private void cấuHìnhServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConfigServer frmConfigServer=new FrmConfigServer();
+            frmConfigServer.ShowDialog();
         }
     }
 }

@@ -38,5 +38,10 @@ namespace WindowsFormsApplication4
         public static string password = "";
         public static string mode = "";
         #endregion
+        #region ConfigServer
+
+        public static string ipServer;
+        public static string portSever;
+        #endregion
     }
 }
