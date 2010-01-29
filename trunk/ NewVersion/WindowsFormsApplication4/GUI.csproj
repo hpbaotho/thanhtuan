@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB9227ED-F72B-472E-A571-3F489F600594}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsFormsApplication4</RootNamespace>
+    <AssemblyName>WindowsFormsApplication4</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.VSDesigner, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.RegSvrEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Replication, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86" />
+    <Reference Include="Microsoft.SqlServer.Rmo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SmoEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SString, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.TeamSystem.Data.UnitTesting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="PCARegHelper, Version=1.0.2455.39512, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\CRE Enterprise Server\PCARegHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Alert.cs" />
+    <Compile Include="Const\Categories.cs" />
+    <Compile Include="Const\Department.cs" />
+    <Compile Include="Const\Employee_Prop.cs" />
+    <Compile Include="Const\Inventory.cs" />
+    <Compile Include="Const\Invoice_Itemized.cs" />
+    <Compile Include="Const\Invoice_Totals.cs" />
+    <Compile Include="Const\NetWorking_Content.cs" />
+    <Compile Include="Controls\buton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ButtonLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Clock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Clock.Designer.cs">
+      <DependentUpon>Clock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Component1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ControlPlusData.cs" />
+    <Compile Include="Controls\CreCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CreComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CreListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CreTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\IControlPlus.cs" />
+    <Compile Include="Controls\MyCash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MyCash.Designer.cs">
+      <DependentUpon>MyCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\MyListbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\OldNewEvent.cs" />
+    <Compile Include="Controls\panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PanelBanHang.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PanelBanHang.designer.cs">
+      <DependentUpon>PanelBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GDI.cs" />
+    <Compile Include="Controls\MyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PanelLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\PopupControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TransButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TransButton.designer.cs">
+      <DependentUpon>TransButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormManage.cs" />
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAdminPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAdminPass.Designer.cs">
+      <DependentUpon>FrmAdminPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBanHang.Designer.cs">
+      <DependentUpon>FrmBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCanlendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCanlendar.Designer.cs">
+      <DependentUpon>FrmCanlendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangePassAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePassAdmin.Designer.cs">
+      <DependentUpon>FrmChangePassAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClockIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClockIn.Designer.cs">
+      <DependentUpon>FrmClockIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfigDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigDatabase.Designer.cs">
+      <DependentUpon>FrmConfigDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDelete.Designer.cs">
+      <DependentUpon>FrmDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDept.Designer.cs">
+      <DependentUpon>FrmDept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditLayout.designer.cs">
+      <DependentUpon>FrmEditLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInventory.Designer.cs">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKeyBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKeyBoard.Designer.cs">
+      <DependentUpon>FrmKeyBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKeyboardNumber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKeyboardNumber.Designer.cs">
+      <DependentUpon>FrmKeyboardNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLayout.Designer.cs">
+      <DependentUpon>FrmLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManager.Designer.cs">
+      <DependentUpon>FrmManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPay.Designer.cs">
+      <DependentUpon>FrmPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPOS.designer.cs">
+      <DependentUpon>FrmPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrinterChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrinterChoice.Designer.cs">
+      <DependentUpon>FrmPrinterChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyDanhMuc.Designer.cs">
+      <DependentUpon>FrmQuanLyDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegister.Designer.cs">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegisterInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegisterInfo.Designer.cs">
+      <DependentUpon>FrmRegisterInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporting.Designer.cs">
+      <DependentUpon>FrmReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearch.Designer.cs">
+      <DependentUpon>FrmSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetupInvoiceNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetupInvoiceNotes.Designer.cs">
+      <DependentUpon>FrmSetupInvoiceNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetupPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetupPrinter.Designer.cs">
+      <DependentUpon>FrmSetupPrinter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTime.Designer.cs">
+      <DependentUpon>FrmTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmViewReporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmViewReporting.Designer.cs">
+      <DependentUpon>FrmViewReporting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\UpdateFormHandler.cs" />
+    <Compile Include="lic\FileReadWrite.cs" />
+    <Compile Include="lic\Lc.cs" />
+    <Compile Include="lic\Sc.cs" />
+    <Compile Include="lic\SystemInfo.cs" />
+    <Compile Include="MessBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessBox.Designer.cs">
+      <DependentUpon>MessBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessBox2Choice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessBox2Choice.Designer.cs">
+      <DependentUpon>MessBox2Choice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Networking\BTcpClient.cs" />
+    <Compile Include="Networking\ClientNetwork.cs" />
+    <Compile Include="Networking\DataPackage.cs" />
+    <Compile Include="Persistence\Printer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\Clock.resx">
+      <DependentUpon>Clock.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MyCash.resx">
+      <DependentUpon>MyCash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TransButton.resx">
+      <DependentUpon>TransButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAdminPass.resx">
+      <DependentUpon>FrmAdminPass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBanHang.resx">
+      <DependentUpon>FrmBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCanlendar.resx">
+      <DependentUpon>FrmCanlendar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePassAdmin.resx">
+      <DependentUpon>FrmChangePassAdmin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClockIn.resx">
+      <DependentUpon>FrmClockIn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigDatabase.resx">
+      <DependentUpon>FrmConfigDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDelete.resx">
+      <DependentUpon>FrmDelete.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDept.resx">
+      <DependentUpon>FrmDept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditLayout.resx">
+      <DependentUpon>FrmEditLayout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInventory.resx">
+      <DependentUpon>FrmInventory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKeyBoard.resx">
+      <DependentUpon>FrmKeyBoard.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKeyboardNumber.resx">
+      <DependentUpon>FrmKeyboardNumber.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLayout.resx">
+      <DependentUpon>FrmLayout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManager.resx">
+      <DependentUpon>FrmManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPay.resx">
+      <DependentUpon>FrmPay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPOS.resx">
+      <DependentUpon>FrmPOS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrinterChoice.resx">
+      <DependentUpon>FrmPrinterChoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyDanhMuc.resx">
+      <DependentUpon>FrmQuanLyDanhMuc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegister.resx">
+      <DependentUpon>FrmRegister.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegisterInfo.resx">
+      <DependentUpon>FrmRegisterInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporting.resx">
+      <DependentUpon>FrmReporting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearch.resx">
+      <DependentUpon>FrmSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetupInvoiceNotes.resx">
+      <DependentUpon>FrmSetupInvoiceNotes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetupPrinter.resx">
+      <DependentUpon>FrmSetupPrinter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTime.resx">
+      <DependentUpon>FrmTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmViewReporting.resx">
+      <DependentUpon>FrmViewReporting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessBox.resx">
+      <DependentUpon>MessBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessBox2Choice.resx">
+      <DependentUpon>MessBox2Choice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetupTax.resx">
+      <DependentUpon>FrmSetupTax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\DataSources\Services.get_GUI.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Service\GetDatabaseInfo.cs" />
+    <Compile Include="Service\IPosInService.cs" />
+    <Compile Include="Service\IPosOutService.cs" />
+    <Compile Include="Service\ServiceGet.cs" />
+    <Compile Include="Service\Util.cs" />
+    <Compile Include="FrmSetupTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetupTax.Designer.cs">
+      <DependentUpon>FrmSetupTax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StaticClass.cs" />
+    <Compile Include="Utilities\GetIP.cs" />
+    <Compile Include="Utilities\Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{3D7CD939-72C1-47F7-AB9D-00DCBEECC80A}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POSReport\POSReport.csproj">
+      <Project>{D96C7C93-FF16-43A2-B161-48BF82FA89D8}</Project>
+      <Name>POSReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{9FA0EFE1-AD8D-406B-B869-B489480D8D8B}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BURGER.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiquorShelf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PastramiSandwich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizzatoss.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Dessert.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Ice%25Cream.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Sandwich.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Steak%25Dinner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Steak%25House.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RS-Sushi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-CELL.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-Cigars.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-Gift%25Shop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-Greeting%25Cards.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RT-LIQUOR.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SteakTurq.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Water lilies.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
