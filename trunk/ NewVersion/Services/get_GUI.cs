@@ -1553,5 +1553,13 @@ namespace Services
             cmd.Dispose();
         }
 
+        public DataTable GetEmployeeInInvoiceTotal(string cashierId)
+        {
+            cmd = new SqlCommand();
+            string query = "select * from Invoice_Totals where Cashier_ID = '" + cashierId + "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
     }
 }
