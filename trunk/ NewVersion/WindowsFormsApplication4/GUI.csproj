@@ -217,6 +217,12 @@
     <Compile Include="FrmConfigDatabase.Designer.cs">
       <DependentUpon>FrmConfigDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConfigServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigServer.designer.cs">
+      <DependentUpon>FrmConfigServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDelete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,12 @@
     </Compile>
     <Compile Include="FrmEditLayout.designer.cs">
       <DependentUpon>FrmEditLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployee.Designer.cs">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInventory.cs">
       <SubType>Form</SubType>
@@ -414,6 +426,10 @@
       <DependentUpon>FrmConfigDatabase.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigServer.resx">
+      <DependentUpon>FrmConfigServer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDelete.resx">
       <DependentUpon>FrmDelete.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -424,6 +440,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditLayout.resx">
       <DependentUpon>FrmEditLayout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployee.resx">
+      <DependentUpon>FrmEmployee.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInventory.resx">

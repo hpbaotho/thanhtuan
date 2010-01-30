@@ -22,6 +22,7 @@ namespace WindowsFormsApplication4
         public static DataRow taxRate;
         public static int BackColor = -2894893;
         public static int ForeColor = -16777216;
+        public static int Form_Color = 12632256;
         public static string Font = "Microsoft Sans Serif";
         public static float FontSize = 14.25F;
         public static byte ScheduleIndex=0;

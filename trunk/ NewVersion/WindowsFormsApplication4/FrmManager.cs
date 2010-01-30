@@ -105,5 +105,16 @@ namespace WindowsFormsApplication4
             FrmReporting frmReporting = new FrmReporting();
             frmReporting.ShowDialog();
         }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            FrmEmployee frmEmployee = new FrmEmployee();
+            frmEmployee.ShowDialog();
+        }
     }
 }

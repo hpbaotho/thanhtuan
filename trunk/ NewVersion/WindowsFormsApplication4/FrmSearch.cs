@@ -72,6 +72,13 @@ namespace WindowsFormsApplication4
         private void btnSelect_Click_1(object sender, EventArgs e)
         {
             //View=get_services.GetAllInventory(StaticClass.storeId);
+            //RowIndex=dataGridView1.SelectedCells[0].
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+               if(dataGridView1.Rows[i].Selected)
+                   RowIndex = i;
+            }
+            
             if (passdata != null)
             {
                 passdata(View, RowIndex);

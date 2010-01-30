@@ -316,6 +316,7 @@ namespace WindowsFormsApplication4
             this.button11.TabIndex = 32;
             this.button11.Text = "Quản lý nhân viên";
             this.button11.UseOwnColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button8
             // 
@@ -545,6 +546,7 @@ namespace WindowsFormsApplication4
             this.button33.Text = "Quản lý nhân viên";
             this.button33.UseOwnColor = false;
             this.button33.Visible = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // button34
             // 
@@ -591,13 +593,13 @@ namespace WindowsFormsApplication4
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(729, 490);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "FrmManager";
             this.ShowInTaskbar = false;

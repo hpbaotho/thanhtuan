@@ -136,5 +136,13 @@ namespace WindowsFormsApplication4.Const
         public const string CFA_BUYBACKTRADE_ABOVE_SET_AMOUNT = "CFA_BUYBACKTRADE_ABOVE_SET_AMOUNT";
         public const string CFA_REPORTS_VIEW_HISTORICAL_DATA = "CFA_REPORTS_VIEW_HISTORICAL_DATA";
         public const string CFA_INVEN_MISC_FIELD_LOCKDOWN = "CFA_INVEN_MISC_FIELD_LOCKDOWN";
+
+
+        #region Permission
+
+        public const string PROMPT = "P";
+        public const string YES = "Y";
+        public const string NO = "N";
+        #endregion
     }
 }
