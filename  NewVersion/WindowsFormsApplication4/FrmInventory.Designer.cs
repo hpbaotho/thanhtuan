@@ -73,7 +73,6 @@
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
             this.button4 = new WindowsFormsApplication4.Controls.button();
-            this.button3 = new WindowsFormsApplication4.Controls.button();
             this.button6 = new WindowsFormsApplication4.Controls.button();
             this.button11 = new WindowsFormsApplication4.Controls.button();
             this.button10 = new WindowsFormsApplication4.Controls.button();
@@ -85,6 +84,7 @@
             this.txtInventDesc = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtInvenId = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
+            this.button3 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -600,19 +600,6 @@
             this.button4.UseOwnColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
-            // 
-            this.button3.Color2 = System.Drawing.Color.DarkOrange;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(683, 569);
-            this.button3.Name = "button3";
-            this.button3.OwnDrawColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(122, 43);
-            this.button3.TabIndex = 29;
-            this.button3.Text = "Di chuyển";
-            this.button3.UseOwnColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // button6
             // 
             this.button6.Color2 = System.Drawing.Color.DarkGreen;
@@ -743,6 +730,19 @@
             this.cmbDept.TabIndex = 15;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
             // 
+            // button3
+            // 
+            this.button3.Color2 = System.Drawing.Color.DarkOrange;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(683, 569);
+            this.button3.Name = "button3";
+            this.button3.OwnDrawColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(122, 43);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "Di chuyển";
+            this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -825,7 +825,6 @@
         private WindowsFormsApplication4.Controls.button button7;
         private WindowsFormsApplication4.Controls.button button5;
         private WindowsFormsApplication4.Controls.button button4;
-        private WindowsFormsApplication4.Controls.button button3;
         private WindowsFormsApplication4.Controls.button button6;
         private WindowsFormsApplication4.Controls.button button11;
         private System.Windows.Forms.TabControl tabControl1;
@@ -855,5 +854,6 @@
         private WindowsFormsApplication4.Controls.button button2;
         private WindowsFormsApplication4.Controls.button button1;
         private WindowsFormsApplication4.Controls.CreListBox creListBox1;
+        private WindowsFormsApplication4.Controls.button button3;
     }
 }

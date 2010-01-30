@@ -22,5 +22,12 @@ namespace WindowsFormsApplication4.Const
         public const string BarTaxInclusive = "BarTaxInclusive";
         public const string Cost_Calculation_Percentage = "Cost_Calculation_Percentage";
         public const string Square_Footage = "Square_Footage";
+
+        #region TypeDept
+
+        public const byte REGULAR = 0;
+        public const byte RENTAL = 1;
+        public const byte EMPLOYEE = 2;
+        #endregion
     }
 }
