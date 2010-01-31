@@ -72,36 +72,60 @@ namespace WindowsFormsApplication4
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if(!Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_SETUP_INVENT_EDIT))
+            {
+                return;
+            }
             FrmInventory frmInventory = new FrmInventory();
             frmInventory.ShowDialog();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_SETUP_DEPTS_EDIT))
+            {
+                return;
+            }
             FrmDept frmDept = new FrmDept();
             frmDept.ShowDialog();
         }
 
         private void button35_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_SETUP_PRINTER))
+            {
+                return;
+            }
             FrmSetupPrinter frmSetupPrinter = new FrmSetupPrinter();
             frmSetupPrinter.ShowDialog();
         }
 
         private void button36_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_SETUP_TAX))
+            {
+                return;
+            }
             FrmSetupTax frmSetupTax = new FrmSetupTax();
             frmSetupTax.ShowDialog();
         }
 
         private void button34_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_SETUP_RECEIPT_NOTES))
+            {
+                return;
+            }
             FrmSetupInvoiceNotes frmSetupInvoiceNotes = new FrmSetupInvoiceNotes();
             frmSetupInvoiceNotes.ShowDialog();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_REPORT_DISPLAY))
+            {
+                return;
+            }
             FrmReporting frmReporting = new FrmReporting();
             frmReporting.ShowDialog();
         }
@@ -113,6 +137,15 @@ namespace WindowsFormsApplication4
 
         private void button11_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_SETUP_EDIT_EMP))
+            {
+                return;
+            }
             FrmEmployee frmEmployee = new FrmEmployee();
             frmEmployee.ShowDialog();
         }

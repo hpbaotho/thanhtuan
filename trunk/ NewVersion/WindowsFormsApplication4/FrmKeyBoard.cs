@@ -95,7 +95,11 @@ namespace WindowsFormsApplication4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
+            if(textBox1.Text != "")
+            {
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
+            }
+            
         }
 
         private void button43_Click(object sender, EventArgs e)

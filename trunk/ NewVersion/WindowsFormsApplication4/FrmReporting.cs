@@ -25,6 +25,14 @@ namespace WindowsFormsApplication4
         public ServiceGet test = new ServiceGet();
         private DateTime DateTime1;
         private DateTime DateTime2;
+        private int Myhour1=0;
+        private int Myminute1=0;
+        private int Mysecond1=0;
+        private int Myhour2=11;
+        private int Myminute2=59;
+        private int Mysecond2=59; 
+        private string Mymode1="AM";
+        private string Mymode2 = "PM";
         private int state = 0;
         private Services.get_GUI get_service;
         private DataTable Employee;
@@ -41,7 +49,7 @@ namespace WindowsFormsApplication4
             DateTime1 = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,0,0,0);
 
             DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
-            txtStartTime.Text = "12" + ":00"  + ":" + "00" + " " + "AM";
+            txtStartTime.Text = "00" + ":00"  + ":" + "00" + " " + "AM";
             txtEndTime.Text = "11" + ":59" + ":" + "59" + " " + "PM";
             setChoseButton(btnSale);
             get_service=new get_GUI();
@@ -104,12 +112,15 @@ namespace WindowsFormsApplication4
         private void startDateText(DateTime s)
         {
             txtStartDate.Text = s.ToShortDateString();
-            DateTime1 = s;
+            DateTime tmp = new DateTime(s.Year, s.Month, s.Day, ChangeModeTime(Myhour1, Mymode1), Myminute1, Mysecond1);
+            DateTime1 = tmp;
+
         }
         private void endDateText(DateTime s)
         {
             txtEndDate.Text = s.ToShortDateString();
-            DateTime2 = s;
+            DateTime tmp = new DateTime(s.Year, s.Month, s.Day, ChangeModeTime(Myhour2, Mymode2), Myminute2, Mysecond2);
+            DateTime2 = tmp;
         }
         private void txtStartDateDoubleClick(object sender, MouseEventArgs e)
         {
@@ -135,7 +146,10 @@ namespace WindowsFormsApplication4
             {
                 txtStartTime.Text = hour + ":" + minute + ":" + second + " " + mode;
             }
-            
+            Myhour1 = hour;
+            Myminute1 = minute;
+            Mysecond1 = second;
+            Mymode1 = mode;
             DateTime tmp=new DateTime(DateTime1.Year,DateTime1.Month,DateTime1.Day,ChangeModeTime(hour, mode),minute,second);
             DateTime1 = tmp;
             
@@ -150,7 +164,10 @@ namespace WindowsFormsApplication4
             {
                 txtEndTime.Text = hour + ":" + minute + ":" + second + " " + mode;
             }
-
+            Myhour2 = hour;
+            Myminute2 = minute;
+            Mysecond2 = second;
+            Mymode2 = mode;
             DateTime tmp = new DateTime(DateTime2.Year, DateTime2.Month, DateTime2.Day, ChangeModeTime(hour, mode), minute, second);
             DateTime2 = tmp;
         }
