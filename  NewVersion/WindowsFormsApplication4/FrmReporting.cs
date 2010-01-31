@@ -261,36 +261,49 @@ namespace WindowsFormsApplication4
         }
         private void EnableDateTime()
         {
+            
             switch (state)
             {
                 case 0:
                     {
                         EnableDateTime0(true);
+                        lstKindOfInvo.Enabled = true;
                         return;
                     }
                 case 1:
                     {
+
                         EnableDateTime0(false);
+                        lstKindOfInvo.Enabled = true;
+                        lstKindOfInvo.SelectedIndex = 0;
                         return;
                     }
                 case 2:
                     {
                         EnableDateTime0(true);
+                        lstKindOfInvo.Enabled = false;
+                        lstKindOfInvo.SelectedIndex = 0;
                         return;
                     }
                 case 3:
                     {
                         EnableDateTime0(true);
+                        lstKindOfInvo.Enabled = false;
+                        lstKindOfInvo.SelectedIndex = 0;
                         return;
                     }
                 case 4:
                     {
                         EnableDateTime0(false);
+                        lstKindOfInvo.Enabled = true;
+                        lstKindOfInvo.SelectedIndex = 0;
                         return;
                     }
                 case 40:
                     {
                         EnableDateTime0(false);
+                        lstKindOfInvo.Enabled = true;
+                        lstKindOfInvo.SelectedIndex = 0;
                         return;
                     }
 
@@ -301,13 +314,15 @@ namespace WindowsFormsApplication4
                 //    }
                 default:
                     EnableDateTime0(false);
+                    lstKindOfInvo.Enabled = true;
+                    lstKindOfInvo.SelectedIndex = 0;
                     return ;
             }
            
         }
         private ReportClass ViewReport(int s)
         {
-            EnableDateTime();
+            //EnableDateTime();
             switch (s)
             {
                 case 0:
@@ -317,18 +332,35 @@ namespace WindowsFormsApplication4
                             Alert.Show("Nhập Ngày Sai.\n Nhập lại ngày",Color.Red);
                             return null;
                         }
+                        string status = "";
+                        if(StatusInvoice==Const.Invoice_Status.THANH_TOAN_ROI)
+                        {
+                            status = "Hóa đơn thanh toán";
+                        }else if(StatusInvoice==Const.Invoice_Status.HUY)
+                        {
+                            status = "Hóa đơn hủy";
+                        }
                         POSReport.Report.InvoiceTotal invoiceTotal = new POSReport.Report.InvoiceTotal();
-                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID" };
-                        object[] value = { StaticClass.storeId, DateTime1, DateTime2,StatusInvoice,Cashier_ID};
+                        string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID","HuyOrThanhToan" };
+                        object[] value = { StaticClass.storeId, DateTime1, DateTime2,StatusInvoice,Cashier_ID,status};
                         test.FillDataReport(invoiceTotal, pa, value, true);
                         return invoiceTotal;
                     }
                     
                 case 1:
                     {
+                        string status = "";
+                        if (StatusInvoice == Const.Invoice_Status.THANH_TOAN_ROI)
+                        {
+                            status = "Hóa đơn thanh toán";
+                        }
+                        else if (StatusInvoice == Const.Invoice_Status.HUY)
+                        {
+                            status = "Hóa đơn hủy";
+                        }
                         POSReport.Report.rptInvoiceTotalsDaily invoiceTotalsDaily = new rptInvoiceTotalsDaily();
-                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status", "@Cashier_ID" };
-                        object[] value = { StaticClass.storeId, "Báo cáo hóa đơn theo từng ngày", StatusInvoice, Cashier_ID };
+                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status", "@Cashier_ID", "HuyOrThanhToan" };
+                        object[] value = { StaticClass.storeId, "Báo cáo hóa đơn theo từng ngày", StatusInvoice, Cashier_ID, status };
                         test.FillDataReport(invoiceTotalsDaily, pa, value, true);
                         return invoiceTotalsDaily;
                     }
