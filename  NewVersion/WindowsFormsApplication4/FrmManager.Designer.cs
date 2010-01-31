@@ -296,7 +296,7 @@ namespace WindowsFormsApplication4
             // 
             this.button10.Color2 = System.Drawing.Color.RoyalBlue;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(162, 111);
+            this.button10.Location = new System.Drawing.Point(13, 111);
             this.button10.Name = "button10";
             this.button10.OwnDrawColor = System.Drawing.Color.White;
             this.button10.Size = new System.Drawing.Size(131, 71);
@@ -309,13 +309,14 @@ namespace WindowsFormsApplication4
             // 
             this.button11.Color2 = System.Drawing.Color.RoyalBlue;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(13, 111);
+            this.button11.Location = new System.Drawing.Point(162, 111);
             this.button11.Name = "button11";
             this.button11.OwnDrawColor = System.Drawing.Color.White;
             this.button11.Size = new System.Drawing.Size(131, 71);
             this.button11.TabIndex = 32;
-            this.button11.Text = "Quản lý nhân viên";
+            this.button11.Text = "Quản lý khách hàng";
             this.button11.UseOwnColor = false;
+            this.button11.Visible = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button8
@@ -327,8 +328,9 @@ namespace WindowsFormsApplication4
             this.button8.OwnDrawColor = System.Drawing.Color.White;
             this.button8.Size = new System.Drawing.Size(131, 71);
             this.button8.TabIndex = 31;
-            this.button8.Text = "Quản lý khách hàng";
+            this.button8.Text = "Quản lý nhân viên";
             this.button8.UseOwnColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 

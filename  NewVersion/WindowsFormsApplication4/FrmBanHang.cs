@@ -529,7 +529,7 @@ namespace WindowsFormsApplication4
         {
             if(checkItemSended())
             {
-                if(!Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_PRICE_CHANGE))
+                if(!Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_QUAN_CHANGE))
                 {
                     return;
                 }
@@ -618,8 +618,20 @@ namespace WindowsFormsApplication4
                 if(!(printer == null || printer.Details == "NONE" || printer.Disable == true))
                 {
                     CrystalReport5 xxx = new CrystalReport5();
-
-                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                    if (StaticClass.mode == "AUT")
+                    {
+                        xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                    }
+                    else if (StaticClass.mode == "SQL")
+                    {
+                        xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                                         StaticClass.databaseName);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    
                     ParameterFieldDefinitions crParameterFieldDefinitions;
                     ParameterValues crParameterValues = new ParameterValues();
 
@@ -650,7 +662,14 @@ namespace WindowsFormsApplication4
                     xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
                     xxx.PrintOptions.PrinterName = printer.Details;
                     xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                    xxx.PrintToPrinter(1, false, 0, 0);
+                    try
+                    {
+                        xxx.PrintToPrinter(1, false, 0, 0);
+                    }
+                    catch (Exception)
+                    {
+                        Alert.Show("Lỗi máy in", Color.Red);
+                    }
                 }
             }
             this.Dispose();
@@ -809,7 +828,19 @@ namespace WindowsFormsApplication4
                      {
                          Re_ThanhToan xxx = new Re_ThanhToan();
 
-                         xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                         if (StaticClass.mode == "AUT")
+                         {
+                             xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                         }
+                         else if (StaticClass.mode == "SQL")
+                         {
+                             xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                                              StaticClass.databaseName);
+                         }
+                         else
+                         {
+                             return;
+                         }
                          ParameterFieldDefinitions crParameterFieldDefinitions;
                          ParameterFieldDefinition crParameterFieldDefinition;
                          ParameterValues crParameterValues = new ParameterValues();
@@ -840,7 +871,14 @@ namespace WindowsFormsApplication4
                          xxx.PrintOptions.PrinterName = printer.Details;
                          crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
                          xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                         xxx.PrintToPrinter(1, false, 0, 0);
+                         try
+                         {
+                             xxx.PrintToPrinter(1, false, 0, 0);
+                         }
+                         catch (Exception)
+                         {
+                             Alert.Show("Lỗi máy in", Color.Red);
+                         }
                      }
 
                     
@@ -860,12 +898,9 @@ namespace WindowsFormsApplication4
 
         private void button66_Click(object sender, EventArgs e)
         {
-            if (checkItemSended())
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_INVOICE_PRICE_CHANGE))
             {
-                if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_INVOICE_PRICE_CHANGE))
-                {
-                    return;
-                }
+                return;
             }
             FrmKeyboardNumber kb = new FrmKeyboardNumber("Nhập giá :");
             if (kb.ShowDialog() == DialogResult.OK)
@@ -881,6 +916,10 @@ namespace WindowsFormsApplication4
 
         private void button67_Click(object sender, EventArgs e)
         {
+            if(!Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_RETURN))
+            {
+                return;
+            }
             ArrayList arrayList = myCash1.get_RowSelected();
             if(arrayList.Count > 1)
             {
@@ -922,7 +961,7 @@ namespace WindowsFormsApplication4
                 foreach (Printer c in serviceGet.getPrinters(StaticClass.storeId, StaticClass.stationId))
                 {
                     kt = false;
-                    if (!c.Disable)
+                    if (!c.Disable && (c.Details != "NONE"))
                     {
                         foreach (MyItem c1 in myCash1.get_All_Rows())
                         {
@@ -944,15 +983,34 @@ namespace WindowsFormsApplication4
                         if (kt)
                         {
                             rpt_PrintToKit xxx = new rpt_PrintToKit();
-
-                            xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                            if(StaticClass.mode == "AUT")
+                            {
+                                xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                            }
+                            else if(StaticClass.mode == "SQL")
+                            {
+                                xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                                                 StaticClass.databaseName);
+                            }
+                            else
+                            {
+                                return;
+                            }
+                            
                             string[] para = { "@Store_ID", "@Invoice_Number","@Table" };
                             string[] value = {StaticClass.storeId,invoiceNum,tableName};
                             serviceGet.FillDataReport(xxx,para,value,true);
 
                             xxx.PrintOptions.PrinterName = c.Details;
                             xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                            xxx.PrintToPrinter(1, false, 0, 0);
+                            try
+                            {
+                                xxx.PrintToPrinter(1, false, 0, 0);
+                            }
+                            catch (Exception)
+                            {
+                                Alert.Show("Lỗi máy in",Color.Red);
+                            }
                             getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
                         }
                     }

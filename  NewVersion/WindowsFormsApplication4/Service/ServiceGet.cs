@@ -157,7 +157,7 @@ namespace WindowsFormsApplication4.Service
                         StaticClass.isAdmin = true;
                     }
                     StaticClass.cashierId = Id;
-                    DataTable thongTinNV = getGui.GetEmpById(Id);
+                    DataTable thongTinNV = getGui.GetEmployeeByID(storeId,Id);
                     StaticClass.thongTinNV = thongTinNV.Rows[0];
                     return 2;
                 }

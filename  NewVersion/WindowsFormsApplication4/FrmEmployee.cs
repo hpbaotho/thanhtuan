@@ -157,7 +157,7 @@ namespace WindowsFormsApplication4
                 //MessageBox.Show(tmp.Rows[0]["ItemName"].ToString());
                 //DataRowView itemRow = (DataRowView)cmbDept.SelectedItem;
                 string deptId = cmbDept.SelectedItem.ToString();
-                get_service.CreateEmployee(txtEmpID.Text,txtCus.Text,deptId,txtPass.Text,txtSwipt.Text,txtHour.Text,StaticClass.Form_Color,Employee_Prop.PROMPT,Employee_Prop.PROMPT
+                get_service.CreateEmployee(txtEmpID.Text,txtCus.Text,deptId,txtPass.Text,txtSwipt.Text,txtHour.Text,StaticClass.Form_Color,Employee_Prop.PROMPT,ComboBox2String(cmbThue,Employee_Prop.CFA_Setup_Tax)
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbMayIn,Employee_Prop.CFA_Setup_DefPrinter)
                                                ,Employee_Prop.PROMPT,ComboBox2String(cmbMH,Employee_Prop.CFA_Inven_Edit),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbKho,Employee_Prop.CFA_Depts_Edit)
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbXemBC,Employee_Prop.CFA_Reports_Display),Employee_Prop.PROMPT
@@ -188,7 +188,7 @@ namespace WindowsFormsApplication4
         private void button6_Click(object sender, EventArgs e)
         {
             string deptId = cmbDept.SelectedItem.ToString();
-            get_service.UpdateEmployee(txtEmpID.Text, txtCus.Text, deptId, txtPass.Text, txtSwipt.Text, txtHour.Text, StaticClass.Form_Color, Employee_Prop.PROMPT, Employee_Prop.PROMPT
+            get_service.UpdateEmployee(txtEmpID.Text, txtCus.Text, deptId, txtPass.Text, txtSwipt.Text, txtHour.Text, StaticClass.Form_Color, Employee_Prop.PROMPT, ComboBox2String(cmbThue, Employee_Prop.CFA_Setup_Tax)
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbMayIn, Employee_Prop.CFA_Setup_DefPrinter)
                                                , Employee_Prop.PROMPT, ComboBox2String(cmbMH, Employee_Prop.CFA_Inven_Edit), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbKho, Employee_Prop.CFA_Depts_Edit)
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbXemBC, Employee_Prop.CFA_Reports_Display), Employee_Prop.PROMPT

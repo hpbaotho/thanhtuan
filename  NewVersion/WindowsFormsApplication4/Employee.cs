@@ -81,7 +81,7 @@ namespace WindowsFormsApplication4
         private static bool check(string storeId, string cashierId, string columnName)
         {
             get_GUI getGui = new get_GUI();
-            DataTable emp = getGui.GetEmpById(cashierId);
+            DataTable emp = getGui.GetEmployeeByID(storeId,cashierId);
             Service.ServiceGet service = new ServiceGet();
             if (emp.Rows[0][columnName].ToString() == "Y")
             {
