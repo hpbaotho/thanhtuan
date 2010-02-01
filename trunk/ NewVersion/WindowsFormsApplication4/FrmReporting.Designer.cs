@@ -272,7 +272,7 @@
             this.btnInvoice.Color1 = System.Drawing.Color.Blue;
             this.btnInvoice.Color2 = System.Drawing.Color.Blue;
             this.btnInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvoice.Location = new System.Drawing.Point(12, 246);
+            this.btnInvoice.Location = new System.Drawing.Point(12, 101);
             this.btnInvoice.Name = "btnInvoice";
             this.btnInvoice.OwnDrawColor = System.Drawing.Color.White;
             this.btnInvoice.Size = new System.Drawing.Size(94, 47);
@@ -293,6 +293,7 @@
             this.btnRestaurant.TabIndex = 6;
             this.btnRestaurant.Text = "Nhà Hàng";
             this.btnRestaurant.UseOwnColor = false;
+            this.btnRestaurant.Visible = false;
             this.btnRestaurant.Click += new System.EventHandler(this.btnRestaurant_Click);
             // 
             // btnEmployee
@@ -307,6 +308,7 @@
             this.btnEmployee.TabIndex = 5;
             this.btnEmployee.Text = "Nhân viên";
             this.btnEmployee.UseOwnColor = false;
+            this.btnEmployee.Visible = false;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnCustomer
@@ -314,13 +316,14 @@
             this.btnCustomer.Color1 = System.Drawing.Color.Blue;
             this.btnCustomer.Color2 = System.Drawing.Color.Blue;
             this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomer.Location = new System.Drawing.Point(12, 101);
+            this.btnCustomer.Location = new System.Drawing.Point(12, 246);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.OwnDrawColor = System.Drawing.Color.White;
             this.btnCustomer.Size = new System.Drawing.Size(94, 47);
             this.btnCustomer.TabIndex = 4;
             this.btnCustomer.Text = "Khách hàng";
             this.btnCustomer.UseOwnColor = false;
+            this.btnCustomer.Visible = false;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnSale

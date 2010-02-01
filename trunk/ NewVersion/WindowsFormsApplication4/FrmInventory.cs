@@ -332,14 +332,13 @@ namespace WindowsFormsApplication4
         private void button5_Click(object sender, EventArgs e)
         {
             DataTable InventoryItemize = get_service.GetInvoiceItemizedByItemNum(StaticClass.storeId, txtInvenId.Text);
-            if(inventory.Rows.Count>0)
+            if (InventoryItemize.Rows.Count > 0)
             {
-                DialogResult t =
-                    MessBox2Choice.ShowBox("Mặt hàng mà bạn xóa \nhiện đã có người đang đặt.\n Bạn có muốn xóa không", Color.YellowGreen);
-                if(t.Equals(System.Windows.Forms.DialogResult.No))
-                    return;
+                Alert.Show("Mặt hàng vẫn còn \ntrong hóa đơn.",Color.Red);
+                return;
                 
             }
+            get_service.DeleteAllInventPrinter(StaticClass.storeId,txtInvenId.Text);
             get_service.DeleteInventory(txtInvenId.Text, StaticClass.storeId);
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             limit = inventory.Rows.Count - 1;
