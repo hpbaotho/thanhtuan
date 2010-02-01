@@ -8,6 +8,7 @@ using System.Text;
 using CrystalDecisions.CrystalReports.Engine;
 using POSReport.Report;
 using Services;
+using WindowsFormsApplication4.Const;
 using WindowsFormsApplication4.Controls;
 using WindowsFormsApplication4.Persistence;
 
@@ -146,6 +147,11 @@ namespace WindowsFormsApplication4.Service
             {
                 string cashierPass = getCashierpass.Rows[0][1].ToString();
                 string adminPass = getGui.GetAdminPass(storeId).Rows[0][1].ToString();
+                DataTable thongTinNV = getGui.GetEmployeeByID(storeId, Id);
+                if (Convert.ToBoolean(thongTinNV.Rows[0][Employee_Prop.Disabled]))
+                {
+                    return 3;
+                }
                 if(pass.ToLower() == cashierPass.ToLower() || pass.ToLower() == adminPass.ToLower())
                 {
                     if (pass.ToLower() == cashierPass.ToLower())
@@ -157,7 +163,7 @@ namespace WindowsFormsApplication4.Service
                         StaticClass.isAdmin = true;
                     }
                     StaticClass.cashierId = Id;
-                    DataTable thongTinNV = getGui.GetEmployeeByID(storeId,Id);
+                    //DataTable thongTinNV = getGui.GetEmployeeByID(storeId,Id);
                     StaticClass.thongTinNV = thongTinNV.Rows[0];
                     return 2;
                 }

@@ -60,6 +60,11 @@ namespace WindowsFormsApplication4
                     Alert.Show("Password không đúng !", Color.Red);
                     return false;
                 }
+                if(check == 3)
+                {
+                    Alert.Show("Tài khoản bị vô hiệu.", Color.Red);
+                    return false;
+                }
             }
             return false;
         }
