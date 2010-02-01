@@ -684,6 +684,14 @@ namespace Services
             DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_DeleteInventPrinter");
             cmd.Dispose();
         }
+        public void DeleteAllInventPrinter(string storeID, string itemNum)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            deleteSQL = "Delete From Printers where (ItemNum = '" + itemNum + "') and ( Store_ID = '" + storeID + "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
         public void InsertInventPrinter(string storeID, string itemNum, string pName,string port)
         {
             cmd = new SqlCommand();
