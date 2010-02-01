@@ -478,8 +478,13 @@ namespace WindowsFormsApplication4
                 layout.formLogin = this;
                 layout.ShowDialog();
             }
+            else if(check == 3)
+            {
+                Alert.Show("Tài khoản đã bị vô hiệu.", Color.Red);
+                this.FrmLogin_Load(null, null);
+            }
 
-            
+
         }
         //slgn
         public void RequestMess(string s)
