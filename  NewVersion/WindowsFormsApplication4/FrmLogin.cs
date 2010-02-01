@@ -14,6 +14,7 @@ using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.lic;
 using WindowsFormsApplication4.Networking;
+using WindowsFormsApplication4.Persistence;
 using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
@@ -632,8 +633,9 @@ namespace WindowsFormsApplication4
                 ReportClass reportClass = DetailSaleReport;
                 if (reportClass == null)
                     return;
-                FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
-                frmViewReporting.Show();
+                //FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
+                //frmViewReporting.Show();
+                Utilities.Utils.Print(reportClass,Printer.PrinterHoadon);
 
             }
 

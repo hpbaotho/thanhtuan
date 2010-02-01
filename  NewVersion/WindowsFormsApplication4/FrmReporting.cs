@@ -38,6 +38,7 @@ namespace WindowsFormsApplication4
         private DataTable Employee;
         private string StatusInvoice=Const.Invoice_Status.THANH_TOAN_ROI;
         private string Cashier_ID = "ALL";
+        private string printerName = Printer.PrinterHoadon;
         public FrmReporting()
         {
             InitializeComponent();
@@ -268,6 +269,7 @@ namespace WindowsFormsApplication4
                     {
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = true;
+                        printerName = Printer.PrinterBaocao;
                         return;
                     }
                 case 1:
@@ -276,6 +278,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
+                        printerName = Printer.PrinterBaocao;
                         return;
                     }
                 case 2:
@@ -283,6 +286,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = false;
                         lstKindOfInvo.SelectedIndex = 0;
+                        printerName = Printer.PrinterHoadon;
                         return;
                     }
                 case 3:
@@ -290,6 +294,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = false;
                         lstKindOfInvo.SelectedIndex = 0;
+                        printerName = Printer.PrinterBaocao;
                         return;
                     }
                 case 4:
@@ -297,6 +302,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
+                        printerName = Printer.PrinterBaocao;
                         return;
                     }
                 case 40:
@@ -304,6 +310,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
+                        printerName = Printer.PrinterBaocao;
                         return;
                     }
 
@@ -316,6 +323,7 @@ namespace WindowsFormsApplication4
                     EnableDateTime0(false);
                     lstKindOfInvo.Enabled = true;
                     lstKindOfInvo.SelectedIndex = 0;
+                    printerName = Printer.PrinterBaocao;
                     return ;
             }
            
@@ -462,7 +470,7 @@ namespace WindowsFormsApplication4
             ReportClass reportClass = ViewReport(state);
             if (reportClass == null)
                 return;
-            Utils.Print(reportClass,Printer.PrinterHoadon);
+            Utils.Print(reportClass,printerName);
         }
     }
 }
