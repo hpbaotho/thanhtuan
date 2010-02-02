@@ -68,8 +68,25 @@ namespace WindowsFormsApplication4
             this.button34 = new WindowsFormsApplication4.Controls.button();
             this.button35 = new WindowsFormsApplication4.Controls.button();
             this.button36 = new WindowsFormsApplication4.Controls.button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button37 = new WindowsFormsApplication4.Controls.button();
+            this.button38 = new WindowsFormsApplication4.Controls.button();
+            this.button39 = new WindowsFormsApplication4.Controls.button();
+            this.button40 = new WindowsFormsApplication4.Controls.button();
+            this.button41 = new WindowsFormsApplication4.Controls.button();
+            this.button42 = new WindowsFormsApplication4.Controls.button();
+            this.button43 = new WindowsFormsApplication4.Controls.button();
+            this.button44 = new WindowsFormsApplication4.Controls.button();
+            this.button45 = new WindowsFormsApplication4.Controls.button();
+            this.button46 = new WindowsFormsApplication4.Controls.button();
+            this.button47 = new WindowsFormsApplication4.Controls.button();
+            this.button48 = new WindowsFormsApplication4.Controls.button();
+            this.button49 = new WindowsFormsApplication4.Controls.button();
+            this.button50 = new WindowsFormsApplication4.Controls.button();
+            this.button51 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -107,9 +124,8 @@ namespace WindowsFormsApplication4
             this.button3.OwnDrawColor = System.Drawing.Color.White;
             this.button3.Size = new System.Drawing.Size(147, 71);
             this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
+            this.button3.Text = "Chức năng nhân viên";
             this.button3.UseOwnColor = false;
-            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
@@ -589,12 +605,230 @@ namespace WindowsFormsApplication4
             this.button36.UseOwnColor = false;
             this.button36.Click += new System.EventHandler(this.button36_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button37);
+            this.panel3.Controls.Add(this.button38);
+            this.panel3.Controls.Add(this.button39);
+            this.panel3.Controls.Add(this.button40);
+            this.panel3.Controls.Add(this.button41);
+            this.panel3.Controls.Add(this.button42);
+            this.panel3.Controls.Add(this.button43);
+            this.panel3.Controls.Add(this.button44);
+            this.panel3.Controls.Add(this.button45);
+            this.panel3.Controls.Add(this.button46);
+            this.panel3.Controls.Add(this.button47);
+            this.panel3.Controls.Add(this.button48);
+            this.panel3.Controls.Add(this.button49);
+            this.panel3.Controls.Add(this.button50);
+            this.panel3.Controls.Add(this.button51);
+            this.panel3.Location = new System.Drawing.Point(180, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(454, 475);
+            this.panel3.TabIndex = 45;
+            // 
+            // button37
+            // 
+            this.button37.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button37.Location = new System.Drawing.Point(311, 384);
+            this.button37.Name = "button37";
+            this.button37.OwnDrawColor = System.Drawing.Color.White;
+            this.button37.Size = new System.Drawing.Size(131, 71);
+            this.button37.TabIndex = 43;
+            this.button37.Text = "button37";
+            this.button37.UseOwnColor = false;
+            this.button37.Visible = false;
+            // 
+            // button38
+            // 
+            this.button38.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button38.Location = new System.Drawing.Point(162, 384);
+            this.button38.Name = "button38";
+            this.button38.OwnDrawColor = System.Drawing.Color.White;
+            this.button38.Size = new System.Drawing.Size(131, 71);
+            this.button38.TabIndex = 42;
+            this.button38.Text = "button38";
+            this.button38.UseOwnColor = false;
+            this.button38.Visible = false;
+            // 
+            // button39
+            // 
+            this.button39.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button39.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button39.Location = new System.Drawing.Point(13, 384);
+            this.button39.Name = "button39";
+            this.button39.OwnDrawColor = System.Drawing.Color.White;
+            this.button39.Size = new System.Drawing.Size(131, 71);
+            this.button39.TabIndex = 41;
+            this.button39.Text = "button39";
+            this.button39.UseOwnColor = false;
+            this.button39.Visible = false;
+            // 
+            // button40
+            // 
+            this.button40.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button40.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button40.Location = new System.Drawing.Point(311, 293);
+            this.button40.Name = "button40";
+            this.button40.OwnDrawColor = System.Drawing.Color.White;
+            this.button40.Size = new System.Drawing.Size(131, 71);
+            this.button40.TabIndex = 40;
+            this.button40.Text = "button40";
+            this.button40.UseOwnColor = false;
+            this.button40.Visible = false;
+            // 
+            // button41
+            // 
+            this.button41.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button41.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button41.Location = new System.Drawing.Point(162, 293);
+            this.button41.Name = "button41";
+            this.button41.OwnDrawColor = System.Drawing.Color.White;
+            this.button41.Size = new System.Drawing.Size(131, 71);
+            this.button41.TabIndex = 39;
+            this.button41.Text = "button41";
+            this.button41.UseOwnColor = false;
+            this.button41.Visible = false;
+            // 
+            // button42
+            // 
+            this.button42.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button42.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button42.Location = new System.Drawing.Point(13, 293);
+            this.button42.Name = "button42";
+            this.button42.OwnDrawColor = System.Drawing.Color.White;
+            this.button42.Size = new System.Drawing.Size(131, 71);
+            this.button42.TabIndex = 38;
+            this.button42.Text = "button42";
+            this.button42.UseOwnColor = false;
+            this.button42.Visible = false;
+            // 
+            // button43
+            // 
+            this.button43.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button43.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button43.Location = new System.Drawing.Point(311, 202);
+            this.button43.Name = "button43";
+            this.button43.OwnDrawColor = System.Drawing.Color.White;
+            this.button43.Size = new System.Drawing.Size(131, 71);
+            this.button43.TabIndex = 37;
+            this.button43.Text = "button43";
+            this.button43.UseOwnColor = false;
+            this.button43.Visible = false;
+            // 
+            // button44
+            // 
+            this.button44.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button44.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button44.Location = new System.Drawing.Point(162, 202);
+            this.button44.Name = "button44";
+            this.button44.OwnDrawColor = System.Drawing.Color.White;
+            this.button44.Size = new System.Drawing.Size(131, 71);
+            this.button44.TabIndex = 36;
+            this.button44.Text = "button44";
+            this.button44.UseOwnColor = false;
+            this.button44.Visible = false;
+            // 
+            // button45
+            // 
+            this.button45.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button45.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button45.Location = new System.Drawing.Point(13, 202);
+            this.button45.Name = "button45";
+            this.button45.OwnDrawColor = System.Drawing.Color.White;
+            this.button45.Size = new System.Drawing.Size(131, 71);
+            this.button45.TabIndex = 35;
+            this.button45.Text = "button45";
+            this.button45.UseOwnColor = false;
+            this.button45.Visible = false;
+            // 
+            // button46
+            // 
+            this.button46.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button46.Location = new System.Drawing.Point(311, 111);
+            this.button46.Name = "button46";
+            this.button46.OwnDrawColor = System.Drawing.Color.White;
+            this.button46.Size = new System.Drawing.Size(131, 71);
+            this.button46.TabIndex = 34;
+            this.button46.Text = "button46";
+            this.button46.UseOwnColor = false;
+            this.button46.Visible = false;
+            // 
+            // button47
+            // 
+            this.button47.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button47.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button47.Location = new System.Drawing.Point(13, 111);
+            this.button47.Name = "button47";
+            this.button47.OwnDrawColor = System.Drawing.Color.White;
+            this.button47.Size = new System.Drawing.Size(131, 71);
+            this.button47.TabIndex = 33;
+            this.button47.Text = "Báo cáo";
+            this.button47.UseOwnColor = false;
+            this.button47.Visible = false;
+            // 
+            // button48
+            // 
+            this.button48.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button48.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button48.Location = new System.Drawing.Point(162, 111);
+            this.button48.Name = "button48";
+            this.button48.OwnDrawColor = System.Drawing.Color.White;
+            this.button48.Size = new System.Drawing.Size(131, 71);
+            this.button48.TabIndex = 32;
+            this.button48.Text = "Quản lý khách hàng";
+            this.button48.UseOwnColor = false;
+            this.button48.Visible = false;
+            // 
+            // button49
+            // 
+            this.button49.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button49.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button49.Location = new System.Drawing.Point(311, 20);
+            this.button49.Name = "button49";
+            this.button49.OwnDrawColor = System.Drawing.Color.White;
+            this.button49.Size = new System.Drawing.Size(131, 71);
+            this.button49.TabIndex = 31;
+            this.button49.Text = "Quản lý nhân viên";
+            this.button49.UseOwnColor = false;
+            this.button49.Visible = false;
+            // 
+            // button50
+            // 
+            this.button50.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button50.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button50.Location = new System.Drawing.Point(162, 20);
+            this.button50.Name = "button50";
+            this.button50.OwnDrawColor = System.Drawing.Color.White;
+            this.button50.Size = new System.Drawing.Size(131, 71);
+            this.button50.TabIndex = 30;
+            this.button50.Text = "Quản lý loại hàng";
+            this.button50.UseOwnColor = false;
+            this.button50.Visible = false;
+            // 
+            // button51
+            // 
+            this.button51.Color2 = System.Drawing.Color.RoyalBlue;
+            this.button51.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button51.Location = new System.Drawing.Point(13, 20);
+            this.button51.Name = "button51";
+            this.button51.OwnDrawColor = System.Drawing.Color.White;
+            this.button51.Size = new System.Drawing.Size(131, 71);
+            this.button51.TabIndex = 29;
+            this.button51.Text = "Mở két sắt";
+            this.button51.UseOwnColor = false;
+            this.button51.Click += new System.EventHandler(this.button51_Click);
+            // 
             // FrmManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(729, 490);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.button21);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -610,6 +844,7 @@ namespace WindowsFormsApplication4
             this.Load += new System.EventHandler(this.FrmManager_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -654,5 +889,21 @@ namespace WindowsFormsApplication4
         private button button34;
         private button button35;
         private button button36;
+        private System.Windows.Forms.Panel panel3;
+        private button button37;
+        private button button38;
+        private button button39;
+        private button button40;
+        private button button41;
+        private button button42;
+        private button button43;
+        private button button44;
+        private button button45;
+        private button button46;
+        private button button47;
+        private button button48;
+        private button button49;
+        private button button50;
+        private button button51;
     }
 }
