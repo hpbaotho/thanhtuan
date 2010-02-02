@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WindowsFormsApplication4.Controls;
+using POSReport.Report;
+using WindowsFormsApplication4.Persistence;
 
 namespace WindowsFormsApplication4
 {
@@ -52,7 +54,7 @@ namespace WindowsFormsApplication4
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SelectChange(((button)sender).Name, "panel1");
+            SelectChange(((button)sender).Name, "panel3");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -148,6 +150,12 @@ namespace WindowsFormsApplication4
             }
             FrmEmployee frmEmployee = new FrmEmployee();
             frmEmployee.ShowDialog();
+        }
+
+        private void button51_Click(object sender, EventArgs e)
+        {
+            rptOpenDrawer rptOpenDrawer = new rptOpenDrawer();
+            Utilities.Utils.Print(rptOpenDrawer,Printer.PrinterHoadon);
         }
     }
 }
