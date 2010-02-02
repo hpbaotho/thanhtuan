@@ -373,7 +373,7 @@
             this.Name = "FrmReporting";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmReporting";
+            this.Text = "Báo cáo";
             this.Load += new System.EventHandler(this.FrmReporting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
