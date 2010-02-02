@@ -808,9 +808,9 @@
             this.cbDisable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDisable.Location = new System.Drawing.Point(136, 182);
             this.cbDisable.Name = "cbDisable";
-            this.cbDisable.Size = new System.Drawing.Size(107, 24);
+            this.cbDisable.Size = new System.Drawing.Size(153, 24);
             this.cbDisable.TabIndex = 58;
-            this.cbDisable.Text = "Disable NV";
+            this.cbDisable.Text = "Disable nhân viên";
             this.cbDisable.UseVisualStyleBackColor = true;
             // 
             // cbRequire
@@ -823,6 +823,7 @@
             this.cbRequire.TabIndex = 59;
             this.cbRequire.Text = "require clock-in berfore login";
             this.cbRequire.UseVisualStyleBackColor = true;
+            this.cbRequire.Visible = false;
             // 
             // cbTake
             // 
@@ -834,6 +835,7 @@
             this.cbTake.TabIndex = 60;
             this.cbTake.Text = "Take CC Tips in Cash at End of Ship";
             this.cbTake.UseVisualStyleBackColor = true;
+            this.cbTake.Visible = false;
             // 
             // cbAdmin
             // 
@@ -845,6 +847,7 @@
             this.cbAdmin.TabIndex = 61;
             this.cbAdmin.Text = "Administrative Card Access";
             this.cbAdmin.UseVisualStyleBackColor = true;
+            this.cbAdmin.Visible = false;
             // 
             // panel6
             // 
@@ -1073,7 +1076,7 @@
             this.Controls.Add(this.button8);
             this.Name = "FrmEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmEmployee";
+            this.Text = "Thiết lập nhân viên";
             this.Load += new System.EventHandler(this.FrmEmployee_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
