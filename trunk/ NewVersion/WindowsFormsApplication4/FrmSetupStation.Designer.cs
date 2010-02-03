@@ -94,7 +94,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
             this.Name = "FrmSetupStation";
-            this.Text = "SetupStation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cài đặt mã máy";
             this.Load += new System.EventHandler(this.SetupStation_Load);
             this.ResumeLayout(false);
 

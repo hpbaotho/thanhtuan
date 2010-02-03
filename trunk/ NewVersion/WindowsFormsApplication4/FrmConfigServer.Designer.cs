@@ -112,6 +112,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "FrmConfigServer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmConfigServer";
             this.ResumeLayout(false);
             this.PerformLayout();
