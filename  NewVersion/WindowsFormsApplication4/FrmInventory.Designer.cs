@@ -430,11 +430,11 @@
             // 
             this.creCheckBox5.AutoSize = true;
             this.creCheckBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox5.Location = new System.Drawing.Point(3, 108);
+            this.creCheckBox5.Location = new System.Drawing.Point(3, 3);
             this.creCheckBox5.Name = "creCheckBox5";
-            this.creCheckBox5.Size = new System.Drawing.Size(131, 22);
+            this.creCheckBox5.Size = new System.Drawing.Size(174, 22);
             this.creCheckBox5.TabIndex = 4;
-            this.creCheckBox5.Text = "Count This Item";
+            this.creCheckBox5.Text = "Đếm số lượng tồn kho";
             this.creCheckBox5.UseVisualStyleBackColor = true;
             this.creCheckBox5.CheckedChanged += new System.EventHandler(this.creCheckBox5_CheckedChanged);
             // 
@@ -475,7 +475,7 @@
             // 
             this.creCheckBox1.AutoSize = true;
             this.creCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox1.Location = new System.Drawing.Point(3, 0);
+            this.creCheckBox1.Location = new System.Drawing.Point(3, 108);
             this.creCheckBox1.Name = "creCheckBox1";
             this.creCheckBox1.Size = new System.Drawing.Size(112, 22);
             this.creCheckBox1.TabIndex = 0;
