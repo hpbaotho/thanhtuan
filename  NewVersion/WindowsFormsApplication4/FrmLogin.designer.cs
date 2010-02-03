@@ -106,6 +106,8 @@
             this.button55 = new WindowsFormsApplication4.Controls.button();
             this.button54 = new WindowsFormsApplication4.Controls.button();
             this.button53 = new WindowsFormsApplication4.Controls.button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cấuHìnhServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -918,10 +920,11 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chọnDatabaseToolStripMenuItem,
-            this.đăngKíToolStripMenuItem,
+            this.cấuHìnhServerToolStripMenuItem,
             this.xóaHóaĐơnToolStripMenuItem,
             this.đổiMậtKhẩuQuảnLýToolStripMenuItem,
             this.xemSốTiềnBánTrongNgàyToolStripMenuItem,
+            this.đăngKíToolStripMenuItem,
             this.giớiThiệuToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -998,7 +1001,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(625, 499);
+            this.label3.Location = new System.Drawing.Point(621, 467);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 24);
             this.label3.TabIndex = 25;
@@ -1033,7 +1036,7 @@
             // 
             // clock1
             // 
-            this.clock1.Location = new System.Drawing.Point(672, 581);
+            this.clock1.Location = new System.Drawing.Point(673, 584);
             this.clock1.Name = "clock1";
             this.clock1.Size = new System.Drawing.Size(212, 86);
             this.clock1.TabIndex = 24;
@@ -1076,12 +1079,30 @@
             this.button53.UseOwnColor = false;
             this.button53.Click += new System.EventHandler(this.button53_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(738, 548);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 33);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Máy : 01";
+            // 
+            // cấuHìnhServerToolStripMenuItem
+            // 
+            this.cấuHìnhServerToolStripMenuItem.Name = "cấuHìnhServerToolStripMenuItem";
+            this.cấuHìnhServerToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.cấuHìnhServerToolStripMenuItem.Text = "Cấu hình Server";
+            this.cấuHìnhServerToolStripMenuItem.Click += new System.EventHandler(this.cấuHìnhServerToolStripMenuItem_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1016, 734);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.clock1);
@@ -1191,5 +1212,7 @@
         public System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStripMenuItem xemSốTiềnBánTrongNgàyToolStripMenuItem;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem cấuHìnhServerToolStripMenuItem;
     }
 }
