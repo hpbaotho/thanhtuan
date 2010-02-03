@@ -55,7 +55,10 @@ namespace WindowsFormsApplication4.Service
                     user = StaticClass.userName = "";
                     pass = StaticClass.password = "";
                 }
-
+                if (m_dtDict.Rows[0]["StationID"].ToString() != "")
+                {
+                    StaticClass.stationId = m_dtDict.Rows[0]["StationID"].ToString();
+                }
             }
             else
             {
