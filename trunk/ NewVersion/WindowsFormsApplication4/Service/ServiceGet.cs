@@ -213,9 +213,9 @@ namespace WindowsFormsApplication4.Service
             }
             return printers;
         }
-        public void InsertPrinter(Printer printer)
+        public void InsertPrinter(Printer printer,string station)
         {
-            getGui.InsertPrinter(StaticClass.storeId,StaticClass.stationId,printer.PrinterName,printer.Disable,printer.Two_Color,printer.Cut_Print,printer.LocalPort,printer.NetworkPort,printer.Details);
+            getGui.InsertPrinter(StaticClass.storeId,station,printer.PrinterName,printer.Disable,printer.Two_Color,printer.Cut_Print,printer.LocalPort,printer.NetworkPort,printer.Details);
         }
         public Printer GetPrinterByName(string store_ID, string station_ID,string Name)
         {
