@@ -83,7 +83,7 @@ namespace WindowsFormsApplication4
             serviceGet = new ServiceGet();
             getGui = new get_GUI();
 
-
+            label5.Text = "Máy : " + StaticClass.stationId;
             button45.changeColor(Color.White, Color.Red);
             button46.changeColor(Color.White,Color.FromArgb(0,150,0));
             button9.changeColor(Color.White, Color.Red);
@@ -644,6 +644,12 @@ namespace WindowsFormsApplication4
 
             }
 
+        }
+
+        private void cấuHìnhServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConfigServer frmConfigServer = new FrmConfigServer();
+            frmConfigServer.ShowDialog();
         }
     }
 }
