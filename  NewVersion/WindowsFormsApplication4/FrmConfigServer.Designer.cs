@@ -28,29 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new WindowsFormsApplication4.Controls.button();
             this.button2 = new WindowsFormsApplication4.Controls.button();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
+            this.creTextBox1 = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.creTextBox2 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(93, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(93, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(69, 31);
-            this.textBox2.TabIndex = 1;
             // 
             // label1
             // 
@@ -72,20 +56,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "PORT";
             // 
-            // button1
-            // 
-            this.button1.Color1 = System.Drawing.Color.Blue;
-            this.button1.Color2 = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(93, 137);
-            this.button1.Name = "button1";
-            this.button1.OwnDrawColor = System.Drawing.Color.White;
-            this.button1.Size = new System.Drawing.Size(95, 50);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Xác nhận";
-            this.button1.UseOwnColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.Color1 = System.Drawing.Color.Red;
@@ -100,17 +70,47 @@
             this.button2.UseOwnColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button1
+            // 
+            this.button1.Color1 = System.Drawing.Color.Blue;
+            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(93, 137);
+            this.button1.Name = "button1";
+            this.button1.OwnDrawColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(95, 50);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Xác nhận";
+            this.button1.UseOwnColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // creTextBox1
+            // 
+            this.creTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creTextBox1.Location = new System.Drawing.Point(93, 35);
+            this.creTextBox1.Name = "creTextBox1";
+            this.creTextBox1.Size = new System.Drawing.Size(150, 31);
+            this.creTextBox1.TabIndex = 6;
+            // 
+            // creTextBox2
+            // 
+            this.creTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creTextBox2.Location = new System.Drawing.Point(93, 81);
+            this.creTextBox2.Name = "creTextBox2";
+            this.creTextBox2.Size = new System.Drawing.Size(95, 31);
+            this.creTextBox2.TabIndex = 7;
+            // 
             // FrmConfigServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 199);
+            this.Controls.Add(this.creTextBox2);
+            this.Controls.Add(this.creTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Name = "FrmConfigServer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmConfigServer";
@@ -121,11 +121,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private WindowsFormsApplication4.Controls.button button1;
         private WindowsFormsApplication4.Controls.button button2;
+        private WindowsFormsApplication4.Controls.CreTextBox creTextBox1;
+        private WindowsFormsApplication4.Controls.CreTextBox creTextBox2;
     }
 }
