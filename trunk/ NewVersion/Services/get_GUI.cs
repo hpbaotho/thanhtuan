@@ -1573,5 +1573,139 @@ namespace Services
         }
         #endregion
 
+        #region Station
+        public DataTable GetAllStation(string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = "select * from Stations where Store_ID = '" + storeId + "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+        public void InsertStation(object[] station)
+        {
+            cmd = new SqlCommand();
+            string[] pa = { "@Station_ID " ,
+	"@Store_ID" ,
+	"@CSO" ,
+	"@DSO" ,
+	"@ISO" ,
+	"@VSO" ,
+	"@CDL"  ,
+	"@PDL"  ,
+	"@Pole_Type"  ,
+	"@Scale_Port" ,
+	"@Ticket_Port" ,
+	"@Voucher_Port",
+	"@BCB_Port"  ,
+	"@SCP_700_Port"  ,
+	"@Epson_Cutter_Port"  ,
+	"@Printer_Type"  ,
+	"@Printer_Port"  ,
+	"@Show_Cust_Display"  ,
+	"@Show_Toolbar"  ,
+	"@API"  ,
+	"@Receipt_Format"  ,
+	"@Deadbeat_Control"  ,
+	"@Prompt_Amt_Tend" ,
+	"@Prompt_Table"  ,
+	"@Prompt_ID"  ,
+	"@Prompt_Salesperson"  ,
+	"@Logo_Type"  ,
+	"@Logo_Loc" ,
+	"@Order_Dest" ,
+	"@Stock_Prompt"  ,
+	"@numReceiptCopies"  ,
+	"@Dirty"   ,
+	"@InvScreen" ,
+	"@FullSize_Printer" ,
+	"@Idle_LogOut"  ,
+	"@CCTip"  ,
+	"@Prompt_Zip"   ,
+	"@Last_DDR"  ,
+	"@Use_Sig_Pad_CC"   ,
+	"@Require_Swipe"  ,
+	"@Receipt_Printer"  ,
+	"@Report_Printer"  ,
+	"@Full_Receipt_Printer"  ,
+	"@Slip_Printer"  ,
+	"@DispTaxInPrice" ,
+	"@numDocketCopies"  ,
+	"@CC_Proc_Drive"  ,
+	"@Check_Speed_Entry"  ,
+	"@Prompt_Party_Size"  ,
+	"@Order_By_Guest"  ,
+	"@Label_Printer"  ,
+	"@SigPadPort"  ,
+	"@TS_Custom"  ,
+	"@AmtTendScreen"  ,
+	"@Def_OrderType"  ,
+	"@Allow_End_Trans"  ,
+	"@Prompt_Another_Order"   ,
+	"@PinPad_Type"  ,
+	"@PinPad_Port"  ,
+	"@Login_Background"  ,
+	"@Login_Foreground"  ,
+	"@Login_Picture"  ,
+	"@Login_AlphaNum"  ,
+	"@Record_CashierID"  ,
+	"@Change_Display"  ,
+	"@Quick_Tender" ,
+	"@Notify_Exp_Member"  ,
+	"@Station_Merchant"  ,
+	"@Item_OnTheFly"  ,
+	"@Disp_Sec_Desc" ,
+	"@Print_Epson_Logo" ,
+	"@Quick_Bar"  ,
+	"@Use_Cash_Alerts"  ,
+	"@Kitchen_Require_Name" ,
+	"@OverPayment_As_Tip"  ,
+	"@TS_StockLevel"  ,
+	"@BarcodeOnHold"   ,
+	"@CD_Open" ,
+	"@OnHold_Use_Invoice_Number"  ,
+	"@PicPath"  ,
+	"@SigPadType"  ,
+	"@AcceptSigs"  ,
+	"@SuppressSigCopy"  ,
+	"@MultipleMenus"  ,
+	"@Last_Invoice_Number"  ,
+	"@Receipt_Display_ItemCount"  ,
+	"@AllowSwipeFromInvoice"  ,
+	"@Scale_Port2"  ,
+	"@Endorse_Printer",
+	"@Fax_Printer" ,
+	"@Last_MoneyActivity_Index"  ,
+	"@Last_TimeClock_Index"  ,
+	"@Last_ExceptionIndex"  ,
+	"@Section_ID"  ,
+	"@TABLE_HIDE_OPENTABS" ,
+	"@TABLE_HIDE_TAKEOUT" ,
+	"@TABLE_HIDE_DELIVERY"  ,
+	"@TABLE_HIDE_QUICKTAB" ,
+	"@DisableTimeBasedPricing"  ,
+	"@PrintSuggestedTip",
+	"@ScaleWeightFormatting"  ,
+	"@Cash_Count"  ,
+	"@PrintDeliveryLabels"  ,
+	"@Role"  ,
+	"@CoinDispenserPort"  ,
+	"@Current_Cash"  ,
+	"@QuickCash_EnterKey"  ,
+	"@Label_Printer_Secondary" };
+
+            DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, station, "sp_InsertStation");
+            cmd.Dispose();
+        }
+
+        #endregion
+
+        public void UpdateInStock(string StoreId, string itemNum,string inStock)
+        {
+            cmd = new SqlCommand();
+            string query = "Update Inventory Set In_Stock = '" + inStock + "' where (Store_ID ='" + StoreId + "') and ( ItemNum = '"+itemNum + "')";
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
     }
 }
