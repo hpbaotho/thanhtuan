@@ -20,9 +20,9 @@ namespace WindowsFormsApplication4
         {
             string filename = Application.StartupPath + "\\ConfigServer.reg";
                                 
-            if(checkIP(textBox1.Text,textBox2.Text))
+            if(checkIP(creTextBox1.Text,creTextBox2.Text))
             {
-                string data = textBox1.Text + "@" + textBox2.Text;
+                string data = creTextBox1.Text + "@" + creTextBox2.Text;
                 lic.FileReadWrite.WriteFile(filename, data);
                 this.Dispose();
             }
