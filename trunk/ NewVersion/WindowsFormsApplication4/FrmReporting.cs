@@ -278,6 +278,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
@@ -286,6 +287,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = false;
                         lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterHoadon;
                         return;
                     }
@@ -294,6 +296,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = false;
                         lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
@@ -302,6 +305,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
@@ -310,6 +314,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
@@ -323,6 +328,7 @@ namespace WindowsFormsApplication4
                     EnableDateTime0(false);
                     lstKindOfInvo.Enabled = true;
                     lstKindOfInvo.SelectedIndex = 0;
+                    lstCashier.SelectedIndex = 0;
                     printerName = Printer.PrinterBaocao;
                     return ;
             }
