@@ -219,35 +219,37 @@ namespace WindowsFormsApplication4
 
         void tmp1_Click(object sender, EventArgs e)
         {
-            DataRow invent = getGui.GetInventoryByItemNum(StaticClass.storeId, ((button) sender).Ident).Rows[0];
-            string itemName = invent[1].ToString();
-            Decimal price = Convert.ToDecimal(invent[4]);
-            bool Tax1 = (bool)invent[9];
-            bool Tax2 = (bool)invent[10];
-            bool Tax3 = (bool)invent[11];
-            Decimal Tax1Per = 0;
-            Decimal Tax2Per = 0;
-            Decimal Tax3Per = 0;
-            Decimal Tax1Rate = Convert.ToDecimal(StaticClass.taxRate[1]);
-            Decimal Tax2Rate = Convert.ToDecimal(StaticClass.taxRate[2]);
-            Decimal Tax3Rate = Convert.ToDecimal(StaticClass.taxRate[7]);
-            if(Tax1)
+            if (UpdateInStock(StaticClass.storeId, ((button)sender).Ident,0,1))
             {
-                Tax1Per = price*Tax1Rate;
+                DataRow invent = getGui.GetInventoryByItemNum(StaticClass.storeId, ((button)sender).Ident).Rows[0];
+                string itemName = invent[1].ToString();
+                Decimal price = Convert.ToDecimal(invent[4]);
+                bool Tax1 = (bool)invent[9];
+                bool Tax2 = (bool)invent[10];
+                bool Tax3 = (bool)invent[11];
+                Decimal Tax1Per = 0;
+                Decimal Tax2Per = 0;
+                Decimal Tax3Per = 0;
+                Decimal Tax1Rate = Convert.ToDecimal(StaticClass.taxRate[1]);
+                Decimal Tax2Rate = Convert.ToDecimal(StaticClass.taxRate[2]);
+                Decimal Tax3Rate = Convert.ToDecimal(StaticClass.taxRate[7]);
+                if (Tax1)
+                {
+                    Tax1Per = price * Tax1Rate;
+                }
+                if (Tax2)
+                {
+                    Tax2Per = price * Tax2Rate;
+                }
+                if (Tax3)
+                {
+                    Tax3Per = price * Tax3Rate;
+                }
+                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, price, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, price, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+                myCash1.listInvoiceItem.Rows.Add(newrow);
+                myCash1.addRow(itemName, "1", String.Format("{0:0,0}", price));
+                UpdateInfo();
             }
-            if (Tax2)
-            {
-                Tax2Per = price * Tax2Rate;
-            }
-            if (Tax3)
-            {
-                Tax3Per = price * Tax3Rate;
-            }
-            object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, price, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, price, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
-            myCash1.listInvoiceItem.Rows.Add(newrow);
-            myCash1.addRow(itemName,"1", String.Format("{0:0,0}",price));
-            UpdateInfo();
-
         }
 
         void tmp_Click(object sender, EventArgs e)
@@ -406,8 +408,13 @@ namespace WindowsFormsApplication4
             int i = 0;
             foreach (MyItem item in myCash1.get_RowSelected())
             {
-                myCash1.listInvoiceItem.Rows.RemoveAt(item.Id -1 -i);
-                i++;
+                string itemNum = myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["ItemNum"].ToString();
+                float Quan = Convert.ToSingle(myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["Quantity"]);
+                if(UpdateInStock(StaticClass.storeId, itemNum, Quan, 0))
+                {
+                    myCash1.listInvoiceItem.Rows.RemoveAt(item.Id - 1 - i);
+                    i++;
+                }
             }
             myCash1.delete_RowSelected();
             changeLayout(false,null);
@@ -545,7 +552,12 @@ namespace WindowsFormsApplication4
                 {
                     foreach (MyItem item in myCash1.get_RowSelected())
                     {
-                        myCash1.listInvoiceItem.Rows[item.Id - 1][3] = kb.value;
+                        string itemNum = myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString();
+                        float Quan = Convert.ToSingle(myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"]);
+                        if(UpdateInStock(StaticClass.storeId, itemNum, Quan, Convert.ToSingle(kb.value)))
+                        {
+                            myCash1.listInvoiceItem.Rows[item.Id - 1][3] = kb.value;
+                        }
                     }
                     UpdateItemSelect();
                 }
@@ -940,9 +952,11 @@ namespace WindowsFormsApplication4
                         newrow[1] = myCash1.listInvoiceItem.Rows.Count + 1;
                         decimal price = (0 - returnQuan)*Convert.ToDecimal(newrow[5]);
                         string itemName = myCash1.listInvoiceItem.Rows[((MyItem)arrayList[0]).Id - 1]["DiffItemName"].ToString();
-                       
+                        
                         myCash1.listInvoiceItem.Rows.Add(newrow);
                         myCash1.addRow(itemName, String.Format("{0:0.##}",0-returnQuan), String.Format("{0:0,0}", price));
+
+                        UpdateInStock(StaticClass.storeId, itemNum, Convert.ToSingle(frmKeyboardNumber.value), 0);
                         UpdateInfo();
                     }
                     else
@@ -1016,6 +1030,26 @@ namespace WindowsFormsApplication4
                     }
                 }
             }
+        }
+
+        private bool UpdateInStock(string StoreId,string itemNum, float oldQuan, float newQuan)
+        {
+            DataTable inventory = getGui.GetInventoryByItemNum(StoreId, itemNum);
+            bool countThisItem = Convert.ToBoolean(inventory.Rows[0]["Count_This_Item"]);
+            if(countThisItem)
+            {
+                float InStock = Convert.ToSingle(inventory.Rows[0]["In_Stock"]);
+                InStock = InStock + oldQuan - newQuan;
+                if((InStock < 0)&&(oldQuan - newQuan < 0))
+                {
+                    if(MessBox2Choice.ShowBox("Mặt hàng này còn ít \nhơn số lượng yêu cầu.\n Bạn có muốn bán không ?",Color.Red) == DialogResult.No)
+                    {
+                        return false;
+                    }
+                }
+                getGui.UpdateInStock(StoreId,itemNum,InStock.ToString());
+            }
+            return true;
         }
 
     }
