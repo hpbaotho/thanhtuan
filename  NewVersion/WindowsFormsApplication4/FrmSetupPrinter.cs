@@ -55,21 +55,25 @@ namespace WindowsFormsApplication4
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool kt = false;
-            selectPrinter = listBox1.SelectedItem.ToString();
-            for (int i = 0; i < listBox2.Items.Count; i++)
+            if (listBox1.SelectedItem != null)
             {
-                if(((Printer)Printers[listBox1.SelectedItem.ToString()]).Details == listBox2.Items[i].ToString()  )
+                selectPrinter = listBox1.SelectedItem.ToString();
+                for (int i = 0; i < listBox2.Items.Count; i++)
                 {
-                    listBox2.SelectedIndex = i;
-                    kt = true;
-                    break;
+                    if(((Printer)Printers[listBox1.SelectedItem.ToString()]).Details == listBox2.Items[i].ToString()  )
+                    {
+                        listBox2.SelectedIndex = i;
+                        kt = true;
+                        break;
+                    }
                 }
+                if(!kt)
+                {
+                    listBox2.SelectedIndex = 0;
+                }
+                creCheckBox1.Checked = ((Printer) Printers[listBox1.SelectedItem.ToString()]).Disable;
             }
-            if(!kt)
-            {
-                listBox2.SelectedIndex = 0;
-            }
-            creCheckBox1.Checked = ((Printer) Printers[listBox1.SelectedItem.ToString()]).Disable;
+            
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,7 +119,7 @@ namespace WindowsFormsApplication4
                 Printer printer = (Printer)Printers[selectPrinter];
                 printer.isDelete = true;
                 string oldSelectPrinter = selectPrinter;
-                listBox1.SelectedIndex = 0;
+                //listBox1.SelectedItem = Printers["Báo cáo"];
                 listBox1.Items.Remove(oldSelectPrinter);
             }
             
@@ -124,18 +128,27 @@ namespace WindowsFormsApplication4
         private void button3_Click(object sender, EventArgs e)
         {
             ArrayList a = new ArrayList(Printers.Values);
+            DataTable stations = getGui.GetAllStation(StaticClass.storeId);
             foreach (Printer c in a)
             {
                 if(c.isNew)
                 {
                     if(!c.isDelete)
                     {
-                        serviceGet.InsertPrinter(c);
+                        for (int i = 0; i < stations.Rows.Count; i++)
+                        {
+                            serviceGet.InsertPrinter(c, stations.Rows[i]["Station_ID"].ToString());
+                        }
+                        
                     }
                 }
                 else if(c.isDelete)
                 {
-                    getGui.DeletePrinter(StaticClass.storeId,StaticClass.stationId,c.PrinterName);
+                    for (int i = 0; i < stations.Rows.Count; i++)
+                    {
+                        getGui.DeletePrinter(StaticClass.storeId, stations.Rows[i]["Station_ID"].ToString(), c.PrinterName);
+                    }
+                    
                 }
                 else 
                 {
