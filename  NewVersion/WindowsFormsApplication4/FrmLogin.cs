@@ -648,8 +648,21 @@ namespace WindowsFormsApplication4
 
         private void cấuHìnhServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmConfigServer frmConfigServer = new FrmConfigServer();
-            frmConfigServer.ShowDialog();
+            if(Alert.ShowAdminPassRequest())
+            {
+                FrmConfigServer frmConfigServer = new FrmConfigServer();
+                frmConfigServer.ShowDialog();
+            }
+            
+        }
+
+        private void càiĐặtMãMáyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Alert.ShowAdminPassRequest())
+            {
+                FrmSetupStation frmSetupStation = new FrmSetupStation();
+                frmSetupStation.ShowDialog();
+            }
         }
     }
 }
