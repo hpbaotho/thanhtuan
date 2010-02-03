@@ -96,6 +96,9 @@ namespace WindowsFormsApplication4
             bool tax1 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_1]);
             bool tax2 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_2]);
             bool tax3 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_3]);
+
+            float Instock = Convert.ToSingle(table.Rows[rowIndex][Const.Inventory.In_Stock]);
+            txtKho.Text = Instock.ToString();
             checkedAttribute(Modifier_Item, Exclude, CheckId, CheckId2, CountThisItem, PrintOnRe, AllowBuy, PromptPrice,
                              PromptQua, DisableItem, SpecialPer, UseSerial, Auto, Food,Type,cost,price,tax1,tax2,tax3);
             InventPrinters = serviceGet.getAllInventPrinter(StaticClass.storeId,
