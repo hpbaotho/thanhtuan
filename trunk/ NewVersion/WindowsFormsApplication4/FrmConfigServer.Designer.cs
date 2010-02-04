@@ -113,7 +113,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmConfigServer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmConfigServer";
+            this.Text = "Cấu hình Server";
             this.ResumeLayout(false);
             this.PerformLayout();
 
