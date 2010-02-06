@@ -334,6 +334,11 @@ namespace WindowsFormsApplication4
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (txtInvenId.Text == "Non_Inventory")
+            {
+                Alert.Show("Bạn không được xóa\n mặt hàng này.", Color.Red);
+                return;
+            }
             DataTable InventoryItemize = get_service.GetInvoiceItemizedByItemNum(StaticClass.storeId, txtInvenId.Text);
             if (InventoryItemize.Rows.Count > 0)
             {
