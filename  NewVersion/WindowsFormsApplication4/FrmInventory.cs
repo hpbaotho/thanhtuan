@@ -145,8 +145,8 @@ namespace WindowsFormsApplication4
             creCheckBox14.Checked = Auto;
             creCheckBox15.Checked = Food;
             creCmbLoaiMH.SelectedIndex = 0;
-            txtGia.Text = cost;
-            txtGiaMua.Text = price;
+            txtGia.Text = String.Format("{0:#,#}", Convert.ToDecimal(cost));
+            txtGiaMua.Text = String.Format("{0:#,#}", Convert.ToDecimal(price));
             ckbTax1.Checked = tax1;
             ckbTax2.Checked = tax2;
             ckbTax3.Checked = tax3;
@@ -347,6 +347,7 @@ namespace WindowsFormsApplication4
                 
             }
             get_service.DeleteAllInventPrinter(StaticClass.storeId,txtInvenId.Text);
+            get_service.DeleteInventory_In(StaticClass.storeId,txtInvenId.Text);
             get_service.DeleteInventory(txtInvenId.Text, StaticClass.storeId);
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             limit = inventory.Rows.Count - 1;
@@ -386,7 +387,34 @@ namespace WindowsFormsApplication4
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Alert.Show("Chức năng đang được xây dựng", Color.Blue);
+            decimal costPer = 0;
+            string desc = "";
+            string quan = "";
+            FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Số lượng");
+            if(frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+            {
+                quan = frmKeyboardNumber.value;
+                FrmKeyBoard frmKeyBoard = new FrmKeyBoard();
+                frmKeyBoard.label1.Text = "Ghi chú";
+                if(frmKeyBoard.ShowDialog() == DialogResult.OK)
+                {
+                    desc = frmKeyBoard.value;
+                    FrmKeyboardNumber frmKeyboardNumber1 = new FrmKeyboardNumber("Giá",txtGia.Text);
+                    if(frmKeyboardNumber1.ShowDialog() == DialogResult.OK)
+                    {
+                        costPer = Convert.ToDecimal(frmKeyboardNumber1.value);
+                        decimal newCostPer = (Convert.ToDecimal(txtKho.Text)*Convert.ToDecimal(txtGia.Text) +
+                                              Convert.ToDecimal(quan)*costPer)/
+                                             (Convert.ToDecimal(txtKho.Text) + Convert.ToDecimal(quan));
+                        decimal sumQuan = Convert.ToDecimal(txtKho.Text) + Convert.ToDecimal(quan);
+                        get_service.UpdateInStock(StaticClass.storeId,txtInvenId.Text,sumQuan.ToString());
+                        get_service.UpdateCostPer(StaticClass.storeId,txtInvenId.Text,newCostPer.ToString());
+                        get_service.InsertInventory_In(txtInvenId.Text,StaticClass.storeId,sumQuan.ToString(),newCostPer.ToString(),DateTime.Now.ToString(),"True",desc,StaticClass.cashierId);
+                        txtKho.Text = String.Format("{0:0.##}", sumQuan);
+                        txtGia.Text = String.Format("{0:#,#}", newCostPer);
+                    }
+                }
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)

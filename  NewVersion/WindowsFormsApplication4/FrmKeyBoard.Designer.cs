@@ -737,6 +737,6 @@
         private WindowsFormsApplication4.Controls.button button42;
         private WindowsFormsApplication4.Controls.button button43;
         private WindowsFormsApplication4.Controls.button button44;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label1;
     }
 }

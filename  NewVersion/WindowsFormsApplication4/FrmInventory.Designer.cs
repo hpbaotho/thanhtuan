@@ -739,7 +739,7 @@
             this.button3.OwnDrawColor = System.Drawing.Color.White;
             this.button3.Size = new System.Drawing.Size(122, 43);
             this.button3.TabIndex = 29;
-            this.button3.Text = "Di chuyển";
+            this.button3.Text = "Nhập hàng";
             this.button3.UseOwnColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 

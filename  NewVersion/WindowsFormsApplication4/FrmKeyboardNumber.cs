@@ -22,6 +22,12 @@ namespace WindowsFormsApplication4
             InitializeComponent();
             label1.Text = text;
         }
+        public FrmKeyboardNumber(string text,string value)
+        {
+            InitializeComponent();
+            label1.Text = text;
+            textBox1.Text = value;
+        }
 
         private void button14_Click(object sender, EventArgs e)
         {

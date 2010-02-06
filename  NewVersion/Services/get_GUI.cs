@@ -1700,6 +1700,7 @@ namespace Services
 
         #endregion
 
+        #region Stock
         public void UpdateInStock(string StoreId, string itemNum,string inStock)
         {
             cmd = new SqlCommand();
@@ -1707,5 +1708,32 @@ namespace Services
             FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
         }
+        public void UpdateCostPer(string StoreId, string itemNum, string costPer)
+        {
+            cmd = new SqlCommand();
+            string query = "Update Inventory Set Cost = '" + costPer + "' where (Store_ID ='" + StoreId + "') and ( ItemNum = '" + itemNum + "')";
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        public void InsertInventory_In(string itemNum,string storeId,string quan,string costPer,string datetime,string dirty,string description,string cashierId)
+        {
+            cmd = new SqlCommand();
+            string value = "('" + itemNum + "'," + "'" + storeId + "'," + "'" + quan + "'," + "'" + costPer + "'," + "'" + datetime + "'," + "'" + dirty + "'," + "'" + description + "'," + "'" + cashierId + "')";
+            string query = "Insert into Inventory_In (ItemNum,Store_ID,Quantity,CostPer,DateTime,Dirty,Description,Cashier_ID) values " + value;
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        public void DeleteInventory_In(string storeID, string itemNum)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            deleteSQL = "Delete From Inventory_In where (ItemNum = '" + itemNum + "') and ( Store_ID = '" + storeID + "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+
+        #endregion
     }
 }
