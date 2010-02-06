@@ -87,7 +87,7 @@ namespace WindowsFormsApplication4.Service
                         {
                             tmpBut.BackColor = Color.Red;
                             tmpBut.ForeColor = Color.Gray;
-                            tmpBut.Enabled = false;
+                            //tmpBut.Enabled = false;
                         }
                         tmpBut.invoiceNum = tbl.Rows[i][17].ToString();
                     }

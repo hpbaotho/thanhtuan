@@ -93,6 +93,13 @@ namespace WindowsFormsApplication4.Controls
 
         void o_Click(object sender, EventArgs e)
         {
+            if (((TransButton)sender).BackColor == Color.Red)
+            {
+                if(!Alert.ShowAdminPassRequest())
+                {
+                    return;
+                }
+            }
             if(isTransfer)
             {
                 FrmDelete confirm = new FrmDelete();
