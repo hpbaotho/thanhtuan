@@ -299,7 +299,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private WindowsFormsApplication4.Controls.button button1;
         private WindowsFormsApplication4.Controls.button button2;
