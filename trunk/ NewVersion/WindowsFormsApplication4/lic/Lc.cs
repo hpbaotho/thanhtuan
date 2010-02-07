@@ -36,14 +36,14 @@ namespace WindowsFormsApplication4.lic
             string str = x.Substring(0, 5);
             if (!isMACValid(str))
             {
-                Alert.Show("Mã đăng kí không đúng !",Color.Red);
+                Alert.Show("Mã đăng kí không đúng !", Color.Red);
                 version = Version.Demo;
                 return false;
             }
             string aaa = x.Substring(5, 6);
             string a = Sc.FillCharacter(SystemInfo.RunQuery("Processor", "ProcessorId"), 3);
             string b = Sc.FillCharacter(SystemInfo.RunQuery("BaseBoard", "Product"), 3);
-            if(aaa != a+b)
+            if (aaa != a + b)
             {
                 Alert.Show("Mã đăng kí không đúng !", Color.Red);
                 version = Version.Demo;
