@@ -26,6 +26,8 @@ namespace WindowsFormsApplication4
         private get_GUI getGui;
         private Thread LoginThread;
         private Networking.ClientNetwork login;
+        private string ipServer;
+        private int portServer;
         private static FrmLogin m_Instance;
 
         public static FrmLogin GetInstance()
@@ -36,12 +38,11 @@ namespace WindowsFormsApplication4
         }
         public FrmLogin()
         {
-            m_Instance = this;
-            InitializeComponent();
-            timer2.Enabled = true;
-            panel1.Focus();
-            textBox1.Focus();
-            
+                m_Instance = this;
+                InitializeComponent();
+                timer2.Enabled = true;
+                panel1.Focus();
+                textBox1.Focus();  
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -142,10 +143,31 @@ namespace WindowsFormsApplication4
         {
             if(textBox1.Text != "")
             {
-                panel2.Visible = true;
-                panel1.Visible = false;
-                panel2.BringToFront();
-                textBox2.Focus();
+                try
+                {
+                    string path = Application.StartupPath + "\\ConfigServer.reg";
+                    string data = lic.FileReadWrite.ReadFile(path);
+                    if (data != string.Empty)
+                    {
+                        string[] parts = data.Split('@');
+                        ipServer = parts[0];
+                        portServer = Convert.ToInt32(parts[1]);
+                    }
+                    panel2.Visible = true;
+                    panel1.Visible = false;
+                    panel2.BringToFront();
+                    textBox2.Focus();
+
+                }
+                catch (Exception)
+                {
+
+                    panel2.Visible = true;
+                    panel1.Visible = false;
+                    panel2.BringToFront();
+                    textBox2.Focus();
+                }
+
             }
             
         }
@@ -500,7 +522,7 @@ namespace WindowsFormsApplication4
         {
             login=new ClientNetwork();
             //StaticClass.socket = login;
-            login.Login(Utilities.GetIP.getIP(),9999,tmp.ToString());
+            login.Login(ipServer,portServer,tmp.ToString());
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

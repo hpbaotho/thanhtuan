@@ -66,6 +66,7 @@ namespace WindowsFormsApplication4
             for (int i = 0; i < ColumnName.Length; i++)
             {
                 dataGridView1.Columns[ColumnName[i]].Visible = true;
+                dataGridView1.Columns[ColumnName[i]].Width = 220;
             }
         }
 
