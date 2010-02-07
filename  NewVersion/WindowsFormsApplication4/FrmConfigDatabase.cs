@@ -159,7 +159,7 @@ namespace WindowsFormsApplication4
                     m_daDataAdapter.Update(m_dtDict);
                 }
                 string insert = "insert into DatabaseInfo values ('" + txt_ServerName.Text + "','" + txt_InstanceName.Text +
-                                "','" + cmb_DatabaseNames.Text + "','" + mo + "','" +user+ "','"+pas+"','00')";
+                                "','" + cmb_DatabaseNames.Text + "','" + mo + "','" +user+ "','"+pas+"','00','01')";
 
                 OleDbCommand ad = new OleDbCommand(insert, m_cnADONetConnection);
                 ad.ExecuteNonQuery();
