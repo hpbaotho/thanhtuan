@@ -95,7 +95,7 @@ namespace WindowsFormsApplication4.Controls
         {
             if (((TransButton)sender).BackColor == Color.Red)
             {
-                if(!Alert.ShowAdminPassRequest())
+                if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.XEM_BAN_KHAC))
                 {
                     return;
                 }
