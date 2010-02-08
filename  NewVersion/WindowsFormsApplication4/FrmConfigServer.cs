@@ -73,5 +73,18 @@ namespace WindowsFormsApplication4
         {
             this.Dispose();
         }
+
+        private void FrmConfigServer_Load(object sender, EventArgs e)
+        {
+            string filename = Application.StartupPath + "\\ConfigServer.reg";
+            string data = lic.FileReadWrite.ReadFile(filename);
+            if(data!=string.Empty)
+            {
+                string[] parts = data.Split('@');
+                creTextBox1.Text = parts[0];
+                creTextBox2.Text = parts[1];
+            }
+
+        }
     }
 }

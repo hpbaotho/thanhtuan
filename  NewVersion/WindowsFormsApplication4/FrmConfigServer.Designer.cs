@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.creTextBox2 = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.creTextBox1 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
-            this.creTextBox1 = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.creTextBox2 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,6 +55,22 @@
             this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "PORT";
+            // 
+            // creTextBox2
+            // 
+            this.creTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creTextBox2.Location = new System.Drawing.Point(93, 81);
+            this.creTextBox2.Name = "creTextBox2";
+            this.creTextBox2.Size = new System.Drawing.Size(95, 31);
+            this.creTextBox2.TabIndex = 7;
+            // 
+            // creTextBox1
+            // 
+            this.creTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creTextBox1.Location = new System.Drawing.Point(93, 35);
+            this.creTextBox1.Name = "creTextBox1";
+            this.creTextBox1.Size = new System.Drawing.Size(150, 31);
+            this.creTextBox1.TabIndex = 6;
             // 
             // button2
             // 
@@ -84,22 +100,6 @@
             this.button1.UseOwnColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // creTextBox1
-            // 
-            this.creTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creTextBox1.Location = new System.Drawing.Point(93, 35);
-            this.creTextBox1.Name = "creTextBox1";
-            this.creTextBox1.Size = new System.Drawing.Size(150, 31);
-            this.creTextBox1.TabIndex = 6;
-            // 
-            // creTextBox2
-            // 
-            this.creTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creTextBox2.Location = new System.Drawing.Point(93, 81);
-            this.creTextBox2.Name = "creTextBox2";
-            this.creTextBox2.Size = new System.Drawing.Size(95, 31);
-            this.creTextBox2.TabIndex = 7;
-            // 
             // FrmConfigServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +114,7 @@
             this.Name = "FrmConfigServer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cấu hình Server";
+            this.Load += new System.EventHandler(this.FrmConfigServer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
