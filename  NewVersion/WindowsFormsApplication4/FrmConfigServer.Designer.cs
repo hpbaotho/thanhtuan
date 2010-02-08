@@ -58,11 +58,13 @@
             // 
             // creTextBox2
             // 
+            this.creTextBox2.Enabled = false;
             this.creTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.creTextBox2.Location = new System.Drawing.Point(93, 81);
             this.creTextBox2.Name = "creTextBox2";
             this.creTextBox2.Size = new System.Drawing.Size(95, 31);
             this.creTextBox2.TabIndex = 7;
+            this.creTextBox2.Text = "9999";
             // 
             // creTextBox1
             // 
