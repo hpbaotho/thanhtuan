@@ -113,6 +113,7 @@ namespace WindowsFormsApplication4.Controls
                         {
                             formLayout.formBanHang.combine(((TransButton)sender).tableName, this.Text, ((TransButton)sender).invoiceNum);
                             Alert.Show("Đã gộp sang bàn " + ((TransButton) sender).tableName);
+
                         }
                     }
                     else
