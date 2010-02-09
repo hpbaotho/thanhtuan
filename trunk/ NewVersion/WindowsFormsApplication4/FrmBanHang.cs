@@ -618,6 +618,7 @@ namespace WindowsFormsApplication4
                 }
             }
             UpdateInvoiceTotals();
+            formLogin.RequestMess("UpdateForm");
             SendToKitchen();
             if (myCash1.listInvoiceItem.Rows.Count != 0)
             {
@@ -679,6 +680,7 @@ namespace WindowsFormsApplication4
                     }
                 }
             }
+            
             this.Dispose();
             formLayout.FrmLayout_Load(null, null); 
         }
@@ -691,6 +693,7 @@ namespace WindowsFormsApplication4
                 formchuyen.isTransfer = true;
                 formchuyen.formBanHang = this;
                 formchuyen.ShowDialog();
+                formLogin.RequestMess("UpdateForm");
             }
             
         }
@@ -728,6 +731,7 @@ namespace WindowsFormsApplication4
                 formchuyen.isTransfer = true;
                 formchuyen.formBanHang = this;
                 formchuyen.ShowDialog();
+                formLogin.RequestMess("UpdateForm");
             }
             
         }
@@ -826,6 +830,7 @@ namespace WindowsFormsApplication4
                     }
                     UpdateInvoiceTotals();
                     getGui.DeleteInvoiceOnhold(StaticClass.storeId,invoiceNum);
+                    formLogin.RequestMess("UpdateForm");
                     SendToKitchen();
                     this.Dispose();
                     formLayout.FrmLayout_Load(null, null);
