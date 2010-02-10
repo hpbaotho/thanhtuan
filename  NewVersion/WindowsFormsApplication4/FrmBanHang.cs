@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
@@ -39,6 +40,8 @@ namespace WindowsFormsApplication4
         private decimal taxInvoice1;
         private decimal taxInvoice2;
         private int numOfItemSended;
+        private Thread printThread;
+        //private Thread printReceiptThread;
         
         public FrmBanHang()
         {
@@ -353,10 +356,17 @@ namespace WindowsFormsApplication4
                 }
             }
             UpdateInvoiceTotals();
+            formLayout.FrmLayout_Load(null, null);
+            //if(printThread == null||!printThread.IsAlive)
+            //{
+            //    printThread = new Thread(new ThreadStart(SendToKitchen));
+            //    printThread.Start();
+            //}
+            
             SendToKitchen();
             formLogin.RequestMess("UpdateForm");
             this.Dispose();
-            formLayout.FrmLayout_Load(null,null);
+            
 
             //formLogin.FrmLogin_Load(null, null);
         }
@@ -619,13 +629,34 @@ namespace WindowsFormsApplication4
             }
             UpdateInvoiceTotals();
             formLogin.RequestMess("UpdateForm");
+            formLayout.FrmLayout_Load(null, null); 
             SendToKitchen();
+            //if (printThread == null || !printThread.IsAlive)
+            //{
+            //    printThread = new Thread(new ThreadStart(SendToKitchen));
+            //    printThread.Start();
+            //}
+
+            //if (printReceiptThread == null || !printReceiptThread.IsAlive)
+            //{
+            //    printReceiptThread = new Thread(new ThreadStart(PrintTamtinh));
+            //    printReceiptThread.Start();
+            //}
+            PrintTamtinh();
+            
+            this.Dispose();
+            
+        }
+
+        private void PrintTamtinh()
+        {
             if (myCash1.listInvoiceItem.Rows.Count != 0)
             {
                 Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
-                if(!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+                if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
                 {
                     CrystalReport5 xxx = new CrystalReport5();
+
                     if (StaticClass.mode == "AUT")
                     {
                         xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
@@ -639,19 +670,25 @@ namespace WindowsFormsApplication4
                     {
                         return;
                     }
-                    
                     ParameterFieldDefinitions crParameterFieldDefinitions;
+                    ParameterFieldDefinition crParameterFieldDefinition;
                     ParameterValues crParameterValues = new ParameterValues();
 
                     ParameterFieldDefinitions crParameterFieldDefinitions1;
+                    ParameterFieldDefinition crParameterFieldDefinition1;
                     ParameterValues crParameterValues1 = new ParameterValues();
+
+                    ParameterFieldDefinitions crParameterFieldDefinitions2;
+                    ParameterFieldDefinition crParameterFieldDefinition2;
+                    ParameterValues crParameterValues2 = new ParameterValues();
+
                     ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
                     ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
-
+                    ParameterDiscreteValue crParameterDiscreteValue2 = new ParameterDiscreteValue();
 
                     crParameterDiscreteValue.Value = StaticClass.storeId;
                     crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                    ParameterFieldDefinition crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                    crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
                     crParameterValues = crParameterFieldDefinition.CurrentValues;
 
                     crParameterValues.Clear();
@@ -660,15 +697,24 @@ namespace WindowsFormsApplication4
 
                     crParameterDiscreteValue1.Value = invoiceNum;
                     crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                    ParameterFieldDefinition crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                    crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
                     crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
 
                     crParameterValues1.Clear();
                     crParameterValues1.Add(crParameterDiscreteValue1);
                     crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
 
-                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                    crParameterDiscreteValue2.Value = tableName;
+                    crParameterFieldDefinitions2 = xxx.DataDefinition.ParameterFields;
+                    crParameterFieldDefinition2 = crParameterFieldDefinitions2["table"];
+                    crParameterValues2 = crParameterFieldDefinition2.CurrentValues;
+
+                    crParameterValues2.Clear();
+                    crParameterValues2.Add(crParameterDiscreteValue2);
+                    crParameterFieldDefinition2.ApplyCurrentValues(crParameterValues2);
+
                     xxx.PrintOptions.PrinterName = printer.Details;
+
                     xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
                     try
                     {
@@ -680,9 +726,6 @@ namespace WindowsFormsApplication4
                     }
                 }
             }
-            
-            this.Dispose();
-            formLayout.FrmLayout_Load(null, null); 
         }
 
         private void button60_Click(object sender, EventArgs e)
@@ -831,75 +874,106 @@ namespace WindowsFormsApplication4
                     UpdateInvoiceTotals();
                     getGui.DeleteInvoiceOnhold(StaticClass.storeId,invoiceNum);
                     formLogin.RequestMess("UpdateForm");
-                    SendToKitchen();
-                    this.Dispose();
                     formLayout.FrmLayout_Load(null, null);
 
-                    formLogin.RequestMess("UpdateForm");
-                     Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
-                     if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
-                     {
-                         Re_ThanhToan xxx = new Re_ThanhToan();
+                    //if (printThread == null || !printThread.IsAlive)
+                    //{
+                    //    printThread = new Thread(new ThreadStart(SendToKitchen));
+                    //    printThread.Start();
+                    //}
+                    SendToKitchen();
+                    //if (printReceiptThread == null || !printReceiptThread.IsAlive)
+                    //{
+                    //    printReceiptThread = new Thread(new ThreadStart(printThanhToan));
+                    //    printReceiptThread.Start();
+                    //}
+                    printThanhToan();
 
-                         if (StaticClass.mode == "AUT")
-                         {
-                             xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
-                         }
-                         else if (StaticClass.mode == "SQL")
-                         {
-                             xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
-                                              StaticClass.databaseName);
-                         }
-                         else
-                         {
-                             return;
-                         }
-                         ParameterFieldDefinitions crParameterFieldDefinitions;
-                         ParameterFieldDefinition crParameterFieldDefinition;
-                         ParameterValues crParameterValues = new ParameterValues();
-
-                         ParameterFieldDefinitions crParameterFieldDefinitions1;
-                         ParameterFieldDefinition crParameterFieldDefinition1;
-                         ParameterValues crParameterValues1 = new ParameterValues();
-                         ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
-                         ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
-
-
-                         crParameterDiscreteValue.Value = StaticClass.storeId;
-                         crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                         crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
-                         crParameterValues = crParameterFieldDefinition.CurrentValues;
-
-                         crParameterValues.Clear();
-                         crParameterValues.Add(crParameterDiscreteValue);
-                         crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
-
-                         crParameterDiscreteValue1.Value = invoiceNum;
-                         crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                         crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
-                         crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
-
-                         crParameterValues1.Clear();
-                         crParameterValues1.Add(crParameterDiscreteValue1);
-                         xxx.PrintOptions.PrinterName = printer.Details;
-                         crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
-                         xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                         try
-                         {
-                             xxx.PrintToPrinter(1, false, 0, 0);
-                         }
-                         catch (Exception)
-                         {
-                             Alert.Show("Lỗi máy in", Color.Red);
-                         }
-                     }
-
-                    
+                    //SendToKitchen();
+                    formLogin.RequestMess("UpdateForm"); 
+                    this.Dispose();
                 }
             }
             else
             {
                 Alert.Show("Hóa đơn chưa có hàng",Color.Red);
+            }
+        }
+
+        private void printThanhToan()
+        {
+            Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
+            if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+            {
+                Re_ThanhToan xxx = new Re_ThanhToan();
+
+                if (StaticClass.mode == "AUT")
+                {
+                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                }
+                else if (StaticClass.mode == "SQL")
+                {
+                    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                                     StaticClass.databaseName);
+                }
+                else
+                {
+                    return;
+                }
+                ParameterFieldDefinitions crParameterFieldDefinitions;
+                ParameterFieldDefinition crParameterFieldDefinition;
+                ParameterValues crParameterValues = new ParameterValues();
+
+                ParameterFieldDefinitions crParameterFieldDefinitions1;
+                ParameterFieldDefinition crParameterFieldDefinition1;
+                ParameterValues crParameterValues1 = new ParameterValues();
+
+                ParameterFieldDefinitions crParameterFieldDefinitions2;
+                ParameterFieldDefinition crParameterFieldDefinition2;
+                ParameterValues crParameterValues2 = new ParameterValues();
+
+                ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+                ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
+                ParameterDiscreteValue crParameterDiscreteValue2 = new ParameterDiscreteValue();
+
+                crParameterDiscreteValue.Value = StaticClass.storeId;
+                crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
+                crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+                crParameterValues.Clear();
+                crParameterValues.Add(crParameterDiscreteValue);
+                crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+                crParameterDiscreteValue1.Value = invoiceNum;
+                crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
+                crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
+
+                crParameterValues1.Clear();
+                crParameterValues1.Add(crParameterDiscreteValue1);
+                crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
+
+                crParameterDiscreteValue2.Value = tableName;
+                crParameterFieldDefinitions2 = xxx.DataDefinition.ParameterFields;
+                crParameterFieldDefinition2 = crParameterFieldDefinitions2["table"];
+                crParameterValues2 = crParameterFieldDefinition2.CurrentValues;
+
+                crParameterValues2.Clear();
+                crParameterValues2.Add(crParameterDiscreteValue2);
+                crParameterFieldDefinition2.ApplyCurrentValues(crParameterValues2);
+
+                xxx.PrintOptions.PrinterName = printer.Details;
+
+                xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
+                try
+                {
+                    xxx.PrintToPrinter(1, false, 0, 0);
+                }
+                catch (Exception)
+                {
+                    Alert.Show("Lỗi máy in", Color.Red);
+                }
             }
         }
 

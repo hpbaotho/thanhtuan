@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -109,10 +110,18 @@ namespace WindowsFormsApplication4
 
         private void textBox1_DoubleClick(object sender, EventArgs e)
         {
-            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(textBox1.Text);
-            if(frmKeyBoard.ShowDialog() == DialogResult.OK)
+            try
             {
-                textBox1.Text = frmKeyBoard.value;
+                Process p = new Process();
+                //p.StartInfo.WorkingDirectory = @"C:\whatever";
+                p.StartInfo.FileName = Application.StartupPath + @"\FreeVK.exe";
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                //p.WaitForExit();
+            }
+            catch (Exception)
+            {
+                Alert.Show("Chương trình FreeVK.exe\n không tồn tại.", Color.Red);
             }
         }
     }

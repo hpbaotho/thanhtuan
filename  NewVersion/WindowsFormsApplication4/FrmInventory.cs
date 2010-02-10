@@ -145,8 +145,8 @@ namespace WindowsFormsApplication4
             creCheckBox14.Checked = Auto;
             creCheckBox15.Checked = Food;
             creCmbLoaiMH.SelectedIndex = 0;
-            txtGia.Text = String.Format("{0:#,#}", Convert.ToDecimal(cost));
-            txtGiaMua.Text = String.Format("{0:#,#}", Convert.ToDecimal(price));
+            txtGia.Text = String.Format("{0:0,#}", Convert.ToDecimal(cost));
+            txtGiaMua.Text = String.Format("{0:0,#}", Convert.ToDecimal(price));
             ckbTax1.Checked = tax1;
             ckbTax2.Checked = tax2;
             ckbTax3.Checked = tax3;

@@ -70,14 +70,23 @@ namespace WindowsFormsApplication4
         public void FrmLayout_Load(object sender, EventArgs e)
         {
          
+            
             button1.changeColor(Color.White,Color.Red);
             button2.changeColor(Color.White,Color.DimGray);
             button3.changeColor(Color.White, Color.DimGray);
-
-
-            sections = new ArrayList();
-            sections.Clear();
+            if(sections != null)
+            {
+                for (int i = 0; i < sections.Count; i++)
+                {
+                    ((PanelLayout)listPanel[sections[i].ToString()]).Dispose();
+                }
+                sections.Clear();
+            }
+            sections = new ArrayList(); 
             listPanel.Clear();
+            //listPanel = null;
+            System.GC.Collect();
+            listPanel = new Hashtable();
             DataTable sectionList = serviceGet.getSections("1001");
             for (int i = 0; i < sectionList.Rows.Count; i++)
             {

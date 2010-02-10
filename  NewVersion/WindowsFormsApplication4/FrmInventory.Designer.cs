@@ -195,9 +195,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 89);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
+            this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Giá mua";
+            this.label7.Text = "Giá bán";
             // 
             // txtGia
             // 
@@ -214,9 +214,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 20);
+            this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Giá";
+            this.label3.Text = "Giá mua";
             // 
             // creCmbLoaiMH
             // 

@@ -457,12 +457,14 @@ namespace WindowsFormsApplication4
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            //this.Dispose();
+            Application.Exit();
         }
 
         private void button55_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            //this.Dispose();
+            Application.Exit();
         }
 
         private void button46_Click(object sender, EventArgs e)
@@ -685,6 +687,11 @@ namespace WindowsFormsApplication4
                 FrmSetupStation frmSetupStation = new FrmSetupStation();
                 frmSetupStation.ShowDialog();
             }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

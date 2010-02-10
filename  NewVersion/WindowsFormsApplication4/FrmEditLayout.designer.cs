@@ -101,14 +101,15 @@
             // button12
             // 
             this.button12.Color2 = System.Drawing.Color.Blue;
+            this.button12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.Location = new System.Drawing.Point(710, 3);
             this.button12.Name = "button12";
             this.button12.OwnDrawColor = System.Drawing.Color.White;
             this.button12.Size = new System.Drawing.Size(100, 50);
             this.button12.TabIndex = 8;
-            this.button12.Text = "button12";
+            this.button12.Text = "Bàn phím";
             this.button12.UseOwnColor = false;
-            this.button12.Visible = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button19
             // 
