@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -492,6 +493,24 @@ namespace WindowsFormsApplication4
             {
                 Alert.Show("Hãy chọn 1 bàn để xóa !");
             }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process p = new Process();
+                //p.StartInfo.WorkingDirectory = @"C:\whatever";
+                p.StartInfo.FileName = Application.StartupPath + @"\FreeVK.exe";
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                //p.WaitForExit();
+            }
+            catch (Exception)
+            {
+                Alert.Show("Chương trình FreeVK.exe\n không tồn tại.",Color.Red);
+            }
+            
         }
 
         
