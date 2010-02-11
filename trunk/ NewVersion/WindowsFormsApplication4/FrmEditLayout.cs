@@ -340,7 +340,7 @@ namespace WindowsFormsApplication4
                 var tmp = (panel)listPanel[sections[selectedSection - 1]];
                 var tmpBut = new MyButton(100,100,100,100,MyButton.ButtonStyles.Rectangle);
                 tmpBut.Text_pro = a.value;
-                tmp.isNew = true;
+                tmpBut.isNew = true;
                 tmp.addButton(tmpBut);
             }
             
