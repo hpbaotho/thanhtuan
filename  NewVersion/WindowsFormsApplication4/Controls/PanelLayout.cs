@@ -158,7 +158,7 @@ namespace WindowsFormsApplication4.Controls
                 banhang.tableName = tmpBut.tableName;
                 banhang.formLogin.RequestMess("UpdateForm");
                 banhang.ShowDialog();
-                
+                banhang.Dispose();
             }
            
             
