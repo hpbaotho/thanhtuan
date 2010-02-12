@@ -128,6 +128,7 @@ namespace WindowsFormsApplication4
 
         }
 
+
         public void LoadMatHang()
         {
 
@@ -724,6 +725,7 @@ namespace WindowsFormsApplication4
                     {
                         Alert.Show("Lỗi máy in", Color.Red);
                     }
+                    xxx.Dispose();
                 }
             }
         }
@@ -891,8 +893,10 @@ namespace WindowsFormsApplication4
 
                     //SendToKitchen();
                     formLogin.RequestMess("UpdateForm"); 
+                    frmPay.Dispose();
                     this.Dispose();
                 }
+                frmPay.Dispose();
             }
             else
             {
@@ -974,6 +978,7 @@ namespace WindowsFormsApplication4
                 {
                     Alert.Show("Lỗi máy in", Color.Red);
                 }
+                xxx.Dispose();
             }
         }
 
@@ -1099,6 +1104,7 @@ namespace WindowsFormsApplication4
                                 Alert.Show("Lỗi máy in",Color.Red);
                             }
                             getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
+                            xxx.Dispose();
                         }
                     }
                 }
