@@ -56,36 +56,41 @@ namespace ServerService
         }
         public string getIP()
         {
-            String strHostName = Dns.GetHostName();
+            //String strHostName = Dns.GetHostName();
 
-            // Find host by name
-            IPHostEntry iphostentry = Dns.GetHostByName(strHostName);
+            //// Find host by name
+            //IPHostEntry iphostentry = Dns.GetHostByName(strHostName);
 
-            // Grab the first IP addresses
-            String IPStr = "";
-            foreach (IPAddress ipaddress in iphostentry.AddressList)
-            {
-                IPStr = ipaddress.ToString();
-                return IPStr;
-            }
-            return IPStr;
+            //// Grab the first IP addresses
+            //String IPStr = "";
+            //foreach (IPAddress ipaddress in iphostentry.AddressList)
+            //{
+            //    IPStr = ipaddress.ToString();
+            //    return IPStr;
+            //}
+            //return IPStr;
+            string path = "C:\\Ip.txt";
+            return FileReadWrite.ReadFile(path);
+
         }
         protected override void OnStart(string[] args)
         {
             try
             {
                 //We are using TCP sockets
+                eventLog1.WriteEntry("On start");
                 serverSocket = new Socket(AddressFamily.InterNetwork,
                                           SocketType.Stream,
                                           ProtocolType.Tcp);
 
                 //Assign the any IP of the machine and listen on port number 1000
                 IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(getIP()), 9999);
-
+                eventLog1.WriteEntry("ip server "+ipEndPoint.Address.ToString());
                 //Bind and listen on the given address
                 serverSocket.Bind(ipEndPoint);
+                eventLog1.WriteEntry("Server is binding");
                 serverSocket.Listen(100);
-
+                eventLog1.WriteEntry("Server is listening");
                 //Accept the incoming clients
                 serverSocket.BeginAccept(new AsyncCallback(OnAccept), null);
             }
@@ -152,6 +157,7 @@ namespace ServerService
                         //Set the text of the message that we will broadcast to all users
                         msgReceived.strName = clientSocket.Handle.ToString();
                         msgToSend.strMessage = "<<<" + msgReceived.strName + " has joined the room>>>";
+                        eventLog1.WriteEntry(msgToSend.strMessage);
                         break;
 
                     case Command.Logout:
@@ -173,6 +179,7 @@ namespace ServerService
                         clientSocket.Close();
 
                         msgToSend.strMessage = "<<<" + msgReceived.strName + " has left the room>>>";
+                        eventLog1.WriteEntry(msgToSend.strMessage);
                         break;
 
                     case Command.Message:
