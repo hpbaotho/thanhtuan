@@ -237,6 +237,7 @@ namespace WindowsFormsApplication4
                                              StaticClass.ForeColor);
                 inventory = get_service.GetAllInventory(StaticClass.storeId);
                 limit = inventory.Rows.Count - 1;
+                serviceGet.UpdateInventPrinter(InventPrinters, txtInvenId.Text);
             }
             if (sender.Equals(button4))
                 AddState(0);
@@ -263,6 +264,8 @@ namespace WindowsFormsApplication4
             if (i == 1)
             {
                 txtInventDesc.Text = "";
+                creListBox1.Items.Clear();
+                InventPrinters.Clear();
                 start_state();
             }
             this.Refresh();
