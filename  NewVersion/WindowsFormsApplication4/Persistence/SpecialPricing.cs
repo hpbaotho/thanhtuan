@@ -118,5 +118,53 @@ namespace WindowsFormsApplication4.Persistence
             }
         }
 
+        public decimal CalculatePrice(float quant, decimal price, DateTime dt)
+        {
+            for (int i = PricesList.Count - 1; i >= 0; i--)
+            {
+                var prices = (Prices)PricesList[i];
+                if(DayOfWeekToNumber(dt) == prices.cr3)
+                {
+                    DateTime tmp = new DateTime(prices.cr1.Year,prices.cr1.Month,prices.cr1.Day,dt.Hour,dt.Minute,dt.Second);
+                    if(prices.cr1 <= tmp && tmp <= prices.cr2 )
+                    {
+                        return prices.price;
+
+                    }
+                }
+            }
+            for (int i = OnSaleInfoList.Count -1; i >=0; i--)
+            {
+                var onSale = (OnSalesInfo) OnSaleInfoList[i];
+                if(onSale.saleStart<= dt && dt <= onSale.saleEnd)
+                {
+                    return price * Convert.ToDecimal(1 - onSale.percent / 100);
+                }
+            }
+            return price;
+        }
+
+        public string DayOfWeekToNumber(DateTime dt)
+        {
+            switch (dt.DayOfWeek)
+            {
+                case DayOfWeek.Friday:
+                    return "6";
+                case DayOfWeek.Monday:
+                    return "2";
+                case DayOfWeek.Saturday:
+                    return "7";
+                case DayOfWeek.Sunday:
+                    return "1";
+                case DayOfWeek.Thursday:
+                    return "5";
+                case DayOfWeek.Tuesday:
+                    return "3";
+                case DayOfWeek.Wednesday:
+                    return "4";
+            }
+            return "";
+        }
+
     }
 }

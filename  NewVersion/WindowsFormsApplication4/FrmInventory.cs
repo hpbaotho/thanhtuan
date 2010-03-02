@@ -443,9 +443,10 @@ namespace WindowsFormsApplication4
                         decimal sumQuan = Convert.ToDecimal(txtKho.Text) + Convert.ToDecimal(quan);
                         get_service.UpdateInStock(StaticClass.storeId,txtInvenId.Text,sumQuan.ToString());
                         get_service.UpdateCostPer(StaticClass.storeId,txtInvenId.Text,newCostPer.ToString());
-                        get_service.InsertInventory_In(txtInvenId.Text,StaticClass.storeId,sumQuan.ToString(),newCostPer.ToString(),DateTime.Now.ToString(),"True",desc,StaticClass.cashierId);
+                        get_service.InsertInventory_In(txtInvenId.Text, StaticClass.storeId, quan, costPer.ToString(), DateTime.Now.ToString(), "True", desc, StaticClass.cashierId);
                         txtKho.Text = String.Format("{0:0.##}", sumQuan);
                         txtGia.Text = String.Format("{0:#,#}", newCostPer);
+                        inventory = get_service.GetAllInventory(StaticClass.storeId);
                     }
                 }
             }
