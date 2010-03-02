@@ -1735,5 +1735,97 @@ namespace Services
         }
 
         #endregion
+
+        #region SalePricing
+        public DataTable GetBulkInfo(string storeId,string ItemNum)
+        {
+            cmd = new SqlCommand();
+            string query = "Select * from Inventory_Bulk_Info where (Store_ID ='" + storeId + "') and (ItemNum = '"+ ItemNum + "')";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public DataTable GetOnsaleInfo(string storeId, string ItemNum)
+        {
+            cmd = new SqlCommand();
+            string query = "Select * from Inventory_OnSale_Info where (Store_ID ='" + storeId + "') and (ItemNum = '" + ItemNum + "')";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public DataTable GetPrices(string storeId, string ItemNum)
+        {
+            cmd = new SqlCommand();
+            string query = "Select * from Inventory_Prices where (Store_ID ='" + storeId + "') and (ItemNum = '" + ItemNum + "')";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public void DeleteBulkInfo(string storeID, string itemNum,float quant)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            deleteSQL = "Delete From Inventory_Bulk_Info where (ItemNum = '" + itemNum +
+                "') and ( Store_ID = '" + storeID + "') and ( Bulk_Quan = '"+ quant +"')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+
+        public void InsertBulkInfo(string itemNum, string storeId,string price, string quan)
+        {
+            cmd = new SqlCommand();
+            string value = "('" + itemNum + "'," + "'" + storeId + "'," + "'" + price + "'," + "'" + quan + "')";
+            string query = "Insert into Inventory_Bulk_Info (ItemNum,Store_ID,Bulk_Price,Bulk_Quan) values " + value;
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        public void DeleteOnsaleInfo(string storeID, string itemNum,DateTime saleStart,DateTime saleEnd)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            deleteSQL = "Delete From Inventory_OnSale_Info where (ItemNum = '" + itemNum +
+                "') and ( Store_ID = '" + storeID + "') and ( Sale_Start = '" + saleStart +
+                "') and ( Sale_End = '" + saleEnd + "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+
+        public void InsertOnsaleInfo(string itemNum, string storeId,DateTime saleStart,DateTime saleEnd,float percent)
+        {
+            cmd = new SqlCommand();
+            string value = "('" + itemNum + "'," + "'" + storeId + "'," + "'" + saleStart + "'," + "'" + saleEnd + "','"+ percent + "')";
+            string query = "Insert into Inventory_OnSale_Info (ItemNum,Store_ID,Sale_Start,Sale_End,[Percent]) values " + value;
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        public void DeletePrices(string storeID, string itemNum,string cr1,string cr2,string cr3,int priceType)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            deleteSQL = "Delete From Inventory_Prices where (ItemNum = '" + itemNum +
+                "') and ( Store_ID = '" + storeID + "') and ( Criteria1 = '" + cr1 +
+                "') and ( Criteria2 = '" + cr2 + "') and ( Criteria2 = '" + cr2 + 
+                "') and ( Criteria3 = '" + cr3 +
+                "') and ( PriceType = '" + priceType + "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+
+        public void InsertPrices(string itemNum, string storeId, decimal price, string cr1, string cr2, string cr3, bool enable, int priceType)
+        {
+            cmd = new SqlCommand();
+            string value = "('" + itemNum + "'," + "'" + storeId + "'," + "'" + price + "'," + "'" 
+                + cr1 + "','" + cr2 + "','" + cr3 + "','" + enable + "','" + priceType + "')";
+            string query = "Insert into Inventory_Prices (ItemNum,Store_ID,Price,Criteria1,Criteria2,Criteria3,Enabled,PriceType) values " + value;
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        #endregion
     }
 }
