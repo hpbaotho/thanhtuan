@@ -53,5 +53,28 @@ namespace WindowsFormsApplication4.Utilities
                 
             }
         }
+
+        public static string translateDate(DateTime dateTime)
+        {
+            
+            switch (dateTime.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    return "Thứ Hai";
+                case DayOfWeek.Tuesday:
+                    return "Thứ Ba";
+                case DayOfWeek.Wednesday:
+                    return "Thứ Tư";
+                case DayOfWeek.Thursday:
+                    return "Thứ Năm";
+                case DayOfWeek.Friday:
+                    return "Thứ Sáu";
+                case DayOfWeek.Saturday:
+                    return "Thứ Bảy";
+                case DayOfWeek.Sunday:
+                    return "Chủ nhật";
+            }
+            return "";
+        }
     }
 }

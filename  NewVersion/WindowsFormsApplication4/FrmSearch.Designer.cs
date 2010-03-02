@@ -100,6 +100,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmSearch";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm kiếm";
             this.Load += new System.EventHandler(this.FrmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

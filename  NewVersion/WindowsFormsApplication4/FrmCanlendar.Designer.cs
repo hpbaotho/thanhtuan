@@ -162,7 +162,7 @@
             this.Name = "FrmCanlendar";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCanlendar";
+            this.Text = "Chọn ngày tháng";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,8 +170,6 @@
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Label label1;
         private WindowsFormsApplication4.Controls.button btnSelect;
         private WindowsFormsApplication4.Controls.button button1;
         private WindowsFormsApplication4.Controls.CreTextBox txtNow;
@@ -179,5 +177,7 @@
         private WindowsFormsApplication4.Controls.button btnNextY;
         private WindowsFormsApplication4.Controls.button btnPreM;
         private WindowsFormsApplication4.Controls.button btnPreY;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

@@ -35,6 +35,7 @@ namespace WindowsFormsApplication4
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Dispose();
         }
 
@@ -50,6 +51,7 @@ namespace WindowsFormsApplication4
         {
             if (passDate != null)
                 passDate(monthCalendar1.SelectionStart);
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
 

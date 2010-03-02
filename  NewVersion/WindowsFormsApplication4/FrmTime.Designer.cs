@@ -485,7 +485,8 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmTime";
             this.ShowInTaskbar = false;
-            this.Text = "FrmTime";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chọn thời gian";
             this.ResumeLayout(false);
             this.PerformLayout();
 
