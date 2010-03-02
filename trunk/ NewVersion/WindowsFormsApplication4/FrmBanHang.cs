@@ -228,30 +228,34 @@ namespace WindowsFormsApplication4
                 DataRow invent = getGui.GetInventoryByItemNum(StaticClass.storeId, ((button)sender).Ident).Rows[0];
                 string itemName = invent[1].ToString();
                 Decimal price = Convert.ToDecimal(invent[4]);
-                bool Tax1 = (bool)invent[9];
-                bool Tax2 = (bool)invent[10];
-                bool Tax3 = (bool)invent[11];
+
+                SpecialPricing specialPricing = new SpecialPricing(((button)sender).Ident);
+                decimal newPrice =  specialPricing.CalculatePrice(1, price, Convert.ToDateTime(myCash1.invoiceTotal.Rows[0]["DateTime"]));
+
+                //bool Tax1 = (bool)invent[9];
+                //bool Tax2 = (bool)invent[10];
+                //bool Tax3 = (bool)invent[11];
                 Decimal Tax1Per = 0;
                 Decimal Tax2Per = 0;
                 Decimal Tax3Per = 0;
-                Decimal Tax1Rate = Convert.ToDecimal(StaticClass.taxRate[1]);
-                Decimal Tax2Rate = Convert.ToDecimal(StaticClass.taxRate[2]);
-                Decimal Tax3Rate = Convert.ToDecimal(StaticClass.taxRate[7]);
-                if (Tax1)
-                {
-                    Tax1Per = price * Tax1Rate;
-                }
-                if (Tax2)
-                {
-                    Tax2Per = price * Tax2Rate;
-                }
-                if (Tax3)
-                {
-                    Tax3Per = price * Tax3Rate;
-                }
-                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, price, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, price, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+                //Decimal Tax1Rate = Convert.ToDecimal(StaticClass.taxRate[1]);
+                //Decimal Tax2Rate = Convert.ToDecimal(StaticClass.taxRate[2]);
+                //Decimal Tax3Rate = Convert.ToDecimal(StaticClass.taxRate[7]);
+                //if (Tax1)
+                //{
+                //    Tax1Per = price * Tax1Rate;
+                //}
+                //if (Tax2)
+                //{
+                //    Tax2Per = price * Tax2Rate;
+                //}
+                //if (Tax3)
+                //{
+                //    Tax3Per = price * Tax3Rate;
+                //}
+                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, newPrice, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, newPrice, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
                 myCash1.listInvoiceItem.Rows.Add(newrow);
-                myCash1.addRow(itemName, "1", String.Format("{0:0,0}", price));
+                myCash1.addRow(itemName, "1", String.Format("{0:0,0}", newPrice));
                 UpdateInfo();
             }
         }
