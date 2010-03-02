@@ -437,7 +437,7 @@ namespace WindowsFormsApplication4
 
         }
         #region ChangeModeTime
-        private int ChangeModeTime(int hour, string mode)
+        public static int ChangeModeTime(int hour, string mode)
         {
             if (mode.Equals("PM"))
                 hour += 12;

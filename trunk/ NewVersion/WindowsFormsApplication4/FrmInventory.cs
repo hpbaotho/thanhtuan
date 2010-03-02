@@ -24,9 +24,13 @@ namespace WindowsFormsApplication4
         private DataTable inventory;
         private string OldInvent_ID;
         private ArrayList InventPrinters;
+        private SpecialPricing specialPricing; 
         public FrmInventory()
         {
             InitializeComponent();
+            txtGia.isKeyNumber = true;
+            txtGiaMua.isKeyNumber = true;
+            txtKho.isKeyNumber = true;
             get_service=new get_GUI();
             serviceGet = new ServiceGet();
             InventPrinters = new ArrayList();
@@ -110,8 +114,28 @@ namespace WindowsFormsApplication4
                 creListBox1.Items.Add(printer);
                 //creListBox1.DisplayMember = "PrinterName";
             }
-        }
+            specialPricing = new SpecialPricing(table.Rows[rowIndex][Const.Inventory.ItemNum].ToString());
+            LoadSalePricing();
 
+        }
+        private void LoadSalePricing()
+        {
+            creListBox2.Items.Clear();
+            creListBox3.Items.Clear();
+            creListBox4.Items.Clear();
+            foreach (BulkInfo c in specialPricing.BulkInfoList)
+            {
+                creListBox3.Items.Add(c);
+            }
+            foreach (OnSalesInfo c in specialPricing.OnSaleInfoList)
+            {
+                creListBox2.Items.Add(c);
+            }
+            foreach (Prices c in specialPricing.PricesList)
+            {
+                creListBox4.Items.Add(c);
+            }
+        }
 
         private void SetCurrentIndexComboBox(DataTable table, int rowIndex)
         {
@@ -238,6 +262,8 @@ namespace WindowsFormsApplication4
                 inventory = get_service.GetAllInventory(StaticClass.storeId);
                 limit = inventory.Rows.Count - 1;
                 serviceGet.UpdateInventPrinter(InventPrinters, txtInvenId.Text);
+                specialPricing.ItemNum = txtInvenId.Text;
+                specialPricing.Update();
             }
             if (sender.Equals(button4))
                 AddState(0);
@@ -266,6 +292,10 @@ namespace WindowsFormsApplication4
                 txtInventDesc.Text = "";
                 creListBox1.Items.Clear();
                 InventPrinters.Clear();
+                creListBox2.Items.Clear();
+                creListBox3.Items.Clear();
+                creListBox4.Items.Clear();
+                specialPricing = new SpecialPricing();
                 start_state();
             }
             this.Refresh();
@@ -385,6 +415,7 @@ namespace WindowsFormsApplication4
             ckb_Sua.Checked = false;
 
             serviceGet.UpdateInventPrinter(InventPrinters,txtInvenId.Text);
+            specialPricing.Update();
             Alert.Show("Bạn đã thay đổi thành công",Color.Blue);
         }
 
@@ -472,6 +503,128 @@ namespace WindowsFormsApplication4
                 }
             }
             return true;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if(creListBox3.SelectedItem != null)
+            {
+                ((BulkInfo) creListBox3.SelectedItem).isDelete = true;
+                creListBox3.Items.RemoveAt(creListBox3.SelectedIndex);
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            if (creListBox2.SelectedItem != null)
+            {
+                ((OnSalesInfo)creListBox2.SelectedItem).isDelete = true;
+                creListBox2.Items.RemoveAt(creListBox2.SelectedIndex);
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (creListBox4.SelectedItem != null)
+            {
+                ((Prices)creListBox4.SelectedItem).isDelete = true;
+                creListBox4.Items.RemoveAt(creListBox4.SelectedIndex);
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Số lượng ");
+            BulkInfo bulkInfo;
+            string quant = "";
+            string price = "";
+            if(frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+            {
+                quant = frmKeyboardNumber.value;
+                FrmKeyboardNumber frmKeyboardNumber1 = new FrmKeyboardNumber("Giá ");
+                if(frmKeyboardNumber1.ShowDialog() == DialogResult.OK)
+                {
+                    price = frmKeyboardNumber1.value;
+                    bulkInfo = new BulkInfo(Convert.ToSingle(quant),Convert.ToDecimal(price),true);
+                    specialPricing.BulkInfoList.Add(bulkInfo);
+                    creListBox3.Items.Add(bulkInfo);
+                }
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Phần trăm ");
+            string percent = "";
+            DateTime saleStart = DateTime.Now;
+            DateTime saleEnd = DateTime.Now;
+            if(frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+            {
+                percent = frmKeyboardNumber.value;
+                FrmCanlendar frmCanlendar = new FrmCanlendar("Ngày bắt đầu ");
+                if(frmCanlendar.ShowDialog() == DialogResult.OK)
+                {
+                    saleStart = frmCanlendar.monthCalendar1.SelectionStart;
+                    frmCanlendar = new FrmCanlendar("Ngày kết thúc ");
+                    if(frmCanlendar.ShowDialog() == DialogResult.OK)
+                    {
+                        saleEnd = frmCanlendar.monthCalendar1.SelectionStart;
+                        OnSalesInfo onSalesInfo = new OnSalesInfo(saleStart,saleEnd,Convert.ToSingle(percent));
+                        onSalesInfo.isNew = true;
+                        specialPricing.OnSaleInfoList.Add(onSalesInfo);
+                        creListBox2.Items.Add(onSalesInfo);
+
+                    }
+                }
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            FrmDayOfWeek frmDayOfWeek = new FrmDayOfWeek();
+            DateTime cr1 = DateTime.Now;
+            DateTime cr2 = DateTime.Now;
+            decimal price;
+            int[] cr3;
+            Prices prices ;
+            if(frmDayOfWeek.ShowDialog() == DialogResult.OK)
+            {
+                cr3 = new int[frmDayOfWeek.creListBox1.SelectedItems.Count];
+                for (int i = 0; i < frmDayOfWeek.creListBox1.SelectedItems.Count; i++)
+                {
+                    cr3[i] = frmDayOfWeek.creListBox1.SelectedIndices[i] + 1;
+                }
+                FrmTime frmTime = new FrmTime("Giờ bắt đầu ");
+                frmTime.myPassPara = startTimeText;
+                if(frmTime.ShowDialog() == DialogResult.OK)
+                {
+                    cr1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, FrmReporting.ChangeModeTime(frmTime.Hour,frmTime.Mode), frmTime.Minute, frmTime.Second);
+                    frmTime = new FrmTime("Thời gian kết thúc ");
+                    frmTime.myPassPara = startTimeText;
+                    if(frmTime.ShowDialog() == DialogResult.OK)
+                    {
+                        cr2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, FrmReporting.ChangeModeTime(frmTime.Hour, frmTime.Mode), frmTime.Minute, frmTime.Second);
+                        FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Giá ", String.Format("{0:0,0}",Convert.ToDecimal(txtGiaMua.Text)));
+                        if(frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+                        {
+                            price = Convert.ToDecimal(frmKeyboardNumber.value);
+                            for (int i = 0; i < cr3.Length; i++)
+                            {
+                                prices = new Prices(price, cr1, cr2, cr3[i].ToString());
+                                prices.isNew = true;
+                                specialPricing.PricesList.Add(prices);
+                                creListBox4.Items.Add(prices);
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private void startTimeText(int hour, int minute, int second, string mode)
+        {
+
         }
 
     }

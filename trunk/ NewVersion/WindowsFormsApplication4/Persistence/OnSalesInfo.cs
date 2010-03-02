@@ -18,5 +18,12 @@ namespace WindowsFormsApplication4.Persistence
             saleEnd = saleE;
             percent = percen;
         }
+
+        public override string ToString()
+        {
+            return "Giảm " + String.Format("{0:0.##}", percent) + "% từ " 
+                + String.Format("{0:d/M/yyyy}", saleStart) 
+                + " đến " + String.Format("{0:d/M/yyyy}", saleEnd); 
+        }
     }
 }

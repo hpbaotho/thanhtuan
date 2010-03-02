@@ -34,13 +34,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtKho = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtGiaMua = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtGia = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.creCmbLoaiMH = new WindowsFormsApplication4.Controls.CreComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlLayout = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -49,6 +45,11 @@
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.creCheckBox12 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox13 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox14 = new WindowsFormsApplication4.Controls.CreCheckBox();
@@ -63,16 +64,22 @@
             this.creCheckBox3 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox2 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox1 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
-            this.ckb_Sua = new System.Windows.Forms.CheckBox();
+            this.button17 = new WindowsFormsApplication4.Controls.button();
+            this.button16 = new WindowsFormsApplication4.Controls.button();
+            this.button15 = new WindowsFormsApplication4.Controls.button();
+            this.button14 = new WindowsFormsApplication4.Controls.button();
+            this.button13 = new WindowsFormsApplication4.Controls.button();
+            this.button12 = new WindowsFormsApplication4.Controls.button();
+            this.creListBox4 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.creListBox3 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.creListBox2 = new WindowsFormsApplication4.Controls.CreListBox();
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
             this.button4 = new WindowsFormsApplication4.Controls.button();
+            this.button3 = new WindowsFormsApplication4.Controls.button();
             this.button6 = new WindowsFormsApplication4.Controls.button();
             this.button11 = new WindowsFormsApplication4.Controls.button();
             this.button10 = new WindowsFormsApplication4.Controls.button();
@@ -81,10 +88,13 @@
             this.ckbTax3 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.ckbTax2 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.ckbTax1 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.txtKho = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtGiaMua = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtGia = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.creCmbLoaiMH = new WindowsFormsApplication4.Controls.CreComboBox();
             this.txtInventDesc = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtInvenId = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
-            this.button3 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -95,6 +105,7 @@
             this.panel5.SuspendLayout();
             this.tabPage14.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -103,7 +114,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(806, 31);
+            this.panel1.Size = new System.Drawing.Size(910, 31);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -161,15 +172,6 @@
             this.panel3.Size = new System.Drawing.Size(262, 161);
             this.panel3.TabIndex = 19;
             // 
-            // txtKho
-            // 
-            this.txtKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKho.Location = new System.Drawing.Point(110, 121);
-            this.txtKho.Name = "txtKho";
-            this.txtKho.Size = new System.Drawing.Size(149, 26);
-            this.txtKho.TabIndex = 7;
-            this.txtKho.Text = "0";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -179,15 +181,6 @@
             this.label8.Size = new System.Drawing.Size(83, 40);
             this.label8.TabIndex = 6;
             this.label8.Text = "Còn trong \r\nkho";
-            // 
-            // txtGiaMua
-            // 
-            this.txtGiaMua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaMua.Location = new System.Drawing.Point(110, 89);
-            this.txtGiaMua.Name = "txtGiaMua";
-            this.txtGiaMua.Size = new System.Drawing.Size(149, 26);
-            this.txtGiaMua.TabIndex = 5;
-            this.txtGiaMua.Text = "0";
             // 
             // label7
             // 
@@ -199,15 +192,6 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Giá bán";
             // 
-            // txtGia
-            // 
-            this.txtGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGia.Location = new System.Drawing.Point(110, 57);
-            this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(149, 26);
-            this.txtGia.TabIndex = 3;
-            this.txtGia.Text = "0";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -217,21 +201,6 @@
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giá mua";
-            // 
-            // creCmbLoaiMH
-            // 
-            this.creCmbLoaiMH.Enabled = false;
-            this.creCmbLoaiMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCmbLoaiMH.FormattingEnabled = true;
-            this.creCmbLoaiMH.Items.AddRange(new object[] {
-            "Standard",
-            "Choice",
-            "Modifier",
-            "Coupon"});
-            this.creCmbLoaiMH.Location = new System.Drawing.Point(110, 23);
-            this.creCmbLoaiMH.Name = "creCmbLoaiMH";
-            this.creCmbLoaiMH.Size = new System.Drawing.Size(149, 28);
-            this.creCmbLoaiMH.TabIndex = 1;
             // 
             // label2
             // 
@@ -255,12 +224,13 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(-1, 206);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(808, 344);
+            this.tabControl1.Size = new System.Drawing.Size(912, 344);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabPage_Change);
             // 
@@ -270,7 +240,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 41);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(800, 299);
+            this.tabPage1.Size = new System.Drawing.Size(904, 299);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -322,10 +292,72 @@
             this.panel5.Controls.Add(this.creCheckBox3);
             this.panel5.Controls.Add(this.creCheckBox2);
             this.panel5.Controls.Add(this.creCheckBox1);
-            this.panel5.Location = new System.Drawing.Point(213, 80);
+            this.panel5.Location = new System.Drawing.Point(12, 52);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(583, 138);
             this.panel5.TabIndex = 0;
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.panel4);
+            this.tabPage14.Location = new System.Drawing.Point(4, 29);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(792, 217);
+            this.tabPage14.TabIndex = 1;
+            this.tabPage14.Text = "Additional Info";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.Location = new System.Drawing.Point(-2, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(794, 217);
+            this.panel4.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.creListBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(904, 299);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Máy in";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.button17);
+            this.tabPage3.Controls.Add(this.button16);
+            this.tabPage3.Controls.Add(this.button15);
+            this.tabPage3.Controls.Add(this.button14);
+            this.tabPage3.Controls.Add(this.button13);
+            this.tabPage3.Controls.Add(this.button12);
+            this.tabPage3.Controls.Add(this.creListBox4);
+            this.tabPage3.Controls.Add(this.creListBox3);
+            this.tabPage3.Controls.Add(this.creListBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 41);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(904, 299);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Khuyến mãi";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ckb_Sua
+            // 
+            this.ckb_Sua.AutoSize = true;
+            this.ckb_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_Sua.Location = new System.Drawing.Point(321, 108);
+            this.ckb_Sua.Name = "ckb_Sua";
+            this.ckb_Sua.Size = new System.Drawing.Size(51, 20);
+            this.ckb_Sua.TabIndex = 33;
+            this.ckb_Sua.Text = "Sửa";
+            this.ckb_Sua.UseVisualStyleBackColor = true;
+            this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
             // 
             // creCheckBox12
             // 
@@ -482,41 +514,9 @@
             this.creCheckBox1.Text = "Modifier Item";
             this.creCheckBox1.UseVisualStyleBackColor = true;
             // 
-            // tabPage14
-            // 
-            this.tabPage14.Controls.Add(this.panel4);
-            this.tabPage14.Location = new System.Drawing.Point(4, 29);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(792, 217);
-            this.tabPage14.TabIndex = 1;
-            this.tabPage14.Text = "Additional Info";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.Location = new System.Drawing.Point(-2, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(794, 217);
-            this.panel4.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.creListBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 41);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(800, 299);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Máy in";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // button2
             // 
-            this.button2.Color2 = System.Drawing.Color.Blue;
+            this.button2.Color2 = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(29, 167);
             this.button2.Name = "button2";
@@ -549,23 +549,113 @@
             this.creListBox1.Size = new System.Drawing.Size(519, 236);
             this.creListBox1.TabIndex = 0;
             // 
-            // ckb_Sua
+            // button17
             // 
-            this.ckb_Sua.AutoSize = true;
-            this.ckb_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb_Sua.Location = new System.Drawing.Point(321, 108);
-            this.ckb_Sua.Name = "ckb_Sua";
-            this.ckb_Sua.Size = new System.Drawing.Size(51, 20);
-            this.ckb_Sua.TabIndex = 33;
-            this.ckb_Sua.Text = "Sửa";
-            this.ckb_Sua.UseVisualStyleBackColor = true;
-            this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
+            this.button17.Color2 = System.Drawing.Color.Red;
+            this.button17.Location = new System.Drawing.Point(745, 232);
+            this.button17.Name = "button17";
+            this.button17.OwnDrawColor = System.Drawing.Color.White;
+            this.button17.Size = new System.Drawing.Size(138, 63);
+            this.button17.TabIndex = 8;
+            this.button17.Text = "Xóa";
+            this.button17.UseOwnColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button16
+            // 
+            this.button16.Color2 = System.Drawing.Color.Lime;
+            this.button16.Location = new System.Drawing.Point(601, 232);
+            this.button16.Name = "button16";
+            this.button16.OwnDrawColor = System.Drawing.Color.White;
+            this.button16.Size = new System.Drawing.Size(138, 63);
+            this.button16.TabIndex = 7;
+            this.button16.Text = "Thêm";
+            this.button16.UseOwnColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // button15
+            // 
+            this.button15.Color2 = System.Drawing.Color.Red;
+            this.button15.Location = new System.Drawing.Point(446, 232);
+            this.button15.Name = "button15";
+            this.button15.OwnDrawColor = System.Drawing.Color.White;
+            this.button15.Size = new System.Drawing.Size(126, 63);
+            this.button15.TabIndex = 6;
+            this.button15.Text = "Xóa";
+            this.button15.UseOwnColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button14
+            // 
+            this.button14.Color2 = System.Drawing.Color.Lime;
+            this.button14.Location = new System.Drawing.Point(318, 232);
+            this.button14.Name = "button14";
+            this.button14.OwnDrawColor = System.Drawing.Color.White;
+            this.button14.Size = new System.Drawing.Size(122, 63);
+            this.button14.TabIndex = 5;
+            this.button14.Text = "Thêm";
+            this.button14.UseOwnColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // button13
+            // 
+            this.button13.Color2 = System.Drawing.Color.Red;
+            this.button13.Location = new System.Drawing.Point(150, 233);
+            this.button13.Name = "button13";
+            this.button13.OwnDrawColor = System.Drawing.Color.White;
+            this.button13.Size = new System.Drawing.Size(138, 63);
+            this.button13.TabIndex = 4;
+            this.button13.Text = "Xóa";
+            this.button13.UseOwnColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button12
+            // 
+            this.button12.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button12.Location = new System.Drawing.Point(11, 233);
+            this.button12.Name = "button12";
+            this.button12.OwnDrawColor = System.Drawing.Color.White;
+            this.button12.Size = new System.Drawing.Size(137, 63);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "Thêm";
+            this.button12.UseOwnColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // creListBox4
+            // 
+            this.creListBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creListBox4.FormattingEnabled = true;
+            this.creListBox4.ItemHeight = 20;
+            this.creListBox4.Location = new System.Drawing.Point(581, 63);
+            this.creListBox4.Name = "creListBox4";
+            this.creListBox4.Size = new System.Drawing.Size(319, 164);
+            this.creListBox4.TabIndex = 2;
+            // 
+            // creListBox3
+            // 
+            this.creListBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creListBox3.FormattingEnabled = true;
+            this.creListBox3.ItemHeight = 20;
+            this.creListBox3.Location = new System.Drawing.Point(308, 63);
+            this.creListBox3.Name = "creListBox3";
+            this.creListBox3.Size = new System.Drawing.Size(268, 164);
+            this.creListBox3.TabIndex = 1;
+            // 
+            // creListBox2
+            // 
+            this.creListBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creListBox2.FormattingEnabled = true;
+            this.creListBox2.ItemHeight = 20;
+            this.creListBox2.Location = new System.Drawing.Point(2, 63);
+            this.creListBox2.Name = "creListBox2";
+            this.creListBox2.Size = new System.Drawing.Size(300, 164);
+            this.creListBox2.TabIndex = 0;
             // 
             // button7
             // 
             this.button7.Color2 = System.Drawing.Color.IndianRed;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(683, 617);
+            this.button7.Location = new System.Drawing.Point(781, 616);
             this.button7.Name = "button7";
             this.button7.OwnDrawColor = System.Drawing.Color.White;
             this.button7.Size = new System.Drawing.Size(122, 43);
@@ -578,7 +668,7 @@
             // 
             this.button5.Color2 = System.Drawing.Color.Red;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(557, 617);
+            this.button5.Location = new System.Drawing.Point(655, 616);
             this.button5.Name = "button5";
             this.button5.OwnDrawColor = System.Drawing.Color.White;
             this.button5.Size = new System.Drawing.Size(122, 43);
@@ -591,7 +681,7 @@
             // 
             this.button4.Color2 = System.Drawing.Color.DarkGreen;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(429, 618);
+            this.button4.Location = new System.Drawing.Point(527, 617);
             this.button4.Name = "button4";
             this.button4.OwnDrawColor = System.Drawing.Color.White;
             this.button4.Size = new System.Drawing.Size(122, 43);
@@ -600,12 +690,25 @@
             this.button4.UseOwnColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button3
+            // 
+            this.button3.Color2 = System.Drawing.Color.DarkOrange;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(781, 568);
+            this.button3.Name = "button3";
+            this.button3.OwnDrawColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(122, 43);
+            this.button3.TabIndex = 29;
+            this.button3.Text = "Nhập hàng";
+            this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button6
             // 
             this.button6.Color2 = System.Drawing.Color.DarkGreen;
             this.button6.Enabled = false;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(557, 569);
+            this.button6.Location = new System.Drawing.Point(655, 568);
             this.button6.Name = "button6";
             this.button6.OwnDrawColor = System.Drawing.Color.White;
             this.button6.Size = new System.Drawing.Size(122, 43);
@@ -618,7 +721,7 @@
             // 
             this.button11.Color2 = System.Drawing.Color.Green;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(429, 569);
+            this.button11.Location = new System.Drawing.Point(527, 568);
             this.button11.Name = "button11";
             this.button11.OwnDrawColor = System.Drawing.Color.White;
             this.button11.Size = new System.Drawing.Size(122, 43);
@@ -700,6 +803,48 @@
             this.ckbTax1.Text = "Tax 1";
             this.ckbTax1.UseVisualStyleBackColor = true;
             // 
+            // txtKho
+            // 
+            this.txtKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKho.Location = new System.Drawing.Point(110, 121);
+            this.txtKho.Name = "txtKho";
+            this.txtKho.Size = new System.Drawing.Size(149, 26);
+            this.txtKho.TabIndex = 7;
+            this.txtKho.Text = "0";
+            // 
+            // txtGiaMua
+            // 
+            this.txtGiaMua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaMua.Location = new System.Drawing.Point(110, 89);
+            this.txtGiaMua.Name = "txtGiaMua";
+            this.txtGiaMua.Size = new System.Drawing.Size(149, 26);
+            this.txtGiaMua.TabIndex = 5;
+            this.txtGiaMua.Text = "0";
+            // 
+            // txtGia
+            // 
+            this.txtGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGia.Location = new System.Drawing.Point(110, 57);
+            this.txtGia.Name = "txtGia";
+            this.txtGia.Size = new System.Drawing.Size(149, 26);
+            this.txtGia.TabIndex = 3;
+            this.txtGia.Text = "0";
+            // 
+            // creCmbLoaiMH
+            // 
+            this.creCmbLoaiMH.Enabled = false;
+            this.creCmbLoaiMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCmbLoaiMH.FormattingEnabled = true;
+            this.creCmbLoaiMH.Items.AddRange(new object[] {
+            "Standard",
+            "Choice",
+            "Modifier",
+            "Coupon"});
+            this.creCmbLoaiMH.Location = new System.Drawing.Point(110, 23);
+            this.creCmbLoaiMH.Name = "creCmbLoaiMH";
+            this.creCmbLoaiMH.Size = new System.Drawing.Size(149, 28);
+            this.creCmbLoaiMH.TabIndex = 1;
+            // 
             // txtInventDesc
             // 
             this.txtInventDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -730,24 +875,11 @@
             this.cmbDept.TabIndex = 15;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
             // 
-            // button3
-            // 
-            this.button3.Color2 = System.Drawing.Color.DarkOrange;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(683, 569);
-            this.button3.Name = "button3";
-            this.button3.OwnDrawColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(122, 43);
-            this.button3.TabIndex = 29;
-            this.button3.Text = "Nhập hàng";
-            this.button3.UseOwnColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 661);
+            this.ClientSize = new System.Drawing.Size(908, 661);
             this.ControlBox = false;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.ckb_Sua);
@@ -791,6 +923,7 @@
             this.panel5.PerformLayout();
             this.tabPage14.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -855,5 +988,15 @@
         private WindowsFormsApplication4.Controls.button button1;
         private WindowsFormsApplication4.Controls.CreListBox creListBox1;
         private WindowsFormsApplication4.Controls.button button3;
+        private System.Windows.Forms.TabPage tabPage3;
+        private WindowsFormsApplication4.Controls.CreListBox creListBox2;
+        private WindowsFormsApplication4.Controls.CreListBox creListBox4;
+        private WindowsFormsApplication4.Controls.CreListBox creListBox3;
+        private WindowsFormsApplication4.Controls.button button17;
+        private WindowsFormsApplication4.Controls.button button16;
+        private WindowsFormsApplication4.Controls.button button15;
+        private WindowsFormsApplication4.Controls.button button14;
+        private WindowsFormsApplication4.Controls.button button13;
+        private WindowsFormsApplication4.Controls.button button12;
     }
 }

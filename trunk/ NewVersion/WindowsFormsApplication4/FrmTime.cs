@@ -72,6 +72,7 @@ namespace WindowsFormsApplication4
             minute = 0;
             second = 0;
             mode = "AM";
+            this.DialogResult = DialogResult.Cancel;
             this.Dispose();
         }
 
@@ -81,6 +82,7 @@ namespace WindowsFormsApplication4
         private void button29_Click(object sender, EventArgs e)
         {
             myPassPara(hour, minute, second, mode);
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
             //button29.Text = "Chọn " + hour + minute +" "+ mode;
         }
