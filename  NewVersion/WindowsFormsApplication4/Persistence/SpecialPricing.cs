@@ -166,5 +166,10 @@ namespace WindowsFormsApplication4.Persistence
             return "";
         }
 
+        public void DeleteSpecialPricing()
+        {
+            getGui.DeleteSpecialPricing(ItemNum,StaticClass.storeId);
+        }
+
     }
 }

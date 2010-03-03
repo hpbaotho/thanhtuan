@@ -80,11 +80,12 @@ namespace WindowsFormsApplication4
                 {
                     ((PanelLayout)listPanel[sections[i].ToString()]).Dispose();
                 }
-                sections.Clear();
+                //sections.Clear();
+                sections = null;
             }
             sections = new ArrayList(); 
-            listPanel.Clear();
-            //listPanel = null;
+            //listPanel.Clear();
+            listPanel = null;
             System.GC.Collect();
             listPanel = new Hashtable();
             DataTable sectionList = serviceGet.getSections("1001");

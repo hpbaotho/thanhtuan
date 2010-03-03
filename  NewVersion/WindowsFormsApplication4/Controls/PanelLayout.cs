@@ -159,6 +159,7 @@ namespace WindowsFormsApplication4.Controls
                 banhang.formLogin.RequestMess("UpdateForm");
                 banhang.ShowDialog();
                 banhang.Dispose();
+                banhang = null;
             }
            
             
