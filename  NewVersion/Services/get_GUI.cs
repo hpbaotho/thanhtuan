@@ -1826,6 +1826,24 @@ namespace Services
             cmd.Dispose();
         }
 
+        public void DeleteSpecialPricing(string itemNum, string storeId)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            deleteSQL = "Delete From Inventory_Bulk_Info where (ItemNum = '" + itemNum +
+                "') and ( Store_ID = '" + storeId +  "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+
+            deleteSQL = "Delete From Inventory_OnSale_Info where (ItemNum = '" + itemNum +
+                "') and ( Store_ID = '" + storeId + "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+
+            deleteSQL = "Delete From Inventory_Prices where (ItemNum = '" + itemNum +
+                "') and ( Store_ID = '" + storeId + "')";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+
         #endregion
     }
 }
