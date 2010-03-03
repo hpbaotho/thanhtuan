@@ -257,6 +257,8 @@ namespace WindowsFormsApplication4
                 myCash1.listInvoiceItem.Rows.Add(newrow);
                 myCash1.addRow(itemName, "1", String.Format("{0:0,0}", newPrice));
                 UpdateInfo();
+                specialPricing = null;
+                invent = null;
             }
         }
 
@@ -1109,6 +1111,7 @@ namespace WindowsFormsApplication4
                             }
                             getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
                             xxx.Dispose();
+                            xxx = null;
                         }
                     }
                 }

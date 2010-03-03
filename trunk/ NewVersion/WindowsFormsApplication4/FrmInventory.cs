@@ -381,6 +381,7 @@ namespace WindowsFormsApplication4
             }
             get_service.DeleteAllInventPrinter(StaticClass.storeId,txtInvenId.Text);
             get_service.DeleteInventory_In(StaticClass.storeId,txtInvenId.Text);
+            specialPricing.DeleteSpecialPricing();
             get_service.DeleteInventory(txtInvenId.Text, StaticClass.storeId);
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             limit = inventory.Rows.Count - 1;
