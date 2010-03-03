@@ -1845,5 +1845,52 @@ namespace Services
         }
 
         #endregion
+
+        public DataTable GetAllTSButtonDept(string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"SELECT Departments.Dept_ID, Departments.Store_ID, Departments.Description, Departments.Type, Departments.TSDisplay, 
+                                  Departments.Cost_MarkUp, Departments.Dirty, Departments.SubType, Departments.Print_Dept_Notes, Departments.Dept_Notes, 
+                                  Departments.Require_Permission, Departments.Require_Serials, Departments.BarTaxInclusive, Departments.Cost_Calculation_Percentage, 
+                                  Departments.Square_Footage, Setup_TS_Buttons.[Index], Setup_TS_Buttons.Caption, Setup_TS_Buttons.Picture, 
+                                  Setup_TS_Buttons.[Function], Setup_TS_Buttons.Option1, Setup_TS_Buttons.BackColor, Setup_TS_Buttons.ForeColor, 
+                                  Setup_TS_Buttons.Visible, Setup_TS_Buttons.BtnType, Setup_TS_Buttons.Ident, Setup_TS_Buttons.ScheduleIndex, 
+                                  Setup_TS_Buttons.RowID
+                            FROM       Departments INNER JOIN
+                                  Setup_TS_Buttons ON Departments.Store_ID = Setup_TS_Buttons.Store_ID AND Departments.Dept_ID = Setup_TS_Buttons.Ident
+                            WHERE       (Departments.Store_ID = '"+ storeId + "')  ORDER BY Setup_TS_Buttons.[Index]";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public DataTable GetAllTSButtonInvent(string storeId, string deptId)
+        {
+            cmd = new SqlCommand();
+            string query = @"SELECT  Setup_TS_Buttons.Store_ID, Setup_TS_Buttons.RowID, Setup_TS_Buttons.[Index], Setup_TS_Buttons.Caption, Setup_TS_Buttons.Picture, 
+                                  Setup_TS_Buttons.Option1, Setup_TS_Buttons.BackColor, Setup_TS_Buttons.Ident, Inventory.AutoWeigh, Inventory.Tear, 
+                                  Inventory.Dept_ID, Setup_TS_Buttons.Visible, Inventory.Cost, Inventory.Price, Inventory.Retail_Price, Inventory.In_Stock, 
+                                  Inventory.Reorder_Level, Inventory.Reorder_Quantity, Inventory.Tax_1, Inventory.Tax_2, Inventory.Tax_3, Inventory.IsKit, 
+                                  Inventory.IsModifier, Inventory.ItemType, Inventory.ItemNum, Inventory.ItemName,Setup_TS_Buttons.ForeColor
+                        FROM                      Inventory INNER JOIN
+                                  Setup_TS_Buttons ON Setup_TS_Buttons.Ident = Inventory.ItemNum AND Setup_TS_Buttons.Store_ID = Inventory.Store_ID
+                        WHERE                   (Setup_TS_Buttons.BtnType = 0) AND 
+                                  (Setup_TS_Buttons.Option1 = N'"+ deptId+ @"') AND (Setup_TS_Buttons.[Index] > - 1) AND (Setup_TS_Buttons.Station_ID = '' OR
+                                  Setup_TS_Buttons.Station_ID IS NULL) AND (Setup_TS_Buttons.Store_ID = '"+ storeId +"') ORDER BY  Setup_TS_Buttons.[Index]";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public void UpdateTSButton(string StoreId, string Ident, string Index, string Caption, string Picture, string BackColor, string ForeColor,string Visible )
+        {
+            cmd = new SqlCommand();
+            string query = "Update Setup_TS_Buttons Set [Index] = '" + Index + "',Caption = N'" + Caption + "', Picture ='" + Picture +
+                "',BackColor ='" + BackColor + "',ForeColor ='" + ForeColor + "',Visible ='" + Visible + 
+                "'  where (Store_ID ='" + StoreId + "') and (Ident = N'" + Ident + "')";
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
     }
 }
