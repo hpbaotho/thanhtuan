@@ -70,6 +70,7 @@ namespace WindowsFormsApplication4
                     else
                     {
                         Application.Run(new FrmLogin());
+                        //Application.Run(new FrmSetupTSButton());
                     }
                 }
                 else

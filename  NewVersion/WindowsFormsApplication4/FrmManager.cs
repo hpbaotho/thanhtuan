@@ -134,7 +134,8 @@ namespace WindowsFormsApplication4
 
         private void button33_Click(object sender, EventArgs e)
         {
-
+            FrmSetupTSButton frmSetupTSButton = new FrmSetupTSButton();
+            frmSetupTSButton.ShowDialog();
         }
 
         private void button11_Click(object sender, EventArgs e)
