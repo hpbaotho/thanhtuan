@@ -20,10 +20,14 @@ namespace WindowsFormsApplication4
 {
     public partial class FrmBanHang : FrmPOS
     {
-        public ArrayList listNhomHang;
-        public ArrayList listIdNhomHang;
-        public ArrayList listMatHang;
-        public ArrayList listIdMatHang;
+        //public ArrayList listNhomHang;
+        //public ArrayList listIdNhomHang;
+        //public ArrayList listMatHang;
+        //public ArrayList listIdMatHang;
+
+        public ArrayList listTSButtonDept;
+        public ArrayList listTSButtonInvent;
+
         private int numOfPageNhom;
         private int pageIndexNhom;
         private int selectIndexNhom;
@@ -81,41 +85,53 @@ namespace WindowsFormsApplication4
             //    listMatHang.Add(i.ToString());
             //}
 
-            listMatHang = new ArrayList();
-            listIdNhomHang = new ArrayList();
-            listNhomHang = new ArrayList();
-            listIdMatHang = new ArrayList();
+            //listMatHang = new ArrayList();
+            //listIdNhomHang = new ArrayList();
+            //listNhomHang = new ArrayList();
+            //listIdMatHang = new ArrayList();
+            listTSButtonDept = new ArrayList();
+            listTSButtonInvent = new ArrayList();
             DataTable tblnhomhang = serviceGet.GetDepartments("1001");
             for (int i = 0; i < tblnhomhang.Rows.Count; i++)
             {
-                listNhomHang.Add(tblnhomhang.Rows[i][2].ToString());
-                listIdNhomHang.Add(tblnhomhang.Rows[i][24].ToString());
+                //listNhomHang.Add(tblnhomhang.Rows[i][2].ToString());
+                //listIdNhomHang.Add(tblnhomhang.Rows[i][24].ToString());
+                TSButton tsButton = new TSButton("01", Convert.ToInt32(tblnhomhang.Rows[i]["Index"]),
+                 tblnhomhang.Rows[i]["Caption"].ToString(), tblnhomhang.Rows[i]["Picture"].ToString(), tblnhomhang.Rows[i]["Option1"].ToString(),
+                 Convert.ToInt32(tblnhomhang.Rows[i]["BackColor"]), Convert.ToInt32(tblnhomhang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblnhomhang.Rows[i]["Visible"]),
+                 tblnhomhang.Rows[i]["Ident"].ToString());
+                listTSButtonDept.Add(tsButton);
             }
 
-            DataTable tblMathang = getGui.GetInventoryByDept("0", listIdNhomHang[0].ToString(), "1001");
+            DataTable tblMathang = getGui.GetInventoryByDept("0", ((TSButton)listTSButtonDept[0]).Ident, "1001");
             for (int i = 0; i < tblMathang.Rows.Count; i++)
             {
-                listMatHang.Add(tblMathang.Rows[i][3].ToString());
-                listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
+                //listMatHang.Add(tblMathang.Rows[i][3].ToString());
+                //listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
+                TSButton tsButton = new TSButton("01", Convert.ToInt32(tblMathang.Rows[i]["Index"]),
+                 tblMathang.Rows[i]["Caption"].ToString(), tblMathang.Rows[i]["Picture"].ToString(), tblMathang.Rows[i]["Option1"].ToString(),
+                 Convert.ToInt32(tblMathang.Rows[i]["BackColor"]), Convert.ToInt32(tblMathang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblMathang.Rows[i]["Visible"]),
+                 tblMathang.Rows[i]["Ident"].ToString());
+                listTSButtonInvent.Add(tsButton);
             }
 
-            if(listNhomHang.Count % 7 == 0)
+            if(listTSButtonDept.Count % 7 == 0)
             {
-                numOfPageNhom = listNhomHang.Count/7;
+                numOfPageNhom = listTSButtonDept.Count / 7;
             }
             else
             {
-                numOfPageNhom = listNhomHang.Count / 7 + 1;
+                numOfPageNhom = listTSButtonDept.Count / 7 + 1;
                 
             }
 
-            if (listMatHang.Count % 28 == 0)
+            if (listTSButtonInvent.Count % 28 == 0)
             {
-                numOfPageMatHang = listMatHang.Count / 28;
+                numOfPageMatHang = listTSButtonInvent.Count / 28;
             }
             else
             {
-                numOfPageMatHang = listMatHang.Count / 28 + 1;
+                numOfPageMatHang = listTSButtonInvent.Count / 28 + 1;
             }
             pageIndexNhom = 1;
             selectIndexNhom = 1;
@@ -137,11 +153,13 @@ namespace WindowsFormsApplication4
                 int a = i - (pageIndexMatHang - 1)*28 + 15;
 
                 button tmp = (button) panel2.Controls["button" + a.ToString()];
-                if (i < listMatHang.Count)
+                if (i < listTSButtonInvent.Count)
                 {
 
-                    tmp.Text = listMatHang[i].ToString();
-                    tmp.Ident = listIdMatHang[i].ToString();
+                    tmp.Text = ((TSButton)listTSButtonInvent[i]).Caption;
+                    tmp.Ident = ((TSButton)listTSButtonInvent[i]).Ident;
+                    tmp.Color2 = Color.FromArgb(((TSButton)listTSButtonInvent[i]).BackColor);
+                    tmp.ForeColor = Color.FromArgb(((TSButton)listTSButtonInvent[i]).ForeColor);
                     tmp.Visible = true;
                 }
                 else
@@ -159,11 +177,13 @@ namespace WindowsFormsApplication4
                 int a = i - (pageIndexNhom - 1) * 7 + 1;
                 
                 button tmp = (button)panel1.Controls["button" + a.ToString()];
-                if(i < listNhomHang.Count )
+                if(i < listTSButtonDept.Count )
                 {
-                    
-                    tmp.Text = listNhomHang[i].ToString();
-                    tmp.Ident = listIdNhomHang[i].ToString();
+
+                    tmp.Text = ((TSButton)listTSButtonDept[i]).Caption;
+                    tmp.Ident = ((TSButton)listTSButtonDept[i]).Ident;
+                    tmp.Color2 = Color.FromArgb(((TSButton)listTSButtonDept[i]).BackColor);
+                    tmp.ForeColor = Color.FromArgb(((TSButton)listTSButtonDept[i]).ForeColor);
                     tmp.Visible = true;
                 }
                 else
@@ -210,12 +230,12 @@ namespace WindowsFormsApplication4
                 string buttonName = "button" + i.ToString();
                 button tmp = (button)panel1.Controls[buttonName];
                 tmp.Click += new EventHandler(tmp_Click);
-                tmp.changeColor(Color.White, Color.Orange);
+                //tmp.changeColor(Color.White, Color.Orange);
             }
             for (int i = 15; i < 43; i++)
             {
                 button tmp1 = (button)panel2.Controls["button" + i.ToString()];
-                tmp1.changeColor(Color.White, Color.Gray);
+                //tmp1.changeColor(Color.White, Color.Gray);
                 tmp1.Click += new EventHandler(tmp1_Click);
             }
             UpdateInfo();
@@ -273,20 +293,28 @@ namespace WindowsFormsApplication4
             }
             ((button)panel1.Controls["button" + a.ToString()]).Visible = true;
             DataTable tblMathang = getGui.GetInventoryByDept("0", ((button)sender).Ident, "1001");
-            listMatHang.Clear();
-            listIdMatHang.Clear();
+            //listMatHang.Clear();
+            //listIdMatHang.Clear();
+            listTSButtonInvent = null;
+            listTSButtonInvent = new ArrayList();
             for (int i = 0; i < tblMathang.Rows.Count; i++)
             {
-                listMatHang.Add(tblMathang.Rows[i][3].ToString());
-                listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
+                //listMatHang.Add(tblMathang.Rows[i][3].ToString());
+                //listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
+                TSButton tsButton = new TSButton("01", Convert.ToInt32(tblMathang.Rows[i]["Index"]),
+                 tblMathang.Rows[i]["Caption"].ToString(), tblMathang.Rows[i]["Picture"].ToString(), tblMathang.Rows[i]["Option1"].ToString(),
+                 Convert.ToInt32(tblMathang.Rows[i]["BackColor"]), Convert.ToInt32(tblMathang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblMathang.Rows[i]["Visible"]),
+                 tblMathang.Rows[i]["Ident"].ToString());
+                listTSButtonInvent.Add(tsButton);
+
             }
-            if (listMatHang.Count % 28 == 0)
+            if (listTSButtonInvent.Count % 28 == 0)
             {
-                numOfPageMatHang = listMatHang.Count / 28;
+                numOfPageMatHang = listTSButtonInvent.Count / 28;
             }
             else
             {
-                numOfPageMatHang = listMatHang.Count / 28 + 1;
+                numOfPageMatHang = listTSButtonInvent.Count / 28 + 1;
             }
             pageIndexMatHang = 1;
             LoadMatHang();

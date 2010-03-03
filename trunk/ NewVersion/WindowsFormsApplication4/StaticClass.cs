@@ -20,7 +20,8 @@ namespace WindowsFormsApplication4
         public static string stationIdForInvent = "";
         public static string custNum = "101";
         public static DataRow taxRate;
-        public static int BackColor = -2894893;
+        public static int BackColor = -8355712;
+        public static int BackColorDept = -32768;
         public static int ForeColor = -16777216;
         public static int Form_Color = 12632256;
         public static string Font = "Microsoft Sans Serif";

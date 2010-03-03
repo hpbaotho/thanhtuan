@@ -201,7 +201,7 @@ namespace WindowsFormsApplication4
                                              txtDeptDesc.Text, getType(), checkBox1.Checked, textBox1.Text,
                                              checkBox2.Checked, checkBox3.Checked, checkBox4.Checked,
                                              Convert.ToDouble(creTextBox1.Text), Convert.ToInt32(creTextBox2.Text),
-                                             StaticClass.stationId, "", function, "", StaticClass.BackColor,
+                                             StaticClass.stationId, "", function, "", StaticClass.BackColorDept,
                                              StaticClass.ForeColor);
                 departs = get_service.GetAllDepartments2(StaticClass.storeId);
                 limit = departs.Rows.Count - 1;

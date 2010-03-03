@@ -17,7 +17,7 @@ namespace WindowsFormsApplication4.Service
 {
     public class ServiceGet
     {
-        get_GUI getGui ;
+        public get_GUI getGui ;
         public ServiceGet()
         {
             getGui = new get_GUI();
@@ -260,5 +260,36 @@ namespace WindowsFormsApplication4.Service
                 }
             }
         }
+
+        public ArrayList GetTSButtonDept(string storeID)
+        {
+            DataTable table = getGui.GetAllTSButtonDept(storeID);
+            ArrayList re = new ArrayList();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                TSButtonDept tsButton = new TSButtonDept("01", Convert.ToInt32(table.Rows[i]["Index"]),
+                 table.Rows[i]["Caption"].ToString(), table.Rows[i]["Picture"].ToString(), table.Rows[i]["Option1"].ToString(),
+                 Convert.ToInt32(table.Rows[i]["BackColor"]), Convert.ToInt32(table.Rows[i]["ForeColor"]), Convert.ToBoolean(table.Rows[i]["Visible"]),
+                 table.Rows[i]["Ident"].ToString(), GetTSButtonInvent(table.Rows[i]["Ident"].ToString(), storeID));
+                re.Add(tsButton);
+            }
+            return re;
+        }
+
+        public ArrayList GetTSButtonInvent( string DeptId, string StoreID)
+        {
+            DataTable table = getGui.GetAllTSButtonInvent(StoreID,DeptId);
+            ArrayList re = new ArrayList();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                TSButton tsButton = new TSButton("01", Convert.ToInt32(table.Rows[i]["Index"]),
+                 table.Rows[i]["Caption"].ToString(), table.Rows[i]["Picture"].ToString(), table.Rows[i]["Option1"].ToString(),
+                 Convert.ToInt32(table.Rows[i]["BackColor"]), Convert.ToInt32(table.Rows[i]["ForeColor"]), Convert.ToBoolean(table.Rows[i]["Visible"]),
+                 table.Rows[i]["Ident"].ToString());
+                re.Add(tsButton);
+            }
+            return re;
+        }
+
     }
 }
