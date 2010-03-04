@@ -46,10 +46,12 @@ namespace WindowsFormsApplication4
                 if (DeptId.Equals(Employees.Rows[j][Employee_Prop.Dept_ID]))
                 {
                     currentIndex = j;
+                    changeState(Employees,currentIndex);
                     return;
                 }
             }
             currentIndex = 0;
+            changeState(Employees, currentIndex);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
