@@ -100,6 +100,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.creListBox1);
             this.Name = "FrmDayOfWeek";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn ngày trong tuần";
             this.ResumeLayout(false);

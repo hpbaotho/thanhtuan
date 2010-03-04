@@ -1075,6 +1075,7 @@
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Name = "FrmEmployee";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thiết lập nhân viên";
             this.Load += new System.EventHandler(this.FrmEmployee_Load);
