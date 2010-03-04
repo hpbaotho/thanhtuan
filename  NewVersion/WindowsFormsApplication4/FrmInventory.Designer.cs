@@ -34,9 +34,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtKho = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtGiaMua = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtGia = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.creCmbLoaiMH = new WindowsFormsApplication4.Controls.CreComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlLayout = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -45,11 +49,6 @@
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.creCheckBox12 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox13 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox14 = new WindowsFormsApplication4.Controls.CreCheckBox();
@@ -64,9 +63,13 @@
             this.creCheckBox3 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox2 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox1 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button17 = new WindowsFormsApplication4.Controls.button();
             this.button16 = new WindowsFormsApplication4.Controls.button();
             this.button15 = new WindowsFormsApplication4.Controls.button();
@@ -76,6 +79,7 @@
             this.creListBox4 = new WindowsFormsApplication4.Controls.CreListBox();
             this.creListBox3 = new WindowsFormsApplication4.Controls.CreListBox();
             this.creListBox2 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
             this.button4 = new WindowsFormsApplication4.Controls.button();
@@ -88,13 +92,12 @@
             this.ckbTax3 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.ckbTax2 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.ckbTax1 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.txtKho = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtGiaMua = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtGia = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.creCmbLoaiMH = new WindowsFormsApplication4.Controls.CreComboBox();
             this.txtInventDesc = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtInvenId = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -172,6 +175,15 @@
             this.panel3.Size = new System.Drawing.Size(262, 161);
             this.panel3.TabIndex = 19;
             // 
+            // txtKho
+            // 
+            this.txtKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKho.Location = new System.Drawing.Point(110, 121);
+            this.txtKho.Name = "txtKho";
+            this.txtKho.Size = new System.Drawing.Size(149, 26);
+            this.txtKho.TabIndex = 7;
+            this.txtKho.Text = "0";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -181,6 +193,15 @@
             this.label8.Size = new System.Drawing.Size(83, 40);
             this.label8.TabIndex = 6;
             this.label8.Text = "Còn trong \r\nkho";
+            // 
+            // txtGiaMua
+            // 
+            this.txtGiaMua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaMua.Location = new System.Drawing.Point(110, 89);
+            this.txtGiaMua.Name = "txtGiaMua";
+            this.txtGiaMua.Size = new System.Drawing.Size(149, 26);
+            this.txtGiaMua.TabIndex = 5;
+            this.txtGiaMua.Text = "0";
             // 
             // label7
             // 
@@ -192,6 +213,15 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Giá bán";
             // 
+            // txtGia
+            // 
+            this.txtGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGia.Location = new System.Drawing.Point(110, 57);
+            this.txtGia.Name = "txtGia";
+            this.txtGia.Size = new System.Drawing.Size(149, 26);
+            this.txtGia.TabIndex = 3;
+            this.txtGia.Text = "0";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -201,6 +231,21 @@
             this.label3.Size = new System.Drawing.Size(69, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giá mua";
+            // 
+            // creCmbLoaiMH
+            // 
+            this.creCmbLoaiMH.Enabled = false;
+            this.creCmbLoaiMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCmbLoaiMH.FormattingEnabled = true;
+            this.creCmbLoaiMH.Items.AddRange(new object[] {
+            "Standard",
+            "Choice",
+            "Modifier",
+            "Coupon"});
+            this.creCmbLoaiMH.Location = new System.Drawing.Point(110, 23);
+            this.creCmbLoaiMH.Name = "creCmbLoaiMH";
+            this.creCmbLoaiMH.Size = new System.Drawing.Size(149, 28);
+            this.creCmbLoaiMH.TabIndex = 1;
             // 
             // label2
             // 
@@ -296,68 +341,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(583, 138);
             this.panel5.TabIndex = 0;
-            // 
-            // tabPage14
-            // 
-            this.tabPage14.Controls.Add(this.panel4);
-            this.tabPage14.Location = new System.Drawing.Point(4, 29);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(792, 217);
-            this.tabPage14.TabIndex = 1;
-            this.tabPage14.Text = "Additional Info";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.Location = new System.Drawing.Point(-2, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(794, 217);
-            this.panel4.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.creListBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 41);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(904, 299);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Máy in";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.button17);
-            this.tabPage3.Controls.Add(this.button16);
-            this.tabPage3.Controls.Add(this.button15);
-            this.tabPage3.Controls.Add(this.button14);
-            this.tabPage3.Controls.Add(this.button13);
-            this.tabPage3.Controls.Add(this.button12);
-            this.tabPage3.Controls.Add(this.creListBox4);
-            this.tabPage3.Controls.Add(this.creListBox3);
-            this.tabPage3.Controls.Add(this.creListBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 41);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(904, 299);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Khuyến mãi";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // ckb_Sua
-            // 
-            this.ckb_Sua.AutoSize = true;
-            this.ckb_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb_Sua.Location = new System.Drawing.Point(321, 108);
-            this.ckb_Sua.Name = "ckb_Sua";
-            this.ckb_Sua.Size = new System.Drawing.Size(51, 20);
-            this.ckb_Sua.TabIndex = 33;
-            this.ckb_Sua.Text = "Sửa";
-            this.ckb_Sua.UseVisualStyleBackColor = true;
-            this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
             // 
             // creCheckBox12
             // 
@@ -514,6 +497,38 @@
             this.creCheckBox1.Text = "Modifier Item";
             this.creCheckBox1.UseVisualStyleBackColor = true;
             // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.panel4);
+            this.tabPage14.Location = new System.Drawing.Point(4, 29);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(792, 217);
+            this.tabPage14.TabIndex = 1;
+            this.tabPage14.Text = "Additional Info";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.Location = new System.Drawing.Point(-2, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(794, 217);
+            this.panel4.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.creListBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 41);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(904, 299);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Máy in";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
             this.button2.Color2 = System.Drawing.Color.Red;
@@ -548,6 +563,27 @@
             this.creListBox1.Name = "creListBox1";
             this.creListBox1.Size = new System.Drawing.Size(519, 236);
             this.creListBox1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.button17);
+            this.tabPage3.Controls.Add(this.button16);
+            this.tabPage3.Controls.Add(this.button15);
+            this.tabPage3.Controls.Add(this.button14);
+            this.tabPage3.Controls.Add(this.button13);
+            this.tabPage3.Controls.Add(this.button12);
+            this.tabPage3.Controls.Add(this.creListBox4);
+            this.tabPage3.Controls.Add(this.creListBox3);
+            this.tabPage3.Controls.Add(this.creListBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 41);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(904, 299);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Khuyến mãi";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button17
             // 
@@ -650,6 +686,18 @@
             this.creListBox2.Name = "creListBox2";
             this.creListBox2.Size = new System.Drawing.Size(300, 164);
             this.creListBox2.TabIndex = 0;
+            // 
+            // ckb_Sua
+            // 
+            this.ckb_Sua.AutoSize = true;
+            this.ckb_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_Sua.Location = new System.Drawing.Point(321, 108);
+            this.ckb_Sua.Name = "ckb_Sua";
+            this.ckb_Sua.Size = new System.Drawing.Size(51, 20);
+            this.ckb_Sua.TabIndex = 33;
+            this.ckb_Sua.Text = "Sửa";
+            this.ckb_Sua.UseVisualStyleBackColor = true;
+            this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
             // 
             // button7
             // 
@@ -803,48 +851,6 @@
             this.ckbTax1.Text = "Tax 1";
             this.ckbTax1.UseVisualStyleBackColor = true;
             // 
-            // txtKho
-            // 
-            this.txtKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKho.Location = new System.Drawing.Point(110, 121);
-            this.txtKho.Name = "txtKho";
-            this.txtKho.Size = new System.Drawing.Size(149, 26);
-            this.txtKho.TabIndex = 7;
-            this.txtKho.Text = "0";
-            // 
-            // txtGiaMua
-            // 
-            this.txtGiaMua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaMua.Location = new System.Drawing.Point(110, 89);
-            this.txtGiaMua.Name = "txtGiaMua";
-            this.txtGiaMua.Size = new System.Drawing.Size(149, 26);
-            this.txtGiaMua.TabIndex = 5;
-            this.txtGiaMua.Text = "0";
-            // 
-            // txtGia
-            // 
-            this.txtGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGia.Location = new System.Drawing.Point(110, 57);
-            this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(149, 26);
-            this.txtGia.TabIndex = 3;
-            this.txtGia.Text = "0";
-            // 
-            // creCmbLoaiMH
-            // 
-            this.creCmbLoaiMH.Enabled = false;
-            this.creCmbLoaiMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCmbLoaiMH.FormattingEnabled = true;
-            this.creCmbLoaiMH.Items.AddRange(new object[] {
-            "Standard",
-            "Choice",
-            "Modifier",
-            "Coupon"});
-            this.creCmbLoaiMH.Location = new System.Drawing.Point(110, 23);
-            this.creCmbLoaiMH.Name = "creCmbLoaiMH";
-            this.creCmbLoaiMH.Size = new System.Drawing.Size(149, 28);
-            this.creCmbLoaiMH.TabIndex = 1;
-            // 
             // txtInventDesc
             // 
             this.txtInventDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -874,6 +880,39 @@
             this.cmbDept.Size = new System.Drawing.Size(255, 32);
             this.cmbDept.TabIndex = 15;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label9.Location = new System.Drawing.Point(-2, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 24);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Giảm giá theo %";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label10.Location = new System.Drawing.Point(577, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(156, 24);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Giá theo thời gian";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label11.Location = new System.Drawing.Point(304, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 24);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Giá theo số lượng";
             // 
             // FrmInventory
             // 
@@ -924,6 +963,7 @@
             this.tabPage14.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -998,5 +1038,8 @@
         private WindowsFormsApplication4.Controls.button button14;
         private WindowsFormsApplication4.Controls.button button13;
         private WindowsFormsApplication4.Controls.button button12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }
