@@ -96,7 +96,7 @@ namespace WindowsFormsApplication4
         }
         private ArrayList viewInv()
         {
-            return new ArrayList(new string[] { "Các mặt còn trong kho"});
+            return new ArrayList(new string[] { "Các mặt còn trong kho","Tình hình nhập hàng"});
         }
 
         private ArrayList viewKindOfInvoic()
@@ -319,11 +319,14 @@ namespace WindowsFormsApplication4
                         return;
                     }
 
-                //case 41:
-                //    {
-                //        EnableDateTime0(false);
-                //        return;
-                //    }
+                case 41:
+                    {
+                        EnableDateTime0(true);
+                        lstKindOfInvo.Enabled = false;
+                        lstCashier.Enabled = false;
+                        printerName = Printer.PrinterBaocao;
+                        return;
+                    }
                 default:
                     EnableDateTime0(false);
                     lstKindOfInvo.Enabled = true;
@@ -412,14 +415,14 @@ namespace WindowsFormsApplication4
                         return rptInventoryByApha; 
                     }
 
-                //case 41:
-                //    {
-                //        POSReport.Report.rptItemDept invoice = new rptItemDept();
-                //        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status"};
-                //        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm",StatusInvoice};
-                //        test.FillDataReport(invoice, pa, value, true);
-                //        return invoice;
-                //    }
+                case 41:
+                    {
+                        POSReport.Report.rptReceivedItems invoice = new rptReceivedItems();
+                        string[] pa = { "@DateTime1", "@DateTime2" };
+                        object[] value = { DateTime1, DateTime2 };
+                        test.FillDataReport(invoice, pa, value, true);
+                        return invoice;
+                    }
 
                 default:
                     return null;

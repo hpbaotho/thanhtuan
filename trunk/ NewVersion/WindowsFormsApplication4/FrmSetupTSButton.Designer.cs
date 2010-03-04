@@ -30,8 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button12 = new WindowsFormsApplication4.Controls.button();
-            this.button11 = new WindowsFormsApplication4.Controls.button();
             this.creCheckBox2 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox1 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.button9 = new WindowsFormsApplication4.Controls.button();
@@ -46,6 +44,8 @@
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
             this.creListBox2 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.button12 = new WindowsFormsApplication4.Controls.button();
+            this.button11 = new WindowsFormsApplication4.Controls.button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -84,32 +84,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Nhóm hàng & Mặt hàng";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Color2 = System.Drawing.Color.Red;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(694, 365);
-            this.button12.Name = "button12";
-            this.button12.OwnDrawColor = System.Drawing.Color.White;
-            this.button12.Size = new System.Drawing.Size(130, 88);
-            this.button12.TabIndex = 4;
-            this.button12.Text = "Hủy";
-            this.button12.UseOwnColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button11
-            // 
-            this.button11.Color2 = System.Drawing.Color.Lime;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(694, 459);
-            this.button11.Name = "button11";
-            this.button11.OwnDrawColor = System.Drawing.Color.White;
-            this.button11.Size = new System.Drawing.Size(130, 87);
-            this.button11.TabIndex = 3;
-            this.button11.Text = "Lưu";
-            this.button11.UseOwnColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // creCheckBox2
             // 
@@ -287,6 +261,32 @@
             this.creListBox2.TabIndex = 1;
             this.creListBox2.SelectedIndexChanged += new System.EventHandler(this.creListBox2_SelectedIndexChanged);
             // 
+            // button12
+            // 
+            this.button12.Color2 = System.Drawing.Color.Red;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(694, 365);
+            this.button12.Name = "button12";
+            this.button12.OwnDrawColor = System.Drawing.Color.White;
+            this.button12.Size = new System.Drawing.Size(130, 88);
+            this.button12.TabIndex = 4;
+            this.button12.Text = "Hủy";
+            this.button12.UseOwnColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button11
+            // 
+            this.button11.Color2 = System.Drawing.Color.Lime;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(694, 459);
+            this.button11.Name = "button11";
+            this.button11.OwnDrawColor = System.Drawing.Color.White;
+            this.button11.Size = new System.Drawing.Size(130, 87);
+            this.button11.TabIndex = 3;
+            this.button11.Text = "Lưu";
+            this.button11.UseOwnColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // FrmSetupTSButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,7 +300,7 @@
             this.Name = "FrmSetupTSButton";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSetupTSButton";
+            this.Text = "Chỉnh sửa vị trí Nhóm hàng & Mặt hàng";
             this.Load += new System.EventHandler(this.FrmSetupTSButton_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
