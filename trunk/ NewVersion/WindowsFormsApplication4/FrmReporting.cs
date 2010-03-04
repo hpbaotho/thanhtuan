@@ -302,7 +302,7 @@ namespace WindowsFormsApplication4
                     }
                 case 4:
                     {
-                        EnableDateTime0(false);
+                        EnableDateTime0(true);
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
                         lstCashier.SelectedIndex = 0;
@@ -401,8 +401,8 @@ namespace WindowsFormsApplication4
                 case 4:
                     {
                         POSReport.Report.rptItemDept invoice = new rptItemDept();
-                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status" };
-                        string[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm", StatusInvoice };
+                        string[] pa = { "@Store_ID", "Report_Title_Param", "@Status", "@DateTime1", "@DateTime2" };
+                        object[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo nhóm", StatusInvoice, DateTime1, DateTime2 };
                         test.FillDataReport(invoice, pa, value, true);
                         return invoice;
                     }
