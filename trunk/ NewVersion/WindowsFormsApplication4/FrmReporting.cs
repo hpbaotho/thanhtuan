@@ -96,7 +96,7 @@ namespace WindowsFormsApplication4
         }
         private ArrayList viewInv()
         {
-            return new ArrayList(new string[] { "Các mặt còn trong kho","Tình hình nhập hàng"});
+            return new ArrayList(new string[] { "Báo cáo tồn kho","Báo cáo nhập kho"});
         }
 
         private ArrayList viewKindOfInvoic()
@@ -312,9 +312,8 @@ namespace WindowsFormsApplication4
                 case 40:
                     {
                         EnableDateTime0(false);
-                        lstKindOfInvo.Enabled = true;
-                        lstKindOfInvo.SelectedIndex = 0;
-                        lstCashier.SelectedIndex = 0;
+                        lstKindOfInvo.Enabled = false;
+                        lstCashier.Enabled = false;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
@@ -410,7 +409,7 @@ namespace WindowsFormsApplication4
                     {
                         POSReport.Report.rptInventoryByApha rptInventoryByApha = new rptInventoryByApha();
                         string[] pa = { "@Store_ID", "Report_Title_Param" };
-                        string[] value = { StaticClass.storeId, "Tình hình các mặt hàng trong kho" };
+                        string[] value = { StaticClass.storeId, "Báo cáo tồn kho" };
                         test.FillDataReport(rptInventoryByApha, pa, value, true);
                         return rptInventoryByApha; 
                     }
