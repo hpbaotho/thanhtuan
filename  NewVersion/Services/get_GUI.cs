@@ -476,16 +476,17 @@ namespace Services
         }
         public DataTable CreateInventory(string ItemNum,string ItemName,string Store_ID,string Cost,string Price,float In_Stock,bool Tax_1,bool Tax_2,bool Tax_3,string Dept_ID,bool IsModifier,bool Exclude_Acct_Limit,
 									 bool Use_Serial_Numbers,bool IsRental,bool AutoWeigh,bool FoodStampable,byte ItemType,bool Prompt_Price,bool Prompt_Quantity,bool Check_ID,
-										int Inactive,bool Allow_BuyBack,string Picture,bool Special_Permission,bool Check_ID2,bool Count_This_Item,bool Print_On_Receipt,string Station_ID,int Function,string Option1,int BackColor,int ForeColor)
+										int Inactive,bool Allow_BuyBack,string Picture,bool Special_Permission,bool Check_ID2,bool Count_This_Item,bool Print_On_Receipt,string Station_ID,int Function,string Option1,int BackColor,int ForeColor,
+                                        string reOrderLevel,string reOrderquant)
         {
             cmd = new SqlCommand();
             string[] pa = { "@ItemNum","@ItemName","@Store_ID","@Cost", "@Price", "@In_Stock", "@Tax_1","@Tax_2","@Tax_3","@Dept_ID","@IsModifier","@Exclude_Acct_Limit",
 									  "@Use_Serial_Numbers","@IsRental","@AutoWeigh","@FoodStampable","@ItemType","@Prompt_Price","@Prompt_Quantity","@Check_ID",
 										"@Inactive","@Allow_BuyBack","@Picture","@Special_Permission","@Check_ID2","@Count_This_Item","@Print_On_Receipt","@Station_ID",
-                                        "@Function","@Option1","@BackColor","@ForeColor"};
+                                        "@Function","@Option1","@BackColor","@ForeColor","@Reorder_Level","@Reorder_Quantity"};
             object[] value = { ItemNum, ItemName, Store_ID, Cost, Price, In_Stock, Tax_1, Tax_2, Tax_3, Dept_ID, IsModifier,Exclude_Acct_Limit, Use_Serial_Numbers,IsRental,
                                 AutoWeigh,FoodStampable,ItemType,Prompt_Price,Prompt_Quantity,Check_ID,Inactive,Allow_BuyBack,Picture,Special_Permission,
-                               Check_ID2,Count_This_Item,Print_On_Receipt, Station_ID, Function, Option1, BackColor, ForeColor };
+                               Check_ID2,Count_This_Item,Print_On_Receipt, Station_ID, Function, Option1, BackColor, ForeColor,reOrderLevel,reOrderquant };
             DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_T_CreateInventory");
             cmd.Dispose();
             return re;
@@ -503,16 +504,17 @@ namespace Services
 
         public void UpdateInventory(string OldInvent_ID, string ItemNum, string ItemName, string Store_ID, string Cost, string Price, float In_Stock, bool Tax_1, bool Tax_2, bool Tax_3, string Dept_ID, bool IsModifier, bool Exclude_Acct_Limit,
 									 bool Use_Serial_Numbers,bool IsRental,bool AutoWeigh,bool FoodStampable,byte ItemType,bool Prompt_Price,bool Prompt_Quantity,bool Check_ID,
-										int Inactive,bool Allow_BuyBack,string Picture,bool Special_Permission,bool Check_ID2,bool Count_This_Item,bool Print_On_Receipt,string Station_ID,int Function,string Option1,int BackColor,int ForeColor)
+										int Inactive,bool Allow_BuyBack,string Picture,bool Special_Permission,bool Check_ID2,bool Count_This_Item,bool Print_On_Receipt,string Station_ID,int Function,string Option1,int BackColor,int ForeColor,
+                                    string reOrderLevel, string reOrderQuant)
         {
             cmd = new SqlCommand();
             string[] pa = { "@OldInvent_ID","@ItemNum","@ItemName","@Store_ID","@Cost", "@Price", "@In_Stock", "@Tax_1","@Tax_2","@Tax_3","@Dept_ID","@IsModifier","@Exclude_Acct_Limit",
 									  "@Use_Serial_Numbers","@IsRental","@AutoWeigh","@FoodStampable","@ItemType","@Prompt_Price","@Prompt_Quantity","@Check_ID",
 										"@Inactive","@Allow_BuyBack","@Picture","@Special_Permission","@Check_ID2","@Count_This_Item","@Print_On_Receipt","@Station_ID",
-                                        "@Function","@Option1","@BackColor","@ForeColor"};
+                                        "@Function","@Option1","@BackColor","@ForeColor","@Reorder_Level","@Reorder_Quantity"};
             object[] value = {OldInvent_ID, ItemNum, ItemName, Store_ID, Cost, Price, In_Stock, Tax_1, Tax_2, Tax_3, Dept_ID, IsModifier,Exclude_Acct_Limit, Use_Serial_Numbers,IsRental,
                                 AutoWeigh,FoodStampable,ItemType,Prompt_Price,Prompt_Quantity,Check_ID,Inactive,Allow_BuyBack,Picture,Special_Permission,
-                               Check_ID2,Count_This_Item,Print_On_Receipt, Station_ID, Function, Option1, BackColor, ForeColor };
+                               Check_ID2,Count_This_Item,Print_On_Receipt, Station_ID, Function, Option1, BackColor, ForeColor,reOrderLevel,reOrderQuant };
             DataTable re = FillDataset2(cmd, CommandType.StoredProcedure, pa, value, "sp_UpdateInventory");
             cmd.Dispose();
         }
