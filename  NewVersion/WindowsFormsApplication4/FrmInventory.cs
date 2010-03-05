@@ -31,6 +31,8 @@ namespace WindowsFormsApplication4
             txtGia.isKeyNumber = true;
             txtGiaMua.isKeyNumber = true;
             txtKho.isKeyNumber = true;
+            txtGioiHanDat.isKeyNumber = true;
+            txtSolgDat.isKeyNumber = true;
             get_service=new get_GUI();
             serviceGet = new ServiceGet();
             InventPrinters = new ArrayList();
@@ -100,6 +102,10 @@ namespace WindowsFormsApplication4
             bool tax1 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_1]);
             bool tax2 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_2]);
             bool tax3 = Convert.ToBoolean(table.Rows[rowIndex][Const.Inventory.Tax_3]);
+
+
+            txtGioiHanDat.Text = table.Rows[rowIndex][Const.Inventory.Reorder_Level].ToString();
+            txtSolgDat.Text = table.Rows[rowIndex][Const.Inventory.Reorder_Quantity].ToString();
 
             float Instock = Convert.ToSingle(table.Rows[rowIndex][Const.Inventory.In_Stock]);
             txtKho.Text = Instock.ToString();
@@ -258,7 +264,7 @@ namespace WindowsFormsApplication4
                                              creCheckBox2.Checked,creCheckBox13.Checked, false,
                                              creCheckBox14.Checked, creCheckBox15.Checked, 0, creCheckBox8.Checked, creCheckBox9.Checked, creCheckBox3.Checked, Convert.ToInt16(creCheckBox10.Checked), creCheckBox7.Checked,
                                              "", creCheckBox12.Checked, creCheckBox4.Checked, creCheckBox5.Checked, creCheckBox6.Checked,StaticClass.stationIdForInvent,0,item.Row[Const.Department.Dept_ID].ToString(), StaticClass.BackColor,
-                                             StaticClass.ForeColor);
+                                             StaticClass.ForeColor,txtGioiHanDat.Text,txtSolgDat.Text);
                 inventory = get_service.GetAllInventory(StaticClass.storeId);
                 limit = inventory.Rows.Count - 1;
                 serviceGet.UpdateInventPrinter(InventPrinters, txtInvenId.Text);
@@ -289,6 +295,8 @@ namespace WindowsFormsApplication4
             txtInvenId.Focus();
             if (i == 1)
             {
+                txtGioiHanDat.Text = "0";
+                txtSolgDat.Text = "0";
                 txtInventDesc.Text = "";
                 creListBox1.Items.Clear();
                 InventPrinters.Clear();
@@ -411,7 +419,7 @@ namespace WindowsFormsApplication4
                                              creCheckBox2.Checked, creCheckBox13.Checked, false,
                                              creCheckBox14.Checked, creCheckBox15.Checked, 0, creCheckBox8.Checked, creCheckBox9.Checked, creCheckBox3.Checked, Convert.ToInt16(creCheckBox10.Checked), creCheckBox7.Checked,
                                              "", creCheckBox12.Checked, creCheckBox4.Checked, creCheckBox5.Checked, creCheckBox6.Checked, StaticClass.stationIdForInvent, 0, item.Row[Const.Department.Dept_ID].ToString(), StaticClass.BackColor,
-                                             StaticClass.ForeColor);
+                                             StaticClass.ForeColor,txtGioiHanDat.Text,txtSolgDat.Text);
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             ckb_Sua.Checked = false;
 
@@ -625,6 +633,11 @@ namespace WindowsFormsApplication4
         }
 
         private void startTimeText(int hour, int minute, int second, string mode)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
