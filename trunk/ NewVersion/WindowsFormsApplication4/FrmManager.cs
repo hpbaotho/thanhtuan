@@ -134,6 +134,10 @@ namespace WindowsFormsApplication4
 
         private void button33_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_TS_CONFIG))
+            {
+                return;
+            }
             FrmSetupTSButton frmSetupTSButton = new FrmSetupTSButton();
             frmSetupTSButton.ShowDialog();
         }

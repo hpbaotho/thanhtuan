@@ -96,7 +96,7 @@ namespace WindowsFormsApplication4
         }
         private ArrayList viewInv()
         {
-            return new ArrayList(new string[] { "Báo cáo tồn kho","Báo cáo nhập kho"});
+            return new ArrayList(new string[] { "Báo cáo tồn kho","Báo cáo nhập kho","Danh sách đặt hàng"});
         }
 
         private ArrayList viewKindOfInvoic()
@@ -326,6 +326,15 @@ namespace WindowsFormsApplication4
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
+                case 42:
+                    {
+                        EnableDateTime0(false);
+                        lstKindOfInvo.Enabled = false;
+                        lstCashier.Enabled = false;
+                        printerName = Printer.PrinterBaocao;
+                        return;
+
+                    }
                 default:
                     EnableDateTime0(false);
                     lstKindOfInvo.Enabled = true;
@@ -422,7 +431,14 @@ namespace WindowsFormsApplication4
                         test.FillDataReport(invoice, pa, value, true);
                         return invoice;
                     }
-
+                case 42:
+                    {
+                        POSReport.Report.rptReOrderReport report = new rptReOrderReport();
+                        string[] pa = { "@Store_ID" };
+                        object[] value = { StaticClass.storeId };
+                        test.FillDataReport(report, pa, value, true);
+                        return report;
+                    }
                 default:
                     return null;
             }     

@@ -115,6 +115,8 @@
             this.button10 = new WindowsFormsApplication4.Controls.button();
             this.button9 = new WindowsFormsApplication4.Controls.button();
             this.button8 = new WindowsFormsApplication4.Controls.button();
+            this.cmbTSConfig = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -395,6 +397,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cmbTSConfig);
+            this.panel1.Controls.Add(this.label32);
             this.panel1.Controls.Add(this.cmbGhiChu);
             this.panel1.Controls.Add(this.cmbMayIn);
             this.panel1.Controls.Add(this.cmbThue);
@@ -1040,6 +1044,24 @@
             this.button8.UseOwnColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // cmbTSConfig
+            // 
+            this.cmbTSConfig.FormattingEnabled = true;
+            this.cmbTSConfig.Location = new System.Drawing.Point(156, 114);
+            this.cmbTSConfig.Name = "cmbTSConfig";
+            this.cmbTSConfig.Size = new System.Drawing.Size(149, 28);
+            this.cmbTSConfig.TabIndex = 70;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(22, 122);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(111, 20);
+            this.label32.TabIndex = 69;
+            this.label32.Text = "Vị trí mặt hàng";
+            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1191,5 +1213,7 @@
         private WindowsFormsApplication4.Controls.CreTextBox txtSDT;
         private System.Windows.Forms.Label label27;
         private WindowsFormsApplication4.Controls.CreTextBox txtSSN;
+        private System.Windows.Forms.ComboBox cmbTSConfig;
+        private System.Windows.Forms.Label label32;
     }
 }

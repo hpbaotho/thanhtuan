@@ -235,7 +235,7 @@
             this.button13.OwnDrawColor = System.Drawing.Color.White;
             this.button13.Size = new System.Drawing.Size(134, 45);
             this.button13.TabIndex = 14;
-            this.button13.Text = "Clear";
+            this.button13.Text = "Xóa";
             this.button13.UseOwnColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
@@ -248,7 +248,7 @@
             this.button14.OwnDrawColor = System.Drawing.Color.White;
             this.button14.Size = new System.Drawing.Size(134, 45);
             this.button14.TabIndex = 15;
-            this.button14.Text = "Cancel";
+            this.button14.Text = "Quay về";
             this.button14.UseOwnColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
