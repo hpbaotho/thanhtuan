@@ -593,6 +593,7 @@ namespace WindowsFormsApplication4
                 FrmManager frmManager = new FrmManager();
                 frmManager.ShowDialog();
             }
+            textBox1.Focus();
         }
 
         private void đăngKíToolStripMenuItem_Click(object sender, EventArgs e)
@@ -712,6 +713,11 @@ namespace WindowsFormsApplication4
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button54_Click(object sender, EventArgs e)
+        {
+            textBox1.Focus();
         }
     }
 }

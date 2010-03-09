@@ -1093,6 +1093,7 @@
             this.button54.TabIndex = 19;
             this.button54.Text = "Trợ Giúp";
             this.button54.UseOwnColor = false;
+            this.button54.Click += new System.EventHandler(this.button54_Click);
             // 
             // button53
             // 
