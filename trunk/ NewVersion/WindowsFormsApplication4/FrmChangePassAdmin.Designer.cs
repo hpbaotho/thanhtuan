@@ -36,6 +36,7 @@
             this.creTextBox3 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creTextBox2 = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creTextBox1 = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.button3 = new WindowsFormsApplication4.Controls.button();
             this.SuspendLayout();
             // 
             // label1
@@ -72,10 +73,10 @@
             // 
             this.button2.Color2 = System.Drawing.Color.Lime;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(230, 252);
+            this.button2.Location = new System.Drawing.Point(138, 252);
             this.button2.Name = "button2";
             this.button2.OwnDrawColor = System.Drawing.Color.White;
-            this.button2.Size = new System.Drawing.Size(165, 100);
+            this.button2.Size = new System.Drawing.Size(121, 100);
             this.button2.TabIndex = 7;
             this.button2.Text = "Hoàn tất";
             this.button2.UseOwnColor = false;
@@ -88,7 +89,7 @@
             this.button1.Location = new System.Drawing.Point(13, 252);
             this.button1.Name = "button1";
             this.button1.OwnDrawColor = System.Drawing.Color.White;
-            this.button1.Size = new System.Drawing.Size(166, 100);
+            this.button1.Size = new System.Drawing.Size(119, 100);
             this.button1.TabIndex = 6;
             this.button1.Text = "Quay về";
             this.button1.UseOwnColor = false;
@@ -121,12 +122,26 @@
             this.creTextBox1.Size = new System.Drawing.Size(238, 29);
             this.creTextBox1.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.Color2 = System.Drawing.Color.Blue;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(265, 252);
+            this.button3.Name = "button3";
+            this.button3.OwnDrawColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(130, 100);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Đổi thẻ từ";
+            this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FrmChangePassAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 364);
+            this.ClientSize = new System.Drawing.Size(412, 387);
             this.ControlBox = false;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -154,5 +169,6 @@
         private WindowsFormsApplication4.Controls.CreTextBox creTextBox3;
         private WindowsFormsApplication4.Controls.button button1;
         private WindowsFormsApplication4.Controls.button button2;
+        private WindowsFormsApplication4.Controls.button button3;
     }
 }

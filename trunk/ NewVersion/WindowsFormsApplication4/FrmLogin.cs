@@ -42,7 +42,8 @@ namespace WindowsFormsApplication4
                 InitializeComponent();
                 timer2.Enabled = true;
                 panel1.Focus();
-                textBox1.Focus();  
+                textBox1.Focus();
+                
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -125,8 +126,8 @@ namespace WindowsFormsApplication4
             panel1.Visible = true;
             textBox1.Clear();
             textBox2.Clear();
-            bool focus = textBox1.Focus();
-            bool f = textBox1.Focused;
+            //bool focus = textBox1.Focus();
+            //bool f = textBox1.Focused;
             this.Refresh();
 
             DataTable setup =  getGui.GetSetupByStore(StaticClass.storeId);
@@ -153,11 +154,32 @@ namespace WindowsFormsApplication4
                         ipServer = parts[0];
                         portServer = Convert.ToInt32(parts[1]);
                     }
-                    panel2.Visible = true;
-                    panel1.Visible = false;
-                    panel2.BringToFront();
-                    textBox2.Focus();
 
+                    if(serviceGet.LoginBySwipe(textBox1.Text,StaticClass.storeId) == 0)
+                    {
+                        string tmp = "";
+                        if (StaticClass.thongTinNV["EmpName"].ToString() == "")
+                        {
+                            tmp = textBox1.Text;
+                        }
+                        else
+                        {
+                            tmp = StaticClass.thongTinNV["EmpName"].ToString();
+                        }
+                        LoginThread = new Thread(BeginLogin);
+                        LoginThread.Start(tmp);
+                        StaticClass.taxRate = getGui.GetTaxRate(StaticClass.storeId).Rows[0];
+                        layout = new FrmLayout(tmp);
+                        layout.formLogin = this;
+                        layout.ShowDialog();
+                    }
+                    else
+                    {
+                        panel2.Visible = true;
+                        panel1.Visible = false;
+                        panel2.BringToFront();
+                        textBox2.Focus();
+                    }
                 }
                 catch (Exception)
                 {
@@ -531,13 +553,7 @@ namespace WindowsFormsApplication4
         {
             if(e.KeyChar == 13)
             {
-                if (textBox1.Text != "")
-                {
-                    panel2.Visible = true;
-                    panel1.Visible = false;
-                    panel2.BringToFront();
-                    textBox2.Focus();
-                }
+                button7_Click(null,null);
             }
         }
 

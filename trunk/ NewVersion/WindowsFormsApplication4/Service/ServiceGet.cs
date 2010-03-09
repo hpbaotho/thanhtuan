@@ -147,12 +147,13 @@ namespace WindowsFormsApplication4.Service
             {
                 string cashierPass = getCashierpass.Rows[0][1].ToString();
                 string adminPass = getGui.GetAdminPass(storeId).Rows[0][1].ToString();
+                string adminSwipe = getGui.GetAdminPass(storeId).Rows[0][2].ToString();
                 DataTable thongTinNV = getGui.GetEmployeeByID(storeId, Id);
                 if (Convert.ToBoolean(thongTinNV.Rows[0][Employee_Prop.Disabled]))
                 {
                     return 3;
                 }
-                if(pass.ToLower() == cashierPass.ToLower() || pass.ToLower() == adminPass.ToLower())
+                if (pass.ToLower() == cashierPass.ToLower() || pass.ToLower() == adminPass.ToLower() || (pass.ToLower() == adminSwipe.ToLower() && adminSwipe != ""))
                 {
                     if (pass.ToLower() == cashierPass.ToLower())
                     {
@@ -174,9 +175,28 @@ namespace WindowsFormsApplication4.Service
                 
             }
         }
+
+        public int LoginBySwipe(string swipe,string storeId)
+        {
+            DataTable emp = getGui.GetEmpSwipe(swipe, storeId);
+            if(swipe == "")
+            {
+                return 1;
+            }
+            if(emp.Rows.Count > 0)
+            {
+                StaticClass.isAdmin = false;
+                StaticClass.cashierId = emp.Rows[0]["Cashier_ID"].ToString();
+                StaticClass.thongTinNV = emp.Rows[0];
+                return 0;
+            }
+            return 1;
+        }
+
         public bool checkAdminPass(string pass,string storeId)
         {
-            if(pass.ToLower() == getGui.GetAdminPass(storeId).Rows[0][1].ToString().ToLower())
+            DataTable adminPass = getGui.GetAdminPass(storeId);
+            if (pass.ToLower() == adminPass.Rows[0][1].ToString().ToLower() || (pass.ToLower() == adminPass.Rows[0][2].ToString().ToLower() && adminPass.Rows[0][2].ToString().ToLower()!=""))
             {
                 return true;
             }

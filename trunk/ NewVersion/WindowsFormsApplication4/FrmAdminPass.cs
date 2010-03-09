@@ -47,5 +47,10 @@ namespace WindowsFormsApplication4
                 text = textBox1.Text;
             }
         }
+
+        private void FrmAdminPass_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

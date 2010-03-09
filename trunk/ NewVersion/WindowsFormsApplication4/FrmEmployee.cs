@@ -216,6 +216,7 @@ namespace WindowsFormsApplication4
             SetCurrentIndexComboBox(table, rowIndex);
             txtEmpID.Text = table.Rows[rowIndex][Const.Employee_Prop.Cashier_ID].ToString();
             txtEmpName.Text = table.Rows[rowIndex][Const.Employee_Prop.EmpName].ToString();
+            txtSwipt.Text = table.Rows[rowIndex][Const.Employee_Prop.Swipe_ID].ToString();
 
             cbDisable.Checked = Convert.ToBoolean(table.Rows[rowIndex][Employee_Prop.Disabled]);
             cbAdmin.Checked= Convert.ToBoolean(table.Rows[rowIndex][Employee_Prop.Admin_Access]);
