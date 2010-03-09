@@ -760,6 +760,14 @@ namespace Services
             FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
         }
+
+        public void UpdateAdminSwipe(string StoreId, string NewSwipe)
+        {
+            cmd = new SqlCommand();
+            string query = "Update Setup Set Admin_Swipe = '" + NewSwipe + "' where Store_ID ='" + StoreId + "'";
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
         #region Employees
         public DataTable GetAllEmployee(string storeId)
         {
@@ -1894,5 +1902,14 @@ namespace Services
             cmd.Dispose();
         }
 
+
+        public DataTable GetEmpSwipe(string swipe, string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = "Select * from Employee where (Swipe_ID = '" + swipe + "')";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        } 
     }
 }
