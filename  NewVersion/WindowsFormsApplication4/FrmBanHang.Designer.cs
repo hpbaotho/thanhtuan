@@ -1057,7 +1057,7 @@
             this.button63.OwnDrawColor = System.Drawing.Color.White;
             this.button63.Size = new System.Drawing.Size(111, 77);
             this.button63.TabIndex = 2;
-            this.button63.Text = "Discount";
+            this.button63.Text = "Giảm %";
             this.button63.UseOwnColor = false;
             this.button63.Click += new System.EventHandler(this.button63_Click);
             // 
@@ -1102,8 +1102,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel5);
             this.Name = "FrmBanHang";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

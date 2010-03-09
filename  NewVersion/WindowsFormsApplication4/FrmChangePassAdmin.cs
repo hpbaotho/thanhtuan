@@ -42,5 +42,18 @@ namespace WindowsFormsApplication4
             this.Dispose();
            
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if(Alert.ShowAdminPassRequest())
+            {
+                FrmKeyBoard frmKeyBoard = new FrmKeyBoard(true);
+                if(frmKeyBoard.ShowDialog() == DialogResult.OK)
+                {
+                    Services.get_GUI get_GUI = new get_GUI();
+                    get_GUI.UpdateAdminSwipe(StaticClass.storeId, frmKeyBoard.value);
+                }
+            }
+        }
     }
 }

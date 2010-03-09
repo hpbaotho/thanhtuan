@@ -45,6 +45,10 @@ namespace WindowsFormsApplication4
             FrmClockIn frmClockIn = new FrmClockIn();
             if(frmClockIn.ShowDialog() == DialogResult.OK)
             {
+                if(frmClockIn.Success)
+                {
+                    return true;
+                }
                 int check = serviceGet.Login(frmClockIn.MaNV, frmClockIn.pass.ToLower(), StaticClass.storeId);
                 if(check ==2 )
                 {
