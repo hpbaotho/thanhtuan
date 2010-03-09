@@ -64,6 +64,7 @@ namespace WindowsFormsApplication4
                 if (serviceGet.checkAdminPass(creTextBox2.Text, StaticClass.storeId))
                 {
                     Success = true;
+                    StaticClass.isAdmin = true;
                     DialogResult = DialogResult.OK;
                 }
                 if(serviceGet.LoginBySwipe(creTextBox2.Text,StaticClass.storeId)==0)

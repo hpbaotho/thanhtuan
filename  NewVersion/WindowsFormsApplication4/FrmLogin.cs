@@ -42,7 +42,7 @@ namespace WindowsFormsApplication4
                 InitializeComponent();
                 timer2.Enabled = true;
                 panel1.Focus();
-                textBox1.Focus();
+                textBox1.Select();
                 
         }
 
@@ -128,6 +128,7 @@ namespace WindowsFormsApplication4
             textBox2.Clear();
             //bool focus = textBox1.Focus();
             //bool f = textBox1.Focused;
+            this.textBox1.Focus();
             this.Refresh();
 
             DataTable setup =  getGui.GetSetupByStore(StaticClass.storeId);
@@ -138,6 +139,7 @@ namespace WindowsFormsApplication4
                 pictureBox1.Image = Image.FromFile(path);
             }
             label3.Text = setup.Rows[0]["Invoice_Notes_10"].ToString();
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -523,13 +525,15 @@ namespace WindowsFormsApplication4
                 layout = new FrmLayout(tmp);
                 layout.formLogin = this;
                 layout.ShowDialog();
+                textBox1.Focus();
             }
             else if(check == 3)
             {
                 Alert.Show("Tài khoản đã bị vô hiệu.", Color.Red);
                 this.FrmLogin_Load(null, null);
+                textBox1.Focus();
             }
-
+            
 
         }
         //slgn
