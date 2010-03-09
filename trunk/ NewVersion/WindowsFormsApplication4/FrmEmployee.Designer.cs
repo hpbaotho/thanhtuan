@@ -72,6 +72,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtCity = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -80,6 +81,13 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.txtAdress = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtBirth = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtEmail = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtSDT = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtSSN = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtTen = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtHo = new WindowsFormsApplication4.Controls.CreTextBox();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -101,14 +109,6 @@
             this.txtPass = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtEmpID = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
-            this.txtCity = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtAdress = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtBirth = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtEmail = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtSDT = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtSSN = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtTen = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtHo = new WindowsFormsApplication4.Controls.CreTextBox();
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
             this.button4 = new WindowsFormsApplication4.Controls.button();
@@ -587,6 +587,16 @@
             this.tabPage2.Text = "Thông tin NV";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // txtCity
+            // 
+            this.txtCity.BackColor = System.Drawing.Color.White;
+            this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCity.Location = new System.Drawing.Point(535, 50);
+            this.txtCity.MaxLength = 30;
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(255, 29);
+            this.txtCity.TabIndex = 77;
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -666,6 +676,71 @@
             this.label24.Size = new System.Drawing.Size(35, 24);
             this.label24.TabIndex = 63;
             this.label24.Text = "Họ";
+            // 
+            // txtAdress
+            // 
+            this.txtAdress.BackColor = System.Drawing.Color.White;
+            this.txtAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdress.Location = new System.Drawing.Point(535, 7);
+            this.txtAdress.MaxLength = 30;
+            this.txtAdress.Name = "txtAdress";
+            this.txtAdress.Size = new System.Drawing.Size(255, 29);
+            this.txtAdress.TabIndex = 74;
+            // 
+            // txtBirth
+            // 
+            this.txtBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBirth.Location = new System.Drawing.Point(102, 194);
+            this.txtBirth.MaxLength = 30;
+            this.txtBirth.Name = "txtBirth";
+            this.txtBirth.Size = new System.Drawing.Size(255, 29);
+            this.txtBirth.TabIndex = 73;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(102, 157);
+            this.txtEmail.MaxLength = 30;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(255, 29);
+            this.txtEmail.TabIndex = 71;
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT.Location = new System.Drawing.Point(102, 122);
+            this.txtSDT.MaxLength = 30;
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(255, 29);
+            this.txtSDT.TabIndex = 69;
+            // 
+            // txtSSN
+            // 
+            this.txtSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSSN.Location = new System.Drawing.Point(102, 87);
+            this.txtSSN.MaxLength = 30;
+            this.txtSSN.Name = "txtSSN";
+            this.txtSSN.Size = new System.Drawing.Size(255, 29);
+            this.txtSSN.TabIndex = 67;
+            // 
+            // txtTen
+            // 
+            this.txtTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTen.Location = new System.Drawing.Point(102, 50);
+            this.txtTen.MaxLength = 30;
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(255, 29);
+            this.txtTen.TabIndex = 65;
+            // 
+            // txtHo
+            // 
+            this.txtHo.BackColor = System.Drawing.Color.White;
+            this.txtHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHo.Location = new System.Drawing.Point(102, 12);
+            this.txtHo.MaxLength = 30;
+            this.txtHo.Name = "txtHo";
+            this.txtHo.Size = new System.Drawing.Size(255, 29);
+            this.txtHo.TabIndex = 63;
             // 
             // ckb_Sua
             // 
@@ -839,6 +914,7 @@
             this.txtSwipt.Location = new System.Drawing.Point(552, 40);
             this.txtSwipt.MaxLength = 25;
             this.txtSwipt.Name = "txtSwipt";
+            this.txtSwipt.PasswordChar = '●';
             this.txtSwipt.Size = new System.Drawing.Size(208, 29);
             this.txtSwipt.TabIndex = 55;
             // 
@@ -880,81 +956,6 @@
             this.cmbDept.Name = "cmbDept";
             this.cmbDept.Size = new System.Drawing.Size(255, 32);
             this.cmbDept.TabIndex = 46;
-            // 
-            // txtCity
-            // 
-            this.txtCity.BackColor = System.Drawing.Color.White;
-            this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(535, 50);
-            this.txtCity.MaxLength = 30;
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(255, 29);
-            this.txtCity.TabIndex = 77;
-            // 
-            // txtAdress
-            // 
-            this.txtAdress.BackColor = System.Drawing.Color.White;
-            this.txtAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdress.Location = new System.Drawing.Point(535, 7);
-            this.txtAdress.MaxLength = 30;
-            this.txtAdress.Name = "txtAdress";
-            this.txtAdress.Size = new System.Drawing.Size(255, 29);
-            this.txtAdress.TabIndex = 74;
-            // 
-            // txtBirth
-            // 
-            this.txtBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBirth.Location = new System.Drawing.Point(102, 194);
-            this.txtBirth.MaxLength = 30;
-            this.txtBirth.Name = "txtBirth";
-            this.txtBirth.Size = new System.Drawing.Size(255, 29);
-            this.txtBirth.TabIndex = 73;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(102, 157);
-            this.txtEmail.MaxLength = 30;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(255, 29);
-            this.txtEmail.TabIndex = 71;
-            // 
-            // txtSDT
-            // 
-            this.txtSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSDT.Location = new System.Drawing.Point(102, 122);
-            this.txtSDT.MaxLength = 30;
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(255, 29);
-            this.txtSDT.TabIndex = 69;
-            // 
-            // txtSSN
-            // 
-            this.txtSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSSN.Location = new System.Drawing.Point(102, 87);
-            this.txtSSN.MaxLength = 30;
-            this.txtSSN.Name = "txtSSN";
-            this.txtSSN.Size = new System.Drawing.Size(255, 29);
-            this.txtSSN.TabIndex = 67;
-            // 
-            // txtTen
-            // 
-            this.txtTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTen.Location = new System.Drawing.Point(102, 50);
-            this.txtTen.MaxLength = 30;
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(255, 29);
-            this.txtTen.TabIndex = 65;
-            // 
-            // txtHo
-            // 
-            this.txtHo.BackColor = System.Drawing.Color.White;
-            this.txtHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHo.Location = new System.Drawing.Point(102, 12);
-            this.txtHo.MaxLength = 30;
-            this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(255, 29);
-            this.txtHo.TabIndex = 63;
             // 
             // button7
             // 
