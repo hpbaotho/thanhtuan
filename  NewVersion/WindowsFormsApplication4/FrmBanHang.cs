@@ -1175,6 +1175,12 @@ namespace WindowsFormsApplication4
                 InStock = InStock - Quan;
                 getGui.UpdateInStock(StoreId,itemNum,InStock.ToString());
             }
+
+            ArrayList ingreList = serviceGet.GetInventIngredient(StaticClass.storeId, itemNum);
+            foreach (Ingredient o in ingreList)
+            {
+                getGui.UpdateInStock(StaticClass.storeId,o.IngreId,(o.Instock - o.Quantity).ToString());
+            }
         }
 
     }

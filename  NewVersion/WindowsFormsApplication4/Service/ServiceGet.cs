@@ -320,6 +320,7 @@ namespace WindowsFormsApplication4.Service
                 Ingredient ingre = new Ingredient(ingredient.Rows[i]["Ingredient"].ToString(), ingredient.Rows[i]["ItemName"].ToString(),
                     Convert.ToSingle(ingredient.Rows[i]["Quantity"]), Convert.ToInt32(ingredient.Rows[i]["Measurement"]),
                     Convert.ToSingle(ingredient.Rows[i]["Yield"]), Convert.ToDecimal(ingredient.Rows[i]["Cost"]));
+                ingre.Instock = Convert.ToSingle(ingredient.Rows[i]["In_Stock"]);
                 re.Add(ingre);
             }
             return re;

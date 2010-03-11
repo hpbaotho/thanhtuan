@@ -15,6 +15,7 @@ namespace WindowsFormsApplication4.Persistence
         public float Yield;
         public bool isNew;
         public bool isdelete;
+        public float Instock;
         public Ingredient(string ingreid,string ingreName,float quant,int mesure, float yield,decimal cost)
         {
             IngreId = ingreid;
