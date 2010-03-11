@@ -1924,6 +1924,37 @@ namespace Services
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
-        } 
+        }
+        public DataTable DeleteIngredient(string itemNum, string Ingredient, string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"delete from Inventory_Ingredients where ItemNum ='" + itemNum + "' and Store_ID ='" 
+                + storeId + "'" + " and Ingredient = '"
+                + Ingredient + "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public void InsertIngredient(string itemNum, string ingredient, string storeId, string quan,string measure,string yield)
+        {
+            cmd = new SqlCommand();
+            string value = "('" + itemNum + "'," + "'" + storeId + "'," + "'" + ingredient + "'," + "'" + quan + "','" + measure + "','"+ yield+"')";
+            string query = "Insert into Inventory_Ingredients (ItemNum,Store_ID,Ingredient,Quantity,Measurement,Yield) values " + value;
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        public DataTable DeleteIngredientByItemNum(string itemNum, string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"delete from Inventory_Ingredients where ItemNum ='" + itemNum 
+                + "' and Store_ID ='"
+                + storeId + "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
     }
 }
