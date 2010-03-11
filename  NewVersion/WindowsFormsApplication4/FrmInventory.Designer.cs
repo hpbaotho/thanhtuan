@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,13 +52,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.NguyenLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Giá = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingreObj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.txtSolgDat = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtGioiHanDat = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creCheckBox12 = new WindowsFormsApplication4.Controls.CreCheckBox();
@@ -379,18 +380,6 @@
             this.label9.TabIndex = 9;
             this.label9.Text = "Giảm giá theo %";
             // 
-            // ckb_Sua
-            // 
-            this.ckb_Sua.AutoSize = true;
-            this.ckb_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb_Sua.Location = new System.Drawing.Point(321, 108);
-            this.ckb_Sua.Name = "ckb_Sua";
-            this.ckb_Sua.Size = new System.Drawing.Size(51, 20);
-            this.ckb_Sua.TabIndex = 33;
-            this.ckb_Sua.Text = "Sửa";
-            this.ckb_Sua.UseVisualStyleBackColor = true;
-            this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.button19);
@@ -417,6 +406,14 @@
             this.Soluong,
             this.Giá,
             this.ingreObj});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(192, 13);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -449,6 +446,18 @@
             this.ingreObj.HeaderText = "ingreObj";
             this.ingreObj.Name = "ingreObj";
             this.ingreObj.Visible = false;
+            // 
+            // ckb_Sua
+            // 
+            this.ckb_Sua.AutoSize = true;
+            this.ckb_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_Sua.Location = new System.Drawing.Point(321, 108);
+            this.ckb_Sua.Name = "ckb_Sua";
+            this.ckb_Sua.Size = new System.Drawing.Size(51, 20);
+            this.ckb_Sua.TabIndex = 33;
+            this.ckb_Sua.Text = "Sửa";
+            this.ckb_Sua.UseVisualStyleBackColor = true;
+            this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
             // 
             // txtSolgDat
             // 

@@ -135,7 +135,7 @@ namespace WindowsFormsApplication4
 
             foreach (Ingredient c in InventIngredients)
             {
-                dataGridView1.Rows.Add(new object[] { c.IngreName, c.Quantity, Convert.ToDecimal(c.Quantity) * c.Cost,c });
+                dataGridView1.Rows.Add(new object[] { c.IngreName, String.Format("{0:0.##}", c.Quantity), String.Format("{0:0,0}", Convert.ToDecimal(c.Quantity) * c.Cost), c });
             }
         }
 
@@ -285,6 +285,7 @@ namespace WindowsFormsApplication4
                 serviceGet.UpdateInventPrinter(InventPrinters, txtInvenId.Text);
                 specialPricing.ItemNum = txtInvenId.Text;
                 specialPricing.Update();
+                Ingredientupdate(txtInvenId.Text);
             }
             if (sender.Equals(button4))
                 AddState(0);
@@ -318,6 +319,8 @@ namespace WindowsFormsApplication4
                 creListBox2.Items.Clear();
                 creListBox3.Items.Clear();
                 creListBox4.Items.Clear();
+                dataGridView1.Rows.Clear();
+                InventIngredients = new ArrayList();
                 specialPricing = new SpecialPricing();
                 start_state();
             }
@@ -405,6 +408,7 @@ namespace WindowsFormsApplication4
             get_service.DeleteAllInventPrinter(StaticClass.storeId,txtInvenId.Text);
             get_service.DeleteInventory_In(StaticClass.storeId,txtInvenId.Text);
             specialPricing.DeleteSpecialPricing();
+            get_service.DeleteIngredientByItemNum(txtInvenId.Text, StaticClass.storeId);
             get_service.DeleteInventory(txtInvenId.Text, StaticClass.storeId);
             inventory = get_service.GetAllInventory(StaticClass.storeId);
             limit = inventory.Rows.Count - 1;
@@ -440,7 +444,29 @@ namespace WindowsFormsApplication4
 
             serviceGet.UpdateInventPrinter(InventPrinters,txtInvenId.Text);
             specialPricing.Update();
+            Ingredientupdate(OldInvent_ID);
             Alert.Show("Bạn đã thay đổi thành công",Color.Blue);
+        }
+
+        private  void Ingredientupdate(string itemNum)
+        {
+            foreach (Ingredient c in InventIngredients)
+            {
+                if(c.isdelete)
+                {
+                    if(!c.isNew)
+                    {
+                        get_service.DeleteIngredient(itemNum, c.IngreId, StaticClass.storeId);
+                    }
+                }
+                else
+                {
+                    if(c.isNew)
+                    {
+                        get_service.InsertIngredient(itemNum,c.IngreId,StaticClass.storeId,c.Quantity.ToString(),c.Mesurement.ToString(),c.Yield.ToString());
+                    }
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -664,7 +690,21 @@ namespace WindowsFormsApplication4
 
         private void button18_Click(object sender, EventArgs e)
         {
-
+            string[] column = { Const.Inventory.ItemNum, Const.Inventory.ItemName,Const.Inventory.Dept_ID,Const.Inventory.Cost,Const.Inventory
+                              .Price,Const.Inventory.In_Stock};
+            FrmSearch search = new FrmSearch(inventory, column);
+            if(search.ShowDialog() == DialogResult.OK)
+            {
+                DataGridViewRow dataGridViewRow = search.selectRow;
+                FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Số lượng");
+                if(frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+                {
+                    Ingredient ingredient = new Ingredient(dataGridViewRow.Cells[0].Value.ToString(), dataGridViewRow.Cells[1].Value.ToString(), Convert.ToSingle(frmKeyboardNumber.value), 0, 0, Convert.ToDecimal(dataGridViewRow.Cells[3].Value));
+                    ingredient.isNew = true;
+                    InventIngredients.Add(ingredient);
+                    dataGridView1.Rows.Add(new object[] { dataGridViewRow.Cells[1].Value.ToString(), String.Format("{0:0.##}", Convert.ToDecimal(frmKeyboardNumber.value)), String.Format("{0:0,0}", Convert.ToDecimal(frmKeyboardNumber.value) * Convert.ToDecimal(dataGridViewRow.Cells[3].Value)), ingredient });
+                }
+            }
         }
 
         private void button19_Click(object sender, EventArgs e)
@@ -672,6 +712,7 @@ namespace WindowsFormsApplication4
             if(dataGridView1.SelectedRows.Count > 0)
             {
                 var ingredient = (Ingredient) dataGridView1.SelectedRows[0].Cells["ingreObj"].Value;
+                ingredient.isdelete = true;
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             }
             
