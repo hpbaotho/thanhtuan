@@ -317,7 +317,7 @@ namespace WindowsFormsApplication4.Service
             ArrayList re = new ArrayList();
             for (int i = 0; i < ingredient.Rows.Count; i++)
             {
-                Ingredient ingre = new Ingredient(ingredient.Rows[i]["ItemNum"].ToString(), ingredient.Rows[i]["ItemName"].ToString(),
+                Ingredient ingre = new Ingredient(ingredient.Rows[i]["Ingredient"].ToString(), ingredient.Rows[i]["ItemName"].ToString(),
                     Convert.ToSingle(ingredient.Rows[i]["Quantity"]), Convert.ToInt32(ingredient.Rows[i]["Measurement"]),
                     Convert.ToSingle(ingredient.Rows[i]["Yield"]), Convert.ToDecimal(ingredient.Rows[i]["Cost"]));
                 re.Add(ingre);

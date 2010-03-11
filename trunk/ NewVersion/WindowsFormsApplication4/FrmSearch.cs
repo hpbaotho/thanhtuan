@@ -17,6 +17,7 @@ namespace WindowsFormsApplication4
         private string []ColumnName;
         //private string DeptDesc;
         private Services.get_GUI get_services=new get_GUI();
+        public DataGridViewRow selectRow;
         public FrmSearch()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace WindowsFormsApplication4
         private void RowClicked(object sender, DataGridViewCellEventArgs e)
         {
             RowIndex = e.RowIndex;
+            
         }
 
         private void FrmSearch_Load(object sender, EventArgs e)
@@ -86,8 +88,9 @@ namespace WindowsFormsApplication4
                 passdata((DataTable)dataGridView1.DataSource, RowIndex);
             }
             //MessageBox.Show(e.RowIndex.ToString());
+            selectRow = dataGridView1.SelectedRows[0];
             this.DialogResult = DialogResult.OK;
-            this.Dispose();
+            //this.Dispose();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
