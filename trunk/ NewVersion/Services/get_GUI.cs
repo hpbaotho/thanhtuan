@@ -1910,6 +1910,20 @@ namespace Services
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
+        }
+
+        public DataTable GetIngredient(string itemNum,string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"SELECT     dbo.Inventory_Ingredients.Ingredient, dbo.Inventory_Ingredients.ItemNum, dbo.Inventory_Ingredients.Store_ID, dbo.Inventory_Ingredients.Quantity, 
+                      dbo.Inventory_Ingredients.Measurement, dbo.Inventory_Ingredients.Yield, dbo.Inventory.ItemName, dbo.Inventory.Cost, dbo.Inventory.Price, 
+                      dbo.Inventory.In_Stock
+                        FROM         dbo.Inventory_Ingredients INNER JOIN
+                      dbo.Inventory ON dbo.Inventory_Ingredients.Store_ID = dbo.Inventory.Store_ID AND dbo.Inventory_Ingredients.Ingredient = dbo.Inventory.ItemNum"
+                        + " WHERE  dbo.Inventory_Ingredients.Store_ID = '" + storeId + "' and dbo.Inventory_Ingredients.ItemNum = '"+itemNum+"'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
         } 
     }
 }
