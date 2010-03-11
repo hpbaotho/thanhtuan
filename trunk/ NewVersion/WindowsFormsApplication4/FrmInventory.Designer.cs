@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,12 +42,38 @@
             this.pnlLayout = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NguyenLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Giá = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ingreObj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSolgDat = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtGioiHanDat = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.creCheckBox12 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox13 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox14 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox15 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox6 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox7 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox8 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox9 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox10 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox5 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox4 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox3 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox2 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.creCheckBox1 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.creListBox1 = new WindowsFormsApplication4.Controls.CreListBox();
@@ -59,6 +86,8 @@
             this.creListBox4 = new WindowsFormsApplication4.Controls.CreListBox();
             this.creListBox3 = new WindowsFormsApplication4.Controls.CreListBox();
             this.creListBox2 = new WindowsFormsApplication4.Controls.CreListBox();
+            this.button19 = new WindowsFormsApplication4.Controls.button();
+            this.button18 = new WindowsFormsApplication4.Controls.button();
             this.button7 = new WindowsFormsApplication4.Controls.button();
             this.button5 = new WindowsFormsApplication4.Controls.button();
             this.button4 = new WindowsFormsApplication4.Controls.button();
@@ -78,34 +107,16 @@
             this.txtInventDesc = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtInvenId = new WindowsFormsApplication4.Controls.CreTextBox();
             this.cmbDept = new WindowsFormsApplication4.Controls.CreComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.creCheckBox1 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox2 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox3 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox4 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox5 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox10 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox9 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox8 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox7 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox6 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox15 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox14 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox13 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.creCheckBox12 = new WindowsFormsApplication4.Controls.CreCheckBox();
-            this.txtGioiHanDat = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtSolgDat = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -225,6 +236,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(-1, 206);
             this.tabControl1.Multiline = true;
@@ -244,6 +256,61 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.txtSolgDat);
+            this.panel2.Controls.Add(this.txtGioiHanDat);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Location = new System.Drawing.Point(6, 19);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(885, 254);
+            this.panel2.TabIndex = 0;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(640, 113);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(165, 24);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Số lượng đặt hàng";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(640, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(159, 24);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Giới hạn đặt hàng";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.creCheckBox12);
+            this.panel5.Controls.Add(this.creCheckBox13);
+            this.panel5.Controls.Add(this.creCheckBox14);
+            this.panel5.Controls.Add(this.creCheckBox15);
+            this.panel5.Controls.Add(this.creCheckBox6);
+            this.panel5.Controls.Add(this.creCheckBox7);
+            this.panel5.Controls.Add(this.creCheckBox8);
+            this.panel5.Controls.Add(this.creCheckBox9);
+            this.panel5.Controls.Add(this.creCheckBox10);
+            this.panel5.Controls.Add(this.creCheckBox5);
+            this.panel5.Controls.Add(this.creCheckBox4);
+            this.panel5.Controls.Add(this.creCheckBox3);
+            this.panel5.Controls.Add(this.creCheckBox2);
+            this.panel5.Controls.Add(this.creCheckBox1);
+            this.panel5.Location = new System.Drawing.Point(7, 42);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(583, 138);
+            this.panel5.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -323,6 +390,234 @@
             this.ckb_Sua.Text = "Sửa";
             this.ckb_Sua.UseVisualStyleBackColor = true;
             this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button19);
+            this.tabPage4.Controls.Add(this.button18);
+            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 41);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(904, 299);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Nguyên liệu";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NguyenLieu,
+            this.Soluong,
+            this.Giá,
+            this.ingreObj});
+            this.dataGridView1.Location = new System.Drawing.Point(192, 13);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(668, 262);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // NguyenLieu
+            // 
+            this.NguyenLieu.HeaderText = "Nguyên liệu";
+            this.NguyenLieu.Name = "NguyenLieu";
+            this.NguyenLieu.Width = 300;
+            // 
+            // Soluong
+            // 
+            this.Soluong.HeaderText = "Số lượng";
+            this.Soluong.Name = "Soluong";
+            this.Soluong.Width = 150;
+            // 
+            // Giá
+            // 
+            this.Giá.HeaderText = "Giá mua";
+            this.Giá.Name = "Giá";
+            this.Giá.Width = 200;
+            // 
+            // ingreObj
+            // 
+            this.ingreObj.HeaderText = "ingreObj";
+            this.ingreObj.Name = "ingreObj";
+            this.ingreObj.Visible = false;
+            // 
+            // txtSolgDat
+            // 
+            this.txtSolgDat.Location = new System.Drawing.Point(644, 145);
+            this.txtSolgDat.Name = "txtSolgDat";
+            this.txtSolgDat.Size = new System.Drawing.Size(154, 35);
+            this.txtSolgDat.TabIndex = 2;
+            // 
+            // txtGioiHanDat
+            // 
+            this.txtGioiHanDat.Location = new System.Drawing.Point(644, 64);
+            this.txtGioiHanDat.Name = "txtGioiHanDat";
+            this.txtGioiHanDat.Size = new System.Drawing.Size(154, 35);
+            this.txtGioiHanDat.TabIndex = 1;
+            // 
+            // creCheckBox12
+            // 
+            this.creCheckBox12.AutoSize = true;
+            this.creCheckBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox12.Location = new System.Drawing.Point(429, 83);
+            this.creCheckBox12.Name = "creCheckBox12";
+            this.creCheckBox12.Size = new System.Drawing.Size(154, 22);
+            this.creCheckBox12.TabIndex = 13;
+            this.creCheckBox12.Text = "Special Permission";
+            this.creCheckBox12.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox13
+            // 
+            this.creCheckBox13.AutoSize = true;
+            this.creCheckBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox13.Location = new System.Drawing.Point(429, 59);
+            this.creCheckBox13.Name = "creCheckBox13";
+            this.creCheckBox13.Size = new System.Drawing.Size(149, 22);
+            this.creCheckBox13.TabIndex = 12;
+            this.creCheckBox13.Text = "Use Serial\\Batch #";
+            this.creCheckBox13.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox14
+            // 
+            this.creCheckBox14.AutoSize = true;
+            this.creCheckBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox14.Location = new System.Drawing.Point(429, 31);
+            this.creCheckBox14.Name = "creCheckBox14";
+            this.creCheckBox14.Size = new System.Drawing.Size(104, 22);
+            this.creCheckBox14.TabIndex = 11;
+            this.creCheckBox14.Text = "Auto-Weigh";
+            this.creCheckBox14.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox15
+            // 
+            this.creCheckBox15.AutoSize = true;
+            this.creCheckBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox15.Location = new System.Drawing.Point(429, 3);
+            this.creCheckBox15.Name = "creCheckBox15";
+            this.creCheckBox15.Size = new System.Drawing.Size(130, 22);
+            this.creCheckBox15.TabIndex = 10;
+            this.creCheckBox15.Text = "Foodstampable";
+            this.creCheckBox15.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox6
+            // 
+            this.creCheckBox6.AutoSize = true;
+            this.creCheckBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox6.Location = new System.Drawing.Point(226, 111);
+            this.creCheckBox6.Name = "creCheckBox6";
+            this.creCheckBox6.Size = new System.Drawing.Size(132, 22);
+            this.creCheckBox6.TabIndex = 9;
+            this.creCheckBox6.Text = "Print on Reciept";
+            this.creCheckBox6.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox7
+            // 
+            this.creCheckBox7.AutoSize = true;
+            this.creCheckBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox7.Location = new System.Drawing.Point(226, 83);
+            this.creCheckBox7.Name = "creCheckBox7";
+            this.creCheckBox7.Size = new System.Drawing.Size(123, 22);
+            this.creCheckBox7.TabIndex = 8;
+            this.creCheckBox7.Text = "Allow Buyback";
+            this.creCheckBox7.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox8
+            // 
+            this.creCheckBox8.AutoSize = true;
+            this.creCheckBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox8.Location = new System.Drawing.Point(226, 59);
+            this.creCheckBox8.Name = "creCheckBox8";
+            this.creCheckBox8.Size = new System.Drawing.Size(114, 22);
+            this.creCheckBox8.TabIndex = 7;
+            this.creCheckBox8.Text = "Prompt Price";
+            this.creCheckBox8.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox9
+            // 
+            this.creCheckBox9.AutoSize = true;
+            this.creCheckBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox9.Location = new System.Drawing.Point(226, 31);
+            this.creCheckBox9.Name = "creCheckBox9";
+            this.creCheckBox9.Size = new System.Drawing.Size(125, 22);
+            this.creCheckBox9.TabIndex = 6;
+            this.creCheckBox9.Text = "Prompt Quality";
+            this.creCheckBox9.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox10
+            // 
+            this.creCheckBox10.AutoSize = true;
+            this.creCheckBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox10.Location = new System.Drawing.Point(226, 3);
+            this.creCheckBox10.Name = "creCheckBox10";
+            this.creCheckBox10.Size = new System.Drawing.Size(140, 22);
+            this.creCheckBox10.TabIndex = 5;
+            this.creCheckBox10.Text = "Disable This Item";
+            this.creCheckBox10.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox5
+            // 
+            this.creCheckBox5.AutoSize = true;
+            this.creCheckBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox5.Location = new System.Drawing.Point(3, 3);
+            this.creCheckBox5.Name = "creCheckBox5";
+            this.creCheckBox5.Size = new System.Drawing.Size(174, 22);
+            this.creCheckBox5.TabIndex = 4;
+            this.creCheckBox5.Text = "Đếm số lượng tồn kho";
+            this.creCheckBox5.UseVisualStyleBackColor = true;
+            this.creCheckBox5.CheckedChanged += new System.EventHandler(this.creCheckBox5_CheckedChanged);
+            // 
+            // creCheckBox4
+            // 
+            this.creCheckBox4.AutoSize = true;
+            this.creCheckBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox4.Location = new System.Drawing.Point(3, 80);
+            this.creCheckBox4.Name = "creCheckBox4";
+            this.creCheckBox4.Size = new System.Drawing.Size(203, 22);
+            this.creCheckBox4.TabIndex = 3;
+            this.creCheckBox4.Text = "Check ID #2 Before Selling";
+            this.creCheckBox4.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox3
+            // 
+            this.creCheckBox3.AutoSize = true;
+            this.creCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox3.Location = new System.Drawing.Point(3, 56);
+            this.creCheckBox3.Name = "creCheckBox3";
+            this.creCheckBox3.Size = new System.Drawing.Size(183, 22);
+            this.creCheckBox3.TabIndex = 2;
+            this.creCheckBox3.Text = "Check ID Before Selling";
+            this.creCheckBox3.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox2
+            // 
+            this.creCheckBox2.AutoSize = true;
+            this.creCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox2.Location = new System.Drawing.Point(3, 28);
+            this.creCheckBox2.Name = "creCheckBox2";
+            this.creCheckBox2.Size = new System.Drawing.Size(212, 22);
+            this.creCheckBox2.TabIndex = 1;
+            this.creCheckBox2.Text = "Exclude From Account Limit";
+            this.creCheckBox2.UseVisualStyleBackColor = true;
+            // 
+            // creCheckBox1
+            // 
+            this.creCheckBox1.AutoSize = true;
+            this.creCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creCheckBox1.Location = new System.Drawing.Point(3, 108);
+            this.creCheckBox1.Name = "creCheckBox1";
+            this.creCheckBox1.Size = new System.Drawing.Size(112, 22);
+            this.creCheckBox1.TabIndex = 0;
+            this.creCheckBox1.Text = "Modifier Item";
+            this.creCheckBox1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -460,6 +755,30 @@
             this.creListBox2.Name = "creListBox2";
             this.creListBox2.Size = new System.Drawing.Size(300, 164);
             this.creListBox2.TabIndex = 0;
+            // 
+            // button19
+            // 
+            this.button19.Color2 = System.Drawing.Color.Blue;
+            this.button19.Location = new System.Drawing.Point(31, 158);
+            this.button19.Name = "button19";
+            this.button19.OwnDrawColor = System.Drawing.Color.White;
+            this.button19.Size = new System.Drawing.Size(117, 90);
+            this.button19.TabIndex = 2;
+            this.button19.Text = "Xóa";
+            this.button19.UseOwnColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button18
+            // 
+            this.button18.Color2 = System.Drawing.Color.Blue;
+            this.button18.Location = new System.Drawing.Point(31, 40);
+            this.button18.Name = "button18";
+            this.button18.OwnDrawColor = System.Drawing.Color.White;
+            this.button18.Size = new System.Drawing.Size(117, 91);
+            this.button18.TabIndex = 1;
+            this.button18.Text = "Thêm";
+            this.button18.UseOwnColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button7
             // 
@@ -685,230 +1004,6 @@
             this.cmbDept.TabIndex = 15;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.txtSolgDat);
-            this.panel2.Controls.Add(this.txtGioiHanDat);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(6, 19);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(885, 254);
-            this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.creCheckBox12);
-            this.panel5.Controls.Add(this.creCheckBox13);
-            this.panel5.Controls.Add(this.creCheckBox14);
-            this.panel5.Controls.Add(this.creCheckBox15);
-            this.panel5.Controls.Add(this.creCheckBox6);
-            this.panel5.Controls.Add(this.creCheckBox7);
-            this.panel5.Controls.Add(this.creCheckBox8);
-            this.panel5.Controls.Add(this.creCheckBox9);
-            this.panel5.Controls.Add(this.creCheckBox10);
-            this.panel5.Controls.Add(this.creCheckBox5);
-            this.panel5.Controls.Add(this.creCheckBox4);
-            this.panel5.Controls.Add(this.creCheckBox3);
-            this.panel5.Controls.Add(this.creCheckBox2);
-            this.panel5.Controls.Add(this.creCheckBox1);
-            this.panel5.Location = new System.Drawing.Point(7, 42);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(583, 138);
-            this.panel5.TabIndex = 0;
-            // 
-            // creCheckBox1
-            // 
-            this.creCheckBox1.AutoSize = true;
-            this.creCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox1.Location = new System.Drawing.Point(3, 108);
-            this.creCheckBox1.Name = "creCheckBox1";
-            this.creCheckBox1.Size = new System.Drawing.Size(112, 22);
-            this.creCheckBox1.TabIndex = 0;
-            this.creCheckBox1.Text = "Modifier Item";
-            this.creCheckBox1.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox2
-            // 
-            this.creCheckBox2.AutoSize = true;
-            this.creCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox2.Location = new System.Drawing.Point(3, 28);
-            this.creCheckBox2.Name = "creCheckBox2";
-            this.creCheckBox2.Size = new System.Drawing.Size(212, 22);
-            this.creCheckBox2.TabIndex = 1;
-            this.creCheckBox2.Text = "Exclude From Account Limit";
-            this.creCheckBox2.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox3
-            // 
-            this.creCheckBox3.AutoSize = true;
-            this.creCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox3.Location = new System.Drawing.Point(3, 56);
-            this.creCheckBox3.Name = "creCheckBox3";
-            this.creCheckBox3.Size = new System.Drawing.Size(183, 22);
-            this.creCheckBox3.TabIndex = 2;
-            this.creCheckBox3.Text = "Check ID Before Selling";
-            this.creCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox4
-            // 
-            this.creCheckBox4.AutoSize = true;
-            this.creCheckBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox4.Location = new System.Drawing.Point(3, 80);
-            this.creCheckBox4.Name = "creCheckBox4";
-            this.creCheckBox4.Size = new System.Drawing.Size(203, 22);
-            this.creCheckBox4.TabIndex = 3;
-            this.creCheckBox4.Text = "Check ID #2 Before Selling";
-            this.creCheckBox4.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox5
-            // 
-            this.creCheckBox5.AutoSize = true;
-            this.creCheckBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox5.Location = new System.Drawing.Point(3, 3);
-            this.creCheckBox5.Name = "creCheckBox5";
-            this.creCheckBox5.Size = new System.Drawing.Size(174, 22);
-            this.creCheckBox5.TabIndex = 4;
-            this.creCheckBox5.Text = "Đếm số lượng tồn kho";
-            this.creCheckBox5.UseVisualStyleBackColor = true;
-            this.creCheckBox5.CheckedChanged += new System.EventHandler(this.creCheckBox5_CheckedChanged);
-            // 
-            // creCheckBox10
-            // 
-            this.creCheckBox10.AutoSize = true;
-            this.creCheckBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox10.Location = new System.Drawing.Point(226, 3);
-            this.creCheckBox10.Name = "creCheckBox10";
-            this.creCheckBox10.Size = new System.Drawing.Size(140, 22);
-            this.creCheckBox10.TabIndex = 5;
-            this.creCheckBox10.Text = "Disable This Item";
-            this.creCheckBox10.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox9
-            // 
-            this.creCheckBox9.AutoSize = true;
-            this.creCheckBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox9.Location = new System.Drawing.Point(226, 31);
-            this.creCheckBox9.Name = "creCheckBox9";
-            this.creCheckBox9.Size = new System.Drawing.Size(125, 22);
-            this.creCheckBox9.TabIndex = 6;
-            this.creCheckBox9.Text = "Prompt Quality";
-            this.creCheckBox9.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox8
-            // 
-            this.creCheckBox8.AutoSize = true;
-            this.creCheckBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox8.Location = new System.Drawing.Point(226, 59);
-            this.creCheckBox8.Name = "creCheckBox8";
-            this.creCheckBox8.Size = new System.Drawing.Size(114, 22);
-            this.creCheckBox8.TabIndex = 7;
-            this.creCheckBox8.Text = "Prompt Price";
-            this.creCheckBox8.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox7
-            // 
-            this.creCheckBox7.AutoSize = true;
-            this.creCheckBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox7.Location = new System.Drawing.Point(226, 83);
-            this.creCheckBox7.Name = "creCheckBox7";
-            this.creCheckBox7.Size = new System.Drawing.Size(123, 22);
-            this.creCheckBox7.TabIndex = 8;
-            this.creCheckBox7.Text = "Allow Buyback";
-            this.creCheckBox7.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox6
-            // 
-            this.creCheckBox6.AutoSize = true;
-            this.creCheckBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox6.Location = new System.Drawing.Point(226, 111);
-            this.creCheckBox6.Name = "creCheckBox6";
-            this.creCheckBox6.Size = new System.Drawing.Size(132, 22);
-            this.creCheckBox6.TabIndex = 9;
-            this.creCheckBox6.Text = "Print on Reciept";
-            this.creCheckBox6.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox15
-            // 
-            this.creCheckBox15.AutoSize = true;
-            this.creCheckBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox15.Location = new System.Drawing.Point(429, 3);
-            this.creCheckBox15.Name = "creCheckBox15";
-            this.creCheckBox15.Size = new System.Drawing.Size(130, 22);
-            this.creCheckBox15.TabIndex = 10;
-            this.creCheckBox15.Text = "Foodstampable";
-            this.creCheckBox15.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox14
-            // 
-            this.creCheckBox14.AutoSize = true;
-            this.creCheckBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox14.Location = new System.Drawing.Point(429, 31);
-            this.creCheckBox14.Name = "creCheckBox14";
-            this.creCheckBox14.Size = new System.Drawing.Size(104, 22);
-            this.creCheckBox14.TabIndex = 11;
-            this.creCheckBox14.Text = "Auto-Weigh";
-            this.creCheckBox14.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox13
-            // 
-            this.creCheckBox13.AutoSize = true;
-            this.creCheckBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox13.Location = new System.Drawing.Point(429, 59);
-            this.creCheckBox13.Name = "creCheckBox13";
-            this.creCheckBox13.Size = new System.Drawing.Size(149, 22);
-            this.creCheckBox13.TabIndex = 12;
-            this.creCheckBox13.Text = "Use Serial\\Batch #";
-            this.creCheckBox13.UseVisualStyleBackColor = true;
-            // 
-            // creCheckBox12
-            // 
-            this.creCheckBox12.AutoSize = true;
-            this.creCheckBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creCheckBox12.Location = new System.Drawing.Point(429, 83);
-            this.creCheckBox12.Name = "creCheckBox12";
-            this.creCheckBox12.Size = new System.Drawing.Size(154, 22);
-            this.creCheckBox12.TabIndex = 13;
-            this.creCheckBox12.Text = "Special Permission";
-            this.creCheckBox12.UseVisualStyleBackColor = true;
-            // 
-            // txtGioiHanDat
-            // 
-            this.txtGioiHanDat.Location = new System.Drawing.Point(644, 64);
-            this.txtGioiHanDat.Name = "txtGioiHanDat";
-            this.txtGioiHanDat.Size = new System.Drawing.Size(154, 35);
-            this.txtGioiHanDat.TabIndex = 1;
-            // 
-            // txtSolgDat
-            // 
-            this.txtSolgDat.Location = new System.Drawing.Point(644, 145);
-            this.txtSolgDat.Name = "txtSolgDat";
-            this.txtSolgDat.Size = new System.Drawing.Size(154, 35);
-            this.txtSolgDat.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(640, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(159, 24);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Giới hạn đặt hàng";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(640, 113);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(165, 24);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Số lượng đặt hàng";
-            // 
             // FrmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -950,13 +1045,15 @@
             this.panel3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1034,5 +1131,13 @@
         private WindowsFormsApplication4.Controls.CreCheckBox creCheckBox3;
         private WindowsFormsApplication4.Controls.CreCheckBox creCheckBox2;
         private WindowsFormsApplication4.Controls.CreCheckBox creCheckBox1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NguyenLieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Soluong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Giá;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ingreObj;
+        private WindowsFormsApplication4.Controls.button button19;
+        private WindowsFormsApplication4.Controls.button button18;
     }
 }
