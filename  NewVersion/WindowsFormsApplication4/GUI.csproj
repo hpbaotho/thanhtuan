@@ -394,6 +394,7 @@
     <Compile Include="Networking\ClientNetwork.cs" />
     <Compile Include="Networking\DataPackage.cs" />
     <Compile Include="Persistence\BulkInfo.cs" />
+    <Compile Include="Persistence\Ingredient.cs" />
     <Compile Include="Persistence\OnSalesInfo.cs" />
     <Compile Include="Persistence\Prices.cs" />
     <Compile Include="Persistence\Printer.cs" />

@@ -24,7 +24,8 @@ namespace WindowsFormsApplication4
         private DataTable inventory;
         private string OldInvent_ID;
         private ArrayList InventPrinters;
-        private SpecialPricing specialPricing; 
+        private SpecialPricing specialPricing;
+        private ArrayList InventIngredients;
         public FrmInventory()
         {
             InitializeComponent();
@@ -73,6 +74,7 @@ namespace WindowsFormsApplication4
         }
         private void changeState(DataTable table, int rowIndex)
         {
+            currentIndex = rowIndex;
             SetCurrentIndexComboBox(table, rowIndex);
             txtInvenId.Text = table.Rows[rowIndex][Const.Inventory.ItemNum].ToString();
             txtInventDesc.Text = table.Rows[rowIndex][Const.Inventory.ItemName].ToString();
@@ -122,8 +124,21 @@ namespace WindowsFormsApplication4
             }
             specialPricing = new SpecialPricing(table.Rows[rowIndex][Const.Inventory.ItemNum].ToString());
             LoadSalePricing();
-
+            LoadIngredient(table.Rows[rowIndex][Const.Inventory.ItemNum].ToString());
         }
+
+        private void LoadIngredient(string itemNum)
+        {
+            dataGridView1.Rows.Clear();
+            InventIngredients = new ArrayList();
+            InventIngredients = serviceGet.GetInventIngredient(StaticClass.storeId, itemNum);
+
+            foreach (Ingredient c in InventIngredients)
+            {
+                dataGridView1.Rows.Add(new object[] { c.IngreName, c.Quantity, Convert.ToDecimal(c.Quantity) * c.Cost,c });
+            }
+        }
+
         private void LoadSalePricing()
         {
             creListBox2.Items.Clear();
@@ -640,6 +655,26 @@ namespace WindowsFormsApplication4
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+                var ingredient = (Ingredient) dataGridView1.SelectedRows[0].Cells["ingreObj"].Value;
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            }
+            
         }
 
     }

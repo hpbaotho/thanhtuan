@@ -28,6 +28,7 @@ namespace WindowsFormsApplication4
             //cmbDept.DisplayMember = Const.Department.Dept_ID;
             //cmbDept.DataSource = get_service.GetAllDepartmentsByType(StaticClass.storeId, Const.Department.EMPLOYEE);
             cmbDept.DataSource = viewOfDept();
+            txtSwipt.isPass = true;
         }
 
         private void FrmEmployee_Load(object sender, EventArgs e)

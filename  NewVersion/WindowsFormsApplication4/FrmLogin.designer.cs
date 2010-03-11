@@ -32,21 +32,31 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button13 = new WindowsFormsApplication4.Controls.button();
-            this.button1 = new WindowsFormsApplication4.Controls.button();
-            this.button2 = new WindowsFormsApplication4.Controls.button();
-            this.button7 = new WindowsFormsApplication4.Controls.button();
-            this.button3 = new WindowsFormsApplication4.Controls.button();
-            this.button8 = new WindowsFormsApplication4.Controls.button();
-            this.button6 = new WindowsFormsApplication4.Controls.button();
-            this.button9 = new WindowsFormsApplication4.Controls.button();
-            this.button5 = new WindowsFormsApplication4.Controls.button();
-            this.button10 = new WindowsFormsApplication4.Controls.button();
-            this.button4 = new WindowsFormsApplication4.Controls.button();
-            this.button11 = new WindowsFormsApplication4.Controls.button();
-            this.button12 = new WindowsFormsApplication4.Controls.button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chọnDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cấuHìnhServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.càiĐặtMãMáyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đổiMậtKhẩuQuảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemSốTiềnBánTrongNgàyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngKíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.giớiThiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.clock1 = new WindowsFormsApplication4.Controls.Clock();
+            this.button55 = new WindowsFormsApplication4.Controls.button();
+            this.button54 = new WindowsFormsApplication4.Controls.button();
+            this.button53 = new WindowsFormsApplication4.Controls.button();
             this.button48 = new WindowsFormsApplication4.Controls.button();
             this.button49 = new WindowsFormsApplication4.Controls.button();
             this.button50 = new WindowsFormsApplication4.Controls.button();
@@ -86,29 +96,19 @@
             this.button16 = new WindowsFormsApplication4.Controls.button();
             this.button15 = new WindowsFormsApplication4.Controls.button();
             this.button14 = new WindowsFormsApplication4.Controls.button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chọnDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cấuHìnhServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.càiĐặtMãMáyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đổiMậtKhẩuQuảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemSốTiềnBánTrongNgàyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngKíToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.giớiThiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.clock1 = new WindowsFormsApplication4.Controls.Clock();
-            this.button55 = new WindowsFormsApplication4.Controls.button();
-            this.button54 = new WindowsFormsApplication4.Controls.button();
-            this.button53 = new WindowsFormsApplication4.Controls.button();
+            this.button13 = new WindowsFormsApplication4.Controls.button();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
+            this.button2 = new WindowsFormsApplication4.Controls.button();
+            this.button7 = new WindowsFormsApplication4.Controls.button();
+            this.button3 = new WindowsFormsApplication4.Controls.button();
+            this.button8 = new WindowsFormsApplication4.Controls.button();
+            this.button6 = new WindowsFormsApplication4.Controls.button();
+            this.button9 = new WindowsFormsApplication4.Controls.button();
+            this.button5 = new WindowsFormsApplication4.Controls.button();
+            this.button10 = new WindowsFormsApplication4.Controls.button();
+            this.button4 = new WindowsFormsApplication4.Controls.button();
+            this.button11 = new WindowsFormsApplication4.Controls.button();
+            this.button12 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -159,175 +159,6 @@
             this.textBox1.Size = new System.Drawing.Size(194, 40);
             this.textBox1.TabIndex = 0;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
-            // button13
-            // 
-            this.button13.Color2 = System.Drawing.Color.Blue;
-            this.button13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(278, 188);
-            this.button13.Name = "button13";
-            this.button13.OwnDrawColor = System.Drawing.Color.White;
-            this.button13.Size = new System.Drawing.Size(96, 40);
-            this.button13.TabIndex = 13;
-            this.button13.Text = "◄";
-            this.button13.UseOwnColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
-            // button1
-            // 
-            this.button1.Color2 = System.Drawing.Color.Blue;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(82, 229);
-            this.button1.Name = "button1";
-            this.button1.OwnDrawColor = System.Drawing.Color.White;
-            this.button1.Size = new System.Drawing.Size(96, 68);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "7";
-            this.button1.UseOwnColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Color2 = System.Drawing.Color.Blue;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(180, 229);
-            this.button2.Name = "button2";
-            this.button2.OwnDrawColor = System.Drawing.Color.White;
-            this.button2.Size = new System.Drawing.Size(96, 68);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "8";
-            this.button2.UseOwnColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button7
-            // 
-            this.button7.Color2 = System.Drawing.Color.Blue;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(278, 439);
-            this.button7.Name = "button7";
-            this.button7.OwnDrawColor = System.Drawing.Color.White;
-            this.button7.Size = new System.Drawing.Size(96, 68);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "OK";
-            this.button7.UseOwnColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button3
-            // 
-            this.button3.Color2 = System.Drawing.Color.Blue;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(278, 229);
-            this.button3.Name = "button3";
-            this.button3.OwnDrawColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(96, 68);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "9";
-            this.button3.UseOwnColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button8
-            // 
-            this.button8.Color2 = System.Drawing.Color.Blue;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(180, 439);
-            this.button8.Name = "button8";
-            this.button8.OwnDrawColor = System.Drawing.Color.White;
-            this.button8.Size = new System.Drawing.Size(96, 68);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "0";
-            this.button8.UseOwnColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button6
-            // 
-            this.button6.Color2 = System.Drawing.Color.Blue;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(82, 299);
-            this.button6.Name = "button6";
-            this.button6.OwnDrawColor = System.Drawing.Color.White;
-            this.button6.Size = new System.Drawing.Size(96, 68);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "4";
-            this.button6.UseOwnColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button9
-            // 
-            this.button9.Color2 = System.Drawing.Color.Blue;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(82, 439);
-            this.button9.Name = "button9";
-            this.button9.OwnDrawColor = System.Drawing.Color.White;
-            this.button9.Size = new System.Drawing.Size(96, 68);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Xóa";
-            this.button9.UseOwnColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button5
-            // 
-            this.button5.Color2 = System.Drawing.Color.Blue;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(180, 299);
-            this.button5.Name = "button5";
-            this.button5.OwnDrawColor = System.Drawing.Color.White;
-            this.button5.Size = new System.Drawing.Size(96, 68);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "5";
-            this.button5.UseOwnColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button10
-            // 
-            this.button10.Color2 = System.Drawing.Color.Blue;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(278, 369);
-            this.button10.Name = "button10";
-            this.button10.OwnDrawColor = System.Drawing.Color.White;
-            this.button10.Size = new System.Drawing.Size(96, 68);
-            this.button10.TabIndex = 8;
-            this.button10.Text = "3";
-            this.button10.UseOwnColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button4
-            // 
-            this.button4.Color2 = System.Drawing.Color.Blue;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(278, 299);
-            this.button4.Name = "button4";
-            this.button4.OwnDrawColor = System.Drawing.Color.White;
-            this.button4.Size = new System.Drawing.Size(96, 68);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "6";
-            this.button4.UseOwnColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button11
-            // 
-            this.button11.Color2 = System.Drawing.Color.Blue;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(180, 369);
-            this.button11.Name = "button11";
-            this.button11.OwnDrawColor = System.Drawing.Color.White;
-            this.button11.Size = new System.Drawing.Size(96, 68);
-            this.button11.TabIndex = 7;
-            this.button11.Text = "2";
-            this.button11.UseOwnColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button12
-            // 
-            this.button12.Color2 = System.Drawing.Color.Blue;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(82, 369);
-            this.button12.Name = "button12";
-            this.button12.OwnDrawColor = System.Drawing.Color.White;
-            this.button12.Size = new System.Drawing.Size(96, 68);
-            this.button12.TabIndex = 6;
-            this.button12.Text = "1";
-            this.button12.UseOwnColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // panel2
             // 
@@ -387,6 +218,219 @@
             this.label1.TabIndex = 101;
             this.label1.Text = "Nhập mật mã";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(82, 115);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '●';
+            this.textBox2.Size = new System.Drawing.Size(302, 40);
+            this.textBox2.TabIndex = 61;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chọnDatabaseToolStripMenuItem,
+            this.cấuHìnhServerToolStripMenuItem,
+            this.càiĐặtMãMáyToolStripMenuItem,
+            this.xóaHóaĐơnToolStripMenuItem,
+            this.đổiMậtKhẩuQuảnLýToolStripMenuItem,
+            this.xemSốTiềnBánTrongNgàyToolStripMenuItem,
+            this.đăngKíToolStripMenuItem,
+            this.giớiThiệuToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // chọnDatabaseToolStripMenuItem
+            // 
+            this.chọnDatabaseToolStripMenuItem.Name = "chọnDatabaseToolStripMenuItem";
+            this.chọnDatabaseToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.chọnDatabaseToolStripMenuItem.Text = "Chọn Database";
+            this.chọnDatabaseToolStripMenuItem.Click += new System.EventHandler(this.chọnDatabaseToolStripMenuItem_Click);
+            // 
+            // cấuHìnhServerToolStripMenuItem
+            // 
+            this.cấuHìnhServerToolStripMenuItem.Name = "cấuHìnhServerToolStripMenuItem";
+            this.cấuHìnhServerToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.cấuHìnhServerToolStripMenuItem.Text = "Cấu hình Server";
+            this.cấuHìnhServerToolStripMenuItem.Click += new System.EventHandler(this.cấuHìnhServerToolStripMenuItem_Click);
+            // 
+            // càiĐặtMãMáyToolStripMenuItem
+            // 
+            this.càiĐặtMãMáyToolStripMenuItem.Name = "càiĐặtMãMáyToolStripMenuItem";
+            this.càiĐặtMãMáyToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.càiĐặtMãMáyToolStripMenuItem.Text = "Cài đặt Mã máy";
+            this.càiĐặtMãMáyToolStripMenuItem.Click += new System.EventHandler(this.càiĐặtMãMáyToolStripMenuItem_Click);
+            // 
+            // xóaHóaĐơnToolStripMenuItem
+            // 
+            this.xóaHóaĐơnToolStripMenuItem.Name = "xóaHóaĐơnToolStripMenuItem";
+            this.xóaHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.xóaHóaĐơnToolStripMenuItem.Text = "Xóa hóa đơn";
+            this.xóaHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.xóaHóaĐơnToolStripMenuItem_Click);
+            // 
+            // đổiMậtKhẩuQuảnLýToolStripMenuItem
+            // 
+            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Name = "đổiMậtKhẩuQuảnLýToolStripMenuItem";
+            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Text = "Đổi mật khẩu quản lý";
+            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuQuảnLýToolStripMenuItem_Click);
+            // 
+            // xemSốTiềnBánTrongNgàyToolStripMenuItem
+            // 
+            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Name = "xemSốTiềnBánTrongNgàyToolStripMenuItem";
+            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Text = "Xem số tiền bán trong ngày";
+            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Click += new System.EventHandler(this.xemSốTiềnBánTrongNgàyToolStripMenuItem_Click);
+            // 
+            // đăngKíToolStripMenuItem
+            // 
+            this.đăngKíToolStripMenuItem.Name = "đăngKíToolStripMenuItem";
+            this.đăngKíToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.đăngKíToolStripMenuItem.Text = "Đăng kí";
+            this.đăngKíToolStripMenuItem.Click += new System.EventHandler(this.đăngKíToolStripMenuItem_Click);
+            // 
+            // giớiThiệuToolStripMenuItem
+            // 
+            this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
+            this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
+            this.giớiThiệuToolStripMenuItem.Click += new System.EventHandler(this.giớiThiệuToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::WindowsFormsApplication4.Properties.Resources.RS_Dessert;
+            this.pictureBox1.InitialImage = global::WindowsFormsApplication4.Properties.Resources.RS_Sandwich;
+            this.pictureBox1.Location = new System.Drawing.Point(580, 94);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(424, 321);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Blue;
+            this.label3.Location = new System.Drawing.Point(621, 467);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 24);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "label3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(524, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(782, 19);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "RESTAURANT PRO -  CÔNG TY POS MIỀN NAM - (08) 62967772 - Website: www.posmiennam." +
+                "com.vn  ";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Location = new System.Drawing.Point(0, 673);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1016, 63);
+            this.panel3.TabIndex = 27;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(738, 548);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 33);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Máy : 01";
+            // 
+            // clock1
+            // 
+            this.clock1.Location = new System.Drawing.Point(673, 584);
+            this.clock1.Name = "clock1";
+            this.clock1.Size = new System.Drawing.Size(212, 86);
+            this.clock1.TabIndex = 24;
+            // 
+            // button55
+            // 
+            this.button55.Color2 = System.Drawing.Color.Blue;
+            this.button55.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button55.Location = new System.Drawing.Point(864, 44);
+            this.button55.Name = "button55";
+            this.button55.OwnDrawColor = System.Drawing.Color.White;
+            this.button55.Size = new System.Drawing.Size(140, 33);
+            this.button55.TabIndex = 20;
+            this.button55.Text = "Thoát";
+            this.button55.UseOwnColor = false;
+            this.button55.Click += new System.EventHandler(this.button55_Click);
+            // 
+            // button54
+            // 
+            this.button54.Color2 = System.Drawing.Color.Blue;
+            this.button54.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button54.Location = new System.Drawing.Point(722, 44);
+            this.button54.Name = "button54";
+            this.button54.OwnDrawColor = System.Drawing.Color.White;
+            this.button54.Size = new System.Drawing.Size(140, 33);
+            this.button54.TabIndex = 19;
+            this.button54.Text = "Trợ Giúp";
+            this.button54.UseOwnColor = false;
+            this.button54.Click += new System.EventHandler(this.button54_Click);
+            // 
+            // button53
+            // 
+            this.button53.Color2 = System.Drawing.Color.Blue;
+            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button53.Location = new System.Drawing.Point(580, 44);
+            this.button53.Name = "button53";
+            this.button53.OwnDrawColor = System.Drawing.Color.White;
+            this.button53.Size = new System.Drawing.Size(140, 33);
+            this.button53.TabIndex = 18;
+            this.button53.Text = "Quản Lý";
+            this.button53.UseOwnColor = false;
+            this.button53.Click += new System.EventHandler(this.button53_Click);
             // 
             // button48
             // 
@@ -895,218 +939,174 @@
             this.button14.UseOwnColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
-            // textBox2
+            // button13
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(82, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '●';
-            this.textBox2.Size = new System.Drawing.Size(302, 40);
-            this.textBox2.TabIndex = 61;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            this.button13.Color2 = System.Drawing.Color.Blue;
+            this.button13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(278, 188);
+            this.button13.Name = "button13";
+            this.button13.OwnDrawColor = System.Drawing.Color.White;
+            this.button13.Size = new System.Drawing.Size(96, 40);
+            this.button13.TabIndex = 13;
+            this.button13.Text = "◄";
+            this.button13.UseOwnColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // menuStrip1
+            // button1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1016, 24);
-            this.menuStrip1.TabIndex = 16;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(82, 229);
+            this.button1.Name = "button1";
+            this.button1.OwnDrawColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(96, 68);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "7";
+            this.button1.UseOwnColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // fileToolStripMenuItem
+            // button2
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chọnDatabaseToolStripMenuItem,
-            this.cấuHìnhServerToolStripMenuItem,
-            this.càiĐặtMãMáyToolStripMenuItem,
-            this.xóaHóaĐơnToolStripMenuItem,
-            this.đổiMậtKhẩuQuảnLýToolStripMenuItem,
-            this.xemSốTiềnBánTrongNgàyToolStripMenuItem,
-            this.đăngKíToolStripMenuItem,
-            this.giớiThiệuToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.button2.Color2 = System.Drawing.Color.Blue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(180, 229);
+            this.button2.Name = "button2";
+            this.button2.OwnDrawColor = System.Drawing.Color.White;
+            this.button2.Size = new System.Drawing.Size(96, 68);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "8";
+            this.button2.UseOwnColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // chọnDatabaseToolStripMenuItem
+            // button7
             // 
-            this.chọnDatabaseToolStripMenuItem.Name = "chọnDatabaseToolStripMenuItem";
-            this.chọnDatabaseToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.chọnDatabaseToolStripMenuItem.Text = "Chọn Database";
-            this.chọnDatabaseToolStripMenuItem.Click += new System.EventHandler(this.chọnDatabaseToolStripMenuItem_Click);
+            this.button7.Color2 = System.Drawing.Color.Blue;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(278, 439);
+            this.button7.Name = "button7";
+            this.button7.OwnDrawColor = System.Drawing.Color.White;
+            this.button7.Size = new System.Drawing.Size(96, 68);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "OK";
+            this.button7.UseOwnColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // cấuHìnhServerToolStripMenuItem
+            // button3
             // 
-            this.cấuHìnhServerToolStripMenuItem.Name = "cấuHìnhServerToolStripMenuItem";
-            this.cấuHìnhServerToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.cấuHìnhServerToolStripMenuItem.Text = "Cấu hình Server";
-            this.cấuHìnhServerToolStripMenuItem.Click += new System.EventHandler(this.cấuHìnhServerToolStripMenuItem_Click);
+            this.button3.Color2 = System.Drawing.Color.Blue;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(278, 229);
+            this.button3.Name = "button3";
+            this.button3.OwnDrawColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(96, 68);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "9";
+            this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // càiĐặtMãMáyToolStripMenuItem
+            // button8
             // 
-            this.càiĐặtMãMáyToolStripMenuItem.Name = "càiĐặtMãMáyToolStripMenuItem";
-            this.càiĐặtMãMáyToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.càiĐặtMãMáyToolStripMenuItem.Text = "Cài đặt Mã máy";
-            this.càiĐặtMãMáyToolStripMenuItem.Click += new System.EventHandler(this.càiĐặtMãMáyToolStripMenuItem_Click);
+            this.button8.Color2 = System.Drawing.Color.Blue;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(180, 439);
+            this.button8.Name = "button8";
+            this.button8.OwnDrawColor = System.Drawing.Color.White;
+            this.button8.Size = new System.Drawing.Size(96, 68);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "0";
+            this.button8.UseOwnColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // xóaHóaĐơnToolStripMenuItem
+            // button6
             // 
-            this.xóaHóaĐơnToolStripMenuItem.Name = "xóaHóaĐơnToolStripMenuItem";
-            this.xóaHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.xóaHóaĐơnToolStripMenuItem.Text = "Xóa hóa đơn";
-            this.xóaHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.xóaHóaĐơnToolStripMenuItem_Click);
+            this.button6.Color2 = System.Drawing.Color.Blue;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(82, 299);
+            this.button6.Name = "button6";
+            this.button6.OwnDrawColor = System.Drawing.Color.White;
+            this.button6.Size = new System.Drawing.Size(96, 68);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "4";
+            this.button6.UseOwnColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // đổiMậtKhẩuQuảnLýToolStripMenuItem
+            // button9
             // 
-            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Name = "đổiMậtKhẩuQuảnLýToolStripMenuItem";
-            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Text = "Đổi mật khẩu quản lý";
-            this.đổiMậtKhẩuQuảnLýToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuQuảnLýToolStripMenuItem_Click);
+            this.button9.Color2 = System.Drawing.Color.Blue;
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(82, 439);
+            this.button9.Name = "button9";
+            this.button9.OwnDrawColor = System.Drawing.Color.White;
+            this.button9.Size = new System.Drawing.Size(96, 68);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "Xóa";
+            this.button9.UseOwnColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // xemSốTiềnBánTrongNgàyToolStripMenuItem
+            // button5
             // 
-            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Name = "xemSốTiềnBánTrongNgàyToolStripMenuItem";
-            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Text = "Xem số tiền bán trong ngày";
-            this.xemSốTiềnBánTrongNgàyToolStripMenuItem.Click += new System.EventHandler(this.xemSốTiềnBánTrongNgàyToolStripMenuItem_Click);
+            this.button5.Color2 = System.Drawing.Color.Blue;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(180, 299);
+            this.button5.Name = "button5";
+            this.button5.OwnDrawColor = System.Drawing.Color.White;
+            this.button5.Size = new System.Drawing.Size(96, 68);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "5";
+            this.button5.UseOwnColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // đăngKíToolStripMenuItem
+            // button10
             // 
-            this.đăngKíToolStripMenuItem.Name = "đăngKíToolStripMenuItem";
-            this.đăngKíToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.đăngKíToolStripMenuItem.Text = "Đăng kí";
-            this.đăngKíToolStripMenuItem.Click += new System.EventHandler(this.đăngKíToolStripMenuItem_Click);
+            this.button10.Color2 = System.Drawing.Color.Blue;
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(278, 369);
+            this.button10.Name = "button10";
+            this.button10.OwnDrawColor = System.Drawing.Color.White;
+            this.button10.Size = new System.Drawing.Size(96, 68);
+            this.button10.TabIndex = 8;
+            this.button10.Text = "3";
+            this.button10.UseOwnColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // giớiThiệuToolStripMenuItem
+            // button4
             // 
-            this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
-            this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
-            this.giớiThiệuToolStripMenuItem.Click += new System.EventHandler(this.giớiThiệuToolStripMenuItem_Click);
+            this.button4.Color2 = System.Drawing.Color.Blue;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(278, 299);
+            this.button4.Name = "button4";
+            this.button4.OwnDrawColor = System.Drawing.Color.White;
+            this.button4.Size = new System.Drawing.Size(96, 68);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "6";
+            this.button4.UseOwnColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // exitToolStripMenuItem
+            // button11
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.button11.Color2 = System.Drawing.Color.Blue;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(180, 369);
+            this.button11.Name = "button11";
+            this.button11.OwnDrawColor = System.Drawing.Color.White;
+            this.button11.Size = new System.Drawing.Size(96, 68);
+            this.button11.TabIndex = 7;
+            this.button11.Text = "2";
+            this.button11.UseOwnColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // timer1
+            // button12
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WindowsFormsApplication4.Properties.Resources.RS_Dessert;
-            this.pictureBox1.InitialImage = global::WindowsFormsApplication4.Properties.Resources.RS_Sandwich;
-            this.pictureBox1.Location = new System.Drawing.Point(580, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(424, 321);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(621, 467);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 24);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "label3";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(524, 11);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(782, 19);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "RESTAURANT PRO -  CÔNG TY POS MIỀN NAM - (08) 62967772 - Website: www.posmiennam." +
-                "com.vn  ";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Location = new System.Drawing.Point(0, 673);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1016, 63);
-            this.panel3.TabIndex = 27;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(738, 548);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 33);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Máy : 01";
-            // 
-            // clock1
-            // 
-            this.clock1.Location = new System.Drawing.Point(673, 584);
-            this.clock1.Name = "clock1";
-            this.clock1.Size = new System.Drawing.Size(212, 86);
-            this.clock1.TabIndex = 24;
-            // 
-            // button55
-            // 
-            this.button55.Color2 = System.Drawing.Color.Blue;
-            this.button55.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button55.Location = new System.Drawing.Point(864, 44);
-            this.button55.Name = "button55";
-            this.button55.OwnDrawColor = System.Drawing.Color.White;
-            this.button55.Size = new System.Drawing.Size(140, 33);
-            this.button55.TabIndex = 20;
-            this.button55.Text = "Thoát";
-            this.button55.UseOwnColor = false;
-            this.button55.Click += new System.EventHandler(this.button55_Click);
-            // 
-            // button54
-            // 
-            this.button54.Color2 = System.Drawing.Color.Blue;
-            this.button54.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button54.Location = new System.Drawing.Point(722, 44);
-            this.button54.Name = "button54";
-            this.button54.OwnDrawColor = System.Drawing.Color.White;
-            this.button54.Size = new System.Drawing.Size(140, 33);
-            this.button54.TabIndex = 19;
-            this.button54.Text = "Trợ Giúp";
-            this.button54.UseOwnColor = false;
-            this.button54.Click += new System.EventHandler(this.button54_Click);
-            // 
-            // button53
-            // 
-            this.button53.Color2 = System.Drawing.Color.Blue;
-            this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button53.Location = new System.Drawing.Point(580, 44);
-            this.button53.Name = "button53";
-            this.button53.OwnDrawColor = System.Drawing.Color.White;
-            this.button53.Size = new System.Drawing.Size(140, 33);
-            this.button53.TabIndex = 18;
-            this.button53.Text = "Quản Lý";
-            this.button53.UseOwnColor = false;
-            this.button53.Click += new System.EventHandler(this.button53_Click);
+            this.button12.Color2 = System.Drawing.Color.Blue;
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(82, 369);
+            this.button12.Name = "button12";
+            this.button12.OwnDrawColor = System.Drawing.Color.White;
+            this.button12.Size = new System.Drawing.Size(96, 68);
+            this.button12.TabIndex = 6;
+            this.button12.Text = "1";
+            this.button12.UseOwnColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // FrmLogin
             // 
@@ -1123,8 +1123,8 @@
             this.Controls.Add(this.button54);
             this.Controls.Add(this.button53);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FrmLogin";

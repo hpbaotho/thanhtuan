@@ -82,14 +82,17 @@ namespace WindowsFormsApplication4
             
             if (passdata != null)
             {
-                passdata(View, RowIndex);
+                
+                passdata((DataTable)dataGridView1.DataSource, RowIndex);
             }
             //MessageBox.Show(e.RowIndex.ToString());
+            this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Dispose();
         }
     }

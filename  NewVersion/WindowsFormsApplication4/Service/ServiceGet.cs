@@ -311,5 +311,19 @@ namespace WindowsFormsApplication4.Service
             return re;
         }
 
+        public ArrayList GetInventIngredient(string storeId, string itemNum)
+        {
+            DataTable ingredient = getGui.GetIngredient(itemNum, storeId);
+            ArrayList re = new ArrayList();
+            for (int i = 0; i < ingredient.Rows.Count; i++)
+            {
+                Ingredient ingre = new Ingredient(ingredient.Rows[i]["ItemNum"].ToString(), ingredient.Rows[i]["ItemName"].ToString(),
+                    Convert.ToSingle(ingredient.Rows[i]["Quantity"]), Convert.ToInt32(ingredient.Rows[i]["Measurement"]),
+                    Convert.ToSingle(ingredient.Rows[i]["Yield"]), Convert.ToDecimal(ingredient.Rows[i]["Cost"]));
+                re.Add(ingre);
+            }
+            return re;
+        }
+
     }
 }
