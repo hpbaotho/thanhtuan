@@ -703,6 +703,21 @@ namespace Services
             cmd.Dispose();
         }
 
+        public DataTable GetPrintersOfKitchen(string StoreId, string stationId)
+        {
+            cmd = new SqlCommand();
+            string query = @"SELECT DISTINCT 
+                      dbo.Printers.PrinterName, dbo.Printer_Mapping.Station_ID, dbo.Printer_Mapping.Store_ID, dbo.Printer_Mapping.LocalPort, 
+                      dbo.Printer_Mapping.NetworkPort, dbo.Printer_Mapping.Details, dbo.Printer_Mapping.Disabled, dbo.Printer_Mapping.Two_Color_Printing, 
+                      dbo.Printer_Mapping.CutReceipt
+                        FROM         dbo.Printers INNER JOIN
+                      dbo.Printer_Mapping ON dbo.Printers.Store_ID = dbo.Printer_Mapping.Store_ID AND dbo.Printer_Mapping.PrinterName = dbo.Printers.PrinterName "
+                + " WHERE dbo.Printer_Mapping.Station_ID = '" + stationId + "' and dbo.Printer_Mapping.Store_ID = '" + StoreId+ "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re; 
+        }
+
         public void UpdateLogo(byte[] logo, string storeID)
         {
             
