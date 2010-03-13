@@ -87,9 +87,9 @@ namespace WindowsFormsApplication4
             }
             if (textBox1.Text != "")
             {
-                if (Decimal.TryParse(textBox1.Text, out de))
+                if (Decimal.TryParse(textBox1.Text, out de) && !textBox1.Text.Contains("."))
                 {
-                    textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                    textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
                 }
             }
             if (e.KeyChar.ToString() == ".")
@@ -108,9 +108,9 @@ namespace WindowsFormsApplication4
         private void button11_Click(object sender, EventArgs e)
         {
             textBox1.AppendText("0");
-            if (Decimal.TryParse(textBox1.Text, out de))
+            if (Decimal.TryParse(textBox1.Text, out de) && !textBox1.Text.Contains("."))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -119,7 +119,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("1");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -128,7 +128,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("2");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -137,7 +137,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("3");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -146,7 +146,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("4");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -155,7 +155,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("5");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -164,7 +164,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("6");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -173,7 +173,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("7");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -182,7 +182,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("8");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 
@@ -191,7 +191,7 @@ namespace WindowsFormsApplication4
             textBox1.AppendText("9");
             if (Decimal.TryParse(textBox1.Text, out de))
             {
-                textBox1.Text = String.Format("{0:#,#.#############}", Convert.ToDecimal(textBox1.Text));
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
             }
         }
 

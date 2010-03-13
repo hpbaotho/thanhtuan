@@ -243,11 +243,21 @@ namespace WindowsFormsApplication4
 
         void tmp1_Click(object sender, EventArgs e)
         {
-            if (CheckInStock(StaticClass.storeId, ((button)sender).Ident, 0, 1))
+            DataRow invent = getGui.GetInventoryByItemNum(StaticClass.storeId, ((button)sender).Ident).Rows[0];
+            float quant = PromptQuant(invent);
+            if(quant <= 0 )
             {
-                DataRow invent = getGui.GetInventoryByItemNum(StaticClass.storeId, ((button)sender).Ident).Rows[0];
+                return;
+            }
+
+            if (CheckInStock(StaticClass.storeId, ((button)sender).Ident, 0, quant))
+            {
                 string itemName = invent[1].ToString();
-                Decimal price = Convert.ToDecimal(invent[4]);
+                Decimal price = PromptPrice(invent);
+                if(price == Convert.ToDecimal(-0.1234))
+                {
+                    return;
+                }
 
                 SpecialPricing specialPricing = new SpecialPricing(((button)sender).Ident);
                 decimal newPrice =  specialPricing.CalculatePrice(1, price, Convert.ToDateTime(myCash1.invoiceTotal.Rows[0]["DateTime"]));
@@ -273,13 +283,51 @@ namespace WindowsFormsApplication4
                 //{
                 //    Tax3Per = price * Tax3Rate;
                 //}
-                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, "1", null, newPrice, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, newPrice, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, quant.ToString(), null, newPrice, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, newPrice, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
                 myCash1.listInvoiceItem.Rows.Add(newrow);
-                myCash1.addRow(itemName, "1", String.Format("{0:0,0}", newPrice));
+                myCash1.addRow(itemName, String.Format("{0:0.##}", quant), String.Format("{0:0,0}", newPrice * Convert.ToDecimal(quant)));
                 UpdateInfo();
                 specialPricing = null;
                 invent = null;
             }
+        }
+
+        decimal PromptPrice(DataRow Item)
+        {
+            if (Convert.ToBoolean(Item[42]))
+            {
+                FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Nhập Giá bán");
+                if (frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+                {
+                    return Convert.ToDecimal(frmKeyboardNumber.value);
+                }
+                else
+                {
+                    return  Convert.ToDecimal(-0.1234);
+                }
+            }
+            else
+            {
+                return Convert.ToDecimal(Item[4]);
+            }
+        }
+
+        float PromptQuant(DataRow Item)
+        {
+            if(Convert.ToBoolean(Item[43]))
+            {
+                FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Nhập số lượng ");
+                if(frmKeyboardNumber.ShowDialog() == DialogResult.OK)
+                {
+                    return Convert.ToSingle(frmKeyboardNumber.value);
+                }
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
+            
         }
 
         void tmp_Click(object sender, EventArgs e)
