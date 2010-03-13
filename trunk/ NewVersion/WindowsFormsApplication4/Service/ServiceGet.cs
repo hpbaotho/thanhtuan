@@ -233,6 +233,26 @@ namespace WindowsFormsApplication4.Service
             }
             return printers;
         }
+        public ArrayList getPrintersOfKitchen(string store_ID, string station_ID)
+        {
+            ArrayList printers = new ArrayList();
+            DataTable record = getGui.GetPrintersOfKitchen(store_ID, station_ID);
+            for (int i = 0; i < record.Rows.Count; i++)
+            {
+                string PrinterName = record.Rows[i]["PrinterName"].ToString();
+                string NetworkPort = record.Rows[i]["NetworkPort"].ToString();
+                string Localport = record.Rows[i]["LocalPort"].ToString();
+                string detail = record.Rows[i]["Details"].ToString();
+                bool disable = Convert.ToBoolean(record.Rows[i]["Disabled"]);
+                bool twoColor = Convert.ToBoolean(record.Rows[i]["Two_Color_Printing"]);
+                bool cutPrint = Convert.ToBoolean(record.Rows[i]["CutReceipt"]);
+                Printer printer = new Printer(PrinterName, Localport, NetworkPort, detail, disable, twoColor, cutPrint);
+                printers.Add(printer);
+            }
+            return printers;
+        }
+
+
         public void InsertPrinter(Printer printer,string station)
         {
             getGui.InsertPrinter(StaticClass.storeId,station,printer.PrinterName,printer.Disable,printer.Two_Color,printer.Cut_Print,printer.LocalPort,printer.NetworkPort,printer.Details);

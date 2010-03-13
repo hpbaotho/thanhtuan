@@ -1132,7 +1132,7 @@ namespace WindowsFormsApplication4
             if(myCash1.listInvoiceItem.Rows.Count>0)
             {
                 bool kt = false;
-                foreach (Printer c in serviceGet.getPrinters(StaticClass.storeId, StaticClass.stationId))
+                foreach (Printer c in serviceGet.getPrintersOfKitchen(StaticClass.storeId, StaticClass.stationId))
                 {
                     kt = false;
                     if (!c.Disable && (c.Details != "NONE"))
