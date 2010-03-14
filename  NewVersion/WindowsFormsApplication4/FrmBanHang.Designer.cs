@@ -46,6 +46,10 @@
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.button46 = new WindowsFormsApplication4.Controls.button();
             this.button39 = new WindowsFormsApplication4.Controls.button();
             this.button40 = new WindowsFormsApplication4.Controls.button();
@@ -324,6 +328,10 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.button46);
             this.panel2.Controls.Add(this.button39);
             this.panel2.Controls.Add(this.button40);
@@ -358,6 +366,48 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(523, 563);
             this.panel2.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(142, 541);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 20);
+            this.label6.TabIndex = 46;
+            this.label6.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(112, 516);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 20);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Mặc định";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(0, 540);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 20);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Số dư tài khoản : ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(0, 515);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 20);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Khách hàng : ";
             // 
             // button46
             // 
@@ -990,6 +1040,7 @@
             this.panel5.Controls.Add(this.button63);
             this.panel5.Controls.Add(this.button62);
             this.panel5.Controls.Add(this.panel6);
+            this.panel5.ForeColor = System.Drawing.Color.Blue;
             this.panel5.Location = new System.Drawing.Point(1, 26);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(669, 730);
@@ -1000,6 +1051,7 @@
             // 
             this.button59.Color2 = System.Drawing.Color.Blue;
             this.button59.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button59.ForeColor = System.Drawing.Color.Black;
             this.button59.Location = new System.Drawing.Point(11, 158);
             this.button59.Name = "button59";
             this.button59.OwnDrawColor = System.Drawing.Color.White;
@@ -1013,6 +1065,7 @@
             // 
             this.button58.Color2 = System.Drawing.Color.Blue;
             this.button58.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button58.ForeColor = System.Drawing.Color.Black;
             this.button58.Location = new System.Drawing.Point(498, 75);
             this.button58.Name = "button58";
             this.button58.OwnDrawColor = System.Drawing.Color.White;
@@ -1026,6 +1079,7 @@
             // 
             this.button65.Color2 = System.Drawing.Color.Blue;
             this.button65.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button65.ForeColor = System.Drawing.Color.Black;
             this.button65.Location = new System.Drawing.Point(381, 75);
             this.button65.Name = "button65";
             this.button65.OwnDrawColor = System.Drawing.Color.White;
@@ -1039,6 +1093,7 @@
             // 
             this.button64.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.button64.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button64.ForeColor = System.Drawing.Color.Black;
             this.button64.Location = new System.Drawing.Point(245, 75);
             this.button64.Name = "button64";
             this.button64.OwnDrawColor = System.Drawing.Color.White;
@@ -1052,6 +1107,7 @@
             // 
             this.button63.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button63.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button63.ForeColor = System.Drawing.Color.Black;
             this.button63.Location = new System.Drawing.Point(128, 75);
             this.button63.Name = "button63";
             this.button63.OwnDrawColor = System.Drawing.Color.White;
@@ -1065,6 +1121,7 @@
             // 
             this.button62.Color2 = System.Drawing.Color.Red;
             this.button62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button62.ForeColor = System.Drawing.Color.Black;
             this.button62.Location = new System.Drawing.Point(11, 75);
             this.button62.Name = "button62";
             this.button62.OwnDrawColor = System.Drawing.Color.White;
@@ -1111,6 +1168,7 @@
             this.Load += new System.EventHandler(this.FrmBanHang_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1199,5 +1257,9 @@
         private WindowsFormsApplication4.Controls.button button58;
         private WindowsFormsApplication4.Controls.button button66;
         private WindowsFormsApplication4.Controls.button button67;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
