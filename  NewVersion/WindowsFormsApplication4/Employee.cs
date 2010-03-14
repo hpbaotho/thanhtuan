@@ -27,7 +27,8 @@ namespace WindowsFormsApplication4
         public const int CFA_SETUP_INVENT_EDIT = 6;
         public const int CFA_SETUP_EDIT_EMP = 7;
         public const int CFA_REPORT_DISPLAY = 8;
-        public const int CFA_TS_CONFIG = 9; 
+        public const int CFA_TS_CONFIG = 9;
+        public const int CFA_Open_Cash_Drawer = 10;
 
         public static bool CheckGrant(string storeId,string cashierId,int grantNum)
         {
@@ -70,6 +71,8 @@ namespace WindowsFormsApplication4
                         return check(storeId, cashierId, "CFA_Reports_Display");
                     case CFA_TS_CONFIG:
                         return check(storeId, cashierId, "CFA_TS_CONFIG");
+                    case CFA_Open_Cash_Drawer:
+                        return check(storeId, cashierId, "CFA_Open_Cash_Drawer");
                     default:
                         return false;
 

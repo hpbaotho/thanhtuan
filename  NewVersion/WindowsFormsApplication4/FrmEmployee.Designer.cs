@@ -117,6 +117,8 @@
             this.button10 = new WindowsFormsApplication4.Controls.button();
             this.button9 = new WindowsFormsApplication4.Controls.button();
             this.button8 = new WindowsFormsApplication4.Controls.button();
+            this.cmbMoKetSat = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -190,6 +192,8 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.cmbMoKetSat);
+            this.panel5.Controls.Add(this.label33);
             this.panel5.Controls.Add(this.cmbXemBC);
             this.panel5.Controls.Add(this.cmbChuyenB);
             this.panel5.Controls.Add(this.cmbXemBK);
@@ -1063,6 +1067,24 @@
             this.button8.UseOwnColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // cmbMoKetSat
+            // 
+            this.cmbMoKetSat.FormattingEnabled = true;
+            this.cmbMoKetSat.Location = new System.Drawing.Point(452, 158);
+            this.cmbMoKetSat.Name = "cmbMoKetSat";
+            this.cmbMoKetSat.Size = new System.Drawing.Size(149, 28);
+            this.cmbMoKetSat.TabIndex = 82;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(290, 158);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(83, 20);
+            this.label33.TabIndex = 81;
+            this.label33.Text = "Mở két sắt";
+            // 
             // FrmEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1216,5 +1238,7 @@
         private WindowsFormsApplication4.Controls.CreTextBox txtSSN;
         private System.Windows.Forms.ComboBox cmbTSConfig;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox cmbMoKetSat;
+        private System.Windows.Forms.Label label33;
     }
 }
