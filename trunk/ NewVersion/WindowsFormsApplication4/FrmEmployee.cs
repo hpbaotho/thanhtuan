@@ -93,6 +93,7 @@ namespace WindowsFormsApplication4
             cmbXemBK.DataSource = viewOfPermission();
             cmbXoaMA.DataSource = viewOfPermission();
             cmbTSConfig.DataSource = viewOfPermission();
+            cmbMoKetSat.DataSource = viewOfPermission();
         }
         #endregion
 
@@ -168,7 +169,7 @@ namespace WindowsFormsApplication4
                                                ,Employee_Prop.PROMPT,ComboBox2String(cmbKhauTru,Employee_Prop.CFA_Invoice_Discount),ComboBox2String(cmbDoiGia,Employee_Prop.CFA_Invoice_PriceChange),ComboBox2String(cmbXoaMA,Employee_Prop.CFA_Invoice_DeleteItems)
                                                ,ComboBox2String(cmbHuyHD,Employee_Prop.CFA_Invoice_Void),Employee_Prop.PROMPT,Employee_Prop.PROMPT,true,Employee_Prop.PROMPT,ComboBox2String(cmbTraLai,Employee_Prop.CFA_Refund_Item),true,true,txtEmpName.Text,Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,"01",ComboBox2String(cmbXemBK,Employee_Prop.CFA_Other_Tables),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,cbDisable.Checked,cbAdmin.Checked,Employee_Prop.PROMPT
-                                               ,Employee_Prop.PROMPT,cbTake.Checked,cbRequire.Checked,Employee_Prop.PROMPT,ComboBox2String(cmbChuyenB,Employee_Prop.CFA_Transfer_Tables),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT
+                                               ,ComboBox2String(cmbMoKetSat,Employee_Prop.CFA_Open_Cash_Drawer),cbTake.Checked,cbRequire.Checked,Employee_Prop.PROMPT,ComboBox2String(cmbChuyenB,Employee_Prop.CFA_Transfer_Tables),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,txtHo.Text,"",txtTen.Text,txtSSN.Text,txtAdress.Text,"",txtCity.Text,"","",txtSDT.Text,txtEmail.Text,DateTime.Now,"",Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,""
                                                ,"",Employee_Prop.PROMPT,Employee_Prop.PROMPT,"",Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,"",StaticClass.storeId,""
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,0,0,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT
@@ -199,7 +200,7 @@ namespace WindowsFormsApplication4
                                                , Employee_Prop.PROMPT, ComboBox2String(cmbKhauTru, Employee_Prop.CFA_Invoice_Discount), ComboBox2String(cmbDoiGia, Employee_Prop.CFA_Invoice_PriceChange), ComboBox2String(cmbXoaMA, Employee_Prop.CFA_Invoice_DeleteItems)
                                                , ComboBox2String(cmbHuyHD, Employee_Prop.CFA_Invoice_Void), Employee_Prop.PROMPT, Employee_Prop.PROMPT, true, Employee_Prop.PROMPT, ComboBox2String(cmbTraLai, Employee_Prop.CFA_Refund_Item), true, true, txtEmpName.Text, Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, "01", ComboBox2String(cmbXemBK, Employee_Prop.CFA_Other_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, cbDisable.Checked, cbAdmin.Checked, Employee_Prop.PROMPT
-                                               , Employee_Prop.PROMPT, cbTake.Checked, cbRequire.Checked, Employee_Prop.PROMPT, ComboBox2String(cmbChuyenB, Employee_Prop.CFA_Transfer_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT
+                                               , ComboBox2String(cmbMoKetSat,Employee_Prop.CFA_Open_Cash_Drawer), cbTake.Checked, cbRequire.Checked, Employee_Prop.PROMPT, ComboBox2String(cmbChuyenB, Employee_Prop.CFA_Transfer_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, txtHo.Text, "", txtTen.Text, txtSSN.Text, txtAdress.Text, "", txtCity.Text, "", "", txtSDT.Text, txtEmail.Text, DateTime.Now, "", Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ""
                                                , "", Employee_Prop.PROMPT, Employee_Prop.PROMPT, "", Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, "", StaticClass.storeId, ""
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, 0, 0, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT
@@ -241,6 +242,8 @@ namespace WindowsFormsApplication4
             cmbXemBK.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Other_Tables].ToString()));
             cmbXoaMA.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Invoice_DeleteItems].ToString()));
             cmbTSConfig.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_TS_CONFIG].ToString()));
+            cmbMoKetSat.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Open_Cash_Drawer].ToString()));
+
 
             txtHo.Text = Convert.ToString(table.Rows[rowIndex][Employee_Prop.First_Name]);
             txtTen.Text = Convert.ToString(table.Rows[rowIndex][Employee_Prop.Last_Name]);
@@ -347,6 +350,7 @@ namespace WindowsFormsApplication4
             cmbXemBK.SelectedIndex = 0;
             cmbXoaMA.SelectedIndex = 0;
             cmbTSConfig.SelectedIndex = 0;
+            cmbMoKetSat.SelectedIndex = 0;
 
             cmbDept.SelectedIndex = 0;
             txtTen.Text = "";

@@ -159,6 +159,10 @@ namespace WindowsFormsApplication4
 
         private void button51_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_Open_Cash_Drawer))
+            {
+                return;
+            }
             rptOpenDrawer rptOpenDrawer = new rptOpenDrawer();
             Utilities.Utils.Print(rptOpenDrawer,Printer.PrinterHoadon);
         }
