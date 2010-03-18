@@ -283,7 +283,8 @@ namespace WindowsFormsApplication4
                 //{
                 //    Tax3Per = price * Tax3Rate;
                 //}
-                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, quant.ToString(), null, newPrice, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, newPrice, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
+                decimal costper = Convert.ToDecimal(invent[3]);
+                object[] newrow = new object[] { invoiceNum, (myCash1.listInvoiceItem.Rows.Count + 1).ToString(), ((button)sender).Ident, quant.ToString(), costper, newPrice, Tax1Per, Tax2Per, Tax3Per, null, null, null, 0.00, itemName, null, null, null, null, StaticClass.storeId, newPrice, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
                 myCash1.listInvoiceItem.Rows.Add(newrow);
                 myCash1.addRow(itemName, String.Format("{0:0.##}", quant), String.Format("{0:0,0}", newPrice * Convert.ToDecimal(quant)));
                 UpdateInfo();
@@ -537,6 +538,7 @@ namespace WindowsFormsApplication4
             Decimal SumTax3 = 0;
             Decimal SumPice = 0;
             Decimal GranTotal = 0;
+            Decimal SumCost = 0;
             for (int i = 0; i < myCash1.listInvoiceItem.Rows.Count; i++)
             {
                 Decimal quant = Convert.ToDecimal(myCash1.listInvoiceItem.Rows[i][3]);
@@ -545,6 +547,7 @@ namespace WindowsFormsApplication4
                 SumTax3 += Convert.ToDecimal(myCash1.listInvoiceItem.Rows[i][8]) * quant;
                 SumPice += Convert.ToDecimal(myCash1.listInvoiceItem.Rows[i][3])*
                            Convert.ToDecimal(myCash1.listInvoiceItem.Rows[i][5]);
+                SumCost += quant * Convert.ToDecimal(myCash1.listInvoiceItem.Rows[i]["CostPer"]);
             }
             Decimal SumTax = SumTax1+SumTax2+SumTax3;
             GranTotal = SumPice + SumTax;
@@ -562,6 +565,7 @@ namespace WindowsFormsApplication4
             myCash1.invoiceTotal.Rows[0]["Total_Tax1"] = SumTax;
             myCash1.invoiceTotal.Rows[0]["InvoiceTax"] = taxInvoice1;
             myCash1.invoiceTotal.Rows[0]["Grand_Total"] = GranTotal;
+            myCash1.invoiceTotal.Rows[0]["Total_Cost"] = SumCost;
 
 
             myCash1.label_Total.Text = String.Format("{0:0,0}", GranTotal);
