@@ -556,6 +556,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetupTSButton.resx">
       <DependentUpon>FrmSetupTSButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTime.resx">
       <DependentUpon>FrmTime.cs</DependentUpon>

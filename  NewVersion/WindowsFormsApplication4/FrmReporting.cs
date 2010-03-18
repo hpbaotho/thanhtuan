@@ -450,6 +450,18 @@ namespace WindowsFormsApplication4
             ReportClass reportClass= ViewReport(state);
             if (reportClass == null)
                 return;
+            if (StaticClass.mode == "AUT")
+            {
+                reportClass.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+            }
+            else if (StaticClass.mode == "SQL")
+            {
+                //reportClass.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName,
+                // StaticClass.userName, StaticClass.password);
+                reportClass.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
+                                             StaticClass.databaseName, true);
+                reportClass.DataSourceConnections[0].IntegratedSecurity = false;
+            }
             FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
             frmViewReporting.Show();
 
