@@ -28,8 +28,9 @@ namespace WindowsFormsApplication4.Utilities
                 {
                     //reportClass.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName,
                                                                       // StaticClass.userName, StaticClass.password);
-                    reportClass.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
-                                                 StaticClass.databaseName);
+                    reportClass.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
+                                                 StaticClass.databaseName,true);
+                    reportClass.DataSourceConnections[0].IntegratedSecurity = false;
                 }
                 else
                 {

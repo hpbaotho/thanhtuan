@@ -750,8 +750,9 @@ namespace WindowsFormsApplication4
                     }
                     else if (StaticClass.mode == "SQL")
                     {
-                        xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                        xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
                                          StaticClass.databaseName);
+                        xxx.DataSourceConnections[0].IntegratedSecurity = false;
                     }
                     else
                     {
@@ -1003,8 +1004,28 @@ namespace WindowsFormsApplication4
                 }
                 else if (StaticClass.mode == "SQL")
                 {
-                    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
                                      StaticClass.databaseName);
+                    xxx.DataSourceConnections[0].IntegratedSecurity = false;
+                    //ConnectionInfo crConnectionInfo = new ConnectionInfo();
+                    //crConnectionInfo.ServerName = StaticClass.serverName;
+                    //crConnectionInfo.DatabaseName = StaticClass.databaseName;
+                    //crConnectionInfo.UserID = StaticClass.userName;
+                    //crConnectionInfo.Password = StaticClass.password;
+                    //crConnectionInfo.IntegratedSecurity = false;
+
+                    //Tables crTables = xxx.Database.Tables;
+
+                    //for (int j = 0; j < crTables.Count; j++)
+                    //{
+                    //    Table crTable = crTables[j];
+                    //    TableLogOnInfo crTableLogOnInfo = crTable.LogOnInfo;
+                    //    crTableLogOnInfo.ConnectionInfo = crConnectionInfo;
+                    //    crTable.ApplyLogOnInfo(crTableLogOnInfo);
+
+                    //    crTable.Location = crConnectionInfo.DatabaseName + ".dbo." + crTable.Name;
+
+                    //}
                 }
                 else
                 {
@@ -1167,8 +1188,9 @@ namespace WindowsFormsApplication4
                             }
                             else if(StaticClass.mode == "SQL")
                             {
-                                xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.databaseName,
+                                xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
                                                  StaticClass.databaseName);
+                                xxx.DataSourceConnections[0].IntegratedSecurity = false;
                             }
                             else
                             {
