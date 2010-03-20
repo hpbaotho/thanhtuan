@@ -416,6 +416,7 @@ namespace WindowsFormsApplication4
                 getGui.DeleteInvoiceItemized(StaticClass.storeId, this.invoiceNum);
                 getGui.CloseTable(StaticClass.storeId,this.invoiceNum);
                 this.Dispose();
+                formLogin.RequestMess("UpdateForm");
             }
             else
             {
@@ -979,7 +980,6 @@ namespace WindowsFormsApplication4
                     printThanhToan();
 
                     //SendToKitchen();
-                    formLogin.RequestMess("UpdateForm"); 
                     frmPay.Dispose();
                     this.Dispose();
                 }
