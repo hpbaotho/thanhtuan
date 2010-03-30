@@ -6,6 +6,9 @@ using System.Text;
 using System.Collections;
 using DAO;
 using System.Data.SqlClient;
+using Services.CustomerTableAdapters;
+
+
 namespace Services
 {
     public class get_GUI
@@ -17,6 +20,8 @@ namespace Services
         public static string Mode="AUT";
         public static string UserName;
         public static string Password;
+
+
         public get_GUI()
         {
             sr = new Server();
@@ -1597,7 +1602,9 @@ namespace Services
             return re;
         }
         #endregion
+        #region Customers
 
+        #endregion
         #region Station
         public DataTable GetAllStation(string storeId)
         {
@@ -1970,6 +1977,181 @@ namespace Services
             cmd.Dispose();
             return re;
         }
+        #region Customers
+
+        public Customer.CustomerDataTable GetAllCustomers()
+        {
+            var customer=new Customer.CustomerDataTable();
+            var customerTableAdapter=new CustomerTableAdapter();
+            customerTableAdapter.Connection = DataProvider.ConnectionData(sr);
+            customerTableAdapter.Fill(customer);
+            return customer;
+        }
+        public Customer.CustomerDataTable GetCustomerByID(string id)
+        {
+            var customer = new Customer.CustomerDataTable();
+            var customerTableAdapter = new CustomerTableAdapter();
+            customerTableAdapter.Connection = DataProvider.ConnectionData(sr);
+            customerTableAdapter.FillByCustomerID(customer, id);
+            return customer;
+        }
+        #region CreateCustomer
+        public void CreateCustomer(string CustNum,
+                    string First_Name,
+                    string Last_Name,
+                    string Company,
+                    string Address_1,
+                    string Address_2,
+                    string City,
+                    string State,
+                    string Zip_Code,
+                    string Phone_1,
+                    string Phone_2,
+                    string CC_Type,
+                    string CC_Num,
+                    string CC_Exp,
+                    string Discount_Level,
+                    float Discount_Percent,
+                    DateTime? Acct_Open_Date,
+                    DateTime? Acct_Close_Date,
+                    decimal? Acct_Balance,
+                    decimal? Acct_Max_Balance,
+                    bool Bonus_Plan_Member,
+                    int? Bonus_Points,
+                    bool Tax_Exempt,
+                    DateTime? Member_Exp,
+                    bool Dirty,
+                    string Phone_3,
+                    string Phone_4,
+                    string EMail,
+                    string County,
+                    string Def_SP,
+                    DateTime? CreateDate,
+                    string Referral,
+                    DateTime? Birthday,
+                    DateTime? Last_Birthday_Bonus,
+                    DateTime? Last_Visit,
+                    bool Require_PONum,
+                    int? Max_Charge_NumDays,
+                    decimal? Max_Charge_Amount,
+                    string License_Num,
+                    DateTime? ID_Last_Checked,
+                    DateTime? Next_Start_Date,
+                    string Checking_AcctNum,
+                    bool PrintNotes,
+                    short? Loyalty_Plan_ID,
+                    int? Tax_Rate_ID,
+                    string Bill_To_Name,
+                    string Contact_1,
+                    string Contact_2,
+                    string Terms,
+                    string Resale_Num,
+                    DateTime? Last_Coupon,
+                    short? Account_Type,
+                    bool? ChargeAtCost)
+        {
+            var customer = new Customer.CustomerDataTable();
+            var customerTableAdapter = new CustomerTableAdapter { Connection = DataProvider.ConnectionData(sr) };
+            customerTableAdapter.InsertCustomer(CustNum, First_Name, Last_Name, Company, Address_1, Address_2, City,
+                                                State, Zip_Code, Phone_1, Phone_2, CC_Type, CC_Num, CC_Exp,
+                                                Discount_Level, Discount_Percent, Acct_Open_Date, Acct_Close_Date,
+                                                Acct_Balance, Acct_Max_Balance, Bonus_Plan_Member, Bonus_Points,
+                                                Tax_Exempt, Member_Exp, Dirty,
+                                                Phone_3, Phone_4, EMail, County, Def_SP, CreateDate, Referral, Birthday,
+                                                Last_Birthday_Bonus, Last_Visit, Require_PONum, Max_Charge_NumDays,
+                                                Max_Charge_Amount,
+                                                License_Num, ID_Last_Checked, Next_Start_Date, Checking_AcctNum,
+                                                PrintNotes, Loyalty_Plan_ID, Tax_Rate_ID, Bill_To_Name, Contact_1,
+                                                Contact_2, Terms, Resale_Num, Last_Coupon, Account_Type, ChargeAtCost);
+
+        }
+        #endregion
+
+        #region UpdateCustomer
+        public void UpdateCustomer(string CustNum, 
+                    string First_Name, 
+                    string Last_Name, 
+                    string Company, 
+                    string Address_1, 
+                    string Address_2, 
+                    string City, 
+                    string State, 
+                    string Zip_Code, 
+                    string Phone_1, 
+                    string Phone_2, 
+                    string CC_Type, 
+                    string CC_Num, 
+                    string CC_Exp, 
+                    string Discount_Level, 
+                    float Discount_Percent, 
+                    DateTime? Acct_Open_Date, 
+                    DateTime? Acct_Close_Date, 
+                    decimal? Acct_Balance, 
+                    decimal? Acct_Max_Balance, 
+                    bool Bonus_Plan_Member, 
+                    int? Bonus_Points, 
+                    bool Tax_Exempt, 
+                    DateTime? Member_Exp, 
+                    bool Dirty, 
+                    string Phone_3, 
+                    string Phone_4, 
+                    string EMail, 
+                    string County, 
+                    string Def_SP, 
+                    DateTime? CreateDate, 
+                    string Referral, 
+                    DateTime? Birthday, 
+                    DateTime? Last_Birthday_Bonus, 
+                    DateTime? Last_Visit, 
+                    bool Require_PONum, 
+                    int? Max_Charge_NumDays, 
+                    decimal? Max_Charge_Amount, 
+                    string License_Num, 
+                    DateTime? ID_Last_Checked, 
+                    DateTime? Next_Start_Date, 
+                    string Checking_AcctNum, 
+                    bool PrintNotes, 
+                    short? Loyalty_Plan_ID, 
+                    int? Tax_Rate_ID, 
+                    string Bill_To_Name, 
+                    string Contact_1, 
+                    string Contact_2, 
+                    string Terms, 
+                    string Resale_Num, 
+                    DateTime? Last_Coupon, 
+                    short? Account_Type, 
+                    bool? ChargeAtCost,
+                    string original_CustNum)
+        {
+            var customer = new Customer.CustomerDataTable();
+            var customerTableAdapter = new CustomerTableAdapter();
+            customerTableAdapter.Connection = DataProvider.ConnectionData(sr);
+            customerTableAdapter.UpdateCustomer(CustNum, First_Name, Last_Name, Company, Address_1, Address_2, City,
+                                                State, Zip_Code, Phone_1, Phone_2, CC_Type,
+                                                CC_Num, CC_Exp, Discount_Level, Discount_Percent, Acct_Open_Date,
+                                                Acct_Close_Date, Acct_Balance, Acct_Max_Balance, Bonus_Plan_Member,
+                                                Bonus_Points,
+                                                Tax_Exempt, Member_Exp, Dirty, Phone_3, Phone_4, EMail, County, Def_SP,
+                                                CreateDate, Referral, Birthday, Last_Birthday_Bonus, Last_Visit,
+                                                Require_PONum,
+                                                Max_Charge_NumDays, Max_Charge_Amount, License_Num, ID_Last_Checked,
+                                                Next_Start_Date, Checking_AcctNum, PrintNotes, Loyalty_Plan_ID,
+                                                Tax_Rate_ID,
+                                                Bill_To_Name, Contact_1, Contact_2, Terms, Resale_Num, Last_Coupon,
+                                                Account_Type, ChargeAtCost, original_CustNum);
+
+        }
+        #endregion
+        #region DeleteCustomer
+        public void DeleteCustomer(string customerID)
+        {
+            var customer = new Customer.CustomerDataTable();
+            var customerTableAdapter = new CustomerTableAdapter();
+            customerTableAdapter.Connection = DataProvider.ConnectionData(sr);
+            int customer1 = customerTableAdapter.DeleteCustomer(customerID);
+        }
+        #endregion
+        #endregion
 
     }
 }

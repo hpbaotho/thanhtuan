@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsApplication4.Properties {
+namespace Services.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,17 +20,6 @@ namespace WindowsFormsApplication4.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=VISKY_THANH\\SQLEXPRESS;Initial Catalog=Thanh;Integrated Security=True" +
-            ";Pooling=False")]
-        public string ThanhConnectionString {
-            get {
-                return ((string)(this["ThanhConnectionString"]));
             }
         }
         
