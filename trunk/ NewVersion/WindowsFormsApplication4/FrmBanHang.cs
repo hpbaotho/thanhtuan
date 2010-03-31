@@ -213,6 +213,11 @@ namespace WindowsFormsApplication4
             myCash1.invoiceTotal = getGui.GetInvoiceTotal(StaticClass.storeId, invoiceNum);
             taxInvoice1 = Convert.ToDecimal(myCash1.invoiceTotal.Rows[0]["InvoiceTax"]);
             numOfItemSended = myCash1.listInvoiceItem.Rows.Count;
+            Customer.CustomerDataTable customerDataTable =
+                getGui.GetCustomerByID(myCash1.invoiceTotal.Rows[0]["CustNum"].ToString());
+            var row = customerDataTable.Rows[0] as Customer.CustomerRow;
+            lbCustName.Text = row.Last_Name;
+            lbAccBalance.Text = row.Acct_Balance.ToString();
 
             if(isOnHold)
                 
@@ -487,8 +492,22 @@ namespace WindowsFormsApplication4
 
         private void button50_Click(object sender, EventArgs e)
         {
-            //for (int i = 0; i < 20; i++)
-            //    myCash1.addRow("mota", i.ToString(), "gia");
+            string[] column = {Const.Customer_Prop.CustNum, Const.Customer_Prop.Last_Name,Const.Customer_Prop.Address_1};
+            Customer.CustomerDataTable customerDataTable = getGui.GetAllCustomers();
+            FrmSearchCustomer frmSearchCustomer = new FrmSearchCustomer(customerDataTable,column);
+            if(frmSearchCustomer.ShowDialog() == DialogResult.OK)
+            {
+                DataGridViewRow selectedCustomer = frmSearchCustomer.selectRow;
+                float discount = (float)selectedCustomer.Cells[15].Value / 100;
+                myCash1.invoiceTotal.Rows[0]["CustNum"] = selectedCustomer.Cells[0].Value;
+                myCash1.invoiceTotal.Rows[0]["Discount"] = discount;
+                decimal accountBalance = (decimal)selectedCustomer.Cells[18].Value;
+                string custName = selectedCustomer.Cells[2].Value.ToString();
+                lbCustName.Text = custName;
+                lbAccBalance.Text = accountBalance.ToString(); 
+                UpdateInfo();
+            }
+            frmSearchCustomer.Dispose();
         }
 
         private void button55_Click(object sender, EventArgs e)
@@ -1255,6 +1274,11 @@ namespace WindowsFormsApplication4
             {
                 getGui.UpdateInStock(StaticClass.storeId,o.IngreId,(o.Instock - o.Quantity).ToString());
             }
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
     }

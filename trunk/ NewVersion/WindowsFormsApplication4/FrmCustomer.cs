@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,21 +10,26 @@ using System.Text;
 using System.Windows.Forms;
 using Services;
 using WindowsFormsApplication4.Const;
+using WindowsFormsApplication4.Persistence;
+using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
 {
     public partial class FrmCustomer : Form
     {
         private Services.get_GUI get_service;
+        private Service.ServiceGet serviceGet;
         private Customer.CustomerDataTable Customers;
         private int currentIndex;
         private int limit;
         private string m_oldCusNum = "";
+        private ArrayList swipeList;
         public FrmCustomer()
         {
 
             InitializeComponent();
             get_service = new get_GUI();
+            serviceGet = new ServiceGet();
             Customers = get_service.GetAllCustomers();
         }
         private void FrmCustomer_Load(object sender, EventArgs e)
@@ -58,6 +64,15 @@ namespace WindowsFormsApplication4
                     txtNameCompany.Text = row.IsCompanyNull() ? "" : row.Company;
                     txtTelephone.Text = row.IsPhone_2Null() ? "" : row.Phone_2;
                     lblNumberOfAdd.Text = row.IsAcct_BalanceNull() ? "" : row.Acct_Balance.ToString();
+
+                    // Swipe
+                    listBox1.Items.Clear();
+                    swipeList = serviceGet.GetCustSwipeById(row.CustNum);
+                    foreach (Persistence.CustomerSwipe customerSwipe in swipeList)
+                    {
+                        listBox1.Items.Add(customerSwipe);
+                    }
+
                 }
             }
            
@@ -70,7 +85,7 @@ namespace WindowsFormsApplication4
             {
                 if (txtMaKH.Text.Equals(""))
                 {
-                    Alert.Show("Bạn phải nhập mã đã!", Color.Red);
+                    Alert.Show("Bạn phải nhập mã \nkhách hàng!", Color.Red);
                     return;
                 }
                 //cmbCate.SelectedIndex = 0;
@@ -85,6 +100,7 @@ namespace WindowsFormsApplication4
                 DateTime dateTimeOpenAccount = DateTime.Now;
                 DateTime dateTimeCloseAccount = DateTime.Now;
                 DateTime dateTimeBirth = DateTime.Now;
+                txtMaxBalance.Text = "0";
                 Decimal maxBalance=new decimal();
                 if (!DateTime.TryParse(txtDateOpenAccount.Text,out dateTimeOpenAccount))
                 {
@@ -122,7 +138,7 @@ namespace WindowsFormsApplication4
                                            DateTime.Parse(txtDateBirth.Text), null, null, true, null, null, "", null, null, "", true,
                                            null, null, "", txtAddress.Text, "", "", "", null, null, null);
 
-
+                updateCustSwipe(txtMaKH.Text);
                 limit = Customers.Rows.Count - 1;
             }
             AddState(1);
@@ -130,6 +146,7 @@ namespace WindowsFormsApplication4
         #region State
         public void AddState(int i)
         {
+
             btnDeleteCustomer.Enabled = false;
             
             btnSearch.Enabled = false;
@@ -139,6 +156,9 @@ namespace WindowsFormsApplication4
             ckb_Sua.Enabled = false;
             if(i==1)
             {
+                swipeList = new ArrayList();
+                listBox1.Items.Clear();
+
                 btnSaveCustomer.Enabled = false;
                 btnAddCustomer.Enabled = true;
                 btnAddCustomer.Text = "Lưu lại";
@@ -218,6 +238,7 @@ namespace WindowsFormsApplication4
             ckb_Sua.Enabled = true;
             ckb_Sua.Checked = false;
             txtMaKH.Enabled = false;
+            txtName.Enabled = true;
             this.Refresh();
         }
 
@@ -225,7 +246,7 @@ namespace WindowsFormsApplication4
         {
             if (txtMaKH.Text.Equals(""))
             {
-                Alert.Show("Bạn phải nhập mã đã!", Color.Red);
+                Alert.Show("Bạn phải nhập mã \nkhách hàng!", Color.Red);
                 return;
             }
             //cmbCate.SelectedIndex = 0;
@@ -277,6 +298,8 @@ namespace WindowsFormsApplication4
                                            DateTime.Parse(txtDateBirth.Text), null, null, true, null, null, "", null, null, "", true,
                                            null, null, "", txtAddress.Text, "", "", "", null, null, null,m_oldCusNum);
 
+            updateCustSwipe(txtMaKH.Text);
+
             Customers = get_service.GetAllCustomers();
             ckb_Sua.Checked = false;
             btnSearch.Enabled = true;
@@ -286,6 +309,32 @@ namespace WindowsFormsApplication4
             btnDeleteCustomer.Enabled = true;
             btnAddCustomer.Enabled = true;
             btnSaveCustomer.Enabled = false;
+            ckb_Sua.Enabled = true;
+            txtName.Enabled = true;
+            txtMaKH.Enabled = true;
+            this.Refresh();
+
+        }
+
+        private void updateCustSwipe(string custId)
+        {
+            foreach (Persistence.CustomerSwipe c in swipeList)
+            {
+                if(c.isDelete)
+                {
+                    if(!c.isNew)
+                    {
+                        get_service.DeleteCustSwipe(custId,c.swipeId);
+                    }
+                }
+                else
+                {
+                    if(c.isNew)
+                    {
+                        get_service.InsertCustSwipe(custId,c.swipeId);
+                    }
+                }
+            }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -333,10 +382,47 @@ namespace WindowsFormsApplication4
             //        return;
 
             //}
+            if(txtMaKH.Text == "101")
+            {
+                Alert.Show("Không thể xóa \nkhách hàng này !",Color.Red);
+                return;
+            }
+            foreach (Persistence.CustomerSwipe o in swipeList)
+            {
+                get_service.DeleteCustSwipe(txtMaKH.Text,o.swipeId);
+            }
             get_service.DeleteCustomer(txtMaKH.Text);
             Customers = get_service.GetAllCustomers();
             limit = Customers.Rows.Count - 1;
             btnPrevious_Click(btnPrevious, null);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(true);
+            if(frmKeyBoard.ShowDialog() == DialogResult.OK)
+            {
+                DataTable dataTable = get_service.getCustBySwipe(frmKeyBoard.value);
+                if (dataTable.Rows.Count > 0)
+                {
+                    Alert.Show("Thẻ từ đã tồn tại !",Color.Red);
+                    return;
+                }
+                Persistence.CustomerSwipe customerSwipe = new CustomerSwipe(frmKeyBoard.value);
+                customerSwipe.isNew = true;
+                listBox1.Items.Add(customerSwipe);
+                swipeList.Add(customerSwipe);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(listBox1.SelectedItems.Count > 0)
+            {
+                var customerSwipe = (Persistence.CustomerSwipe) listBox1.SelectedItems[0];
+                customerSwipe.isDelete = true;
+                listBox1.Items.Remove(customerSwipe);
+            }
         }
 
         

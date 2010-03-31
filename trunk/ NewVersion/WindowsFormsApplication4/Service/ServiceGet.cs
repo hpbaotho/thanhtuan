@@ -346,5 +346,17 @@ namespace WindowsFormsApplication4.Service
             return re;
         }
 
+        public ArrayList GetCustSwipeById(string custId)
+        {
+            ArrayList re = new ArrayList();
+            DataTable table = getGui.getCustSwipeById(custId);
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                CustomerSwipe customerSwipe = new CustomerSwipe(table.Rows[i]["Swipe_ID"].ToString());
+                re.Add(customerSwipe);
+            }
+            return re;
+        }
+
     }
 }
