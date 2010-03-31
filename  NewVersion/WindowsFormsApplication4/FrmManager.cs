@@ -144,7 +144,8 @@ namespace WindowsFormsApplication4
 
         private void button11_Click(object sender, EventArgs e)
         {
-            
+            FrmCustomer frmCustomer = new FrmCustomer();
+            frmCustomer.ShowDialog();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -165,6 +166,11 @@ namespace WindowsFormsApplication4
             }
             rptOpenDrawer rptOpenDrawer = new rptOpenDrawer();
             Utilities.Utils.Print(rptOpenDrawer,Printer.PrinterHoadon);
+        }
+
+        private void button48_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

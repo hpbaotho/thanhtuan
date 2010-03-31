@@ -32,16 +32,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.txtDateBirth = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtDiscountPercent = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtNameCompany = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtDateCustomer = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtMobilephone = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtEmail = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtTelephone = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtAddress = new WindowsFormsApplication4.Controls.CreTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblNumberOfAdd = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -50,6 +61,7 @@
             this.txtDateCloseAccount = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDateOpenAccount = new System.Windows.Forms.TextBox();
+            this.txtMaxBalance = new WindowsFormsApplication4.Controls.CreTextBox();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.btnNext = new WindowsFormsApplication4.Controls.button();
             this.btnSearch = new WindowsFormsApplication4.Controls.button();
@@ -58,14 +70,6 @@
             this.btnDeleteCustomer = new WindowsFormsApplication4.Controls.button();
             this.btnSaveCustomer = new WindowsFormsApplication4.Controls.button();
             this.btnAddCustomer = new WindowsFormsApplication4.Controls.button();
-            this.txtDiscountPercent = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtNameCompany = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtDateCustomer = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtMobilephone = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtEmail = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtTelephone = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtAddress = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtMaxBalance = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtName = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtMaKH = new WindowsFormsApplication4.Controls.CreTextBox();
             this.tabControl1.SuspendLayout();
@@ -102,11 +106,15 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 115);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(720, 423);
+            this.tabControl1.Size = new System.Drawing.Size(720, 384);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label16);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.txtDateBirth);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
@@ -128,10 +136,48 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(712, 387);
+            this.tabPage1.Size = new System.Drawing.Size(712, 348);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Thông tin chung";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(359, 166);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 20);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "Thẻ từ";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(595, 272);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 66);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Xóa";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(595, 194);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 65);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Thêm";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(363, 194);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(225, 144);
+            this.listBox1.TabIndex = 18;
             // 
             // txtDateBirth
             // 
@@ -160,6 +206,14 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "Phần trăm khấu trừ";
             // 
+            // txtDiscountPercent
+            // 
+            this.txtDiscountPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscountPercent.Location = new System.Drawing.Point(5, 242);
+            this.txtDiscountPercent.Name = "txtDiscountPercent";
+            this.txtDiscountPercent.Size = new System.Drawing.Size(141, 26);
+            this.txtDiscountPercent.TabIndex = 14;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -168,6 +222,14 @@
             this.label9.Size = new System.Drawing.Size(91, 20);
             this.label9.TabIndex = 13;
             this.label9.Text = "Tên công ty";
+            // 
+            // txtNameCompany
+            // 
+            this.txtNameCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameCompany.Location = new System.Drawing.Point(6, 166);
+            this.txtNameCompany.Name = "txtNameCompany";
+            this.txtNameCompany.Size = new System.Drawing.Size(268, 26);
+            this.txtNameCompany.TabIndex = 12;
             // 
             // label8
             // 
@@ -187,6 +249,23 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Số điện thoại di động";
             // 
+            // txtDateCustomer
+            // 
+            this.txtDateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateCustomer.Location = new System.Drawing.Point(501, 101);
+            this.txtDateCustomer.Name = "txtDateCustomer";
+            this.txtDateCustomer.ReadOnly = true;
+            this.txtDateCustomer.Size = new System.Drawing.Size(195, 26);
+            this.txtDateCustomer.TabIndex = 9;
+            // 
+            // txtMobilephone
+            // 
+            this.txtMobilephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobilephone.Location = new System.Drawing.Point(291, 101);
+            this.txtMobilephone.Name = "txtMobilephone";
+            this.txtMobilephone.Size = new System.Drawing.Size(195, 26);
+            this.txtMobilephone.TabIndex = 8;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -195,6 +274,14 @@
             this.label6.Size = new System.Drawing.Size(48, 20);
             this.label6.TabIndex = 7;
             this.label6.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(6, 101);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(268, 26);
+            this.txtEmail.TabIndex = 6;
             // 
             // label5
             // 
@@ -223,6 +310,23 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Địa chỉ";
             // 
+            // txtTelephone
+            // 
+            this.txtTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelephone.Location = new System.Drawing.Point(291, 40);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(195, 26);
+            this.txtTelephone.TabIndex = 1;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(6, 40);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(268, 26);
+            this.txtAddress.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.lblNumberOfAdd);
@@ -236,7 +340,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(712, 387);
+            this.tabPage2.Size = new System.Drawing.Size(712, 348);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Thông tin tài khoản";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -304,6 +408,13 @@
             this.txtDateOpenAccount.Size = new System.Drawing.Size(204, 26);
             this.txtDateOpenAccount.TabIndex = 0;
             // 
+            // txtMaxBalance
+            // 
+            this.txtMaxBalance.Location = new System.Drawing.Point(265, 96);
+            this.txtMaxBalance.Name = "txtMaxBalance";
+            this.txtMaxBalance.Size = new System.Drawing.Size(190, 26);
+            this.txtMaxBalance.TabIndex = 4;
+            // 
             // ckb_Sua
             // 
             this.ckb_Sua.AutoSize = true;
@@ -320,7 +431,7 @@
             // 
             this.btnNext.Color2 = System.Drawing.Color.Blue;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(221, 632);
+            this.btnNext.Location = new System.Drawing.Point(222, 576);
             this.btnNext.Name = "btnNext";
             this.btnNext.OwnDrawColor = System.Drawing.Color.White;
             this.btnNext.Size = new System.Drawing.Size(112, 69);
@@ -333,7 +444,7 @@
             // 
             this.btnSearch.Color2 = System.Drawing.Color.Blue;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(134, 632);
+            this.btnSearch.Location = new System.Drawing.Point(135, 576);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.OwnDrawColor = System.Drawing.Color.White;
             this.btnSearch.Size = new System.Drawing.Size(81, 69);
@@ -346,7 +457,7 @@
             // 
             this.btnPrevious.Color2 = System.Drawing.Color.Blue;
             this.btnPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrevious.Location = new System.Drawing.Point(16, 632);
+            this.btnPrevious.Location = new System.Drawing.Point(17, 576);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.OwnDrawColor = System.Drawing.Color.White;
             this.btnPrevious.Size = new System.Drawing.Size(112, 69);
@@ -359,7 +470,7 @@
             // 
             this.btnExit.Color2 = System.Drawing.Color.Orchid;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(583, 632);
+            this.btnExit.Location = new System.Drawing.Point(584, 576);
             this.btnExit.Name = "btnExit";
             this.btnExit.OwnDrawColor = System.Drawing.Color.White;
             this.btnExit.Size = new System.Drawing.Size(145, 69);
@@ -372,7 +483,7 @@
             // 
             this.btnDeleteCustomer.Color2 = System.Drawing.Color.Orchid;
             this.btnDeleteCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(583, 557);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(584, 501);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.OwnDrawColor = System.Drawing.Color.White;
             this.btnDeleteCustomer.Size = new System.Drawing.Size(145, 69);
@@ -385,7 +496,7 @@
             // 
             this.btnSaveCustomer.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnSaveCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveCustomer.Location = new System.Drawing.Point(421, 632);
+            this.btnSaveCustomer.Location = new System.Drawing.Point(422, 576);
             this.btnSaveCustomer.Name = "btnSaveCustomer";
             this.btnSaveCustomer.OwnDrawColor = System.Drawing.Color.White;
             this.btnSaveCustomer.Size = new System.Drawing.Size(145, 69);
@@ -398,7 +509,7 @@
             // 
             this.btnAddCustomer.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCustomer.Location = new System.Drawing.Point(421, 557);
+            this.btnAddCustomer.Location = new System.Drawing.Point(422, 501);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.OwnDrawColor = System.Drawing.Color.White;
             this.btnAddCustomer.Size = new System.Drawing.Size(145, 69);
@@ -406,71 +517,6 @@
             this.btnAddCustomer.Text = "Thêm khách hàng";
             this.btnAddCustomer.UseOwnColor = false;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
-            // 
-            // txtDiscountPercent
-            // 
-            this.txtDiscountPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscountPercent.Location = new System.Drawing.Point(5, 242);
-            this.txtDiscountPercent.Name = "txtDiscountPercent";
-            this.txtDiscountPercent.Size = new System.Drawing.Size(141, 26);
-            this.txtDiscountPercent.TabIndex = 14;
-            // 
-            // txtNameCompany
-            // 
-            this.txtNameCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameCompany.Location = new System.Drawing.Point(6, 166);
-            this.txtNameCompany.Name = "txtNameCompany";
-            this.txtNameCompany.Size = new System.Drawing.Size(268, 26);
-            this.txtNameCompany.TabIndex = 12;
-            // 
-            // txtDateCustomer
-            // 
-            this.txtDateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateCustomer.Location = new System.Drawing.Point(501, 101);
-            this.txtDateCustomer.Name = "txtDateCustomer";
-            this.txtDateCustomer.ReadOnly = true;
-            this.txtDateCustomer.Size = new System.Drawing.Size(195, 26);
-            this.txtDateCustomer.TabIndex = 9;
-            // 
-            // txtMobilephone
-            // 
-            this.txtMobilephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobilephone.Location = new System.Drawing.Point(291, 101);
-            this.txtMobilephone.Name = "txtMobilephone";
-            this.txtMobilephone.Size = new System.Drawing.Size(195, 26);
-            this.txtMobilephone.TabIndex = 8;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(6, 101);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(268, 26);
-            this.txtEmail.TabIndex = 6;
-            // 
-            // txtTelephone
-            // 
-            this.txtTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelephone.Location = new System.Drawing.Point(291, 40);
-            this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(195, 26);
-            this.txtTelephone.TabIndex = 1;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.White;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(6, 40);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(268, 26);
-            this.txtAddress.TabIndex = 0;
-            // 
-            // txtMaxBalance
-            // 
-            this.txtMaxBalance.Location = new System.Drawing.Point(265, 96);
-            this.txtMaxBalance.Name = "txtMaxBalance";
-            this.txtMaxBalance.Size = new System.Drawing.Size(190, 26);
-            this.txtMaxBalance.TabIndex = 4;
             // 
             // txtName
             // 
@@ -492,7 +538,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 744);
+            this.ClientSize = new System.Drawing.Size(746, 659);
             this.ControlBox = false;
             this.Controls.Add(this.ckb_Sua);
             this.Controls.Add(this.btnNext);
@@ -508,6 +554,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtMaKH);
             this.Name = "FrmCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khách hàng";
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
             this.tabControl1.ResumeLayout(false);
@@ -562,5 +609,9 @@
         private System.Windows.Forms.Label lblNumberOfAdd;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox ckb_Sua;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label16;
     }
 }

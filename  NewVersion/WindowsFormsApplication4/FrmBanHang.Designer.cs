@@ -46,8 +46,8 @@
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbAccBalance = new System.Windows.Forms.Label();
+            this.lbCustName = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button46 = new WindowsFormsApplication4.Controls.button();
@@ -328,8 +328,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.lbAccBalance);
+            this.panel2.Controls.Add(this.lbCustName);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.button46);
@@ -367,27 +367,27 @@
             this.panel2.Size = new System.Drawing.Size(523, 563);
             this.panel2.TabIndex = 1;
             // 
-            // label6
+            // lbAccBalance
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(142, 541);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 20);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "0";
+            this.lbAccBalance.AutoSize = true;
+            this.lbAccBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAccBalance.ForeColor = System.Drawing.Color.Blue;
+            this.lbAccBalance.Location = new System.Drawing.Point(142, 541);
+            this.lbAccBalance.Name = "lbAccBalance";
+            this.lbAccBalance.Size = new System.Drawing.Size(19, 20);
+            this.lbAccBalance.TabIndex = 46;
+            this.lbAccBalance.Text = "0";
             // 
-            // label7
+            // lbCustName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(112, 516);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 20);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Mặc định";
+            this.lbCustName.AutoSize = true;
+            this.lbCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCustName.ForeColor = System.Drawing.Color.Blue;
+            this.lbCustName.Location = new System.Drawing.Point(112, 516);
+            this.lbCustName.Name = "lbCustName";
+            this.lbCustName.Size = new System.Drawing.Size(81, 20);
+            this.lbCustName.TabIndex = 45;
+            this.lbCustName.Text = "Mặc định";
             // 
             // label5
             // 
@@ -1046,6 +1046,7 @@
             this.panel5.Size = new System.Drawing.Size(669, 730);
             this.panel5.TabIndex = 18;
             this.panel5.Visible = false;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // button59
             // 
@@ -1259,7 +1260,7 @@
         private WindowsFormsApplication4.Controls.button button67;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbAccBalance;
+        private System.Windows.Forms.Label lbCustName;
     }
 }
