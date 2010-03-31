@@ -34,6 +34,8 @@
             this.tbChucNang = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.cmbMoKetSat = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.cmbXemBC = new System.Windows.Forms.ComboBox();
             this.cmbChuyenB = new System.Windows.Forms.ComboBox();
             this.cmbXemBK = new System.Windows.Forms.ComboBox();
@@ -117,8 +119,8 @@
             this.button10 = new WindowsFormsApplication4.Controls.button();
             this.button9 = new WindowsFormsApplication4.Controls.button();
             this.button8 = new WindowsFormsApplication4.Controls.button();
-            this.cmbMoKetSat = new System.Windows.Forms.ComboBox();
-            this.label33 = new System.Windows.Forms.Label();
+            this.cmbCustEdit = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -216,6 +218,24 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(780, 208);
             this.panel5.TabIndex = 0;
+            // 
+            // cmbMoKetSat
+            // 
+            this.cmbMoKetSat.FormattingEnabled = true;
+            this.cmbMoKetSat.Location = new System.Drawing.Point(452, 158);
+            this.cmbMoKetSat.Name = "cmbMoKetSat";
+            this.cmbMoKetSat.Size = new System.Drawing.Size(149, 28);
+            this.cmbMoKetSat.TabIndex = 82;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(290, 158);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(83, 20);
+            this.label33.TabIndex = 81;
+            this.label33.Text = "Mở két sắt";
             // 
             // cmbXemBC
             // 
@@ -499,6 +519,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cmbCustEdit);
+            this.panel3.Controls.Add(this.label34);
             this.panel3.Controls.Add(this.cmbNV);
             this.panel3.Controls.Add(this.cmbMH);
             this.panel3.Controls.Add(this.cmbKho);
@@ -1067,23 +1089,23 @@
             this.button8.UseOwnColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // cmbMoKetSat
+            // cmbCustEdit
             // 
-            this.cmbMoKetSat.FormattingEnabled = true;
-            this.cmbMoKetSat.Location = new System.Drawing.Point(452, 158);
-            this.cmbMoKetSat.Name = "cmbMoKetSat";
-            this.cmbMoKetSat.Size = new System.Drawing.Size(149, 28);
-            this.cmbMoKetSat.TabIndex = 82;
+            this.cmbCustEdit.FormattingEnabled = true;
+            this.cmbCustEdit.Location = new System.Drawing.Point(154, 123);
+            this.cmbCustEdit.Name = "cmbCustEdit";
+            this.cmbCustEdit.Size = new System.Drawing.Size(149, 28);
+            this.cmbCustEdit.TabIndex = 71;
             // 
-            // label33
+            // label34
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(290, 158);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(83, 20);
-            this.label33.TabIndex = 81;
-            this.label33.Text = "Mở két sắt";
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(44, 130);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(94, 20);
+            this.label34.TabIndex = 70;
+            this.label34.Text = "Khách hàng";
             // 
             // FrmEmployee
             // 
@@ -1240,5 +1262,7 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.ComboBox cmbMoKetSat;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ComboBox cmbCustEdit;
+        private System.Windows.Forms.Label label34;
     }
 }

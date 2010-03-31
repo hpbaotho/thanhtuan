@@ -144,6 +144,10 @@ namespace WindowsFormsApplication4
 
         private void button11_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_Cust_Edit))
+            {
+                return;
+            }
             FrmCustomer frmCustomer = new FrmCustomer();
             frmCustomer.ShowDialog();
         }

@@ -217,7 +217,7 @@ namespace WindowsFormsApplication4
                 getGui.GetCustomerByID(myCash1.invoiceTotal.Rows[0]["CustNum"].ToString());
             var row = customerDataTable.Rows[0] as Customer.CustomerRow;
             lbCustName.Text = row.Last_Name;
-            lbAccBalance.Text = row.Acct_Balance.ToString();
+            lbAccBalance.Text = String.Format("{0:0,0}", row.Acct_Balance);
 
             if(isOnHold)
                 
@@ -504,7 +504,7 @@ namespace WindowsFormsApplication4
                 decimal accountBalance = (decimal)selectedCustomer.Cells[18].Value;
                 string custName = selectedCustomer.Cells[2].Value.ToString();
                 lbCustName.Text = custName;
-                lbAccBalance.Text = accountBalance.ToString(); 
+                lbAccBalance.Text = String.Format("{0:0,0}", accountBalance); 
                 UpdateInfo();
             }
             frmSearchCustomer.Dispose();
