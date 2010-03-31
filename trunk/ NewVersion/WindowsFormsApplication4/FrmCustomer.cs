@@ -366,10 +366,10 @@ namespace WindowsFormsApplication4
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //string[] column = { Customer_Prop.CustNum, Customer_Prop.Last_Name, Customer_Prop.Address_1, Customer_Prop.Phone_1 };
-            //FrmSearch search = new FrmSearch(Customers, column);
-            //search.passdata = new FrmSearch.PassData(changeState);
-            //search.ShowDialog();
+            string[] column = { Customer_Prop.CustNum, Customer_Prop.Last_Name, Customer_Prop.Address_1, Customer_Prop.Phone_1 };
+            FrmSearch search = new FrmSearch(Customers, column);
+            search.passdata = new FrmSearch.PassData(changeState);
+            search.ShowDialog();
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
