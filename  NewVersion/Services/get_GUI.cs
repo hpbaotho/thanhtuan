@@ -2151,6 +2151,45 @@ namespace Services
             int customer1 = customerTableAdapter.DeleteCustomer(customerID);
         }
         #endregion
+
+        public DataTable getCustSwipeById(string custId)
+        {
+            cmd = new SqlCommand();
+            string query = "Select * from Customer_Swipes where (CustNum = '" + custId + "')";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public DataTable getCustBySwipe(string swipeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"SELECT     dbo.Customer.*
+                            FROM         dbo.Customer INNER JOIN
+                            dbo.Customer_Swipes ON dbo.Customer.CustNum = dbo.Customer_Swipes.CustNum "+
+                            " WHERE   dbo.Customer_Swipes.Swipe_ID = '"+swipeId+"'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+        public void DeleteCustSwipe(string custId, string SwipeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"delete from Customer_Swipes " +
+                            " WHERE   CustNum = '" + custId + "' and Swipe_ID = '"+ SwipeId + "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
+        public void InsertCustSwipe(string custId, string SwipeId)
+        {
+            cmd = new SqlCommand();
+            string value = "('" + custId + "'," + "'" + SwipeId + "')";
+            string query = "Insert into Customer_Swipes (CustNum,Swipe_ID) values " + value;
+            FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+        }
+
         #endregion
 
     }
