@@ -94,6 +94,7 @@ namespace WindowsFormsApplication4
             cmbXoaMA.DataSource = viewOfPermission();
             cmbTSConfig.DataSource = viewOfPermission();
             cmbMoKetSat.DataSource = viewOfPermission();
+            cmbCustEdit.DataSource = viewOfPermission();
         }
         #endregion
 
@@ -165,7 +166,7 @@ namespace WindowsFormsApplication4
                 get_service.CreateEmployee(txtEmpID.Text,txtCus.Text,deptId,txtPass.Text,txtSwipt.Text,txtHour.Text,StaticClass.Form_Color,Employee_Prop.PROMPT,ComboBox2String(cmbThue,Employee_Prop.CFA_Setup_Tax)
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbMayIn,Employee_Prop.CFA_Setup_DefPrinter)
                                                ,Employee_Prop.PROMPT,ComboBox2String(cmbMH,Employee_Prop.CFA_Inven_Edit),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbKho,Employee_Prop.CFA_Depts_Edit)
-                                               ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbXemBC,Employee_Prop.CFA_Reports_Display),Employee_Prop.PROMPT
+                                               , Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbCustEdit, Employee_Prop.CFA_Cust_Edit), ComboBox2String(cmbXemBC, Employee_Prop.CFA_Reports_Display), Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,ComboBox2String(cmbKhauTru,Employee_Prop.CFA_Invoice_Discount),ComboBox2String(cmbDoiGia,Employee_Prop.CFA_Invoice_PriceChange),ComboBox2String(cmbXoaMA,Employee_Prop.CFA_Invoice_DeleteItems)
                                                ,ComboBox2String(cmbHuyHD,Employee_Prop.CFA_Invoice_Void),Employee_Prop.PROMPT,Employee_Prop.PROMPT,true,Employee_Prop.PROMPT,ComboBox2String(cmbTraLai,Employee_Prop.CFA_Refund_Item),true,true,txtEmpName.Text,Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,"01",ComboBox2String(cmbXemBK,Employee_Prop.CFA_Other_Tables),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,cbDisable.Checked,cbAdmin.Checked,Employee_Prop.PROMPT
@@ -196,7 +197,7 @@ namespace WindowsFormsApplication4
             get_service.UpdateEmployee(txtEmpID.Text, txtCus.Text, deptId, txtPass.Text, txtSwipt.Text, txtHour.Text, StaticClass.Form_Color, Employee_Prop.PROMPT, ComboBox2String(cmbThue, Employee_Prop.CFA_Setup_Tax)
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbMayIn, Employee_Prop.CFA_Setup_DefPrinter)
                                                , Employee_Prop.PROMPT, ComboBox2String(cmbMH, Employee_Prop.CFA_Inven_Edit), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbKho, Employee_Prop.CFA_Depts_Edit)
-                                               , Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbXemBC, Employee_Prop.CFA_Reports_Display), Employee_Prop.PROMPT
+                                               , Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbCustEdit, Employee_Prop.CFA_Cust_Edit), ComboBox2String(cmbXemBC, Employee_Prop.CFA_Reports_Display), Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, ComboBox2String(cmbKhauTru, Employee_Prop.CFA_Invoice_Discount), ComboBox2String(cmbDoiGia, Employee_Prop.CFA_Invoice_PriceChange), ComboBox2String(cmbXoaMA, Employee_Prop.CFA_Invoice_DeleteItems)
                                                , ComboBox2String(cmbHuyHD, Employee_Prop.CFA_Invoice_Void), Employee_Prop.PROMPT, Employee_Prop.PROMPT, true, Employee_Prop.PROMPT, ComboBox2String(cmbTraLai, Employee_Prop.CFA_Refund_Item), true, true, txtEmpName.Text, Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, "01", ComboBox2String(cmbXemBK, Employee_Prop.CFA_Other_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, cbDisable.Checked, cbAdmin.Checked, Employee_Prop.PROMPT
@@ -243,7 +244,7 @@ namespace WindowsFormsApplication4
             cmbXoaMA.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Invoice_DeleteItems].ToString()));
             cmbTSConfig.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_TS_CONFIG].ToString()));
             cmbMoKetSat.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Open_Cash_Drawer].ToString()));
-
+            cmbCustEdit.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Cust_Edit].ToString()));
 
             txtHo.Text = Convert.ToString(table.Rows[rowIndex][Employee_Prop.First_Name]);
             txtTen.Text = Convert.ToString(table.Rows[rowIndex][Employee_Prop.Last_Name]);

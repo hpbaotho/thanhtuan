@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -48,22 +49,22 @@ namespace WindowsFormsApplication4
                 {
                     txtAddress.Text = row.IsAddress_1Null() ? "" : row.Address_1;
 
-                    txtDateBirth.Text = row.IsBirthdayNull() ? "" : row.Birthday.ToShortDateString();
-                    txtDateCloseAccount.Text = row.IsAcct_Close_DateNull() ? "" : row.Acct_Close_Date.ToShortDateString();
+                    txtDateBirth.Text = row.IsBirthdayNull() ? "" : String.Format("{0:d/M/yyyy}", row.Birthday);
+                    txtDateCloseAccount.Text = row.IsAcct_Close_DateNull() ? "" : String.Format("{0:d/M/yyyy}", row.Acct_Close_Date);
 
-                    txtDateCustomer.Text = row.IsCreateDateNull() ? "" : row.CreateDate.ToShortDateString();
+                    txtDateCustomer.Text = row.IsCreateDateNull() ? "" : String.Format("{0:d/M/yyyy}", row.CreateDate);
 
-                    txtDateOpenAccount.Text = row.IsAcct_Open_DateNull() ? "" : row.Acct_Open_Date.ToShortDateString();
+                    txtDateOpenAccount.Text = row.IsAcct_Open_DateNull() ? "" : String.Format("{0:d/M/yyyy}", row.Acct_Open_Date);
 
                     txtDiscountPercent.Text = row.Discount_Percent.ToString();
                     txtEmail.Text = row.IsEMailNull() ? "" : row.EMail;
                     txtMaKH.Text = row.CustNum;
-                    txtMaxBalance.Text = row.IsAcct_Max_BalanceNull() ? "" : row.Acct_Max_Balance.ToString();
+                    txtMaxBalance.Text = row.IsAcct_Max_BalanceNull() ? "" : String.Format("{0:0,0}", row.Acct_Max_Balance);
                     txtMobilephone.Text = row.IsPhone_1Null() ? "" : row.Phone_1;
                     txtName.Text = row.Last_Name;
                     txtNameCompany.Text = row.IsCompanyNull() ? "" : row.Company;
                     txtTelephone.Text = row.IsPhone_2Null() ? "" : row.Phone_2;
-                    lblNumberOfAdd.Text = row.IsAcct_BalanceNull() ? "" : row.Acct_Balance.ToString();
+                    lblNumberOfAdd.Text = row.IsAcct_BalanceNull() ? "" : String.Format("{0:0,0}", row.Acct_Balance); 
 
                     // Swipe
                     listBox1.Items.Clear();
@@ -102,20 +103,20 @@ namespace WindowsFormsApplication4
                 DateTime dateTimeBirth = DateTime.Now;
                 txtMaxBalance.Text = "0";
                 Decimal maxBalance=new decimal();
-                if (!DateTime.TryParse(txtDateOpenAccount.Text,out dateTimeOpenAccount))
+                if (!DateTime.TryParseExact(txtDateOpenAccount.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeOpenAccount))
                 {
                     Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
                     txtDateOpenAccount.Focus();
                     return;
                 }
-                if(!DateTime.TryParse(txtDateCloseAccount.Text,out dateTimeCloseAccount))
+                if (!DateTime.TryParseExact(txtDateCloseAccount.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeCloseAccount))
                 {
 
                     Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
                     txtDateCloseAccount.Focus();
                     return;
                 }
-                if(!DateTime.TryParse(txtDateBirth.Text,out dateTimeBirth))
+                if (!DateTime.TryParseExact(txtDateBirth.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeBirth))
                 {
                     
                     Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
@@ -131,11 +132,10 @@ namespace WindowsFormsApplication4
                 get_service.CreateCustomer(txtMaKH.Text, "", txtName.Text, txtNameCompany.Text, txtAddress.Text, "", "",
                                            "", "", txtTelephone.Text, txtMobilephone.Text,
                                            "", "", "", "", float.Parse(txtDiscountPercent.Text),
-                                           DateTime.Parse(txtDateOpenAccount.Text),
-                                           DateTime.Parse(txtDateCloseAccount.Text), (decimal?) 0,
+                                           dateTimeOpenAccount,dateTimeCloseAccount, (decimal?) 0,
                                            Decimal.Parse(txtMaxBalance.Text),
-                                           true, 0, true, null, true, "", "", txtEmail.Text, "VN", "", DateTime.Now, "", 
-                                           DateTime.Parse(txtDateBirth.Text), null, null, true, null, null, "", null, null, "", true,
+                                           true, 0, true, null, true, "", "", txtEmail.Text, "VN", "", DateTime.Now, "",
+                                           dateTimeBirth, null, null, true, null, null, "", null, null, "", true,
                                            null, null, "", txtAddress.Text, "", "", "", null, null, null);
 
                 updateCustSwipe(txtMaKH.Text);
@@ -181,9 +181,9 @@ namespace WindowsFormsApplication4
         {
             txtAddress.Text = "";
             txtDateBirth.Text = "";
-            txtDateCloseAccount.Text = DateTime.Now.ToShortDateString();
-            txtDateCustomer.Text = DateTime.Now.ToShortDateString();
-            txtDateOpenAccount.Text = DateTime.Now.ToShortDateString();
+            txtDateCloseAccount.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
+            txtDateCustomer.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
+            txtDateOpenAccount.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
             txtDiscountPercent.Text = "0";
             txtMaxBalance.Text = "";
             txtMaKH.Text = "";
@@ -262,20 +262,21 @@ namespace WindowsFormsApplication4
             DateTime dateTimeCloseAccount = DateTime.Now;
             DateTime dateTimeBirth = DateTime.Now;
             Decimal maxBalance = new decimal();
-            if (!DateTime.TryParse(txtDateOpenAccount.Text, out dateTimeOpenAccount))
+            if (!DateTime.TryParseExact(txtDateOpenAccount.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeOpenAccount))
             {
+           
                 Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
                 txtDateOpenAccount.Focus();
                 return;
             }
-            if (!DateTime.TryParse(txtDateCloseAccount.Text, out dateTimeCloseAccount))
+            if (!DateTime.TryParseExact(txtDateCloseAccount.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeCloseAccount))
             {
 
                 Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
                 txtDateCloseAccount.Focus();
                 return;
             }
-            if (!DateTime.TryParse(txtDateBirth.Text, out dateTimeBirth))
+            if (!DateTime.TryParseExact(txtDateBirth.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeBirth))
             {
 
                 Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
@@ -291,11 +292,11 @@ namespace WindowsFormsApplication4
             get_service.UpdateCustomer(txtMaKH.Text, "", txtName.Text, txtNameCompany.Text, txtAddress.Text, "", "",
                                            "", "", txtTelephone.Text, txtMobilephone.Text,
                                            "", "", "", "", float.Parse(txtDiscountPercent.Text),
-                                           DateTime.Parse(txtDateOpenAccount.Text),
-                                           DateTime.Parse(txtDateCloseAccount.Text), (decimal?)0,
+                                           dateTimeOpenAccount,
+                                           dateTimeCloseAccount, (decimal?)0,
                                            Decimal.Parse(txtMaxBalance.Text),
                                            true, 0, true, null, true, "", "", txtEmail.Text, "VN", "", DateTime.Now, "",
-                                           DateTime.Parse(txtDateBirth.Text), null, null, true, null, null, "", null, null, "", true,
+                                           dateTimeBirth, null, null, true, null, null, "", null, null, "", true,
                                            null, null, "", txtAddress.Text, "", "", "", null, null, null,m_oldCusNum);
 
             updateCustSwipe(txtMaKH.Text);
@@ -422,6 +423,15 @@ namespace WindowsFormsApplication4
                 var customerSwipe = (Persistence.CustomerSwipe) listBox1.SelectedItems[0];
                 customerSwipe.isDelete = true;
                 listBox1.Items.Remove(customerSwipe);
+            }
+        }
+
+        private void txtDateBirth_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmCanlendar frmCanlendar = new FrmCanlendar("Chọn ngày");
+            if(frmCanlendar.ShowDialog() == DialogResult.OK)
+            {
+                txtDateBirth.Text = String.Format("{0:d/M/yyyy}", frmCanlendar.monthCalendar1.SelectionStart);
             }
         }
 
