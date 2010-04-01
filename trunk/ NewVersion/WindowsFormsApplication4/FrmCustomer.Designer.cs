@@ -39,13 +39,20 @@
             this.txtDateBirth = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtDiscountPercent = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtNameCompany = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtDateCustomer = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtMobilephone = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtEmail = new WindowsFormsApplication4.Controls.CreTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtTelephone = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.txtAddress = new WindowsFormsApplication4.Controls.CreTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblNumberOfAdd = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -54,6 +61,7 @@
             this.txtDateCloseAccount = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDateOpenAccount = new System.Windows.Forms.TextBox();
+            this.txtMaxBalance = new WindowsFormsApplication4.Controls.CreTextBox();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
             this.btnNext = new WindowsFormsApplication4.Controls.button();
             this.btnSearch = new WindowsFormsApplication4.Controls.button();
@@ -62,19 +70,15 @@
             this.btnDeleteCustomer = new WindowsFormsApplication4.Controls.button();
             this.btnSaveCustomer = new WindowsFormsApplication4.Controls.button();
             this.btnAddCustomer = new WindowsFormsApplication4.Controls.button();
-            this.txtDiscountPercent = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtNameCompany = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtDateCustomer = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtMobilephone = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtEmail = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtTelephone = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtAddress = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtMaxBalance = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtName = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtMaKH = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbCustName = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -207,6 +211,14 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "Phần trăm khấu trừ";
             // 
+            // txtDiscountPercent
+            // 
+            this.txtDiscountPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiscountPercent.Location = new System.Drawing.Point(5, 242);
+            this.txtDiscountPercent.Name = "txtDiscountPercent";
+            this.txtDiscountPercent.Size = new System.Drawing.Size(141, 26);
+            this.txtDiscountPercent.TabIndex = 14;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -215,6 +227,14 @@
             this.label9.Size = new System.Drawing.Size(91, 20);
             this.label9.TabIndex = 13;
             this.label9.Text = "Tên công ty";
+            // 
+            // txtNameCompany
+            // 
+            this.txtNameCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameCompany.Location = new System.Drawing.Point(6, 166);
+            this.txtNameCompany.Name = "txtNameCompany";
+            this.txtNameCompany.Size = new System.Drawing.Size(268, 26);
+            this.txtNameCompany.TabIndex = 12;
             // 
             // label8
             // 
@@ -234,6 +254,23 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Số điện thoại di động";
             // 
+            // txtDateCustomer
+            // 
+            this.txtDateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateCustomer.Location = new System.Drawing.Point(501, 101);
+            this.txtDateCustomer.Name = "txtDateCustomer";
+            this.txtDateCustomer.ReadOnly = true;
+            this.txtDateCustomer.Size = new System.Drawing.Size(195, 26);
+            this.txtDateCustomer.TabIndex = 9;
+            // 
+            // txtMobilephone
+            // 
+            this.txtMobilephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobilephone.Location = new System.Drawing.Point(291, 101);
+            this.txtMobilephone.Name = "txtMobilephone";
+            this.txtMobilephone.Size = new System.Drawing.Size(195, 26);
+            this.txtMobilephone.TabIndex = 8;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -242,6 +279,14 @@
             this.label6.Size = new System.Drawing.Size(48, 20);
             this.label6.TabIndex = 7;
             this.label6.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(6, 101);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(268, 26);
+            this.txtEmail.TabIndex = 6;
             // 
             // label5
             // 
@@ -269,6 +314,23 @@
             this.label3.Size = new System.Drawing.Size(57, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Địa chỉ";
+            // 
+            // txtTelephone
+            // 
+            this.txtTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelephone.Location = new System.Drawing.Point(291, 40);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(195, 26);
+            this.txtTelephone.TabIndex = 1;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(6, 40);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(268, 26);
+            this.txtAddress.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -303,9 +365,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(500, 42);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 20);
+            this.label15.Size = new System.Drawing.Size(120, 20);
             this.label15.TabIndex = 6;
-            this.label15.Text = "Số dư";
+            this.label15.Text = "Số dư tài khoản";
             // 
             // label14
             // 
@@ -350,6 +412,13 @@
             this.txtDateOpenAccount.Name = "txtDateOpenAccount";
             this.txtDateOpenAccount.Size = new System.Drawing.Size(204, 26);
             this.txtDateOpenAccount.TabIndex = 0;
+            // 
+            // txtMaxBalance
+            // 
+            this.txtMaxBalance.Location = new System.Drawing.Point(242, 65);
+            this.txtMaxBalance.Name = "txtMaxBalance";
+            this.txtMaxBalance.Size = new System.Drawing.Size(190, 26);
+            this.txtMaxBalance.TabIndex = 4;
             // 
             // ckb_Sua
             // 
@@ -454,71 +523,6 @@
             this.btnAddCustomer.UseOwnColor = false;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
-            // txtDiscountPercent
-            // 
-            this.txtDiscountPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscountPercent.Location = new System.Drawing.Point(5, 242);
-            this.txtDiscountPercent.Name = "txtDiscountPercent";
-            this.txtDiscountPercent.Size = new System.Drawing.Size(141, 26);
-            this.txtDiscountPercent.TabIndex = 14;
-            // 
-            // txtNameCompany
-            // 
-            this.txtNameCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameCompany.Location = new System.Drawing.Point(6, 166);
-            this.txtNameCompany.Name = "txtNameCompany";
-            this.txtNameCompany.Size = new System.Drawing.Size(268, 26);
-            this.txtNameCompany.TabIndex = 12;
-            // 
-            // txtDateCustomer
-            // 
-            this.txtDateCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateCustomer.Location = new System.Drawing.Point(501, 101);
-            this.txtDateCustomer.Name = "txtDateCustomer";
-            this.txtDateCustomer.ReadOnly = true;
-            this.txtDateCustomer.Size = new System.Drawing.Size(195, 26);
-            this.txtDateCustomer.TabIndex = 9;
-            // 
-            // txtMobilephone
-            // 
-            this.txtMobilephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobilephone.Location = new System.Drawing.Point(291, 101);
-            this.txtMobilephone.Name = "txtMobilephone";
-            this.txtMobilephone.Size = new System.Drawing.Size(195, 26);
-            this.txtMobilephone.TabIndex = 8;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(6, 101);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(268, 26);
-            this.txtEmail.TabIndex = 6;
-            // 
-            // txtTelephone
-            // 
-            this.txtTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelephone.Location = new System.Drawing.Point(291, 40);
-            this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(195, 26);
-            this.txtTelephone.TabIndex = 1;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.White;
-            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(6, 40);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(268, 26);
-            this.txtAddress.TabIndex = 0;
-            // 
-            // txtMaxBalance
-            // 
-            this.txtMaxBalance.Location = new System.Drawing.Point(242, 65);
-            this.txtMaxBalance.Name = "txtMaxBalance";
-            this.txtMaxBalance.Size = new System.Drawing.Size(190, 26);
-            this.txtMaxBalance.TabIndex = 4;
-            // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -535,12 +539,43 @@
             this.txtMaKH.Size = new System.Drawing.Size(100, 29);
             this.txtMaKH.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.lbCustName);
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(748, 34);
+            this.panel1.TabIndex = 51;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(13, 4);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(217, 24);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Thông tin chung cho :";
+            // 
+            // lbCustName
+            // 
+            this.lbCustName.AutoSize = true;
+            this.lbCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCustName.Location = new System.Drawing.Point(226, 4);
+            this.lbCustName.Name = "lbCustName";
+            this.lbCustName.Size = new System.Drawing.Size(65, 24);
+            this.lbCustName.TabIndex = 1;
+            this.lbCustName.Text = "Name";
+            // 
             // FrmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 659);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ckb_Sua);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnSearch);
@@ -563,6 +598,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,5 +651,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbCustName;
+        private System.Windows.Forms.Label label17;
     }
 }

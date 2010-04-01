@@ -14,7 +14,7 @@ namespace WindowsFormsApplication4
     public partial class FrmSearchCustomer : Form
     {
         private DataTable View;
-        private int RowIndex;
+        public int RowIndex;
         private string[] ColumnName;
         //private string DeptDesc;
         private Services.get_GUI get_services = new get_GUI();
@@ -59,6 +59,14 @@ namespace WindowsFormsApplication4
             if(dataGridView1.SelectedRows.Count > 0)
             {
                 selectRow = dataGridView1.SelectedRows[0];
+                for (int i = 0; i < View.Rows.Count; i++)
+                {
+                    if (selectRow.Cells[0].Value.ToString() == View.Rows[i][0].ToString())
+                    {
+                        RowIndex = i;
+                        break;
+                    }
+                }
                 this.DialogResult = DialogResult.OK;
             }
             else
@@ -77,6 +85,14 @@ namespace WindowsFormsApplication4
                 {
                     dataGridView1.DataSource = dataTable;
                     selectRow = dataGridView1.Rows[0];
+                    for (int i = 0; i < View.Rows.Count; i++)
+                    {
+                        if(selectRow.Cells[0].Value.ToString() == View.Rows[i][0].ToString())
+                        {
+                            RowIndex = i;
+                            break;
+                        }
+                    }
                     this.DialogResult = DialogResult.OK;
                 }
                 else
@@ -109,6 +125,14 @@ namespace WindowsFormsApplication4
         private void button3_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = get_services.IndexSearchCust(textBox1.Text);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                dataGridView1.DataSource = get_services.IndexSearchCust(textBox1.Text);
+            }
         }
     }
 }

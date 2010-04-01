@@ -94,6 +94,7 @@
             this.textBox1.Size = new System.Drawing.Size(250, 31);
             this.textBox1.TabIndex = 4;
             this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // button3
             // 
