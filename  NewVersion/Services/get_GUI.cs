@@ -2190,6 +2190,23 @@ namespace Services
             cmd.Dispose();
         }
 
+        public DataTable IndexSearchCust(string key)
+        {
+            cmd = new SqlCommand();
+            string query = @"select * 
+                                from Customer
+                                where Last_Name like N'%" + key + "%' or CustNum like N'%" 
+                                + key + "%' or Address_1 like N'%" 
+                                + key + "%' or Address_2 like N'%" 
+                                + key + "%' or Phone_1 like N'%" 
+                                + key + "%' or Phone_2 like N'%" 
+                                + key + "%' or EMail like N'%" 
+                                + key + "%'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
         #endregion
 
     }
