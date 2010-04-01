@@ -453,6 +453,7 @@ namespace WindowsFormsApplication4
         {
             string[] column = { Employee_Prop.Cashier_ID, Employee_Prop.EmpName,Employee_Prop.Dept_ID,Employee_Prop.Address_1,Employee_Prop.Phone_1};
             FrmSearch search = new FrmSearch(Employees, column);
+            search.tableType = "Employee";
             search.passdata = new FrmSearch.PassData(changeState);
             search.ShowDialog();
         }

@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.btnSelect = new WindowsFormsApplication4.Controls.button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,16 +59,39 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(688, 386);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemChosed);
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RowClicked);
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.RowDoubleClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(1, 406);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(339, 38);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // button1
+            // 
+            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1, 450);
+            this.button1.Name = "button1";
+            this.button1.OwnDrawColor = System.Drawing.Color.White;
+            this.button1.Size = new System.Drawing.Size(144, 59);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Tìm";
+            this.button1.UseOwnColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(336, 393);
+            this.button2.Location = new System.Drawing.Point(545, 450);
             this.button2.Name = "button2";
             this.button2.OwnDrawColor = System.Drawing.Color.White;
             this.button2.Size = new System.Drawing.Size(144, 59);
@@ -79,7 +104,7 @@
             // 
             this.btnSelect.Color2 = System.Drawing.Color.Green;
             this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(186, 393);
+            this.btnSelect.Location = new System.Drawing.Point(395, 450);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.OwnDrawColor = System.Drawing.Color.White;
             this.btnSelect.Size = new System.Drawing.Size(144, 59);
@@ -92,7 +117,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 464);
+            this.ClientSize = new System.Drawing.Size(692, 532);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.dataGridView1);
@@ -105,6 +132,7 @@
             this.Load += new System.EventHandler(this.FrmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -113,5 +141,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private WindowsFormsApplication4.Controls.button btnSelect;
         private WindowsFormsApplication4.Controls.button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private WindowsFormsApplication4.Controls.button button1;
     }
 }

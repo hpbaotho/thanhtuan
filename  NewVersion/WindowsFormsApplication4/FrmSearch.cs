@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace WindowsFormsApplication4
         //private string DeptDesc;
         private Services.get_GUI get_services=new get_GUI();
         public DataGridViewRow selectRow;
+        public string tableType = "Inventory";
         public FrmSearch()
         {
             InitializeComponent();
@@ -53,7 +55,7 @@ namespace WindowsFormsApplication4
 
         private void RowClicked(object sender, DataGridViewCellEventArgs e)
         {
-            RowIndex = e.RowIndex;
+            //RowIndex = e.RowIndex;
             
         }
 
@@ -76,19 +78,28 @@ namespace WindowsFormsApplication4
         {
             //View=get_services.GetAllInventory(StaticClass.storeId);
             //RowIndex=dataGridView1.SelectedCells[0].
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            selectRow = dataGridView1.SelectedRows[0];
+            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            //{
+            //   if(dataGridView1.Rows[i].Selected)
+            //       RowIndex = i;
+            //}
+
+            for (int i = 0; i < View.Rows.Count; i++)
             {
-               if(dataGridView1.Rows[i].Selected)
-                   RowIndex = i;
+                if(selectRow.Cells[0].Value.ToString() == View.Rows[i][0].ToString())
+                {
+                    RowIndex = i;
+                    break;
+                }
             }
             
             if (passdata != null)
             {
-                
-                passdata((DataTable)dataGridView1.DataSource, RowIndex);
+                passdata(View, RowIndex);
             }
             //MessageBox.Show(e.RowIndex.ToString());
-            selectRow = dataGridView1.SelectedRows[0];
+            
             this.DialogResult = DialogResult.OK;
             //this.Dispose();
         }
@@ -97,6 +108,51 @@ namespace WindowsFormsApplication4
         {
             this.DialogResult = DialogResult.Cancel;
             this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(tableType == "Inventory")
+            {
+                dataGridView1.DataSource = get_services.IndexSearchInventory(textBox1.Text);
+            }
+            else if(tableType == "Employee")
+            {
+                dataGridView1.DataSource = get_services.IndexSearchEmp(textBox1.Text);
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (tableType == "Inventory")
+                {
+                    dataGridView1.DataSource = get_services.IndexSearchInventory(textBox1.Text);
+                }
+                else if (tableType == "Employee")
+                {
+                    dataGridView1.DataSource = get_services.IndexSearchEmp(textBox1.Text);
+                }
+            }
+        }
+
+        private void textBox1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                Process p = new Process();
+                //p.StartInfo.WorkingDirectory = @"C:\whatever";
+                p.StartInfo.FileName = Application.StartupPath + @"\FreeVK.exe";
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                textBox1.Focus();
+                //p.WaitForExit();
+            }
+            catch (Exception)
+            {
+                Alert.Show("Chương trình FreeVK.exe\n không tồn tại.", Color.Red);
+            }
         }
     }
 }

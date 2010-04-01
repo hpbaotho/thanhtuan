@@ -32,6 +32,7 @@ namespace WindowsFormsApplication4
             get_service = new get_GUI();
             serviceGet = new ServiceGet();
             Customers = get_service.GetAllCustomers();
+            txtMaxBalance.isKeyNumber = true;
         }
         private void FrmCustomer_Load(object sender, EventArgs e)
         {
@@ -61,7 +62,7 @@ namespace WindowsFormsApplication4
                     txtMaKH.Text = row.CustNum;
                     txtMaxBalance.Text = row.IsAcct_Max_BalanceNull() ? "" : String.Format("{0:0,0}", row.Acct_Max_Balance);
                     txtMobilephone.Text = row.IsPhone_1Null() ? "" : row.Phone_1;
-                    txtName.Text = row.Last_Name;
+                    lbCustName.Text = txtName.Text = row.Last_Name;
                     txtNameCompany.Text = row.IsCompanyNull() ? "" : row.Company;
                     txtTelephone.Text = row.IsPhone_2Null() ? "" : row.Phone_2;
                     lblNumberOfAdd.Text = row.IsAcct_BalanceNull() ? "" : String.Format("{0:0,0}", row.Acct_Balance); 
@@ -105,21 +106,21 @@ namespace WindowsFormsApplication4
                 Decimal maxBalance=new decimal();
                 if (!DateTime.TryParseExact(txtDateOpenAccount.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeOpenAccount))
                 {
-                    Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
+                    Alert.Show("Ngày mở tài khoản\n không đúng!", Color.Red);
                     txtDateOpenAccount.Focus();
                     return;
                 }
                 if (!DateTime.TryParseExact(txtDateCloseAccount.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeCloseAccount))
                 {
 
-                    Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
+                    Alert.Show("Ngày đóng tài khoản\n không đúng!", Color.Red);
                     txtDateCloseAccount.Focus();
                     return;
                 }
                 if (!DateTime.TryParseExact(txtDateBirth.Text, "d/M/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTimeBirth))
                 {
                     
-                    Alert.Show("Bạn nhập sai kiểu ngày!", Color.Red);
+                    Alert.Show("Ngày sinh không đúng", Color.Red);
                     txtDateBirth.Focus();
                     return;
                 }
@@ -370,6 +371,13 @@ namespace WindowsFormsApplication4
             //FrmSearch search = new FrmSearch(Customers, column);
             //search.passdata = new FrmSearch.PassData(changeState);
             //search.ShowDialog();
+            string[] column = { Const.Customer_Prop.CustNum, Const.Customer_Prop.Last_Name, Const.Customer_Prop.Address_1, Const.Customer_Prop.Phone_1, Const.Customer_Prop.Phone_2, Const.Customer_Prop.EMail };
+            FrmSearchCustomer frmSearchCustomer = new FrmSearchCustomer(Customers, column);
+            if (frmSearchCustomer.ShowDialog() == DialogResult.OK)
+            {
+                changeState(Customers,frmSearchCustomer.RowIndex);
+            }
+            frmSearchCustomer.Dispose();
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
