@@ -2190,24 +2190,58 @@ namespace Services
             cmd.Dispose();
         }
 
+        
+        #endregion
+
+        #region index Search
         public DataTable IndexSearchCust(string key)
         {
             cmd = new SqlCommand();
             string query = @"select * 
                                 from Customer
-                                where Last_Name like N'%" + key + "%' or CustNum like N'%" 
-                                + key + "%' or Address_1 like N'%" 
-                                + key + "%' or Address_2 like N'%" 
-                                + key + "%' or Phone_1 like N'%" 
-                                + key + "%' or Phone_2 like N'%" 
-                                + key + "%' or EMail like N'%" 
+                                where Last_Name like N'%" + key + "%' or CustNum like N'%"
+                                + key + "%' or Address_1 like N'%"
+                                + key + "%' or Address_2 like N'%"
+                                + key + "%' or Phone_1 like N'%"
+                                + key + "%' or Phone_2 like N'%"
+                                + key + "%' or EMail like N'%"
+                                + key + "%'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+        public DataTable IndexSearchInventory(string key)
+        {
+            cmd = new SqlCommand();
+            string query = @"select * 
+                                from Inventory
+                                where ItemNum like N'%" + key + "%' or ItemName like N'%"
                                 + key + "%'";
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
         }
 
+        public DataTable IndexSearchEmp(string key)
+        {
+            cmd = new SqlCommand();
+            string query = @"select * 
+                                from Employee
+                                where Cashier_ID like N'%" + key + "%' or EmpName like N'%"
+                                + key + "%' or First_Name like N'%"
+                                + key + "%' or Last_Name like N'%"
+                                + key + "%' or Address_1 like N'%"
+                                + key + "%' or Address_2 like N'%"
+                                + key + "%' or City like N'%"
+                                + key + "%' or Phone_1 like N'%"
+                                + key + "%' or EMail like N'%"
+                                + key + "%'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
         #endregion
+
 
     }
 }
