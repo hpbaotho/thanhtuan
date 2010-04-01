@@ -492,7 +492,7 @@ namespace WindowsFormsApplication4
 
         private void button50_Click(object sender, EventArgs e)
         {
-            string[] column = {Const.Customer_Prop.CustNum, Const.Customer_Prop.Last_Name,Const.Customer_Prop.Address_1};
+            string[] column = { Const.Customer_Prop.CustNum, Const.Customer_Prop.Last_Name, Const.Customer_Prop.Address_1, Const.Customer_Prop.Phone_1, Const.Customer_Prop.Phone_2, Const.Customer_Prop.EMail};
             Customer.CustomerDataTable customerDataTable = getGui.GetAllCustomers();
             FrmSearchCustomer frmSearchCustomer = new FrmSearchCustomer(customerDataTable,column);
             if(frmSearchCustomer.ShowDialog() == DialogResult.OK)
