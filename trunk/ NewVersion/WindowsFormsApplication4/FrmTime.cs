@@ -81,7 +81,11 @@ namespace WindowsFormsApplication4
         public passPa myPassPara;
         private void button29_Click(object sender, EventArgs e)
         {
-            myPassPara(hour, minute, second, mode);
+            if(myPassPara != null)
+            {
+                myPassPara(hour, minute, second, mode);
+            }
+            
             this.DialogResult = DialogResult.OK;
             this.Dispose();
             //button29.Text = "Chọn " + hour + minute +" "+ mode;

@@ -39,6 +39,8 @@
             this.button2 = new WindowsFormsApplication4.Controls.button();
             this.button1 = new WindowsFormsApplication4.Controls.button();
             this.creTextBox1 = new WindowsFormsApplication4.Controls.CreTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +91,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(13, 434);
+            this.textBox1.Location = new System.Drawing.Point(13, 464);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(250, 31);
             this.textBox1.TabIndex = 4;
@@ -100,7 +102,7 @@
             // 
             this.button3.Color2 = System.Drawing.Color.Blue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(269, 434);
+            this.button3.Location = new System.Drawing.Point(269, 464);
             this.button3.Name = "button3";
             this.button3.OwnDrawColor = System.Drawing.Color.White;
             this.button3.Size = new System.Drawing.Size(82, 31);
@@ -113,7 +115,7 @@
             // 
             this.button2.Color2 = System.Drawing.Color.Lime;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(638, 434);
+            this.button2.Location = new System.Drawing.Point(512, 434);
             this.button2.Name = "button2";
             this.button2.OwnDrawColor = System.Drawing.Color.White;
             this.button2.Size = new System.Drawing.Size(120, 61);
@@ -126,7 +128,7 @@
             // 
             this.button1.Color2 = System.Drawing.Color.Red;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(512, 434);
+            this.button1.Location = new System.Drawing.Point(638, 434);
             this.button1.Name = "button1";
             this.button1.OwnDrawColor = System.Drawing.Color.White;
             this.button1.Size = new System.Drawing.Size(120, 61);
@@ -138,12 +140,32 @@
             // creTextBox1
             // 
             this.creTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creTextBox1.Location = new System.Drawing.Point(13, 380);
+            this.creTextBox1.Location = new System.Drawing.Point(12, 409);
             this.creTextBox1.Name = "creTextBox1";
             this.creTextBox1.PasswordChar = '●';
             this.creTextBox1.Size = new System.Drawing.Size(250, 29);
             this.creTextBox1.TabIndex = 0;
             this.creTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.creTextBox1_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 386);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Tìm theo ID thẻ từ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 441);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(252, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Tìm theo thông tin khách hàng";
             // 
             // FrmSearchCustomer
             // 
@@ -151,6 +173,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 507);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
@@ -158,6 +182,7 @@
             this.Controls.Add(this.creTextBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmSearchCustomer";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm kiếm khách hàng";
             this.Load += new System.EventHandler(this.FrmSearchCustomer_Load);
@@ -175,5 +200,7 @@
         private WindowsFormsApplication4.Controls.button button2;
         private System.Windows.Forms.TextBox textBox1;
         private WindowsFormsApplication4.Controls.button button3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
