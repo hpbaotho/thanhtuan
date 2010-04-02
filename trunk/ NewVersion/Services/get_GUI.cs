@@ -748,7 +748,7 @@ namespace Services
             }
 
         }
-
+        #region DeleteInvoices
         public void ClearAllInvoice(string storeId)
         {
             cmd = new SqlCommand();
@@ -764,15 +764,53 @@ namespace Services
             FillDataset3(cmd, CommandType.Text, deleteSQL);
             cmd.Dispose();
         }
+
+
         public int OnholdNumber(string storeId)
         {
             cmd = new SqlCommand();
             string query = "Select count(*) from Invoice_OnHold where Store_ID ='"+ storeId+"'";
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
-            return Convert.ToInt32(re.Rows[0][0]); 
+            return Convert.ToInt32(re.Rows[0][0]);
         }
 
+        public DataTable GetInvoiceOnholdByTime(string storeId,DateTime startDate, DateTime endDate)
+        {
+            cmd = new SqlCommand();
+            string query = @"SELECT     dbo.Invoice_OnHold.*, dbo.Invoice_Totals.DateTime
+                             FROM         dbo.Invoice_OnHold INNER JOIN
+                                dbo.Invoice_Totals ON dbo.Invoice_OnHold.Store_ID = dbo.Invoice_Totals.Store_ID AND 
+                                dbo.Invoice_OnHold.Invoice_Number = dbo.Invoice_Totals.Invoice_Number "
+                                + " Where dbo.Invoice_Totals.DateTime between '" + startDate + "' and '" + endDate+ "'" ;
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public void ClearAllInvoiceByDate(string storeId,DateTime startDate, DateTime endDate)
+        {
+            cmd = new SqlCommand();
+            string deleteSQL;
+            //FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = @"delete FROM  dbo.Invoice_Totals_Notes 
+                        where dbo.Invoice_Totals_Notes.Invoice_Number in (SELECT     Invoice_Number
+													FROM         dbo.Invoice_Totals
+													WHERE Store_ID = '" + storeId+"' and  dbo.Invoice_Totals.DateTime between '" + startDate + "' and '" + endDate + "') and dbo.Invoice_Totals_Notes.Store_ID = '"
+                            + storeId + "' ";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = @"delete FROM  dbo.Invoice_Itemized 
+                        where dbo.Invoice_Itemized.Invoice_Number in (SELECT     Invoice_Number
+													FROM         dbo.Invoice_Totals
+													WHERE Store_ID = '" + storeId + "' and  dbo.Invoice_Totals.DateTime between '" + startDate + "' and '" + endDate + "') and dbo.Invoice_Itemized.Store_ID = '"
+                            + storeId + "' ";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = "Delete From Invoice_Totals where Store_ID ='" + storeId + "' and Invoice_Totals.DateTime between '" + startDate + "' and '" + endDate + "'";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
+            cmd.Dispose();
+        }
+
+        #endregion
         public void UpdateAdminPass(string StoreId,string NewPass)
         {
             cmd = new SqlCommand();
@@ -2241,7 +2279,7 @@ namespace Services
             return re;
         }
         #endregion
-
+        
 
     }
 }
