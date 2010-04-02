@@ -73,8 +73,8 @@
             this.txtName = new WindowsFormsApplication4.Controls.CreTextBox();
             this.txtMaKH = new WindowsFormsApplication4.Controls.CreTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
             this.lbCustName = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -549,16 +549,6 @@
             this.panel1.Size = new System.Drawing.Size(748, 34);
             this.panel1.TabIndex = 51;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(13, 4);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(217, 24);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Thông tin chung cho :";
-            // 
             // lbCustName
             // 
             this.lbCustName.AutoSize = true;
@@ -568,6 +558,16 @@
             this.lbCustName.Size = new System.Drawing.Size(65, 24);
             this.lbCustName.TabIndex = 1;
             this.lbCustName.Text = "Name";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(13, 4);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(217, 24);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Thông tin chung cho :";
             // 
             // FrmCustomer
             // 
@@ -590,6 +590,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtMaKH);
             this.Name = "FrmCustomer";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Khách hàng";
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
