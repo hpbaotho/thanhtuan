@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using WindowsFormsApplication4.Controls;
 using POSReport.Report;
 using WindowsFormsApplication4.Persistence;
+using WindowsFormsApplication4.Service;
 
 namespace WindowsFormsApplication4
 {
@@ -44,7 +45,7 @@ namespace WindowsFormsApplication4
 
         private void FrmManager_Load(object sender, EventArgs e)
         {
-            SelectChange("button1","panel1");
+            SelectChange("button3","panel3");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -168,8 +169,14 @@ namespace WindowsFormsApplication4
             {
                 return;
             }
-            rptOpenDrawer rptOpenDrawer = new rptOpenDrawer();
-            Utilities.Utils.Print(rptOpenDrawer,Printer.PrinterHoadon);
+            //rptOpenDrawer rptOpenDrawer = new rptOpenDrawer();
+            //Utilities.Utils.Print(rptOpenDrawer,Printer.PrinterHoadon);
+            Service.ServiceGet serviceGet = new ServiceGet();
+            Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, Printer.PrinterHoadon);
+            if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+            {
+                Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+            }
         }
 
         private void button48_Click(object sender, EventArgs e)

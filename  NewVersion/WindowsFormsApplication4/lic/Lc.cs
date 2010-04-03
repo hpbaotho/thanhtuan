@@ -43,12 +43,12 @@ namespace WindowsFormsApplication4.lic
             string aaa = x.Substring(5, 6);
             string a = Sc.FillCharacter(SystemInfo.RunQuery("Processor", "ProcessorId"), 3);
             string b = Sc.FillCharacter(SystemInfo.RunQuery("BaseBoard", "Product"), 3);
-            if (aaa != a + b)
-            {
-                Alert.Show("Mã đăng kí không đúng !", Color.Red);
-                version = Version.Demo;
-                return false;
-            }
+            //if (aaa != a + b)
+            //{
+            //    Alert.Show("Mã đăng kí không đúng !", Color.Red);
+            //    version = Version.Demo;
+            //    return false;
+            //}
             Radix.Decode(x.Substring(11, 6).TrimStart(trimChars), 0x24L, ref num3);
             long gUIDValue = GetGUIDValue(act.Replace("-", "").Replace(" ", "").ToUpper());
             if (num3 != gUIDValue)
