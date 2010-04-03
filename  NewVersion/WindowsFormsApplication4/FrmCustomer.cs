@@ -181,7 +181,7 @@ namespace WindowsFormsApplication4
         private void start_state()
         {
             txtAddress.Text = "";
-            txtDateBirth.Text = "";
+            txtDateBirth.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
             txtDateCloseAccount.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
             txtDateCustomer.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
             txtDateOpenAccount.Text = String.Format("{0:d/M/yyyy}", DateTime.Now);
