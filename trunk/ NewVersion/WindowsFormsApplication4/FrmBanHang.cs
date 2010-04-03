@@ -1104,6 +1104,7 @@ namespace WindowsFormsApplication4
                 {
                     Alert.Show("Lỗi máy in", Color.Red);
                 }
+                Service.CashdrawerService.OpenCashDrawer1(printer.Details);
                 xxx.Dispose();
             }
         }
