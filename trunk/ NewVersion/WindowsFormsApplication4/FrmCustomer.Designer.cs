@@ -500,6 +500,7 @@
             // btnSaveCustomer
             // 
             this.btnSaveCustomer.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnSaveCustomer.Enabled = false;
             this.btnSaveCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveCustomer.Location = new System.Drawing.Point(422, 576);
             this.btnSaveCustomer.Name = "btnSaveCustomer";
@@ -533,6 +534,7 @@
             // 
             // txtMaKH
             // 
+            this.txtMaKH.Enabled = false;
             this.txtMaKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKH.Location = new System.Drawing.Point(12, 71);
             this.txtMaKH.Name = "txtMaKH";
