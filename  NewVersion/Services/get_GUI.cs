@@ -88,6 +88,7 @@ namespace Services
             catch (Exception ex)
             {
                 Console.Write(ex.ToString());
+                return null;
             }
             return dataset;
         }
