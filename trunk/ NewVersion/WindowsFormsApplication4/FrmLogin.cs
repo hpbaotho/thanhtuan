@@ -684,20 +684,22 @@ namespace WindowsFormsApplication4
         {
             if (Alert.ShowClockInRequest())
             {
-                DateTime DateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+                //DateTime DateTime1 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
 
-                DateTime DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
-                POSReport.Report.rptDetailSaleReport_2 DetailSaleReport = new rptDetailSaleReport_2();
-                string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID", "Report Title", };
+                //DateTime DateTime2 = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
+                //POSReport.Report.rptDetailSaleReport_2 DetailSaleReport = new rptDetailSaleReport_2();
+                //string[] pa = { "@Store_ID", "@DateTime1", "@DateTime2", "@Status", "@Cashier_ID", "Report Title", };
 
-                object[] value = { StaticClass.storeId, DateTime1, DateTime2, "C", StaticClass.cashierId, "Báo cáo bán hàng chi tiết trong ngày" };
-                test.FillDataReport(DetailSaleReport, pa, value, true);
-                ReportClass reportClass = DetailSaleReport;
-                if (reportClass == null)
-                    return;
-                //FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
-                //frmViewReporting.Show();
-                Utilities.Utils.Print(reportClass,Printer.PrinterHoadon);
+                //object[] value = { StaticClass.storeId, DateTime1, DateTime2, "C", StaticClass.cashierId, "Báo cáo bán hàng chi tiết trong ngày" };
+                //test.FillDataReport(DetailSaleReport, pa, value, true);
+                //ReportClass reportClass = DetailSaleReport;
+                //if (reportClass == null)
+                //    return;
+                ////FrmViewReporting frmViewReporting = new FrmViewReporting(reportClass);
+                ////frmViewReporting.Show();
+                //Utilities.Utils.Print(reportClass,Printer.PrinterHoadon);
+                FrmPrintCashierReport frmPrintCashierReport = new FrmPrintCashierReport();
+                frmPrintCashierReport.ShowDialog();
 
             }
 
