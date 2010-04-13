@@ -315,6 +315,12 @@
     <Compile Include="FrmPOS.designer.cs">
       <DependentUpon>FrmPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrintCashierReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrintCashierReport.Designer.cs">
+      <DependentUpon>FrmPrintCashierReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrinterChoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -534,6 +540,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPOS.resx">
       <DependentUpon>FrmPOS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrintCashierReport.resx">
+      <DependentUpon>FrmPrintCashierReport.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrinterChoice.resx">
