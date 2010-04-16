@@ -95,6 +95,8 @@ namespace WindowsFormsApplication4
             cmbTSConfig.DataSource = viewOfPermission();
             cmbMoKetSat.DataSource = viewOfPermission();
             cmbCustEdit.DataSource = viewOfPermission();
+            cmb_TamTinh.DataSource = viewOfPermission();
+            cmb_ThanhToan.DataSource = viewOfPermission();
         }
         #endregion
 
@@ -169,12 +171,12 @@ namespace WindowsFormsApplication4
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbCustEdit, Employee_Prop.CFA_Cust_Edit), ComboBox2String(cmbXemBC, Employee_Prop.CFA_Reports_Display), Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,ComboBox2String(cmbKhauTru,Employee_Prop.CFA_Invoice_Discount),ComboBox2String(cmbDoiGia,Employee_Prop.CFA_Invoice_PriceChange),ComboBox2String(cmbXoaMA,Employee_Prop.CFA_Invoice_DeleteItems)
                                                ,ComboBox2String(cmbHuyHD,Employee_Prop.CFA_Invoice_Void),Employee_Prop.PROMPT,Employee_Prop.PROMPT,true,Employee_Prop.PROMPT,ComboBox2String(cmbTraLai,Employee_Prop.CFA_Refund_Item),true,true,txtEmpName.Text,Employee_Prop.PROMPT
-                                               ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,"01",ComboBox2String(cmbXemBK,Employee_Prop.CFA_Other_Tables),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,cbDisable.Checked,cbAdmin.Checked,Employee_Prop.PROMPT
+                                               , Employee_Prop.PROMPT, Employee_Prop.PROMPT, "01", ComboBox2String(cmbXemBK, Employee_Prop.CFA_Other_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, cbDisable.Checked, cbAdmin.Checked, ComboBox2String(cmb_TamTinh, Employee_Prop.CFA_PRINT_HOLD)
                                                ,ComboBox2String(cmbMoKetSat,Employee_Prop.CFA_Open_Cash_Drawer),cbTake.Checked,cbRequire.Checked,Employee_Prop.PROMPT,ComboBox2String(cmbChuyenB,Employee_Prop.CFA_Transfer_Tables),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,txtHo.Text,"",txtTen.Text,txtSSN.Text,txtAdress.Text,"",txtCity.Text,"","",txtSDT.Text,txtEmail.Text,DateTime.Now,"",Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,""
                                                ,"",Employee_Prop.PROMPT,Employee_Prop.PROMPT,"",Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,"",StaticClass.storeId,""
                                                ,Employee_Prop.PROMPT,Employee_Prop.PROMPT,0,0,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT
-                                               ,Employee_Prop.PROMPT,ComboBox2String(cmbDoiSL,Employee_Prop.CFA_ENDTRANS_CASH),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbTSConfig,Employee_Prop.CFA_TS_CONFIG),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,ComboBox2String(cmbGhiChu,Employee_Prop.CFA_SETUP_RECEIPT_NOTES),Employee_Prop.PROMPT
+                                               , Employee_Prop.PROMPT, ComboBox2String(cmbDoiSL, Employee_Prop.CFA_ENDTRANS_CASH), ComboBox2String(cmb_ThanhToan, Employee_Prop.CFA_ENDTRANS_ACCOUNT), Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbTSConfig, Employee_Prop.CFA_TS_CONFIG), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbGhiChu, Employee_Prop.CFA_SETUP_RECEIPT_NOTES), Employee_Prop.PROMPT
                                                ,Employee_Prop.PROMPT,ComboBox2String(cmbNV,Employee_Prop.CFA_SETUP_EDIT_EMPLOYEES),Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT,Employee_Prop.PROMPT);
 
                 Employees = get_service.GetAllEmployee(StaticClass.storeId);
@@ -200,12 +202,12 @@ namespace WindowsFormsApplication4
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbCustEdit, Employee_Prop.CFA_Cust_Edit), ComboBox2String(cmbXemBC, Employee_Prop.CFA_Reports_Display), Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, ComboBox2String(cmbKhauTru, Employee_Prop.CFA_Invoice_Discount), ComboBox2String(cmbDoiGia, Employee_Prop.CFA_Invoice_PriceChange), ComboBox2String(cmbXoaMA, Employee_Prop.CFA_Invoice_DeleteItems)
                                                , ComboBox2String(cmbHuyHD, Employee_Prop.CFA_Invoice_Void), Employee_Prop.PROMPT, Employee_Prop.PROMPT, true, Employee_Prop.PROMPT, ComboBox2String(cmbTraLai, Employee_Prop.CFA_Refund_Item), true, true, txtEmpName.Text, Employee_Prop.PROMPT
-                                               , Employee_Prop.PROMPT, Employee_Prop.PROMPT, "01", ComboBox2String(cmbXemBK, Employee_Prop.CFA_Other_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, cbDisable.Checked, cbAdmin.Checked, Employee_Prop.PROMPT
+                                               , Employee_Prop.PROMPT, Employee_Prop.PROMPT, "01", ComboBox2String(cmbXemBK, Employee_Prop.CFA_Other_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, cbDisable.Checked, cbAdmin.Checked, ComboBox2String(cmb_TamTinh, Employee_Prop.CFA_PRINT_HOLD)
                                                , ComboBox2String(cmbMoKetSat,Employee_Prop.CFA_Open_Cash_Drawer), cbTake.Checked, cbRequire.Checked, Employee_Prop.PROMPT, ComboBox2String(cmbChuyenB, Employee_Prop.CFA_Transfer_Tables), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, txtHo.Text, "", txtTen.Text, txtSSN.Text, txtAdress.Text, "", txtCity.Text, "", "", txtSDT.Text, txtEmail.Text, DateTime.Now, "", Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ""
                                                , "", Employee_Prop.PROMPT, Employee_Prop.PROMPT, "", Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, "", StaticClass.storeId, ""
                                                , Employee_Prop.PROMPT, Employee_Prop.PROMPT, 0, 0, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT
-                                               , Employee_Prop.PROMPT, ComboBox2String(cmbDoiSL, Employee_Prop.CFA_ENDTRANS_CASH), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbTSConfig, Employee_Prop.CFA_TS_CONFIG), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbGhiChu, Employee_Prop.CFA_SETUP_RECEIPT_NOTES), Employee_Prop.PROMPT
+                                               , Employee_Prop.PROMPT, ComboBox2String(cmbDoiSL, Employee_Prop.CFA_ENDTRANS_CASH), ComboBox2String(cmb_ThanhToan, Employee_Prop.CFA_ENDTRANS_ACCOUNT), Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbTSConfig, Employee_Prop.CFA_TS_CONFIG), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, ComboBox2String(cmbGhiChu, Employee_Prop.CFA_SETUP_RECEIPT_NOTES), Employee_Prop.PROMPT
                                                , Employee_Prop.PROMPT, ComboBox2String(cmbNV, Employee_Prop.CFA_SETUP_EDIT_EMPLOYEES), Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT, Employee_Prop.PROMPT);
             Employees = get_service.GetAllEmployee(StaticClass.storeId);
             ckb_Sua.Checked = false;
@@ -245,6 +247,8 @@ namespace WindowsFormsApplication4
             cmbTSConfig.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_TS_CONFIG].ToString()));
             cmbMoKetSat.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Open_Cash_Drawer].ToString()));
             cmbCustEdit.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_Cust_Edit].ToString()));
+            cmb_TamTinh.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_PRINT_HOLD].ToString()));
+            cmb_ThanhToan.SelectedIndex = Convert.ToInt32(string2intCombobox(table.Rows[rowIndex][Employee_Prop.CFA_ENDTRANS_ACCOUNT].ToString()));
 
             txtHo.Text = Convert.ToString(table.Rows[rowIndex][Employee_Prop.First_Name]);
             txtTen.Text = Convert.ToString(table.Rows[rowIndex][Employee_Prop.Last_Name]);
@@ -352,6 +356,9 @@ namespace WindowsFormsApplication4
             cmbXoaMA.SelectedIndex = 0;
             cmbTSConfig.SelectedIndex = 0;
             cmbMoKetSat.SelectedIndex = 0;
+            cmb_TamTinh.SelectedIndex = 0;
+            cmb_ThanhToan.SelectedIndex = 0;
+            cmbCustEdit.SelectedIndex = 0;
 
             cmbDept.SelectedIndex = 0;
             txtTen.Text = "";
@@ -456,6 +463,16 @@ namespace WindowsFormsApplication4
             search.tableType = "Employee";
             search.passdata = new FrmSearch.PassData(changeState);
             search.ShowDialog();
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

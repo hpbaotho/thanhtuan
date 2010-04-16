@@ -67,6 +67,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tbQuanLy = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cmbCustEdit = new System.Windows.Forms.ComboBox();
+            this.label34 = new System.Windows.Forms.Label();
             this.cmbNV = new System.Windows.Forms.ComboBox();
             this.cmbMH = new System.Windows.Forms.ComboBox();
             this.cmbKho = new System.Windows.Forms.ComboBox();
@@ -119,8 +121,10 @@
             this.button10 = new WindowsFormsApplication4.Controls.button();
             this.button9 = new WindowsFormsApplication4.Controls.button();
             this.button8 = new WindowsFormsApplication4.Controls.button();
-            this.cmbCustEdit = new System.Windows.Forms.ComboBox();
-            this.label34 = new System.Windows.Forms.Label();
+            this.cmb_TamTinh = new System.Windows.Forms.ComboBox();
+            this.lb_TamTinh = new System.Windows.Forms.Label();
+            this.cmb_ThanhToan = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -148,6 +152,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(808, 310);
             this.tabControl1.TabIndex = 42;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -194,6 +199,10 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.cmb_ThanhToan);
+            this.panel5.Controls.Add(this.label36);
+            this.panel5.Controls.Add(this.cmb_TamTinh);
+            this.panel5.Controls.Add(this.lb_TamTinh);
             this.panel5.Controls.Add(this.cmbMoKetSat);
             this.panel5.Controls.Add(this.label33);
             this.panel5.Controls.Add(this.cmbXemBC);
@@ -218,11 +227,12 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(780, 208);
             this.panel5.TabIndex = 0;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // cmbMoKetSat
             // 
             this.cmbMoKetSat.FormattingEnabled = true;
-            this.cmbMoKetSat.Location = new System.Drawing.Point(452, 158);
+            this.cmbMoKetSat.Location = new System.Drawing.Point(378, 159);
             this.cmbMoKetSat.Name = "cmbMoKetSat";
             this.cmbMoKetSat.Size = new System.Drawing.Size(149, 28);
             this.cmbMoKetSat.TabIndex = 82;
@@ -231,7 +241,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(290, 158);
+            this.label33.Location = new System.Drawing.Point(261, 161);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(83, 20);
             this.label33.TabIndex = 81;
@@ -240,7 +250,7 @@
             // cmbXemBC
             // 
             this.cmbXemBC.FormattingEnabled = true;
-            this.cmbXemBC.Location = new System.Drawing.Point(452, 118);
+            this.cmbXemBC.Location = new System.Drawing.Point(378, 119);
             this.cmbXemBC.Name = "cmbXemBC";
             this.cmbXemBC.Size = new System.Drawing.Size(149, 28);
             this.cmbXemBC.TabIndex = 80;
@@ -248,7 +258,7 @@
             // cmbChuyenB
             // 
             this.cmbChuyenB.FormattingEnabled = true;
-            this.cmbChuyenB.Location = new System.Drawing.Point(452, 80);
+            this.cmbChuyenB.Location = new System.Drawing.Point(378, 81);
             this.cmbChuyenB.Name = "cmbChuyenB";
             this.cmbChuyenB.Size = new System.Drawing.Size(149, 28);
             this.cmbChuyenB.TabIndex = 79;
@@ -256,7 +266,7 @@
             // cmbXemBK
             // 
             this.cmbXemBK.FormattingEnabled = true;
-            this.cmbXemBK.Location = new System.Drawing.Point(454, 40);
+            this.cmbXemBK.Location = new System.Drawing.Point(380, 41);
             this.cmbXemBK.Name = "cmbXemBK";
             this.cmbXemBK.Size = new System.Drawing.Size(149, 28);
             this.cmbXemBK.TabIndex = 78;
@@ -264,7 +274,7 @@
             // cmbTraLai
             // 
             this.cmbTraLai.FormattingEnabled = true;
-            this.cmbTraLai.Location = new System.Drawing.Point(454, 2);
+            this.cmbTraLai.Location = new System.Drawing.Point(380, 3);
             this.cmbTraLai.Name = "cmbTraLai";
             this.cmbTraLai.Size = new System.Drawing.Size(149, 28);
             this.cmbTraLai.TabIndex = 77;
@@ -273,7 +283,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(290, 118);
+            this.label16.Location = new System.Drawing.Point(261, 121);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 20);
             this.label16.TabIndex = 76;
@@ -283,17 +293,17 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(290, 80);
+            this.label15.Location = new System.Drawing.Point(261, 68);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(156, 20);
+            this.label15.Size = new System.Drawing.Size(94, 40);
             this.label15.TabIndex = 75;
-            this.label15.Text = "Chuyển bàn/gộp bàn";
+            this.label15.Text = "Chuyển bàn\r\n/gộp bàn";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(290, 43);
+            this.label14.Location = new System.Drawing.Point(261, 40);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(111, 20);
             this.label14.TabIndex = 74;
@@ -303,7 +313,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(290, 10);
+            this.label13.Location = new System.Drawing.Point(261, 10);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 20);
             this.label13.TabIndex = 73;
@@ -532,6 +542,24 @@
             this.panel3.Size = new System.Drawing.Size(789, 211);
             this.panel3.TabIndex = 0;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // cmbCustEdit
+            // 
+            this.cmbCustEdit.FormattingEnabled = true;
+            this.cmbCustEdit.Location = new System.Drawing.Point(154, 123);
+            this.cmbCustEdit.Name = "cmbCustEdit";
+            this.cmbCustEdit.Size = new System.Drawing.Size(149, 28);
+            this.cmbCustEdit.TabIndex = 71;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(44, 130);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(94, 20);
+            this.label34.TabIndex = 70;
+            this.label34.Text = "Khách hàng";
             // 
             // cmbNV
             // 
@@ -1089,23 +1117,41 @@
             this.button8.UseOwnColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // cmbCustEdit
+            // cmb_TamTinh
             // 
-            this.cmbCustEdit.FormattingEnabled = true;
-            this.cmbCustEdit.Location = new System.Drawing.Point(154, 123);
-            this.cmbCustEdit.Name = "cmbCustEdit";
-            this.cmbCustEdit.Size = new System.Drawing.Size(149, 28);
-            this.cmbCustEdit.TabIndex = 71;
+            this.cmb_TamTinh.FormattingEnabled = true;
+            this.cmb_TamTinh.Location = new System.Drawing.Point(628, 2);
+            this.cmb_TamTinh.Name = "cmb_TamTinh";
+            this.cmb_TamTinh.Size = new System.Drawing.Size(149, 28);
+            this.cmb_TamTinh.TabIndex = 84;
             // 
-            // label34
+            // lb_TamTinh
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(44, 130);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(94, 20);
-            this.label34.TabIndex = 70;
-            this.label34.Text = "Khách hàng";
+            this.lb_TamTinh.AutoSize = true;
+            this.lb_TamTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TamTinh.Location = new System.Drawing.Point(539, 7);
+            this.lb_TamTinh.Name = "lb_TamTinh";
+            this.lb_TamTinh.Size = new System.Drawing.Size(70, 20);
+            this.lb_TamTinh.TabIndex = 83;
+            this.lb_TamTinh.Text = "Tạm tính";
+            // 
+            // cmb_ThanhToan
+            // 
+            this.cmb_ThanhToan.FormattingEnabled = true;
+            this.cmb_ThanhToan.Location = new System.Drawing.Point(628, 40);
+            this.cmb_ThanhToan.Name = "cmb_ThanhToan";
+            this.cmb_ThanhToan.Size = new System.Drawing.Size(149, 28);
+            this.cmb_ThanhToan.TabIndex = 86;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(539, 45);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(90, 20);
+            this.label36.TabIndex = 85;
+            this.label36.Text = "Thanh toán";
             // 
             // FrmEmployee
             // 
@@ -1264,5 +1310,9 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox cmbCustEdit;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.ComboBox cmb_ThanhToan;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ComboBox cmb_TamTinh;
+        private System.Windows.Forms.Label lb_TamTinh;
     }
 }

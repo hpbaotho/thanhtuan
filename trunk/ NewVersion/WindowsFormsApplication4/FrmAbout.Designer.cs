@@ -102,7 +102,7 @@
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(427, 17);
             this.labelVersion.TabIndex = 0;
-            this.labelVersion.Text = "Phiên bản : 1.0";
+            this.labelVersion.Text = "Phiên bản : 1.21";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright
@@ -115,7 +115,7 @@
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(427, 17);
             this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = "Công ty : POS Miền Nam ";
+            this.labelCopyright.Text = "Công ty TNHH Trần Thanh Vinh";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCompanyName
