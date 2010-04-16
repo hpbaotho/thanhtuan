@@ -719,6 +719,10 @@ namespace WindowsFormsApplication4
 
         private void button51_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_PRINT_HOLD))
+            {
+                return;
+            }
             getGui.DeleteInvoiceItemized(StaticClass.storeId, this.invoiceNum);
             if (myCash1.listInvoiceItem.Rows.Count == 0)
             {
@@ -939,7 +943,10 @@ namespace WindowsFormsApplication4
 
         private void button54_Click(object sender, EventArgs e)
         {
-            
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_ENDTRANS_ACCOUNT))
+            {
+                return;
+            }
             if(myCash1.listInvoiceItem.Rows.Count != 0)
             {
                 FrmPay frmPay = new FrmPay();
