@@ -421,7 +421,7 @@ namespace Services
             cmd = new SqlCommand();
             string[] pa = { "@Dept_ID", "@Store_ID" };
             string[] value = { Dept_ID, Store_ID };
-            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllDepartmentsByCatId");
+            DataTable re = FillDataset(cmd, CommandType.StoredProcedure, pa, value, "sp_T_GetAllDepartmentsByDeptId");
             cmd.Dispose();
             return re;
         }
@@ -2249,13 +2249,25 @@ namespace Services
             cmd.Dispose();
             return re;
         }
-        public DataTable IndexSearchInventory(string key)
+        public DataTable IndexSearchInventory(string key,string storeId)
         {
             cmd = new SqlCommand();
             string query = @"select * 
                                 from Inventory
-                                where ItemNum like N'%" + key + "%' or ItemName like N'%"
-                                + key + "%'";
+                                where (ItemNum like N'%" + key + "%' or ItemName like N'%"
+                                + key + "%' or Dept_ID like N'%" + key + "%') and Store_ID = '"+storeId+"'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public DataTable IndexSearchDepartment(string key,string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"select * 
+                                from Departments
+                                where (Dept_ID like N'%" + key + "%' or Description like N'%"
+                                + key + "%') and Store_ID = '" + storeId + "'";
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
