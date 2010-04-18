@@ -45,12 +45,32 @@ namespace WindowsFormsApplication4
         public PassData passdata;
         private void ItemChosed(object sender, DataGridViewCellEventArgs e)
         {
-            if (passdata!=null)
+            //View=get_services.GetAllInventory(StaticClass.storeId);
+            //RowIndex=dataGridView1.SelectedCells[0].
+            selectRow = dataGridView1.SelectedRows[0];
+            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            //{
+            //   if(dataGridView1.Rows[i].Selected)
+            //       RowIndex = i;
+            //}
+
+            for (int i = 0; i < View.Rows.Count; i++)
             {
-                passdata(View,e.RowIndex);
+                if (selectRow.Cells[0].Value.ToString() == View.Rows[i][0].ToString())
+                {
+                    RowIndex = i;
+                    break;
+                }
+            }
+
+            if (passdata != null)
+            {
+                passdata(View, RowIndex);
             }
             //MessageBox.Show(e.RowIndex.ToString());
-            this.Dispose();
+
+            this.DialogResult = DialogResult.OK;
+            //this.Dispose();
         }
 
         private void RowClicked(object sender, DataGridViewCellEventArgs e)
@@ -114,11 +134,15 @@ namespace WindowsFormsApplication4
         {
             if(tableType == "Inventory")
             {
-                dataGridView1.DataSource = get_services.IndexSearchInventory(textBox1.Text);
+                dataGridView1.DataSource = get_services.IndexSearchInventory(textBox1.Text,StaticClass.storeId);
             }
             else if(tableType == "Employee")
             {
                 dataGridView1.DataSource = get_services.IndexSearchEmp(textBox1.Text);
+            }
+            else if(tableType == "Department")
+            {
+                dataGridView1.DataSource = get_services.IndexSearchDepartment(textBox1.Text,StaticClass.storeId);
             }
         }
 
@@ -128,11 +152,15 @@ namespace WindowsFormsApplication4
             {
                 if (tableType == "Inventory")
                 {
-                    dataGridView1.DataSource = get_services.IndexSearchInventory(textBox1.Text);
+                    dataGridView1.DataSource = get_services.IndexSearchInventory(textBox1.Text,StaticClass.storeId);
                 }
                 else if (tableType == "Employee")
                 {
                     dataGridView1.DataSource = get_services.IndexSearchEmp(textBox1.Text);
+                }
+                else if (tableType == "Department")
+                {
+                    dataGridView1.DataSource = get_services.IndexSearchDepartment(textBox1.Text,StaticClass.storeId);
                 }
             }
         }

@@ -191,9 +191,10 @@ namespace WindowsFormsApplication4
                 //cmbCate.SelectedIndex = 0;
                 DataRowView item = (DataRowView) cmbCate.SelectedItem;
                 DataTable tmp = get_service.GetAllDepartmentsByDeptId(txtDeptID.Text, StaticClass.storeId);
-                if(tmp.Rows.Count>0)
+                DataTable tmp1 = get_service.GetInventoryByItemNum(StaticClass.storeId, txtDeptID.Text);
+                if(tmp.Rows.Count>0 || tmp1.Rows.Count > 0)
                 {
-                    Alert.Show("Mã đã có rùi",Color.Red);
+                    Alert.Show("Mã đã tồn tại",Color.Red);
                     return;
                 }
                 int function = 0;
@@ -335,6 +336,18 @@ namespace WindowsFormsApplication4
                 Alert.Show("Bạn không được sửa mặt hàng này",Color.Red);
                 return;
             }
+            if (OldDept_ID != txtDeptID.Text)
+            {
+                DataTable tmp = get_service.GetAllDepartmentsByDeptId(txtDeptID.Text, StaticClass.storeId);
+                DataTable tmp1 = get_service.GetInventoryByItemNum(StaticClass.storeId, txtDeptID.Text);
+                if (tmp.Rows.Count > 0 || tmp1.Rows.Count > 0 )
+                {
+                    Alert.Show("Mã đã tồn tại", Color.Red);
+                    txtDeptID.Text = OldDept_ID;
+                    return;
+                }
+            }
+
             DataRowView item = (DataRowView)cmbCate.SelectedItem;
             get_service.UpdateDepartment(OldDept_ID,txtDeptID.Text, StaticClass.storeId, item.Row[0].ToString(),
                                              txtDeptDesc.Text, getType(), checkBox1.Checked, textBox1.Text,
@@ -357,6 +370,7 @@ namespace WindowsFormsApplication4
         {
             string[] column = {Const.Department.Dept_ID, Const.Department.Description};
             FrmSearch search = new FrmSearch(departs, column);
+            search.tableType = "Department";
             search.passdata = new FrmSearch.PassData(changeState);
             search.ShowDialog();
 
