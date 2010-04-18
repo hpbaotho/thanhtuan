@@ -264,8 +264,9 @@ namespace WindowsFormsApplication4
                 }
                 //cmbCate.SelectedIndex = 0;
                 DataRowView item = (DataRowView)cmbDept.SelectedItem;
+                DataTable tmp1 = get_service.GetAllDepartmentsByDeptId(txtInvenId.Text, StaticClass.storeId);
                 DataTable tmp = get_service.GetInventoryByItemNum(StaticClass.storeId, txtInvenId.Text);
-                if (tmp.Rows.Count > 0)
+                if (tmp.Rows.Count > 0 || tmp1.Rows.Count > 0)
                 {
                     Alert.Show("Mã này đã tồn tại",Color.Red);
                     return;
@@ -430,6 +431,17 @@ namespace WindowsFormsApplication4
             {
                 Alert.Show("Bạn không được sửa mặt hàng này",Color.Red);
                 return;
+            }
+            if(OldInvent_ID != txtInvenId.Text)
+            {
+                DataTable tmp1 = get_service.GetAllDepartmentsByDeptId(txtInvenId.Text, StaticClass.storeId);
+                DataTable tmp = get_service.GetInventoryByItemNum(StaticClass.storeId, txtInvenId.Text);
+                if (tmp.Rows.Count > 0 || tmp1.Rows.Count > 0)
+                {
+                    Alert.Show("Mã này đã tồn tại", Color.Red);
+                    txtInvenId.Text = OldInvent_ID;
+                    return;
+                }
             }
             DataRowView item = (DataRowView)cmbDept.SelectedItem;
             get_service.UpdateInventory(OldInvent_ID, txtInvenId.Text, txtInventDesc.Text, StaticClass.storeId, (txtGia.Text),

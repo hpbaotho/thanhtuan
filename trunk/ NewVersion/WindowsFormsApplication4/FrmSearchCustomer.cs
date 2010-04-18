@@ -134,5 +134,26 @@ namespace WindowsFormsApplication4
                 dataGridView1.DataSource = get_services.IndexSearchCust(textBox1.Text);
             }
         }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                selectRow = dataGridView1.SelectedRows[0];
+                for (int i = 0; i < View.Rows.Count; i++)
+                {
+                    if (selectRow.Cells[0].Value.ToString() == View.Rows[i][0].ToString())
+                    {
+                        RowIndex = i;
+                        break;
+                    }
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                Alert.Show("Chưa chọn khách hàng !", Color.Red);
+            }
+        }
     }
 }
