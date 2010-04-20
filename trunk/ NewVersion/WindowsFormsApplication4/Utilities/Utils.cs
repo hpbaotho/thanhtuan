@@ -89,6 +89,13 @@ namespace WindowsFormsApplication4.Utilities
             if (!File.Exists("logfile.txt"))
             {
                 log = new StreamWriter("logfile.txt");
+                if ((File.GetAttributes("logfile.txt") & FileAttributes.Hidden) != FileAttributes.Hidden)
+                {
+                    // Show the file.
+                    File.SetAttributes("logfile.txt", FileAttributes.Hidden);
+                    //Console.WriteLine("The {0} file is no longer hidden.", path);
+
+                }
             }
             else
             {
