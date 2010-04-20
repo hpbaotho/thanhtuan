@@ -171,6 +171,7 @@ namespace WindowsFormsApplication4
                         LoginThread = new Thread(BeginLogin);
                         LoginThread.Start(tmp);
                         StaticClass.taxRate = getGui.GetTaxRate(StaticClass.storeId).Rows[0];
+                        Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t Dang nhap");
                         layout = new FrmLayout(tmp);
                         layout.formLogin = this;
                         layout.ShowDialog();
@@ -532,6 +533,7 @@ namespace WindowsFormsApplication4
                 LoginThread =new Thread(BeginLogin);
                 LoginThread.Start(tmp);
                 StaticClass.taxRate = getGui.GetTaxRate(StaticClass.storeId).Rows[0];
+                Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t Dang nhap");
                 layout = new FrmLayout(tmp);
                 layout.formLogin = this;
                 layout.ShowDialog();

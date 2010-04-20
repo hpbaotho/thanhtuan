@@ -15,6 +15,7 @@ namespace WindowsFormsApplication4
         public decimal tienThoi;
         public string hinhThucTra;
         private decimal de;
+        public string invoiceNum;
 
         public FrmPay()
         {
@@ -39,6 +40,7 @@ namespace WindowsFormsApplication4
                     tienTra = Convert.ToDecimal(textBox1.Text);
                     tienThoi = Convert.ToDecimal(textBox1.Text) - Convert.ToDecimal(textBox2.Text);
                     hinhThucTra = "CA";
+                    Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t ThanhToan   " + this.invoiceNum + "\t" + hinhThucTra + "    " + textBox2.Text);
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -169,6 +171,7 @@ namespace WindowsFormsApplication4
                     tienTra = Convert.ToDecimal(textBox1.Text);
                     tienThoi = Convert.ToDecimal(textBox1.Text) - Convert.ToDecimal(textBox2.Text);
                     hinhThucTra = "CA";
+                    Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t ThanhToan   " + this.invoiceNum + "\t" + hinhThucTra + "    " + textBox2.Text);
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -207,6 +210,7 @@ namespace WindowsFormsApplication4
                     tienTra = Convert.ToDecimal(textBox1.Text);
                     tienThoi = Convert.ToDecimal(textBox1.Text) - Convert.ToDecimal(textBox2.Text);
                     hinhThucTra = "CC";
+                    Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t ThanhToan   " + this.invoiceNum + "\t" + hinhThucTra + "    " + textBox2.Text);
                     this.DialogResult = DialogResult.OK;
                 }
             }
