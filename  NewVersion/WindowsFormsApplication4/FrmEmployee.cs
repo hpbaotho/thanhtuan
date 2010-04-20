@@ -397,6 +397,11 @@ namespace WindowsFormsApplication4
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if(StaticClass.cashierId == txtEmpID.Text)
+            {
+                Alert.Show("Bạn đang đăng nhập\n vào tài khoản này !",Color.Red);
+                return;
+            }
             DataTable ExistEmployee = get_service.GetEmployeeInInvoiceTotal(txtEmpID.Text);
             if (ExistEmployee.Rows.Count > 0)
             {
