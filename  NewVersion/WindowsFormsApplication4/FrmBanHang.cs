@@ -754,7 +754,7 @@ namespace WindowsFormsApplication4
             //    printReceiptThread.Start();
             //}
             PrintTamtinh();
-            
+            Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t Tam tinh   " + this.invoiceNum + "\t" + myCash1.label_Total.Text);
             this.Dispose();
             
         }
@@ -951,6 +951,7 @@ namespace WindowsFormsApplication4
             {
                 FrmPay frmPay = new FrmPay();
                 frmPay.textBox1.Text = frmPay.textBox2.Text = String.Format("{0:0,0}", Convert.ToDecimal(myCash1.label_Total.Text));
+                frmPay.invoiceNum = invoiceNum;
                 if(frmPay.ShowDialog() == DialogResult.OK)
                 {
                     myCash1.invoiceTotal.Rows[0]["Amt_Tendered"] = frmPay.tienTra;

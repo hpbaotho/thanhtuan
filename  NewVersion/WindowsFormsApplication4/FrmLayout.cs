@@ -202,6 +202,7 @@ namespace WindowsFormsApplication4
             {
                 formLogin.DisposeLogin();
                 formLogin.FrmLogin_Load(null,null);
+                Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t Dang xuat");
 
             }
             //formLogin.Dispose();
