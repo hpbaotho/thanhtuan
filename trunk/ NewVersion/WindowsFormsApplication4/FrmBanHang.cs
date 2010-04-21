@@ -519,11 +519,15 @@ namespace WindowsFormsApplication4
                     return;
                 }
             }
+            
             int i = 0;
             foreach (MyItem item in myCash1.get_RowSelected())
             {
+                Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Xoa mat hang   " + invoiceNum+ "    " + myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["ItemNum"].ToString() + "   " +
+                    myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["Quantity"].ToString() + "   " + myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["PricePer"].ToString());
                 myCash1.listInvoiceItem.Rows.RemoveAt(item.Id - 1 - i);
                 i++;
+                
             }
             myCash1.delete_RowSelected();
             changeLayout(false,null);
@@ -688,6 +692,11 @@ namespace WindowsFormsApplication4
                     {
                         Decimal disc = Convert.ToDecimal(kb.value)/100;
                         myCash1.listInvoiceItem.Rows[item.Id - 1][12] = disc;
+                        Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "khau tru mat hang   " + invoiceNum + "    " +
+                            myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString() + "   " +
+                             myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"].ToString() + "   " + 
+                             myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"].ToString() + "   " +
+                             myCash1.listInvoiceItem.Rows[item.Id - 1]["LineDisc"].ToString());
                     }
                     UpdateItemSelect();
                 }
@@ -712,6 +721,8 @@ namespace WindowsFormsApplication4
                 myCash1.invoiceTotal.Rows[0][15] = "V";
                 UpdateInvoiceTotals();
                 getGui.CloseTable(StaticClass.storeId, invoiceNum);
+                Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Huy hoa don   " + invoiceNum + "    " +
+                            myCash1.invoiceTotal.Rows[0]["Grand_Total"].ToString());
                 this.Dispose();
                 formLayout.FrmLayout_Load(null, null);
             }
@@ -935,6 +946,8 @@ namespace WindowsFormsApplication4
                 if (frmKeyBoard.ShowDialog() == DialogResult.OK)
                 {
                     myCash1.invoiceTotal.Rows[0]["Discount"] = Convert.ToDecimal(frmKeyBoard.value) / 100;
+                    Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Khau tru hoa don   " + invoiceNum + "    " +
+                            myCash1.invoiceTotal.Rows[0]["Discount"].ToString());
                     UpdateInfo();
                 }
             }
@@ -1135,6 +1148,11 @@ namespace WindowsFormsApplication4
 
                     foreach (MyItem item in myCash1.get_RowSelected())
                     {
+                        Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Doi gia mat hang    " + invoiceNum + "    " +
+                            myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString() + "   " +
+                             myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"].ToString() + "   " +
+                             myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"].ToString() + "   " +
+                             kb.value);
                         myCash1.listInvoiceItem.Rows[item.Id - 1]["origPricePer"] = kb.value;
                     }
                     UpdateItemSelect();
