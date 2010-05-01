@@ -543,7 +543,7 @@ namespace WindowsFormsApplication4
             foreach (MyItem item in myCash1.get_RowSelected())
             {
                 Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Xoa mat hang   " + invoiceNum+ "    " + myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["ItemNum"].ToString() + "   " +
-                    myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["Quantity"].ToString() + "   " + myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["PricePer"].ToString());
+                    myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["Quantity"].ToString() + "   " + String.Format("{0:0,0}", myCash1.listInvoiceItem.Rows[item.Id - 1 - i]["PricePer"]));
                 myCash1.listInvoiceItem.Rows.RemoveAt(item.Id - 1 - i);
                 i++;
                 
@@ -687,6 +687,11 @@ namespace WindowsFormsApplication4
                 {
                     foreach (MyItem item in myCash1.get_RowSelected())
                     {
+                        if(item.Mota.StartsWith(">"))
+                        {
+                            Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Doi so luong   " + invoiceNum + "    " + myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString() + "   " +
+                            myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"].ToString() + "   " + kb.value+ "         " + String.Format("{0:0,0}", myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"]));          
+                        }
                         string itemNum = myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString();
                         float Quan = Convert.ToSingle(myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"]);
                         if (CheckInStock(StaticClass.storeId, itemNum, 0, Convert.ToSingle(kb.value)))
@@ -713,8 +718,8 @@ namespace WindowsFormsApplication4
                         myCash1.listInvoiceItem.Rows[item.Id - 1][12] = disc;
                         Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "khau tru mat hang   " + invoiceNum + "    " +
                             myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString() + "   " +
-                             myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"].ToString() + "   " + 
-                             myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"].ToString() + "   " +
+                             myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"].ToString() + "   " +
+                             String.Format("{0:0,0}", myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"]) + "   " +
                              myCash1.listInvoiceItem.Rows[item.Id - 1]["LineDisc"].ToString());
                     }
                     UpdateItemSelect();
@@ -1170,7 +1175,7 @@ namespace WindowsFormsApplication4
                         Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Doi gia mat hang    " + invoiceNum + "    " +
                             myCash1.listInvoiceItem.Rows[item.Id - 1]["ItemNum"].ToString() + "   " +
                              myCash1.listInvoiceItem.Rows[item.Id - 1]["Quantity"].ToString() + "   " +
-                             myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"].ToString() + "   " +
+                             String.Format("{0:0,0}", myCash1.listInvoiceItem.Rows[item.Id - 1]["PricePer"]) + "   " +
                              kb.value);
                         myCash1.listInvoiceItem.Rows[item.Id - 1]["origPricePer"] = kb.value;
                     }

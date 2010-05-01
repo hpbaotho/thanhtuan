@@ -801,7 +801,7 @@
             this.panel7.Controls.Add(this.button69);
             this.panel7.Controls.Add(this.button68);
             this.panel7.Controls.Add(this.txtSoLuong);
-            this.panel7.Location = new System.Drawing.Point(331, 621);
+            this.panel7.Location = new System.Drawing.Point(12, 621);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(339, 135);
             this.panel7.TabIndex = 7;
@@ -1115,7 +1115,7 @@
             this.button53.OwnDrawColor = System.Drawing.Color.White;
             this.button53.Size = new System.Drawing.Size(104, 68);
             this.button53.TabIndex = 11;
-            this.button53.Text = "Gửi";
+            this.button53.Text = "Đóng bàn";
             this.button53.UseOwnColor = false;
             this.button53.Click += new System.EventHandler(this.button53_Click);
             // 
@@ -1274,7 +1274,7 @@
             this.button59.OwnDrawColor = System.Drawing.Color.White;
             this.button59.Size = new System.Drawing.Size(111, 77);
             this.button59.TabIndex = 6;
-            this.button59.Text = "Không thuế";
+            this.button59.Text = "Không phí phục vụ";
             this.button59.UseOwnColor = false;
             this.button59.Click += new System.EventHandler(this.button59_Click);
             // 
@@ -1288,7 +1288,7 @@
             this.button58.OwnDrawColor = System.Drawing.Color.White;
             this.button58.Size = new System.Drawing.Size(111, 77);
             this.button58.TabIndex = 5;
-            this.button58.Text = "Thuế 2";
+            this.button58.Text = "Phí phục vụ 2";
             this.button58.UseOwnColor = false;
             this.button58.Click += new System.EventHandler(this.button58_Click);
             // 
@@ -1302,7 +1302,7 @@
             this.button65.OwnDrawColor = System.Drawing.Color.White;
             this.button65.Size = new System.Drawing.Size(111, 77);
             this.button65.TabIndex = 4;
-            this.button65.Text = "Thuế 1";
+            this.button65.Text = "Phí phục vụ 1";
             this.button65.UseOwnColor = false;
             this.button65.Click += new System.EventHandler(this.button65_Click);
             // 
@@ -1377,8 +1377,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
             this.Name = "FrmBanHang";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
