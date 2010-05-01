@@ -981,7 +981,7 @@
             // 
             this.xemLịchSửBánHàngToolStripMenuItem.Name = "xemLịchSửBánHàngToolStripMenuItem";
             this.xemLịchSửBánHàngToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.xemLịchSửBánHàngToolStripMenuItem.Text = "Xem lịch sử bán hàng";
+            this.xemLịchSửBánHàngToolStripMenuItem.Text = "Xem nhật kí bán hàng";
             this.xemLịchSửBánHàngToolStripMenuItem.Click += new System.EventHandler(this.xemLịchSửBánHàngToolStripMenuItem_Click);
             // 
             // đăngKíToolStripMenuItem

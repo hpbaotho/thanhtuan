@@ -734,7 +734,21 @@ namespace WindowsFormsApplication4
 
         private void button54_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Process p = new Process();
+                //p.StartInfo.WorkingDirectory = @"C:\whatever";
+                p.StartInfo.FileName = Application.StartupPath + @"\manual.pdf";
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                //p.WaitForExit();
+            }
+            catch (Exception)
+            {
+                Alert.Show("Không tìm thấy \nfile hướng dẫn", Color.Red);
+            }
             textBox1.Focus();
+
         }
 
         private void xemLịchSửBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
