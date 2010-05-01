@@ -103,17 +103,26 @@ namespace WindowsFormsApplication4
                 listTSButtonDept.Add(tsButton);
             }
 
-            DataTable tblMathang = getGui.GetInventoryByDept("0", ((TSButton)listTSButtonDept[0]).Ident, "1001");
-            for (int i = 0; i < tblMathang.Rows.Count; i++)
+            if(tblnhomhang.Rows.Count > 0)
             {
-                //listMatHang.Add(tblMathang.Rows[i][3].ToString());
-                //listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
-                TSButton tsButton = new TSButton("01", Convert.ToInt32(tblMathang.Rows[i]["Index"]),
-                 tblMathang.Rows[i]["Caption"].ToString(), tblMathang.Rows[i]["Picture"].ToString(), tblMathang.Rows[i]["Option1"].ToString(),
-                 Convert.ToInt32(tblMathang.Rows[i]["BackColor"]), Convert.ToInt32(tblMathang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblMathang.Rows[i]["Visible"]),
-                 tblMathang.Rows[i]["Ident"].ToString());
-                listTSButtonInvent.Add(tsButton);
+                DataTable tblMathang = getGui.GetInventoryByDept("0", ((TSButton)listTSButtonDept[0]).Ident, "1001");
+                for (int i = 0; i < tblMathang.Rows.Count; i++)
+                {
+                    //listMatHang.Add(tblMathang.Rows[i][3].ToString());
+                    //listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
+                    TSButton tsButton = new TSButton("01", Convert.ToInt32(tblMathang.Rows[i]["Index"]),
+                     tblMathang.Rows[i]["Caption"].ToString(), tblMathang.Rows[i]["Picture"].ToString(), tblMathang.Rows[i]["Option1"].ToString(),
+                     Convert.ToInt32(tblMathang.Rows[i]["BackColor"]), Convert.ToInt32(tblMathang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblMathang.Rows[i]["Visible"]),
+                     tblMathang.Rows[i]["Ident"].ToString());
+                    listTSButtonInvent.Add(tsButton);
+                }
+
             }
+            else
+            {
+                button8.Visible = false;
+            }
+            
 
             if(listTSButtonDept.Count % 7 == 0)
             {
@@ -320,6 +329,8 @@ namespace WindowsFormsApplication4
 
         float PromptQuant(DataRow Item)
         {
+            string sl = txtSoLuong.Text;
+            txtSoLuong.Text = "";
             if(Convert.ToBoolean(Item[43]))
             {
                 FrmKeyboardNumber frmKeyboardNumber = new FrmKeyboardNumber("Nhập số lượng ");
@@ -331,7 +342,15 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                return 1;
+                if(sl == "")
+                {
+                    return 1; 
+                }
+                else
+                {
+                    return Convert.ToSingle(sl);
+                }
+                
             }
             
         }
@@ -1306,6 +1325,88 @@ namespace WindowsFormsApplication4
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private decimal de;
+        private void AppendNumber(string num)
+        {
+            txtSoLuong.AppendText(num);
+            if (Decimal.TryParse(txtSoLuong.Text, out de) && !txtSoLuong.Text.Contains("."))
+            {
+                txtSoLuong.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(txtSoLuong.Text));
+            }
+        }
+
+        private void button78_Click(object sender, EventArgs e)
+        {
+            AppendNumber("0");
+        }
+
+        private void button74_Click(object sender, EventArgs e)
+        {
+            AppendNumber("5");
+        }
+
+        private void button73_Click(object sender, EventArgs e)
+        {
+            AppendNumber("4");
+        }
+
+        private void button72_Click(object sender, EventArgs e)
+        {
+            AppendNumber("3");
+        }
+
+        private void button71_Click(object sender, EventArgs e)
+        {
+            AppendNumber("2");
+        }
+
+        private void button68_Click(object sender, EventArgs e)
+        {
+            AppendNumber("1");
+        }
+
+        private void button77_Click(object sender, EventArgs e)
+        {
+            AppendNumber("9");
+        }
+
+        private void button76_Click(object sender, EventArgs e)
+        {
+            AppendNumber("8");
+        }
+
+        private void button75_Click(object sender, EventArgs e)
+        {
+            AppendNumber("7");
+        }
+
+        private void button69_Click(object sender, EventArgs e)
+        {
+            AppendNumber("6");
+        }
+
+        private void button70_Click(object sender, EventArgs e)
+        {
+            if (txtSoLuong.Text == "")
+            {
+                txtSoLuong.Text = "0.";
+            }
+            else if (!txtSoLuong.Text.Contains("."))
+            {
+                txtSoLuong.AppendText(".");
+            }
+        }
+
+        private void button79_Click(object sender, EventArgs e)
+        {
+            txtSoLuong.Text = "";
         }
 
     }
