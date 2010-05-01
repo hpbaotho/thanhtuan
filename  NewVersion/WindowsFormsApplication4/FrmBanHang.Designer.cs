@@ -1274,7 +1274,7 @@
             this.button59.OwnDrawColor = System.Drawing.Color.White;
             this.button59.Size = new System.Drawing.Size(111, 77);
             this.button59.TabIndex = 6;
-            this.button59.Text = "Không phí phục vụ";
+            this.button59.Text = "Không Thuế";
             this.button59.UseOwnColor = false;
             this.button59.Click += new System.EventHandler(this.button59_Click);
             // 
@@ -1288,7 +1288,7 @@
             this.button58.OwnDrawColor = System.Drawing.Color.White;
             this.button58.Size = new System.Drawing.Size(111, 77);
             this.button58.TabIndex = 5;
-            this.button58.Text = "Phí phục vụ 2";
+            this.button58.Text = "Thuế 2";
             this.button58.UseOwnColor = false;
             this.button58.Click += new System.EventHandler(this.button58_Click);
             // 
@@ -1302,7 +1302,7 @@
             this.button65.OwnDrawColor = System.Drawing.Color.White;
             this.button65.Size = new System.Drawing.Size(111, 77);
             this.button65.TabIndex = 4;
-            this.button65.Text = "Phí phục vụ 1";
+            this.button65.Text = "Thuế 1";
             this.button65.UseOwnColor = false;
             this.button65.Click += new System.EventHandler(this.button65_Click);
             // 
