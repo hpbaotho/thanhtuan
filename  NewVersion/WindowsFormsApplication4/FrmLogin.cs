@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -734,6 +735,27 @@ namespace WindowsFormsApplication4
         private void button54_Click(object sender, EventArgs e)
         {
             textBox1.Focus();
+        }
+
+        private void xemLịchSửBánHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Alert.ShowAdminPassRequest())
+            {
+                try
+                {
+                    Process p = new Process();
+                    //p.StartInfo.WorkingDirectory = @"C:\whatever";
+                    p.StartInfo.FileName = Application.StartupPath + @"\logfile.txt";
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    textBox1.Focus();
+                    //p.WaitForExit();
+                }
+                catch (Exception)
+                {
+                    Alert.Show("Chưa có thao tác", Color.Red);
+                }
+            }
         }
     }
 }
