@@ -738,7 +738,7 @@ namespace WindowsFormsApplication4
             {
                 Process p = new Process();
                 //p.StartInfo.WorkingDirectory = @"C:\whatever";
-                p.StartInfo.FileName = Application.StartupPath + @"\manual.pdf";
+                p.StartInfo.FileName = Application.StartupPath + @"\HDSD_RestPro.pdf";
                 p.StartInfo.CreateNoWindow = true;
                 p.Start();
                 //p.WaitForExit();
