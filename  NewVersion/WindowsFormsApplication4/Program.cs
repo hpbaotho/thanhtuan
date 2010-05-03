@@ -35,21 +35,9 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                Services.get_GUI getGUI = new get_GUI();
                 
-                if(getGUI.GetSetupByStore(StaticClass.storeId) == null)
-                {
-                    FrmDelete requestconn = new FrmDelete();
-                    requestconn.label1.Text =
-                    "Kết nối không thành công.\n Bạn có muốn chọn database không?";
-                    if (requestconn.ShowDialog() == DialogResult.OK)
-                    {
-                        FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
-                        frmConfigDatabase.ShowDialog();
-                        return;
-                    }
-                    
-                }
+                
+                
                 if (DAO.DataProvider.TestConnection(getDatabaseInfo.mode, getDatabaseInfo.serverName,
                                                 getDatabaseInfo.databaseName, getDatabaseInfo.user, getDatabaseInfo.pass))
                 {
@@ -58,6 +46,20 @@ namespace WindowsFormsApplication4
                     Services.get_GUI.Mode = getDatabaseInfo.mode;
                     Services.get_GUI.UserName = getDatabaseInfo.user;
                     Services.get_GUI.Password = getDatabaseInfo.pass;
+                    Services.get_GUI getGUI = new get_GUI();
+                    if (getGUI.GetSetupByStore(StaticClass.storeId) == null)
+                    {
+                        FrmDelete requestconn = new FrmDelete();
+                        requestconn.label1.Text =
+                        "Kết nối không thành công.\n Bạn có muốn chọn database không?";
+                        if (requestconn.ShowDialog() == DialogResult.OK)
+                        {
+                            FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
+                            frmConfigDatabase.ShowDialog();
+                            return;
+                        }
+
+                    }
                     Lc.Check();
                     
                     if (StaticClass.version == Lc.Version.Demo)
