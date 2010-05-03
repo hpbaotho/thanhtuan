@@ -209,7 +209,17 @@ namespace WindowsFormsApplication4.Service
 
         public void FillDataReport(ReportClass report,string[] para, object[] value,bool mode)
         {
-            report.DataSourceConnections[0].SetConnection(Services.get_GUI.serverName, Services.get_GUI.databaseName, true);
+            if(mode)
+            {
+                report.DataSourceConnections[0].SetConnection(Services.get_GUI.serverName, Services.get_GUI.databaseName, true);
+            }
+            else
+            {
+                report.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
+                                                 StaticClass.databaseName, true);
+                report.DataSourceConnections[0].IntegratedSecurity = true;
+            }
+            
             for (int i = 0; i < para.Length; i++)
             {
                 report.SetParameterValue(para[i], value[i].ToString());

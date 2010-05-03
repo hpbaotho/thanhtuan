@@ -801,76 +801,86 @@ namespace WindowsFormsApplication4
                 Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
                 if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
                 {
+                    
+
+                    //if (StaticClass.mode == "AUT")
+                    //{
+                    //    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                    //}
+                    //else if (StaticClass.mode == "SQL")
+                    //{
+                    //    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
+                    //                     StaticClass.databaseName,true);
+                    //    xxx.DataSourceConnections[0].IntegratedSecurity = true;
+                    //}
+                    //else
+                    //{
+                    //    return;
+                    //}
+                    //ParameterFieldDefinitions crParameterFieldDefinitions;
+                    //ParameterFieldDefinition crParameterFieldDefinition;
+                    //ParameterValues crParameterValues = new ParameterValues();
+
+                    //ParameterFieldDefinitions crParameterFieldDefinitions1;
+                    //ParameterFieldDefinition crParameterFieldDefinition1;
+                    //ParameterValues crParameterValues1 = new ParameterValues();
+
+                    //ParameterFieldDefinitions crParameterFieldDefinitions2;
+                    //ParameterFieldDefinition crParameterFieldDefinition2;
+                    //ParameterValues crParameterValues2 = new ParameterValues();
+
+                    //ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+                    //ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
+                    //ParameterDiscreteValue crParameterDiscreteValue2 = new ParameterDiscreteValue();
+
+                    //crParameterDiscreteValue.Value = StaticClass.storeId;
+                    //crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
+                    //crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                    //crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+                    //crParameterValues.Clear();
+                    //crParameterValues.Add(crParameterDiscreteValue);
+                    //crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+                    //crParameterDiscreteValue1.Value = invoiceNum;
+                    //crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
+                    //crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                    //crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
+
+                    //crParameterValues1.Clear();
+                    //crParameterValues1.Add(crParameterDiscreteValue1);
+                    //crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
+
+                    //crParameterDiscreteValue2.Value = tableName;
+                    //crParameterFieldDefinitions2 = xxx.DataDefinition.ParameterFields;
+                    //crParameterFieldDefinition2 = crParameterFieldDefinitions2["table"];
+                    //crParameterValues2 = crParameterFieldDefinition2.CurrentValues;
+
+                    //crParameterValues2.Clear();
+                    //crParameterValues2.Add(crParameterDiscreteValue2);
+                    //crParameterFieldDefinition2.ApplyCurrentValues(crParameterValues2);
+
+
                     CrystalReport5 xxx = new CrystalReport5();
 
-                    if (StaticClass.mode == "AUT")
-                    {
-                        xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
-                    }
-                    else if (StaticClass.mode == "SQL")
-                    {
-                        xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
-                                         StaticClass.databaseName);
-                        xxx.DataSourceConnections[0].IntegratedSecurity = false;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                    ParameterFieldDefinitions crParameterFieldDefinitions;
-                    ParameterFieldDefinition crParameterFieldDefinition;
-                    ParameterValues crParameterValues = new ParameterValues();
 
-                    ParameterFieldDefinitions crParameterFieldDefinitions1;
-                    ParameterFieldDefinition crParameterFieldDefinition1;
-                    ParameterValues crParameterValues1 = new ParameterValues();
-
-                    ParameterFieldDefinitions crParameterFieldDefinitions2;
-                    ParameterFieldDefinition crParameterFieldDefinition2;
-                    ParameterValues crParameterValues2 = new ParameterValues();
-
-                    ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
-                    ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
-                    ParameterDiscreteValue crParameterDiscreteValue2 = new ParameterDiscreteValue();
-
-                    crParameterDiscreteValue.Value = StaticClass.storeId;
-                    crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                    crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
-                    crParameterValues = crParameterFieldDefinition.CurrentValues;
-
-                    crParameterValues.Clear();
-                    crParameterValues.Add(crParameterDiscreteValue);
-                    crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
-
-                    crParameterDiscreteValue1.Value = invoiceNum;
-                    crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                    crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
-                    crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
-
-                    crParameterValues1.Clear();
-                    crParameterValues1.Add(crParameterDiscreteValue1);
-                    crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
-
-                    crParameterDiscreteValue2.Value = tableName;
-                    crParameterFieldDefinitions2 = xxx.DataDefinition.ParameterFields;
-                    crParameterFieldDefinition2 = crParameterFieldDefinitions2["table"];
-                    crParameterValues2 = crParameterFieldDefinition2.CurrentValues;
-
-                    crParameterValues2.Clear();
-                    crParameterValues2.Add(crParameterDiscreteValue2);
-                    crParameterFieldDefinition2.ApplyCurrentValues(crParameterValues2);
+                    string[] pa = { "@Store_ID", "@Invoice_Number", "table" };
+                    object[] value = { StaticClass.storeId, invoiceNum, tableName };
+                    serviceGet.FillDataReport(xxx, pa, value, true);
 
                     xxx.PrintOptions.PrinterName = printer.Details;
 
                     xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                    try
-                    {
-                        xxx.PrintToPrinter(1, false, 0, 0);
-                    }
-                    catch (Exception)
-                    {
-                        Alert.Show("Lỗi máy in", Color.Red);
-                    }
+
+                    Utilities.Utils.Print(xxx,Printer.PrinterHoadon);
+                    //try
+                    //{
+                    //    xxx.PrintToPrinter(1, false, 0, 0);
+                    //}
+                    //catch (Exception)
+                    //{
+                    //    Alert.Show("Lỗi máy in", Color.Red);
+                    //}
                     xxx.Dispose();
                 }
             }
@@ -1060,95 +1070,102 @@ namespace WindowsFormsApplication4
             Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
             if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
             {
+                
+
+                //if (StaticClass.mode == "AUT")
+                //{
+                //    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                //}
+                //else if (StaticClass.mode == "SQL")
+                //{
+                //    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
+                //                     StaticClass.databaseName,true);
+                //    xxx.DataSourceConnections[0].IntegratedSecurity = true;
+                //    //ConnectionInfo crConnectionInfo = new ConnectionInfo();
+                //    //crConnectionInfo.ServerName = StaticClass.serverName;
+                //    //crConnectionInfo.DatabaseName = StaticClass.databaseName;
+                //    //crConnectionInfo.UserID = StaticClass.userName;
+                //    //crConnectionInfo.Password = StaticClass.password;
+                //    //crConnectionInfo.IntegratedSecurity = false;
+
+                //    //Tables crTables = xxx.Database.Tables;
+
+                //    //for (int j = 0; j < crTables.Count; j++)
+                //    //{
+                //    //    Table crTable = crTables[j];
+                //    //    TableLogOnInfo crTableLogOnInfo = crTable.LogOnInfo;
+                //    //    crTableLogOnInfo.ConnectionInfo = crConnectionInfo;
+                //    //    crTable.ApplyLogOnInfo(crTableLogOnInfo);
+
+                //    //    crTable.Location = crConnectionInfo.DatabaseName + ".dbo." + crTable.Name;
+
+                //    //}
+                //}
+                //else
+                //{
+                //    return;
+                //}
+                //ParameterFieldDefinitions crParameterFieldDefinitions;
+                //ParameterFieldDefinition crParameterFieldDefinition;
+                //ParameterValues crParameterValues = new ParameterValues();
+
+                //ParameterFieldDefinitions crParameterFieldDefinitions1;
+                //ParameterFieldDefinition crParameterFieldDefinition1;
+                //ParameterValues crParameterValues1 = new ParameterValues();
+
+                //ParameterFieldDefinitions crParameterFieldDefinitions2;
+                //ParameterFieldDefinition crParameterFieldDefinition2;
+                //ParameterValues crParameterValues2 = new ParameterValues();
+
+                //ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
+                //ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
+                //ParameterDiscreteValue crParameterDiscreteValue2 = new ParameterDiscreteValue();
+
+                //crParameterDiscreteValue.Value = StaticClass.storeId;
+                //crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
+                //crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
+                //crParameterValues = crParameterFieldDefinition.CurrentValues;
+
+                //crParameterValues.Clear();
+                //crParameterValues.Add(crParameterDiscreteValue);
+                //crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
+
+                //crParameterDiscreteValue1.Value = invoiceNum;
+                //crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
+                //crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
+                //crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
+
+                //crParameterValues1.Clear();
+                //crParameterValues1.Add(crParameterDiscreteValue1);
+                //crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
+
+                //crParameterDiscreteValue2.Value = tableName;
+                //crParameterFieldDefinitions2 = xxx.DataDefinition.ParameterFields;
+                //crParameterFieldDefinition2 = crParameterFieldDefinitions2["table"];
+                //crParameterValues2 = crParameterFieldDefinition2.CurrentValues;
+
+                //crParameterValues2.Clear();
+                //crParameterValues2.Add(crParameterDiscreteValue2);
+                //crParameterFieldDefinition2.ApplyCurrentValues(crParameterValues2);
+
                 Re_ThanhToan xxx = new Re_ThanhToan();
 
-                if (StaticClass.mode == "AUT")
-                {
-                    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
-                }
-                else if (StaticClass.mode == "SQL")
-                {
-                    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
-                                     StaticClass.databaseName);
-                    xxx.DataSourceConnections[0].IntegratedSecurity = false;
-                    //ConnectionInfo crConnectionInfo = new ConnectionInfo();
-                    //crConnectionInfo.ServerName = StaticClass.serverName;
-                    //crConnectionInfo.DatabaseName = StaticClass.databaseName;
-                    //crConnectionInfo.UserID = StaticClass.userName;
-                    //crConnectionInfo.Password = StaticClass.password;
-                    //crConnectionInfo.IntegratedSecurity = false;
-
-                    //Tables crTables = xxx.Database.Tables;
-
-                    //for (int j = 0; j < crTables.Count; j++)
-                    //{
-                    //    Table crTable = crTables[j];
-                    //    TableLogOnInfo crTableLogOnInfo = crTable.LogOnInfo;
-                    //    crTableLogOnInfo.ConnectionInfo = crConnectionInfo;
-                    //    crTable.ApplyLogOnInfo(crTableLogOnInfo);
-
-                    //    crTable.Location = crConnectionInfo.DatabaseName + ".dbo." + crTable.Name;
-
-                    //}
-                }
-                else
-                {
-                    return;
-                }
-                ParameterFieldDefinitions crParameterFieldDefinitions;
-                ParameterFieldDefinition crParameterFieldDefinition;
-                ParameterValues crParameterValues = new ParameterValues();
-
-                ParameterFieldDefinitions crParameterFieldDefinitions1;
-                ParameterFieldDefinition crParameterFieldDefinition1;
-                ParameterValues crParameterValues1 = new ParameterValues();
-
-                ParameterFieldDefinitions crParameterFieldDefinitions2;
-                ParameterFieldDefinition crParameterFieldDefinition2;
-                ParameterValues crParameterValues2 = new ParameterValues();
-
-                ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
-                ParameterDiscreteValue crParameterDiscreteValue1 = new ParameterDiscreteValue();
-                ParameterDiscreteValue crParameterDiscreteValue2 = new ParameterDiscreteValue();
-
-                crParameterDiscreteValue.Value = StaticClass.storeId;
-                crParameterFieldDefinitions = xxx.DataDefinition.ParameterFields;
-                crParameterFieldDefinition = crParameterFieldDefinitions["@Store_ID"];
-                crParameterValues = crParameterFieldDefinition.CurrentValues;
-
-                crParameterValues.Clear();
-                crParameterValues.Add(crParameterDiscreteValue);
-                crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
-
-                crParameterDiscreteValue1.Value = invoiceNum;
-                crParameterFieldDefinitions1 = xxx.DataDefinition.ParameterFields;
-                crParameterFieldDefinition1 = crParameterFieldDefinitions1["@Invoice_Number"];
-                crParameterValues1 = crParameterFieldDefinition1.CurrentValues;
-
-                crParameterValues1.Clear();
-                crParameterValues1.Add(crParameterDiscreteValue1);
-                crParameterFieldDefinition1.ApplyCurrentValues(crParameterValues1);
-
-                crParameterDiscreteValue2.Value = tableName;
-                crParameterFieldDefinitions2 = xxx.DataDefinition.ParameterFields;
-                crParameterFieldDefinition2 = crParameterFieldDefinitions2["table"];
-                crParameterValues2 = crParameterFieldDefinition2.CurrentValues;
-
-                crParameterValues2.Clear();
-                crParameterValues2.Add(crParameterDiscreteValue2);
-                crParameterFieldDefinition2.ApplyCurrentValues(crParameterValues2);
-
+                string[] pa = { "@Store_ID", "@Invoice_Number", "table" };
+                object[] value = { StaticClass.storeId, invoiceNum, tableName };
+                serviceGet.FillDataReport(xxx, pa, value, true);
                 xxx.PrintOptions.PrinterName = printer.Details;
 
                 xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                try
-                {
-                    xxx.PrintToPrinter(1, false, 0, 0);
-                }
-                catch (Exception)
-                {
-                    Alert.Show("Lỗi máy in", Color.Red);
-                }
+
+                Utilities.Utils.Print(xxx,Printer.PrinterHoadon);
+                //try
+                //{
+                //    xxx.PrintToPrinter(1, false, 0, 0);
+                //}
+                //catch (Exception)
+                //{
+                //    Alert.Show("Lỗi máy in", Color.Red);
+                //}
                 Service.CashdrawerService.OpenCashDrawer1(printer.Details);
                 xxx.Dispose();
             }
@@ -1252,15 +1269,17 @@ namespace WindowsFormsApplication4
                         if (kt)
                         {
                             rpt_PrintToKit xxx = new rpt_PrintToKit();
+                            bool mode = false;
                             if(StaticClass.mode == "AUT")
                             {
+                                mode = true;
                                 xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
                             }
                             else if(StaticClass.mode == "SQL")
                             {
                                 xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
-                                                 StaticClass.databaseName);
-                                xxx.DataSourceConnections[0].IntegratedSecurity = false;
+                                                 StaticClass.databaseName,true);
+                                xxx.DataSourceConnections[0].IntegratedSecurity = true;
                             }
                             else
                             {
@@ -1270,17 +1289,18 @@ namespace WindowsFormsApplication4
                             string[] para = { "@Store_ID", "@Invoice_Number","@Table" };
                             string[] value = {StaticClass.storeId,invoiceNum,tableName};
                             serviceGet.FillDataReport(xxx,para,value,true);
-
                             xxx.PrintOptions.PrinterName = c.Details;
                             xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
-                            try
-                            {
-                                xxx.PrintToPrinter(1, false, 0, 0);
-                            }
-                            catch (Exception)
-                            {
-                                Alert.Show("Lỗi máy in",Color.Red);
-                            }
+                            //try
+                            //{
+                            //    xxx.PrintToPrinter(1, false, 0, 0);
+                            //}
+                            //catch (Exception)
+                            //{
+                            //    Alert.Show("Lỗi máy in",Color.Red);
+                            //}
+
+                            Utilities.Utils.Print(xxx,c.PrinterName);
                             getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
                             xxx.Dispose();
                             xxx = null;
