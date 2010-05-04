@@ -1286,8 +1286,8 @@ namespace WindowsFormsApplication4
                                 return;
                             }
                             
-                            string[] para = { "@Store_ID", "@Invoice_Number","@Table" };
-                            string[] value = {StaticClass.storeId,invoiceNum,tableName};
+                            string[] para = { "@Store_ID", "@Invoice_Number","@Table","@Time" };
+                            object[] value = {StaticClass.storeId,invoiceNum,tableName,DateTime.Now};
                             serviceGet.FillDataReport(xxx,para,value,true);
                             xxx.PrintOptions.PrinterName = c.Details;
                             xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
