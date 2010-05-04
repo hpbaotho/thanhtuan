@@ -761,6 +761,8 @@ namespace Services
             FillDataset3(cmd, CommandType.Text, deleteSQL);
             deleteSQL = "Delete From Invoice_Totals where Store_ID ='" + storeId + "'";
             FillDataset3(cmd, CommandType.Text, deleteSQL);
+            deleteSQL = "Delete  from Invoice_PrintToKitchen";
+            FillDataset3(cmd, CommandType.Text, deleteSQL);
             deleteSQL = "Update Setup_Corp set LastIN = '0'";
             FillDataset3(cmd, CommandType.Text, deleteSQL);
             cmd.Dispose();
