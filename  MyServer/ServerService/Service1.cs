@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 
 namespace ServerService
 {
@@ -75,31 +76,40 @@ namespace ServerService
         }
         protected override void OnStart(string[] args)
         {
-            try
+            bool kt = true;
+            while (kt)
             {
-                //We are using TCP sockets
-                eventLog1.WriteEntry("On start");
-                serverSocket = new Socket(AddressFamily.InterNetwork,
-                                          SocketType.Stream,
-                                          ProtocolType.Tcp);
 
-                //Assign the any IP of the machine and listen on port number 1000
-                IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(getIP()), 9999);
-                eventLog1.WriteEntry("ip server "+ipEndPoint.Address.ToString());
-                //Bind and listen on the given address
-                serverSocket.Bind(ipEndPoint);
-                eventLog1.WriteEntry("Server is binding");
-                serverSocket.Listen(100);
-                eventLog1.WriteEntry("Server is listening");
-                //Accept the incoming clients
-                serverSocket.BeginAccept(new AsyncCallback(OnAccept), null);
+                try
+                {
+                    //We are using TCP sockets
+                    eventLog1.Clear();
+                    eventLog1.WriteEntry("On start");
+                    serverSocket = new Socket(AddressFamily.InterNetwork,
+                                              SocketType.Stream,
+                                              ProtocolType.Tcp);
+
+                    //Assign the any IP of the machine and listen on port number 1000
+                    IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse(getIP()), 9999);
+                    eventLog1.WriteEntry("ip server " + ipEndPoint.Address.ToString());
+                    //Bind and listen on the given address
+                    serverSocket.Bind(ipEndPoint);
+                    eventLog1.WriteEntry("Server is binding");
+                    serverSocket.Listen(100);
+                    eventLog1.WriteEntry("Server is listening");
+                    //Accept the incoming clients
+                    serverSocket.BeginAccept(new AsyncCallback(OnAccept), null);
+                    kt = false;
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message, " Connecting",
+                    //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    eventLog1.WriteEntry(ex.Message.ToString() + " in Connecting");
+                    Thread.Sleep(5000);
+                }        
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message, " Connecting",
-                //    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                eventLog1.WriteEntry(ex.Message.ToString()+ " in Connecting");
-            }            
+                
 
         }
         private void OnAccept(IAsyncResult ar)
@@ -118,15 +128,15 @@ namespace ServerService
             catch (Exception ex)
             {
                 eventLog1.WriteEntry(ex.Message.ToString() + " in Accepting");
+                serverSocket.BeginAccept(new AsyncCallback(OnAccept), null);
             }
         }
         private void OnReceive(IAsyncResult ar)
         {
+            Socket clientSocket = (Socket)ar.AsyncState;
             try
             {
-                Socket clientSocket = (Socket)ar.AsyncState;
                 clientSocket.EndReceive(ar);
-
                 //Transform the array of bytes received from the user into an
                 //intelligent form of object Data
                 Data msgReceived = new Data(byteData);
@@ -168,7 +178,7 @@ namespace ServerService
                         int nIndex = 0;
                         foreach (ClientInfo client in clientList)
                         {
-                            if (client.socket == clientSocket)
+                            if (client.socket.Equals(clientSocket))
                             {
                                 clientList.RemoveAt(nIndex);
                                 break;
@@ -213,16 +223,28 @@ namespace ServerService
                 if (msgToSend.cmdCommand != Command.List)   //List messages are not broadcasted
                 {
                     message = msgToSend.ToByte();
+                    int i = 0;
                     foreach (ClientInfo clientInfo in clientList)
                     {
-
-                        if (clientInfo.socket != clientSocket &&
-                            msgToSend.cmdCommand == Command.Message)
+                        try
                         {
-                            //Send the message to all users
-                            clientInfo.socket.BeginSend(message, 0, message.Length, SocketFlags.None,
-                                new AsyncCallback(OnSend), clientInfo.socket);
+                            if (clientInfo.socket != clientSocket &&
+                            msgToSend.cmdCommand == Command.Message)
+                            {
+                                //Send the message to all users
+                                clientInfo.socket.BeginSend(message, 0, message.Length, SocketFlags.None,
+                                    new AsyncCallback(OnSend), clientInfo.socket);
+                            }
                         }
+                        catch (Exception ex)
+                        {
+                            eventLog1.WriteEntry("client error 1111   "   +  ex);
+                            clientInfo.socket.Close();
+                            clientList.RemoveAt(i);
+                        }
+                        
+
+                        i++;
                     }
                     //setText(msgToSend.strMessage);
                     //if(txtLog.InvokeRequired)
@@ -233,13 +255,43 @@ namespace ServerService
                 //If the user is logging out then we need not listen from her
                 if (msgReceived.cmdCommand != Command.Logout)
                 {
-                    //Start listening to the message send by the user
-                    clientSocket.BeginReceive(byteData, 0, byteData.Length, SocketFlags.None, new AsyncCallback(OnReceive), clientSocket);
+                    try
+                    {
+                        //Start listening to the message send by the user
+                        clientSocket.BeginReceive(byteData, 0, byteData.Length, SocketFlags.None, new AsyncCallback(OnReceive), clientSocket);
+                    }
+                    catch (Exception ex)
+                    {
+                        clientSocket.Close();
+
+                        eventLog1.WriteEntry(" error recive  !   "  + ex.ToString());
+                    }
+                    
                 }
             }
             catch (Exception ex)
             {
+                //clientList.Clear();
                 //MessageBox.Show(ex.Message, "SGSserverTCP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //int i = 0;
+                for (int j = 0; j < clientList.Count; j++)
+                {
+                    ClientInfo a = (ClientInfo)clientList[j];
+                    if (a.socket.Equals(clientSocket))
+                    {
+                        clientList.RemoveAt(j);
+                    }
+                }
+                //foreach (ClientInfo clientInfo in clientList)
+                //{
+                //    if(clientInfo.socket == clientSocket)
+                //    {
+                //        //clientSocket.Close();
+                //        clientList.RemoveAt(i);
+                //    }
+                //    i++;
+                //}
+                eventLog1.WriteEntry("client error    " + ex.ToString());
             }
         }
         public void OnSend(IAsyncResult ar)
@@ -252,6 +304,7 @@ namespace ServerService
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message, "SGSserverTCP", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                eventLog1.WriteEntry("error On Send : " + ex);
             }
         }
         protected override void OnStop()
@@ -263,6 +316,7 @@ namespace ServerService
                     clientInfo.socket.Close();
                 }
             }
+            clientList.Clear();
             if(serverSocket.Connected)
                 serverSocket.Close();
         }
