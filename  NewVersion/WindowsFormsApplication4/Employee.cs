@@ -32,6 +32,7 @@ namespace WindowsFormsApplication4
         public const int CFA_Cust_Edit = 11;
         public const int CFA_PRINT_HOLD = 12;
         public const int CFA_ENDTRANS_ACCOUNT = 13;
+        public const int CFA_AUCTION_SHIP = 14;
 
         public static bool CheckGrant(string storeId,string cashierId,int grantNum)
         {
@@ -82,6 +83,8 @@ namespace WindowsFormsApplication4
                         return check(storeId, cashierId, "CFA_PRINT_HOLD");
                     case CFA_ENDTRANS_ACCOUNT:
                         return check(storeId, cashierId, "CFA_ENDTRANS_ACCOUNT");
+                    case CFA_AUCTION_SHIP:
+                        return check(storeId, cashierId, "CFA_AUCTION_SHIP");
                     default:
                         return false;
 
