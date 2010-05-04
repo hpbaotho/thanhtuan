@@ -34,6 +34,10 @@
             this.tbChucNang = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.cmb_ThanhToan = new System.Windows.Forms.ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.cmb_TamTinh = new System.Windows.Forms.ComboBox();
+            this.lb_TamTinh = new System.Windows.Forms.Label();
             this.cmbMoKetSat = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
             this.cmbXemBC = new System.Windows.Forms.ComboBox();
@@ -121,10 +125,8 @@
             this.button10 = new WindowsFormsApplication4.Controls.button();
             this.button9 = new WindowsFormsApplication4.Controls.button();
             this.button8 = new WindowsFormsApplication4.Controls.button();
-            this.cmb_TamTinh = new System.Windows.Forms.ComboBox();
-            this.lb_TamTinh = new System.Windows.Forms.Label();
-            this.cmb_ThanhToan = new System.Windows.Forms.ComboBox();
-            this.label36 = new System.Windows.Forms.Label();
+            this.cmbChooseCust = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -199,6 +201,8 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.cmbChooseCust);
+            this.panel5.Controls.Add(this.label35);
             this.panel5.Controls.Add(this.cmb_ThanhToan);
             this.panel5.Controls.Add(this.label36);
             this.panel5.Controls.Add(this.cmb_TamTinh);
@@ -228,6 +232,42 @@
             this.panel5.Size = new System.Drawing.Size(780, 208);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // cmb_ThanhToan
+            // 
+            this.cmb_ThanhToan.FormattingEnabled = true;
+            this.cmb_ThanhToan.Location = new System.Drawing.Point(628, 40);
+            this.cmb_ThanhToan.Name = "cmb_ThanhToan";
+            this.cmb_ThanhToan.Size = new System.Drawing.Size(149, 28);
+            this.cmb_ThanhToan.TabIndex = 86;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(539, 45);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(90, 20);
+            this.label36.TabIndex = 85;
+            this.label36.Text = "Thanh toán";
+            // 
+            // cmb_TamTinh
+            // 
+            this.cmb_TamTinh.FormattingEnabled = true;
+            this.cmb_TamTinh.Location = new System.Drawing.Point(628, 2);
+            this.cmb_TamTinh.Name = "cmb_TamTinh";
+            this.cmb_TamTinh.Size = new System.Drawing.Size(149, 28);
+            this.cmb_TamTinh.TabIndex = 84;
+            // 
+            // lb_TamTinh
+            // 
+            this.lb_TamTinh.AutoSize = true;
+            this.lb_TamTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TamTinh.Location = new System.Drawing.Point(539, 7);
+            this.lb_TamTinh.Name = "lb_TamTinh";
+            this.lb_TamTinh.Size = new System.Drawing.Size(70, 20);
+            this.lb_TamTinh.TabIndex = 83;
+            this.lb_TamTinh.Text = "Tạm tính";
             // 
             // cmbMoKetSat
             // 
@@ -1117,41 +1157,23 @@
             this.button8.UseOwnColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // cmb_TamTinh
+            // cmbChooseCust
             // 
-            this.cmb_TamTinh.FormattingEnabled = true;
-            this.cmb_TamTinh.Location = new System.Drawing.Point(628, 2);
-            this.cmb_TamTinh.Name = "cmb_TamTinh";
-            this.cmb_TamTinh.Size = new System.Drawing.Size(149, 28);
-            this.cmb_TamTinh.TabIndex = 84;
+            this.cmbChooseCust.FormattingEnabled = true;
+            this.cmbChooseCust.Location = new System.Drawing.Point(628, 79);
+            this.cmbChooseCust.Name = "cmbChooseCust";
+            this.cmbChooseCust.Size = new System.Drawing.Size(149, 28);
+            this.cmbChooseCust.TabIndex = 88;
             // 
-            // lb_TamTinh
+            // label35
             // 
-            this.lb_TamTinh.AutoSize = true;
-            this.lb_TamTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TamTinh.Location = new System.Drawing.Point(539, 7);
-            this.lb_TamTinh.Name = "lb_TamTinh";
-            this.lb_TamTinh.Size = new System.Drawing.Size(70, 20);
-            this.lb_TamTinh.TabIndex = 83;
-            this.lb_TamTinh.Text = "Tạm tính";
-            // 
-            // cmb_ThanhToan
-            // 
-            this.cmb_ThanhToan.FormattingEnabled = true;
-            this.cmb_ThanhToan.Location = new System.Drawing.Point(628, 40);
-            this.cmb_ThanhToan.Name = "cmb_ThanhToan";
-            this.cmb_ThanhToan.Size = new System.Drawing.Size(149, 28);
-            this.cmb_ThanhToan.TabIndex = 86;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(539, 45);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(90, 20);
-            this.label36.TabIndex = 85;
-            this.label36.Text = "Thanh toán";
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(532, 69);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(96, 40);
+            this.label35.TabIndex = 87;
+            this.label35.Text = "Chọn Khách\r\n hàng";
             // 
             // FrmEmployee
             // 
@@ -1314,5 +1336,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ComboBox cmb_TamTinh;
         private System.Windows.Forms.Label lb_TamTinh;
+        private System.Windows.Forms.ComboBox cmbChooseCust;
+        private System.Windows.Forms.Label label35;
     }
 }

@@ -511,6 +511,10 @@ namespace WindowsFormsApplication4
 
         private void button50_Click(object sender, EventArgs e)
         {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_AUCTION_SHIP))
+            {
+                return;
+            }
             string[] column = { Const.Customer_Prop.CustNum, Const.Customer_Prop.Last_Name, Const.Customer_Prop.Address_1, Const.Customer_Prop.Phone_1, Const.Customer_Prop.Phone_2, Const.Customer_Prop.EMail};
             Customer.CustomerDataTable customerDataTable = getGui.GetAllCustomers();
             FrmSearchCustomer frmSearchCustomer = new FrmSearchCustomer(customerDataTable,column);
@@ -743,6 +747,7 @@ namespace WindowsFormsApplication4
             if(Employee.CheckGrant(StaticClass.storeId,StaticClass.cashierId,Employee.CFA_INVOICE_VOID))
             {
                 myCash1.invoiceTotal.Rows[0][15] = "V";
+                myCash1.invoiceTotal.Rows[0]["Cashier_ID"] = StaticClass.cashierId;
                 UpdateInvoiceTotals();
                 getGui.CloseTable(StaticClass.storeId, invoiceNum);
                 Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Huy hoa don   " + invoiceNum + "    " +
