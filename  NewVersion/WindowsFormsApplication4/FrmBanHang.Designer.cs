@@ -116,6 +116,7 @@
             this.button55 = new WindowsFormsApplication4.Controls.button();
             this.myCash1 = new WindowsFormsApplication4.Controls.MyCash();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button80 = new WindowsFormsApplication4.Controls.button();
             this.button59 = new WindowsFormsApplication4.Controls.button();
             this.button58 = new WindowsFormsApplication4.Controls.button();
             this.button65 = new WindowsFormsApplication4.Controls.button();
@@ -1249,6 +1250,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.button80);
             this.panel5.Controls.Add(this.button59);
             this.panel5.Controls.Add(this.button58);
             this.panel5.Controls.Add(this.button65);
@@ -1264,12 +1266,26 @@
             this.panel5.Visible = false;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
+            // button80
+            // 
+            this.button80.Color2 = System.Drawing.Color.Blue;
+            this.button80.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button80.ForeColor = System.Drawing.Color.Black;
+            this.button80.Location = new System.Drawing.Point(11, 165);
+            this.button80.Name = "button80";
+            this.button80.OwnDrawColor = System.Drawing.Color.White;
+            this.button80.Size = new System.Drawing.Size(111, 77);
+            this.button80.TabIndex = 7;
+            this.button80.Text = "Thuế 3";
+            this.button80.UseOwnColor = false;
+            this.button80.Click += new System.EventHandler(this.button80_Click);
+            // 
             // button59
             // 
             this.button59.Color2 = System.Drawing.Color.Blue;
             this.button59.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button59.ForeColor = System.Drawing.Color.Black;
-            this.button59.Location = new System.Drawing.Point(11, 158);
+            this.button59.Location = new System.Drawing.Point(128, 165);
             this.button59.Name = "button59";
             this.button59.OwnDrawColor = System.Drawing.Color.White;
             this.button59.Size = new System.Drawing.Size(111, 77);
@@ -1495,5 +1511,6 @@
         private WindowsFormsApplication4.Controls.button button71;
         private WindowsFormsApplication4.Controls.button button70;
         private WindowsFormsApplication4.Controls.button button69;
+        private WindowsFormsApplication4.Controls.button button80;
     }
 }
