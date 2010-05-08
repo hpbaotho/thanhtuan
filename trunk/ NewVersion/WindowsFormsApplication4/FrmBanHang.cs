@@ -959,15 +959,16 @@ namespace WindowsFormsApplication4
 
         private void button65_Click(object sender, EventArgs e)
         {
-
-            taxInvoice1 = Convert.ToDecimal(StaticClass.taxRate[1]);
+            DataTable taxRate = getGui.GetTaxRate(StaticClass.storeId);
+            taxInvoice1 = Convert.ToDecimal(taxRate.Rows[0]["Tax1_Rate"]);
             
             UpdateInfo();
         }
 
         private void button58_Click(object sender, EventArgs e)
         {
-            taxInvoice1 = Convert.ToDecimal(StaticClass.taxRate[2]);
+            DataTable taxRate = getGui.GetTaxRate(StaticClass.storeId);
+            taxInvoice1 = Convert.ToDecimal(taxRate.Rows[0]["Tax2_Rate"]);
             UpdateInfo();
         }
 
@@ -1437,6 +1438,13 @@ namespace WindowsFormsApplication4
         private void button79_Click(object sender, EventArgs e)
         {
             txtSoLuong.Text = "";
+        }
+
+        private void button80_Click(object sender, EventArgs e)
+        {
+            DataTable taxRate = getGui.GetTaxRate(StaticClass.storeId);
+            taxInvoice1 = Convert.ToDecimal(taxRate.Rows[0]["Tax3_Rate"]);
+            UpdateInfo();
         }
 
     }
