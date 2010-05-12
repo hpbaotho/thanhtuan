@@ -159,7 +159,7 @@ namespace WindowsFormsApplication4
         {
             if (minute < 10)
             {
-                txtStartTime.Text = hour + ":0" + minute + ":" + second + " " + mode;
+                txtEndTime.Text = hour + ":0" + minute + ":" + second + " " + mode;
             }
             else
             {
