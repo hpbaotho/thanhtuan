@@ -45,6 +45,9 @@
             this.button13 = new WindowsFormsApplication4.Controls.button();
             this.button14 = new WindowsFormsApplication4.Controls.button();
             this.button15 = new WindowsFormsApplication4.Controls.button();
+            this.button16 = new WindowsFormsApplication4.Controls.button();
+            this.button17 = new WindowsFormsApplication4.Controls.button();
+            this.button18 = new WindowsFormsApplication4.Controls.button();
             this.SuspendLayout();
             // 
             // label1
@@ -230,7 +233,7 @@
             // 
             this.button13.Color2 = System.Drawing.Color.Red;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(13, 424);
+            this.button13.Location = new System.Drawing.Point(12, 499);
             this.button13.Name = "button13";
             this.button13.OwnDrawColor = System.Drawing.Color.White;
             this.button13.Size = new System.Drawing.Size(134, 45);
@@ -243,7 +246,7 @@
             // 
             this.button14.Color2 = System.Drawing.Color.Red;
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(179, 424);
+            this.button14.Location = new System.Drawing.Point(178, 499);
             this.button14.Name = "button14";
             this.button14.OwnDrawColor = System.Drawing.Color.White;
             this.button14.Size = new System.Drawing.Size(134, 45);
@@ -256,7 +259,7 @@
             // 
             this.button15.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(13, 480);
+            this.button15.Location = new System.Drawing.Point(12, 555);
             this.button15.Name = "button15";
             this.button15.OwnDrawColor = System.Drawing.Color.White;
             this.button15.Size = new System.Drawing.Size(300, 45);
@@ -265,11 +268,53 @@
             this.button15.UseOwnColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // button16
+            // 
+            this.button16.Color2 = System.Drawing.Color.Silver;
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Location = new System.Drawing.Point(12, 419);
+            this.button16.Name = "button16";
+            this.button16.OwnDrawColor = System.Drawing.Color.White;
+            this.button16.Size = new System.Drawing.Size(99, 77);
+            this.button16.TabIndex = 17;
+            this.button16.Text = "00";
+            this.button16.UseOwnColor = false;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // button17
+            // 
+            this.button17.Color2 = System.Drawing.Color.Silver;
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button17.Location = new System.Drawing.Point(113, 419);
+            this.button17.Name = "button17";
+            this.button17.OwnDrawColor = System.Drawing.Color.White;
+            this.button17.Size = new System.Drawing.Size(99, 77);
+            this.button17.TabIndex = 18;
+            this.button17.Text = "000";
+            this.button17.UseOwnColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button18
+            // 
+            this.button18.Color2 = System.Drawing.Color.Silver;
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Location = new System.Drawing.Point(213, 419);
+            this.button18.Name = "button18";
+            this.button18.OwnDrawColor = System.Drawing.Color.White;
+            this.button18.Size = new System.Drawing.Size(99, 77);
+            this.button18.TabIndex = 19;
+            this.button18.Text = "0000";
+            this.button18.UseOwnColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // FrmKeyboardNumber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 537);
+            this.ClientSize = new System.Drawing.Size(330, 615);
+            this.Controls.Add(this.button18);
+            this.Controls.Add(this.button17);
+            this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
@@ -316,5 +361,8 @@
         private WindowsFormsApplication4.Controls.button button13;
         private WindowsFormsApplication4.Controls.button button14;
         private WindowsFormsApplication4.Controls.button button15;
+        private WindowsFormsApplication4.Controls.button button16;
+        private WindowsFormsApplication4.Controls.button button17;
+        private WindowsFormsApplication4.Controls.button button18;
     }
 }
