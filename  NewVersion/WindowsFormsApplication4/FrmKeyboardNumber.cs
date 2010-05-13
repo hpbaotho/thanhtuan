@@ -223,5 +223,32 @@ namespace WindowsFormsApplication4
             }
 
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText("00");
+            if (Decimal.TryParse(textBox1.Text, out de) && !textBox1.Text.Contains("."))
+            {
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText("000");
+            if (Decimal.TryParse(textBox1.Text, out de) && !textBox1.Text.Contains("."))
+            {
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            textBox1.AppendText("0000");
+            if (Decimal.TryParse(textBox1.Text, out de) && !textBox1.Text.Contains("."))
+            {
+                textBox1.Text = String.Format("{0:#,0.#############}", Convert.ToDecimal(textBox1.Text));
+            }
+        }
     }
 }
