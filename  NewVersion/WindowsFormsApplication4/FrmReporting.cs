@@ -80,7 +80,7 @@ namespace WindowsFormsApplication4
         #region Views
         private ArrayList viewSale()
         {
-            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày", "Báo cáo bán hàng chi tiết trong ngày", "Báo cáo các mặt hàng trả lại", "Báo cáo chi tiết bán hàng theo nhóm" });
+            return new ArrayList(new string[] { "Báo cáo hóa đơn theo thời gian", "Báo cáo hóa đơn theo từng ngày", "Báo cáo bán hàng chi tiết trong ngày", "Báo cáo các mặt hàng trả lại", "Báo cáo chi tiết bán hàng theo nhóm" ,"Báo cáo chi tiết từng mặt hàng"});
         }
         private ArrayList viewRes()
         {
@@ -269,6 +269,7 @@ namespace WindowsFormsApplication4
                     {
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = true;
+                        lstCashier.Enabled = true;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
@@ -277,6 +278,7 @@ namespace WindowsFormsApplication4
 
                         EnableDateTime0(false);
                         lstKindOfInvo.Enabled = true;
+                        lstCashier.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
                         lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
@@ -287,6 +289,7 @@ namespace WindowsFormsApplication4
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = false;
                         lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.Enabled = true;
                         lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterHoadon;
                         return;
@@ -295,6 +298,7 @@ namespace WindowsFormsApplication4
                     {
                         EnableDateTime0(true);
                         lstKindOfInvo.Enabled = false;
+                        lstCashier.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
                         lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
@@ -303,12 +307,24 @@ namespace WindowsFormsApplication4
                 case 4:
                     {
                         EnableDateTime0(true);
+                        lstCashier.Enabled = false;
                         lstKindOfInvo.Enabled = true;
                         lstKindOfInvo.SelectedIndex = 0;
                         lstCashier.SelectedIndex = 0;
                         printerName = Printer.PrinterBaocao;
                         return;
                     }
+                case 5:
+                    {
+                        EnableDateTime0(true);
+                        lstCashier.Enabled = false;
+                        lstKindOfInvo.Enabled = true;
+                        lstKindOfInvo.SelectedIndex = 0;
+                        lstCashier.SelectedIndex = 0;
+                        printerName = Printer.PrinterHoadon;
+                        return;
+                    }
+
                 case 40:
                     {
                         EnableDateTime0(false);
@@ -414,6 +430,15 @@ namespace WindowsFormsApplication4
                         test.FillDataReport(invoice, pa, value, true);
                         return invoice;
                     }
+                case 5:
+                    {
+                        POSReport.Report.rptItemDetail invoice = new rptItemDetail();
+                        string[] pa = { "@Store_ID", "@ReportTitle", "@Status", "@DateTime1", "@DateTime2" };
+                        object[] value = { StaticClass.storeId, "Báo cáo chi tiết bán hàng theo từng mặt hàng", StatusInvoice, DateTime1, DateTime2 };
+                        test.FillDataReport(invoice, pa, value, true);
+                        return invoice;
+                    }
+
                 case 40:
                     {
                         POSReport.Report.rptInventoryByApha rptInventoryByApha = new rptInventoryByApha();
