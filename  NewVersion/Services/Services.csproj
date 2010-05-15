@@ -78,7 +78,8 @@
       <DependentUpon>Customer.xsd</DependentUpon>
     </None>
     <None Include="Customer.xsd">
-      <SubType>Designer</SubType>
+      <SubType>
+      </SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Customer.Designer.cs</LastGenOutput>
     </None>
