@@ -1247,11 +1247,13 @@ namespace WindowsFormsApplication4
 
         private void SendToKitchen()
         {
+            DataTable kitchen;
             if(myCash1.listInvoiceItem.Rows.Count>0)
             {
                 bool kt = false;
                 foreach (Printer c in serviceGet.getPrintersOfKitchen(StaticClass.storeId, StaticClass.stationId))
                 {
+                    kitchen = new POSReport.DataSet.InvoiceItem.Invoice_ItemizedDataTable();
                     kt = false;
                     if (!c.Disable && (c.Details != "NONE"))
                     {
@@ -1262,39 +1264,48 @@ namespace WindowsFormsApplication4
                                 DataTable inventPrinter = getGui.GetInventPrinter(StaticClass.storeId, myCash1.listInvoiceItem.Rows[c1.Id - 1]["ItemNum"].ToString(), c.PrinterName);
                                 if (inventPrinter.Rows.Count > 0)
                                 {
+                                    kitchen.Rows.Add(new object[] { myCash1.listInvoiceItem.Rows[c1.Id - 1]["Invoice_Number"], myCash1.listInvoiceItem.Rows[c1.Id - 1]["LineNum"] ,
+                                                                    myCash1.listInvoiceItem.Rows[c1.Id -1]["ItemNum"],myCash1.listInvoiceItem.Rows[c1.Id -1]["Quantity"],
+                                                                    myCash1.listInvoiceItem.Rows[c1.Id -1]["PricePer"],myCash1.listInvoiceItem.Rows[c1.Id -1]["DiffItemName"],
+                                                                    myCash1.listInvoiceItem.Rows[c1.Id -1]["Store_ID"],myCash1.listInvoiceItem.Rows[c1.Id -1]["Kit_ItemNum"]});
                                     string lineNum = myCash1.listInvoiceItem.Rows[c1.Id -1]["LineNum"].ToString();
                                     string itemNum = myCash1.listInvoiceItem.Rows[c1.Id - 1]["ItemNum"].ToString();
                                     string quan = myCash1.listInvoiceItem.Rows[c1.Id - 1]["Quantity"].ToString();
                                     string note = myCash1.listInvoiceItem.Rows[c1.Id - 1]["Kit_ItemNum"].ToString();
                                     string itemname = myCash1.listInvoiceItem.Rows[c1.Id - 1]["DiffItemName"].ToString();
-                                    getGui.InsertItemsToPrintToKit(StaticClass.storeId, invoiceNum, lineNum, itemNum, quan, note, itemname);
+                                    //getGui.InsertItemsToPrintToKit(StaticClass.storeId, invoiceNum, lineNum, itemNum, quan, note, itemname);
                                     kt = true;
                                 }
                             }
                         }
                         if (kt)
                         {
-                            rpt_PrintToKit xxx = new rpt_PrintToKit();
-                            bool mode = false;
-                            if(StaticClass.mode == "AUT")
-                            {
-                                mode = true;
-                                xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
-                            }
-                            else if(StaticClass.mode == "SQL")
-                            {
-                                xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
-                                                 StaticClass.databaseName,true);
-                                xxx.DataSourceConnections[0].IntegratedSecurity = true;
-                            }
-                            else
-                            {
-                                return;
-                            }
+                            //rpt_PrintToKit xxx = new rpt_PrintToKit();
+                            //bool mode = false;
+                            //if(StaticClass.mode == "AUT")
+                            //{
+                            //    mode = true;
+                            //    xxx.DataSourceConnections[0].SetConnection(StaticClass.serverName, StaticClass.databaseName, true);
+                            //}
+                            //else if(StaticClass.mode == "SQL")
+                            //{
+                            //    xxx.SetDatabaseLogon(StaticClass.userName, StaticClass.password, StaticClass.serverName,
+                            //                     StaticClass.databaseName,true);
+                            //    xxx.DataSourceConnections[0].IntegratedSecurity = true;
+                            //}
+                            //else
+                            //{
+                            //    return;
+                            //}
                             
-                            string[] para = { "@Store_ID", "@Invoice_Number","@Table","@Time" };
-                            object[] value = {StaticClass.storeId,invoiceNum,tableName,DateTime.Now};
-                            serviceGet.FillDataReport(xxx,para,value,true);
+                            //string[] para = { "@Store_ID", "@Invoice_Number","@Table","@Time" };
+                            //object[] value = {StaticClass.storeId,invoiceNum,tableName,DateTime.Now};
+                            //serviceGet.FillDataReport(xxx,para,value,true);
+                            rptKitchenItems xxx = new rptKitchenItems();
+                            xxx.Database.Tables[0].SetDataSource(kitchen);
+                            xxx.SetParameterValue("@Table",tableName);
+                            xxx.SetParameterValue("@Time", DateTime.Now);
+                            xxx.SetParameterValue("@EmpName", StaticClass.thongTinNV["EmpName"].ToString());
                             xxx.PrintOptions.PrinterName = c.Details;
                             xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
                             //try
@@ -1307,7 +1318,7 @@ namespace WindowsFormsApplication4
                             //}
 
                             Utilities.Utils.Print(xxx,c.PrinterName);
-                            getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
+                            //getGui.DeleteItemsPrintToKit(StaticClass.storeId, invoiceNum);
                             xxx.Dispose();
                             xxx = null;
                         }
