@@ -41,6 +41,8 @@ namespace WindowsFormsApplication4
         {
                 m_Instance = this;
                 InitializeComponent();
+                StaticClass.frmbanhangMain = new FrmBanHang();
+                StaticClass.frmbanhangMain.formLogin = this;
                 timer2.Enabled = true;
                 panel1.Focus();
                 textBox1.Select();
