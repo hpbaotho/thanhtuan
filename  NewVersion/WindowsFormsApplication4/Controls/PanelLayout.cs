@@ -139,11 +139,12 @@ namespace WindowsFormsApplication4.Controls
                         return;
                     }
                 }
-                banhang = new FrmBanHang();
+                //banhang = new FrmBanHang();
                 var tmpBut = (TransButton)sender;
-                
-                banhang.formLayout =  (FrmLayout)((TransButton) sender).FindForm();
-                banhang.formLogin = ((FrmLayout)((TransButton)sender).FindForm()).formLogin;
+
+                banhang = StaticClass.frmbanhangMain;
+                banhang.Start();
+                banhang.formLayout = (FrmLayout)((TransButton)sender).FindForm();
                 if(tmpBut.invoiceNum == "")
                 {
                     banhang.isOnHold = false;
@@ -157,9 +158,9 @@ namespace WindowsFormsApplication4.Controls
                 banhang.invoiceNum = InvoiceNum;
                 banhang.tableName = tmpBut.tableName;
                 banhang.formLogin.RequestMess("UpdateForm");
+                banhang.LoadFrmBanHang();
+                banhang.changeLayout(false, null);
                 banhang.ShowDialog();
-                banhang.Dispose();
-                banhang = null;
             }
            
             
