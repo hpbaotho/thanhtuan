@@ -66,8 +66,8 @@ namespace WindowsFormsApplication4.Controls
             position = 0;
             pos_scroll_begin = 1;
             track = false;
-            int n_rows = (vScrollBar1.Height-myItem1.Height)/myItem1.Height+2;
-            hash=new Hashtable();
+            int n_rows = (vScrollBar1.Height - myItem1.Height) / myItem1.Height + 2;
+            hash = new Hashtable();
             pos_sroll_present = 0;
             for (i = 1; i < n_rows; i++)
             {
@@ -75,13 +75,55 @@ namespace WindowsFormsApplication4.Controls
                 item.Id = i;
                 item.Text = "myitems" + i;
                 item.Name = item.Text;
-                item.Location = new System.Drawing.Point(0,panel_Ban.Height+Label_Ban.Height+ i * myItem1.Height);
+                item.Location = new System.Drawing.Point(0, panel_Ban.Height + Label_Ban.Height + i * myItem1.Height);
                 this.Controls.Add(item);
-                hash.Add(i,item);
+                hash.Add(i, item);
             }
             i--;
             pos_scroll_end = i;
         }
+
+        public void start()
+        {
+            
+            listInvoiceItem = new DataTable();
+            invoiceTotal = new DataTable();
+            multi_selected = true;
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            position = 0;
+            pos_scroll_begin = 1;
+            track = false;
+            int n_rows = (vScrollBar1.Height - myItem1.Height) / myItem1.Height + 2;
+            
+            int count = this.Controls.Count - 1;
+            for (int j = count; j >= 0; j--)
+            {
+                if (this.Controls[j].Name.StartsWith("myitems"))
+                {
+                    var a = this.Controls[j];
+                    this.Controls.Remove(this.Controls[j]);
+                    a.Dispose();
+                    //j--;
+                }
+            }
+            this.Invalidate();
+            hash.Clear();
+            hash = new Hashtable();
+            pos_sroll_present = 0;
+            for (i = 1; i < n_rows; i++)
+            {
+                MyItem item = new MyItem(myItem1.Width, myItem1.Height);
+                item.Id = i;
+                item.Text = "myitems" + i;
+                item.Name = item.Text;
+                item.Location = new System.Drawing.Point(0, panel_Ban.Height + Label_Ban.Height + i * myItem1.Height);
+                this.Controls.Add(item);
+                hash.Add(i, item);
+            }
+            i--;
+            pos_scroll_end = i;
+        }
+
         private void drawItems(int h, int start, int n)
         {
             int j = 1;
