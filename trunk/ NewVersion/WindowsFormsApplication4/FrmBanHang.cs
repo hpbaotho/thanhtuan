@@ -45,6 +45,7 @@ namespace WindowsFormsApplication4
         private decimal taxInvoice2;
         private int numOfItemSended;
         private Thread printThread;
+        private FrmPay frmPay;
         //private Thread printReceiptThread;
         
         public FrmBanHang()
@@ -52,6 +53,7 @@ namespace WindowsFormsApplication4
             InitializeComponent();
             serviceGet = new ServiceGet();
             getGui = new get_GUI();
+            frmPay = new FrmPay();
             //for (int i = 1; i < 8;i++ )
             //{
             //    button tmp = (button)panel1.Controls["button" + i.ToString()];
@@ -1176,7 +1178,7 @@ namespace WindowsFormsApplication4
             }
             if(myCash1.listInvoiceItem.Rows.Count != 0)
             {
-                FrmPay frmPay = new FrmPay();
+                //frmPay = new FrmPay();
                 frmPay.textBox1.Text = frmPay.textBox2.Text = String.Format("{0:0,0}", Convert.ToDecimal(myCash1.label_Total.Text));
                 frmPay.invoiceNum = invoiceNum;
                 if(frmPay.ShowDialog() == DialogResult.OK)
@@ -1234,11 +1236,11 @@ namespace WindowsFormsApplication4
                     printThanhToan();
 
                     //SendToKitchen();
-                    frmPay.Dispose();
+                    //frmPay.Dispose();
                     //this.Dispose();
                     this.Visible = false;
                 }
-                frmPay.Dispose();
+                //frmPay.Dispose();
             }
             else
             {
