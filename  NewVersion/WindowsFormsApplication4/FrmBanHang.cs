@@ -150,6 +150,21 @@ namespace WindowsFormsApplication4
             
             LoadNhomHang();
             LoadMatHang();
+            ////////////////////////////////////////////////////////////////////////////
+            for (int i = 1; i < 8; i++)
+            {
+                string buttonName = "button" + i.ToString();
+                button tmp = (button)panel1.Controls[buttonName];
+                tmp.Click += new EventHandler(tmp_Click);
+                //tmp.changeColor(Color.White, Color.Orange);
+            }
+            for (int i = 15; i < 43; i++)
+            {
+                button tmp1 = (button)panel2.Controls["button" + i.ToString()];
+                //tmp1.changeColor(Color.White, Color.Gray);
+                tmp1.Click += new EventHandler(tmp1_Click);
+            }
+            //UpdateInfo();
 
         }
 
@@ -216,6 +231,162 @@ namespace WindowsFormsApplication4
         {
             
 
+            //myCash1.Label_Ban.Text = tableName;
+            //myCash1.Label_ServerId.Text = StaticClass.thongTinNV["EmpName"].ToString();
+            //myCash1.listInvoiceItem = getGui.GetInvoiceItemized(StaticClass.storeId, this.invoiceNum);
+            //myCash1.invoiceTotal = getGui.GetInvoiceTotal(StaticClass.storeId, invoiceNum);
+            //taxInvoice1 = Convert.ToDecimal(myCash1.invoiceTotal.Rows[0]["InvoiceTax"]);
+            //numOfItemSended = myCash1.listInvoiceItem.Rows.Count;
+            //Customer.CustomerDataTable customerDataTable =
+            //    getGui.GetCustomerByID(myCash1.invoiceTotal.Rows[0]["CustNum"].ToString());
+            //var row = customerDataTable.Rows[0] as Customer.CustomerRow;
+            //lbCustName.Text = row.Last_Name;
+            //lbAccBalance.Text = String.Format("{0:0,0}", row.Acct_Balance);
+
+            //if(isOnHold)
+                
+            //{
+            //    foreach (DataRow c in myCash1.listInvoiceItem.Rows)
+            //    {
+            //        Decimal quan = Convert.ToDecimal(c[3]);
+            //        Decimal pricePer = Convert.ToDecimal(c[5]);
+            //        Decimal price = quan*pricePer; 
+            //        myCash1.addRow(">"+c[13].ToString(), String.Format("{0:0.##}",c[3]), String.Format("{0:0,0}", price));
+            //    }
+            //}
+            //for (int i = 1; i < 8;i++ )
+            //{
+            //    string buttonName = "button" + i.ToString();
+            //    button tmp = (button)panel1.Controls[buttonName];
+            //    tmp.Click += new EventHandler(tmp_Click);
+            //    //tmp.changeColor(Color.White, Color.Orange);
+            //}
+            //for (int i = 15; i < 43; i++)
+            //{
+            //    button tmp1 = (button)panel2.Controls["button" + i.ToString()];
+            //    //tmp1.changeColor(Color.White, Color.Gray);
+            //    tmp1.Click += new EventHandler(tmp1_Click);
+            //}
+            //UpdateInfo();
+        }
+        ////////////////////////////////////////////////////////////
+        public void Start()
+        {
+            //this.Controls.Remove(myCash1);
+            //myCash1.start();
+            //this.SuspendLayout();
+            //this.myCash1.BackColor = System.Drawing.Color.White;
+            //this.myCash1.Location = new System.Drawing.Point(671, 26);
+            //this.myCash1.MultiSelected = true;
+            //this.myCash1.Name = "myCash1";
+            //this.myCash1.Scale = 0;
+            //this.myCash1.Size = new System.Drawing.Size(352, 585);
+            //this.myCash1.TabIndex = 17;
+
+            //myCash1.listInvoiceItem = new DataTable();
+            //myCash1.invoiceTotal = new DataTable();
+            //this.Controls.Add(myCash1);
+            //this.ResumeLayout(false);
+            //this.PerformLayout();
+            //myCash1.PerformLayout();
+
+            myCash1.start();
+            //myCash1.listInvoiceItem = new DataTable();
+            //myCash1.invoiceTotal = new DataTable();
+            //myCash1.DeleteAll();
+
+            button45.changeColor(Color.White, Color.OrangeRed);
+            button46.changeColor(Color.White, Color.OrangeRed);
+            button47.changeColor(Color.White, Color.Orange);
+            button48.changeColor(Color.White, Color.Yellow);
+            button49.changeColor(Color.White, Color.OrangeRed);
+            button50.changeColor(Color.White, Color.Gray);
+            button52.changeColor(Color.White, Color.Gray);
+            button53.changeColor(Color.White, Color.Orange);
+            button54.changeColor(Color.White, Color.Green);
+
+
+            //listNhomHang = new ArrayList();
+
+
+            //for (int i = 1; i < 18; i++)
+            //{
+            //    listNhomHang.Add(i.ToString());
+            //}
+            //for (int i = 1; i < 70; i++)
+            //{
+            //    listMatHang.Add(i.ToString());
+            //}
+
+            //listMatHang = new ArrayList();
+            //listIdNhomHang = new ArrayList();
+            //listNhomHang = new ArrayList();
+            //listIdMatHang = new ArrayList();
+            listTSButtonDept = new ArrayList();
+            listTSButtonInvent = new ArrayList();
+            DataTable tblnhomhang = serviceGet.GetDepartments("1001");
+            for (int i = 0; i < tblnhomhang.Rows.Count; i++)
+            {
+                //listNhomHang.Add(tblnhomhang.Rows[i][2].ToString());
+                //listIdNhomHang.Add(tblnhomhang.Rows[i][24].ToString());
+                TSButton tsButton = new TSButton("01", Convert.ToInt32(tblnhomhang.Rows[i]["Index"]),
+                 tblnhomhang.Rows[i]["Caption"].ToString(), tblnhomhang.Rows[i]["Picture"].ToString(), tblnhomhang.Rows[i]["Option1"].ToString(),
+                 Convert.ToInt32(tblnhomhang.Rows[i]["BackColor"]), Convert.ToInt32(tblnhomhang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblnhomhang.Rows[i]["Visible"]),
+                 tblnhomhang.Rows[i]["Ident"].ToString());
+                listTSButtonDept.Add(tsButton);
+            }
+
+            if (tblnhomhang.Rows.Count > 0)
+            {
+                DataTable tblMathang = getGui.GetInventoryByDept("0", ((TSButton)listTSButtonDept[0]).Ident, "1001");
+                for (int i = 0; i < tblMathang.Rows.Count; i++)
+                {
+                    //listMatHang.Add(tblMathang.Rows[i][3].ToString());
+                    //listIdMatHang.Add(tblMathang.Rows[i][7].ToString());
+                    TSButton tsButton = new TSButton("01", Convert.ToInt32(tblMathang.Rows[i]["Index"]),
+                     tblMathang.Rows[i]["Caption"].ToString(), tblMathang.Rows[i]["Picture"].ToString(), tblMathang.Rows[i]["Option1"].ToString(),
+                     Convert.ToInt32(tblMathang.Rows[i]["BackColor"]), Convert.ToInt32(tblMathang.Rows[i]["ForeColor"]), Convert.ToBoolean(tblMathang.Rows[i]["Visible"]),
+                     tblMathang.Rows[i]["Ident"].ToString());
+                    listTSButtonInvent.Add(tsButton);
+                }
+
+            }
+            else
+            {
+                button8.Visible = false;
+            }
+
+
+            if (listTSButtonDept.Count % 7 == 0)
+            {
+                numOfPageNhom = listTSButtonDept.Count / 7;
+            }
+            else
+            {
+                numOfPageNhom = listTSButtonDept.Count / 7 + 1;
+
+            }
+
+            if (listTSButtonInvent.Count % 28 == 0)
+            {
+                numOfPageMatHang = listTSButtonInvent.Count / 28;
+            }
+            else
+            {
+                numOfPageMatHang = listTSButtonInvent.Count / 28 + 1;
+            }
+            pageIndexNhom = 1;
+            selectIndexNhom = 1;
+
+            pageIndexMatHang = 1;
+
+
+            LoadNhomHang();
+            LoadMatHang();
+        }
+
+        public void LoadFrmBanHang()
+        {
             myCash1.Label_Ban.Text = tableName;
             myCash1.Label_ServerId.Text = StaticClass.thongTinNV["EmpName"].ToString();
             myCash1.listInvoiceItem = getGui.GetInvoiceItemized(StaticClass.storeId, this.invoiceNum);
@@ -228,33 +399,33 @@ namespace WindowsFormsApplication4
             lbCustName.Text = row.Last_Name;
             lbAccBalance.Text = String.Format("{0:0,0}", row.Acct_Balance);
 
-            if(isOnHold)
-                
+            if (isOnHold)
             {
                 foreach (DataRow c in myCash1.listInvoiceItem.Rows)
                 {
                     Decimal quan = Convert.ToDecimal(c[3]);
                     Decimal pricePer = Convert.ToDecimal(c[5]);
-                    Decimal price = quan*pricePer; 
-                    myCash1.addRow(">"+c[13].ToString(), String.Format("{0:0.##}",c[3]), String.Format("{0:0,0}", price));
+                    Decimal price = quan * pricePer;
+                    myCash1.addRow(">" + c[13].ToString(), String.Format("{0:0.##}", c[3]), String.Format("{0:0,0}", price));
                 }
             }
-            for (int i = 1; i < 8;i++ )
-            {
-                string buttonName = "button" + i.ToString();
-                button tmp = (button)panel1.Controls[buttonName];
-                tmp.Click += new EventHandler(tmp_Click);
-                //tmp.changeColor(Color.White, Color.Orange);
-            }
-            for (int i = 15; i < 43; i++)
-            {
-                button tmp1 = (button)panel2.Controls["button" + i.ToString()];
-                //tmp1.changeColor(Color.White, Color.Gray);
-                tmp1.Click += new EventHandler(tmp1_Click);
-            }
+            //for (int i = 1; i < 8; i++)
+            //{
+            //    string buttonName = "button" + i.ToString();
+            //    button tmp = (button)panel1.Controls[buttonName];
+            //    tmp.Click += new EventHandler(tmp_Click);
+            //    //tmp.changeColor(Color.White, Color.Orange);
+            //}
+            //for (int i = 15; i < 43; i++)
+            //{
+            //    button tmp1 = (button)panel2.Controls["button" + i.ToString()];
+            //    //tmp1.changeColor(Color.White, Color.Gray);
+            //    tmp1.Click += new EventHandler(tmp1_Click);
+            //}
             UpdateInfo();
+            myCash1.Invalidate();
         }
-
+        ///////////////////////////////////////////////////////////
         void tmp1_Click(object sender, EventArgs e)
         {
             DataRow invent = getGui.GetInventoryByItemNum(StaticClass.storeId, ((button)sender).Ident).Rows[0];
@@ -439,7 +610,8 @@ namespace WindowsFormsApplication4
                 UpdateInvoiceTotals();
                 getGui.DeleteInvoiceItemized(StaticClass.storeId, this.invoiceNum);
                 getGui.CloseTable(StaticClass.storeId,this.invoiceNum);
-                this.Dispose();
+                //this.Dispose();
+                this.Visible = false;
                 formLogin.RequestMess("UpdateForm");
             }
             else
@@ -474,9 +646,9 @@ namespace WindowsFormsApplication4
             
             SendToKitchen();
             formLogin.RequestMess("UpdateForm");
-            this.Dispose();
-            
-
+            //this.Dispose();
+            //this.Visible = false;
+            this.DialogResult = DialogResult.OK;
             //formLogin.FrmLogin_Load(null, null);
         }
 
@@ -752,8 +924,9 @@ namespace WindowsFormsApplication4
                 getGui.CloseTable(StaticClass.storeId, invoiceNum);
                 Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Huy hoa don   " + invoiceNum + "    " +
                             myCash1.invoiceTotal.Rows[0]["Grand_Total"].ToString());
-                this.Dispose();
+                //this.Dispose();
                 formLayout.FrmLayout_Load(null, null);
+                this.Visible = false;
             }
         }
 
@@ -795,7 +968,8 @@ namespace WindowsFormsApplication4
             //}
             PrintTamtinh();
             Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t Tam tinh   " + this.invoiceNum + "\t" + myCash1.label_Total.Text);
-            this.Dispose();
+            //this.Dispose();
+            this.Visible = false;
             
         }
 
@@ -1061,7 +1235,8 @@ namespace WindowsFormsApplication4
 
                     //SendToKitchen();
                     frmPay.Dispose();
-                    this.Dispose();
+                    //this.Dispose();
+                    this.Visible = false;
                 }
                 frmPay.Dispose();
             }
