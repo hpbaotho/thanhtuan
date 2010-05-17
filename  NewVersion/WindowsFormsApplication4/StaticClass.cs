@@ -11,6 +11,7 @@ namespace WindowsFormsApplication4
 {
     class StaticClass
     {
+        public static FrmBanHang frmbanhangMain;
         public static bool isChangeInventory;
         public static bool isAdmin = false;
         public static string cashierId = "";
