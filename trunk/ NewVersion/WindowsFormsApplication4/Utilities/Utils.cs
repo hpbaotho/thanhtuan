@@ -38,7 +38,7 @@ namespace WindowsFormsApplication4.Utilities
                     return;
                 }
                 
-                reportClass.PrintOptions.PrinterName = printer.Details;
+                
                 if(printerName == "Hóa đơn")
                 {
                     reportClass.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
@@ -46,6 +46,7 @@ namespace WindowsFormsApplication4.Utilities
                 
                 try
                 {
+                    reportClass.PrintOptions.PrinterName = printer.Details;
                     reportClass.PrintToPrinter(1, false, 0, 0);
                 }
                 catch (Exception)
