@@ -136,6 +136,77 @@ namespace WindowsFormsApplication4
             this.Refresh();
         }
 
+        //////////////////////////////////////////////////////////////////////////////////
+        public void Reload()
+        {
+            button1.changeColor(Color.White, Color.Red);
+            button2.changeColor(Color.White, Color.DimGray);
+            button3.changeColor(Color.White, Color.DimGray);
+            //if (sections != null)
+            //{
+            //    for (int i = 0; i < sections.Count; i++)
+            //    {
+            //        ((PanelLayout)listPanel[sections[i].ToString()]).Dispose();
+            //    }
+            //    //sections.Clear();
+            //    sections = null;
+            //}
+            //sections = new ArrayList();
+            //listPanel.Clear();
+            //listPanel = null;
+            System.GC.Collect();
+            //listPanel = new Hashtable();
+            //DataTable sectionList = serviceGet.getSections("1001");
+            for (int i = 0; i < sections.Count; i++)
+            {
+                //string sectionName = sectionList.Rows[i][1].ToString();
+                //sections.Add(sectionName);
+                ArrayList tmp = new ArrayList();
+                tmp = serviceGet.getTables("1001", sections[i].ToString());
+
+                //Int64 a = (Int64)sectionList.Rows[i][2];
+                //Color color1 = Color.FromArgb((int)sectionList.Rows[i][2]);
+                //Color color2 = Color.FromArgb((int)sectionList.Rows[i][3]);
+                //PanelLayout panel = new PanelLayout(sections[i].ToString(), tmp, isTransfer);
+                //listPanel.Add(sectionName, panel);
+                //this.Controls.Add((PanelLayout)listPanel[sectionName]);
+                PanelLayout panelLayout = (PanelLayout)listPanel[sections[i].ToString()];
+                panelLayout.Reload(sections[i].ToString(), tmp, false);
+            }
+            //if (isTransfer)
+            //{
+            //    button1.Text = "Quay về";
+            //    for (int i = 2; i < 8; i++)
+            //    {
+            //        var tmp = (button)panel4.Controls["button" + i.ToString()];
+            //        //tmp.changeColor(Color.White,Color.LightGray);
+            //        tmp.Enabled = false;
+            //    }
+            //}
+
+
+
+            if (listPanel.Count % 4 == 0)
+            {
+                pageNum = listPanel.Count / 4;
+            }
+            else
+            {
+                pageNum = listPanel.Count / 4 + 1;
+            }
+            //for (int i = 10; i < 14; i++)
+            //{
+            //    var tmp = (button)panel3.Controls["button" + i.ToString()];
+            //    //tmp.changeColor(Color.White,Color.LightGray);
+            //    tmp.Click += new EventHandler(tmp_Click);
+            //}
+            LoadSectionButton();
+            var tmppanel = (PanelLayout)listPanel[sections[selectedSection].ToString()];
+            tmppanel.BringToFront();
+            this.Refresh();
+        }
+        /// ///////////////////////////////////////////////////////////////////////////
+
         void tmp_Click(object sender, EventArgs e)
         {
             var tmp = (button) sender;
@@ -238,7 +309,7 @@ namespace WindowsFormsApplication4
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.FrmLayout_Load(null,null);
+            this.Reload();
         }
         public delegate void RefreshFormDelegate();
         public void RefreshForm()
@@ -249,7 +320,7 @@ namespace WindowsFormsApplication4
             }
             else
             {
-                this.FrmLayout_Load(null, null);
+                this.Reload();
             }
 
 
