@@ -91,6 +91,41 @@ namespace WindowsFormsApplication4.Controls
             this.Invalidate();
         }
 
+        /////////////////////////////////////////////////////////////////
+        public void Reload(string sectionName, ArrayList buttons, bool isTransfer)
+        {
+            foreach (Control o in this.Controls)
+            {
+                o.Dispose();
+            }
+            this.Controls.Clear();
+            this.isTransfer = isTransfer;
+            mangButton = buttons;
+            this.Size = new Size(1022, 660);
+            this.Location = new Point(1, 54);
+            //color1 = tmpColor1;
+            //color2 = tmpColor2;
+            this.Text = sectionName;
+            foreach (TransButton o in mangButton)
+            {
+                o.Click += new EventHandler(o_Click);
+                this.Controls.Add(o);
+            }
+            if (isTransfer)
+            {
+                Label info = new Label();
+                info.BackColor = Color.Red;
+                info.ForeColor = Color.White;
+                info.Location = new Point(1, 630);
+                info.Size = new Size(300, 25);
+                info.Font = new Font("Arial", 15);
+                info.Text = "Hãy chọn bàn muốn chuyển";
+                this.Controls.Add(info);
+            }
+            this.Invalidate();
+        }
+        /// /////////////////////////////////////////////////////////
+
         void o_Click(object sender, EventArgs e)
         {
             if (((TransButton)sender).BackColor == Color.Red)
