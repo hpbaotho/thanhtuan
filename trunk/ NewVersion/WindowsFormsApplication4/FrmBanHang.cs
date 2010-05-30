@@ -639,7 +639,7 @@ namespace WindowsFormsApplication4
                 }
             }
             UpdateInvoiceTotals();
-            formLayout.FrmLayout_Load(null, null);
+            formLayout.Reload();
             //if(printThread == null||!printThread.IsAlive)
             //{
             //    printThread = new Thread(new ThreadStart(SendToKitchen));
@@ -927,7 +927,7 @@ namespace WindowsFormsApplication4
                 Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t" + "Huy hoa don   " + invoiceNum + "    " +
                             myCash1.invoiceTotal.Rows[0]["Grand_Total"].ToString());
                 //this.Dispose();
-                formLayout.FrmLayout_Load(null, null);
+                formLayout.Reload();
                 this.Visible = false;
             }
         }
@@ -955,7 +955,7 @@ namespace WindowsFormsApplication4
             }
             UpdateInvoiceTotals();
             formLogin.RequestMess("UpdateForm");
-            formLayout.FrmLayout_Load(null, null); 
+            formLayout.Reload(); 
             SendToKitchen();
             //if (printThread == null || !printThread.IsAlive)
             //{
@@ -1049,7 +1049,7 @@ namespace WindowsFormsApplication4
                     object[] value = { StaticClass.storeId, invoiceNum, tableName };
                     serviceGet.FillDataReport(xxx, pa, value, true);
 
-                    xxx.PrintOptions.PrinterName = printer.Details;
+                    //xxx.PrintOptions.PrinterName = printer.Details;
 
                     xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
 
@@ -1220,7 +1220,7 @@ namespace WindowsFormsApplication4
                     UpdateInvoiceTotals();
                     getGui.DeleteInvoiceOnhold(StaticClass.storeId,invoiceNum);
                     formLogin.RequestMess("UpdateForm");
-                    formLayout.FrmLayout_Load(null, null);
+                    formLayout.Reload();
 
                     //if (printThread == null || !printThread.IsAlive)
                     //{
@@ -1336,7 +1336,7 @@ namespace WindowsFormsApplication4
                 string[] pa = { "@Store_ID", "@Invoice_Number", "table" };
                 object[] value = { StaticClass.storeId, invoiceNum, tableName };
                 serviceGet.FillDataReport(xxx, pa, value, true);
-                xxx.PrintOptions.PrinterName = printer.Details;
+                //xxx.PrintOptions.PrinterName = printer.Details;
 
                 xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
 
@@ -1483,7 +1483,7 @@ namespace WindowsFormsApplication4
                             xxx.SetParameterValue("@Table",tableName);
                             xxx.SetParameterValue("@Time", DateTime.Now);
                             xxx.SetParameterValue("@EmpName", StaticClass.thongTinNV["EmpName"].ToString());
-                            xxx.PrintOptions.PrinterName = c.Details;
+                            //xxx.PrintOptions.PrinterName = c.Details;
                             xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
                             //try
                             //{
