@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,10 +58,10 @@
             this.Giá = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ingreObj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ckb_Sua = new System.Windows.Forms.CheckBox();
-            this.txtSolgDat = new WindowsFormsApplication4.Controls.CreTextBox();
-            this.txtGioiHanDat = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creCheckBox12 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.txtSolgDat = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creCheckBox13 = new WindowsFormsApplication4.Controls.CreCheckBox();
+            this.txtGioiHanDat = new WindowsFormsApplication4.Controls.CreTextBox();
             this.creCheckBox14 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox15 = new WindowsFormsApplication4.Controls.CreCheckBox();
             this.creCheckBox6 = new WindowsFormsApplication4.Controls.CreCheckBox();
@@ -275,7 +275,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(640, 113);
+            this.label13.Location = new System.Drawing.Point(350, 98);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(165, 24);
             this.label13.TabIndex = 4;
@@ -285,7 +285,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(640, 33);
+            this.label12.Location = new System.Drawing.Point(350, 18);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(159, 24);
             this.label12.TabIndex = 3;
@@ -309,7 +309,7 @@
             this.panel5.Controls.Add(this.creCheckBox1);
             this.panel5.Location = new System.Drawing.Point(7, 42);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(627, 174);
+            this.panel5.Size = new System.Drawing.Size(215, 174);
             this.panel5.TabIndex = 0;
             // 
             // tabPage2
@@ -397,8 +397,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeight = 33;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -452,20 +452,6 @@
             this.ckb_Sua.UseVisualStyleBackColor = true;
             this.ckb_Sua.CheckedChanged += new System.EventHandler(this.ckb_Sua_CheckedChanged);
             // 
-            // txtSolgDat
-            // 
-            this.txtSolgDat.Location = new System.Drawing.Point(644, 145);
-            this.txtSolgDat.Name = "txtSolgDat";
-            this.txtSolgDat.Size = new System.Drawing.Size(154, 35);
-            this.txtSolgDat.TabIndex = 2;
-            // 
-            // txtGioiHanDat
-            // 
-            this.txtGioiHanDat.Location = new System.Drawing.Point(644, 64);
-            this.txtGioiHanDat.Name = "txtGioiHanDat";
-            this.txtGioiHanDat.Size = new System.Drawing.Size(154, 35);
-            this.txtGioiHanDat.TabIndex = 1;
-            // 
             // creCheckBox12
             // 
             this.creCheckBox12.AutoSize = true;
@@ -476,6 +462,14 @@
             this.creCheckBox12.TabIndex = 13;
             this.creCheckBox12.Text = "Special Permission";
             this.creCheckBox12.UseVisualStyleBackColor = true;
+            this.creCheckBox12.Visible = false;
+            // 
+            // txtSolgDat
+            // 
+            this.txtSolgDat.Location = new System.Drawing.Point(354, 130);
+            this.txtSolgDat.Name = "txtSolgDat";
+            this.txtSolgDat.Size = new System.Drawing.Size(154, 35);
+            this.txtSolgDat.TabIndex = 2;
             // 
             // creCheckBox13
             // 
@@ -487,6 +481,14 @@
             this.creCheckBox13.TabIndex = 12;
             this.creCheckBox13.Text = "Use Serial\\Batch #";
             this.creCheckBox13.UseVisualStyleBackColor = true;
+            this.creCheckBox13.Visible = false;
+            // 
+            // txtGioiHanDat
+            // 
+            this.txtGioiHanDat.Location = new System.Drawing.Point(354, 49);
+            this.txtGioiHanDat.Name = "txtGioiHanDat";
+            this.txtGioiHanDat.Size = new System.Drawing.Size(154, 35);
+            this.txtGioiHanDat.TabIndex = 1;
             // 
             // creCheckBox14
             // 
@@ -498,6 +500,7 @@
             this.creCheckBox14.TabIndex = 11;
             this.creCheckBox14.Text = "Auto-Weigh";
             this.creCheckBox14.UseVisualStyleBackColor = true;
+            this.creCheckBox14.Visible = false;
             // 
             // creCheckBox15
             // 
@@ -509,6 +512,7 @@
             this.creCheckBox15.TabIndex = 10;
             this.creCheckBox15.Text = "Foodstampable";
             this.creCheckBox15.UseVisualStyleBackColor = true;
+            this.creCheckBox15.Visible = false;
             // 
             // creCheckBox6
             // 
@@ -520,6 +524,7 @@
             this.creCheckBox6.TabIndex = 9;
             this.creCheckBox6.Text = "Print on Reciept";
             this.creCheckBox6.UseVisualStyleBackColor = true;
+            this.creCheckBox6.Visible = false;
             // 
             // creCheckBox2
             // 
@@ -531,6 +536,7 @@
             this.creCheckBox2.TabIndex = 1;
             this.creCheckBox2.Text = "Exclude From Account Limit";
             this.creCheckBox2.UseVisualStyleBackColor = true;
+            this.creCheckBox2.Visible = false;
             // 
             // creCheckBox7
             // 
@@ -542,6 +548,7 @@
             this.creCheckBox7.TabIndex = 8;
             this.creCheckBox7.Text = "Allow Buyback";
             this.creCheckBox7.UseVisualStyleBackColor = true;
+            this.creCheckBox7.Visible = false;
             // 
             // creCheckBox8
             // 
@@ -575,6 +582,7 @@
             this.creCheckBox10.TabIndex = 5;
             this.creCheckBox10.Text = "Disable This Item";
             this.creCheckBox10.UseVisualStyleBackColor = true;
+            this.creCheckBox10.Visible = false;
             // 
             // creCheckBox5
             // 
@@ -598,6 +606,7 @@
             this.creCheckBox4.TabIndex = 3;
             this.creCheckBox4.Text = "Check ID #2 Before Selling";
             this.creCheckBox4.UseVisualStyleBackColor = true;
+            this.creCheckBox4.Visible = false;
             // 
             // creCheckBox3
             // 
@@ -609,6 +618,7 @@
             this.creCheckBox3.TabIndex = 2;
             this.creCheckBox3.Text = "Check ID Before Selling";
             this.creCheckBox3.UseVisualStyleBackColor = true;
+            this.creCheckBox3.Visible = false;
             // 
             // creCheckBox1
             // 
@@ -620,6 +630,7 @@
             this.creCheckBox1.TabIndex = 0;
             this.creCheckBox1.Text = "Modifier Item";
             this.creCheckBox1.UseVisualStyleBackColor = true;
+            this.creCheckBox1.Visible = false;
             // 
             // button2
             // 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using CrystalDecisions.CrystalReports.Engine;
+using DAO;
 using POSReport.Report;
 using Services;
 using WindowsFormsApplication4.lic;
@@ -39,13 +40,19 @@ namespace WindowsFormsApplication4
         }
         public FrmLogin()
         {
-                m_Instance = this;
-                InitializeComponent();
-                StaticClass.frmbanhangMain = new FrmBanHang();
-                StaticClass.frmbanhangMain.formLogin = this;
-                timer2.Enabled = true;
-                panel1.Focus();
-                textBox1.Select();
+            m_Instance = this;
+            StaticClass.RPServer = new Server();
+            StaticClass.RPServer.Database_name = StaticClass.databaseName;
+            StaticClass.RPServer.Mode = StaticClass.mode;
+            StaticClass.RPServer.Password = StaticClass.password;
+            StaticClass.RPServer.Server_name = StaticClass.serverName;
+            StaticClass.RPServer.UserName = StaticClass.userName;
+            InitializeComponent();
+            StaticClass.frmbanhangMain = new FrmBanHang();
+            StaticClass.frmbanhangMain.formLogin = this;
+            timer2.Enabled = true;
+            panel1.Focus();
+            textBox1.Select();
                 
         }
 
