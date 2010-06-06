@@ -89,7 +89,7 @@ namespace WindowsFormsApplication4
                     else
                     {
                         Application.Run(new FrmLogin());
-                        //Application.Run(new FrmDeleteInvoice());
+                        //Application.Run(new FrmGeneralSetup());
                     }
                 }
                 else
