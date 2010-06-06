@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using DAO;
 using WindowsFormsApplication4.lic;
 using WindowsFormsApplication4.Networking;
 
@@ -35,6 +36,8 @@ namespace WindowsFormsApplication4
         public static int m_Version = 0;
         public static ClientNetwork socket;
         #region database
+
+        public static Server RPServer;
         public static string serverName = "";
         public static string databaseName = "";
         public static string userName = "";
