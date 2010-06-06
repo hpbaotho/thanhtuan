@@ -267,6 +267,12 @@
     <Compile Include="FrmEmployee.Designer.cs">
       <DependentUpon>FrmEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGeneralSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGeneralSetup.Designer.cs">
+      <DependentUpon>FrmGeneralSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +369,12 @@
     <Compile Include="FrmSearchCustomer.Designer.cs">
       <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSelectKitchenNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectKitchenNote.Designer.cs">
+      <DependentUpon>FrmSelectKitchenNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetupInvoiceNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +437,7 @@
     <Compile Include="Persistence\OnSalesInfo.cs" />
     <Compile Include="Persistence\Prices.cs" />
     <Compile Include="Persistence\Printer.cs" />
+    <Compile Include="Persistence\ReasonCode.cs" />
     <Compile Include="Persistence\SpecialPricing.cs" />
     <Compile Include="Persistence\TSButton.cs" />
     <Compile Include="Persistence\TSButtonDept.cs" />
@@ -510,6 +523,10 @@
       <DependentUpon>FrmEmployee.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGeneralSetup.resx">
+      <DependentUpon>FrmGeneralSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInventory.resx">
       <DependentUpon>FrmInventory.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -574,6 +591,10 @@
       <DependentUpon>FrmSearchCustomer.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectKitchenNote.resx">
+      <DependentUpon>FrmSelectKitchenNote.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSetupInvoiceNotes.resx">
       <DependentUpon>FrmSetupInvoiceNotes.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -629,6 +650,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RPDatasets\RPDataset1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPDataset1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Service\CashdrawerService.cs" />
     <Compile Include="Service\GetDatabaseInfo.cs" />
@@ -714,6 +740,17 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Resources\Water lilies.jpg" />
+    <None Include="RPDatasets\RPDataset1.xsc">
+      <DependentUpon>RPDataset1.xsd</DependentUpon>
+    </None>
+    <None Include="RPDatasets\RPDataset1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RPDataset1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RPDatasets\RPDataset1.xss">
+      <DependentUpon>RPDataset1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

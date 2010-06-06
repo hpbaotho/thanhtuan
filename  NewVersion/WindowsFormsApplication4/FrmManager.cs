@@ -183,5 +183,11 @@ namespace WindowsFormsApplication4
         {
             
         }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            FrmGeneralSetup frmGeneralSetup = new FrmGeneralSetup();
+            frmGeneralSetup.ShowDialog();
+        }
     }
 }

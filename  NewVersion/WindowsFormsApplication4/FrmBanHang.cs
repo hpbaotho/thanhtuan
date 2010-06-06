@@ -1122,14 +1122,24 @@ namespace WindowsFormsApplication4
         {
             ArrayList myItems = myCash1.get_RowSelected();
             MyItem myItem = (MyItem)myItems[0];
-            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(myCash1.listInvoiceItem.Rows[myItem.Id - 1]["Kit_ItemNum"].ToString());
-            if (frmKeyBoard.ShowDialog() == DialogResult.OK)
+            FrmSelectKitchenNote frmSelectKitchenNote = new FrmSelectKitchenNote(myCash1.listInvoiceItem.Rows[myItem.Id - 1]["Kit_ItemNum"].ToString());
+            if(frmSelectKitchenNote.ShowDialog() == DialogResult.OK)
             {
                 foreach (MyItem item in myItems)
                 {
-                    myCash1.listInvoiceItem.Rows[item.Id - 1]["Kit_ItemNum"] = frmKeyBoard.value;
+                    myCash1.listInvoiceItem.Rows[item.Id - 1]["Kit_ItemNum"] = frmSelectKitchenNote.Value;
                 }
             }
+
+
+            //FrmKeyBoard frmKeyBoard = new FrmKeyBoard(myCash1.listInvoiceItem.Rows[myItem.Id - 1]["Kit_ItemNum"].ToString());
+            //if (frmKeyBoard.ShowDialog() == DialogResult.OK)
+            //{
+            //    foreach (MyItem item in myItems)
+            //    {
+            //        myCash1.listInvoiceItem.Rows[item.Id - 1]["Kit_ItemNum"] = frmKeyBoard.value;
+            //    }
+            //}
            
         }
 
@@ -1633,6 +1643,21 @@ namespace WindowsFormsApplication4
             DataTable taxRate = getGui.GetTaxRate(StaticClass.storeId);
             taxInvoice1 = Convert.ToDecimal(taxRate.Rows[0]["Tax3_Rate"]);
             UpdateInfo();
+        }
+
+        private void button81_Click(object sender, EventArgs e)
+        {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_Open_Cash_Drawer))
+            {
+                return;
+            }
+            //rptOpenDrawer rptOpenDrawer = new rptOpenDrawer();
+            //Utilities.Utils.Print(rptOpenDrawer,Printer.PrinterHoadon);
+            Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, Printer.PrinterHoadon);
+            if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+            {
+                Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+            }
         }
 
     }

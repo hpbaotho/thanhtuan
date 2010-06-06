@@ -547,9 +547,9 @@ namespace WindowsFormsApplication4
             this.button32.OwnDrawColor = System.Drawing.Color.White;
             this.button32.Size = new System.Drawing.Size(131, 71);
             this.button32.TabIndex = 33;
-            this.button32.Text = "button32";
+            this.button32.Text = "Cài đặt chung";
             this.button32.UseOwnColor = false;
-            this.button32.Visible = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // button33
             // 
@@ -833,9 +833,9 @@ namespace WindowsFormsApplication4
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Name = "FrmManager";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

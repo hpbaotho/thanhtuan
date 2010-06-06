@@ -124,6 +124,7 @@
             this.button63 = new WindowsFormsApplication4.Controls.button();
             this.button62 = new WindowsFormsApplication4.Controls.button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button81 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -393,6 +394,7 @@
             this.lbAccBalance.Size = new System.Drawing.Size(19, 20);
             this.lbAccBalance.TabIndex = 46;
             this.lbAccBalance.Text = "0";
+            this.lbAccBalance.Visible = false;
             // 
             // lbCustName
             // 
@@ -414,6 +416,7 @@
             this.label5.Size = new System.Drawing.Size(150, 20);
             this.label5.TabIndex = 44;
             this.label5.Text = "Số dư tài khoản : ";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -1372,12 +1375,26 @@
             this.panel6.Size = new System.Drawing.Size(669, 56);
             this.panel6.TabIndex = 0;
             // 
+            // button81
+            // 
+            this.button81.Color2 = System.Drawing.Color.Cyan;
+            this.button81.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button81.Location = new System.Drawing.Point(561, 688);
+            this.button81.Name = "button81";
+            this.button81.OwnDrawColor = System.Drawing.Color.White;
+            this.button81.Size = new System.Drawing.Size(105, 68);
+            this.button81.TabIndex = 19;
+            this.button81.Text = "Mở két sắt";
+            this.button81.UseOwnColor = false;
+            this.button81.Click += new System.EventHandler(this.button81_Click);
+            // 
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.button81);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.myCash1);
@@ -1512,5 +1529,6 @@
         private WindowsFormsApplication4.Controls.button button70;
         private WindowsFormsApplication4.Controls.button button69;
         private WindowsFormsApplication4.Controls.button button80;
+        private WindowsFormsApplication4.Controls.button button81;
     }
 }

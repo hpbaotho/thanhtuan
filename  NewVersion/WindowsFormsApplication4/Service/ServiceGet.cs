@@ -11,6 +11,8 @@ using Services;
 using WindowsFormsApplication4.Const;
 using WindowsFormsApplication4.Controls;
 using WindowsFormsApplication4.Persistence;
+using WindowsFormsApplication4.RPDatasets;
+using WindowsFormsApplication4.RPDatasets.RPDataset1TableAdapters;
 
 
 namespace WindowsFormsApplication4.Service
@@ -366,6 +368,20 @@ namespace WindowsFormsApplication4.Service
                 re.Add(customerSwipe);
             }
             return re;
+        }
+        public ArrayList GetReasonCode(string StoreID,short Type)
+        {
+            RPDatasets.RPDataset1TableAdapters.Setup_Reason_CodesTableAdapter setup_Reason_CodesTableAdapter =
+                new Setup_Reason_CodesTableAdapter {Connection = DAO.DataProvider.ConnectionData(StaticClass.RPServer)};
+            DataTable dataTable = setup_Reason_CodesTableAdapter.GetData(StaticClass.storeId,
+                                                                  Type);
+            ArrayList reasonlist = new ArrayList();  
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                ReasonCode reasonCode = new ReasonCode(dataTable.Rows[i]["Reason_Code"].ToString(), Convert.ToInt32(dataTable.Rows[i]["Reason_Type"]));
+                reasonlist.Add(reasonCode);
+            }
+            return reasonlist;
         }
 
     }
