@@ -64,15 +64,15 @@ namespace WindowsFormsApplication4
             //    button tmp = (button)panel2.Controls["button" + i.ToString()];
             //    tmp.changeColor(Color.White, Color.Gray);
             //}
-            button45.changeColor(Color.White,Color.OrangeRed);
-            button46.changeColor(Color.White, Color.OrangeRed);
-            button47.changeColor(Color.White,Color.Orange);
-            button48.changeColor(Color.White, Color.Yellow);
-            button49.changeColor(Color.White, Color.OrangeRed);
-            button50.changeColor(Color.White, Color.Gray);
-            button52.changeColor(Color.White, Color.Gray);
-            button53.changeColor(Color.White, Color.Orange);
-            button54.changeColor(Color.White, Color.Green);
+            //button45.changeColor(Color.White,Color.OrangeRed);
+            //button46.changeColor(Color.White, Color.OrangeRed);
+            //button47.changeColor(Color.White,Color.Orange);
+            //button48.changeColor(Color.White, Color.Yellow);
+            //button49.changeColor(Color.White, Color.OrangeRed);
+            //button50.changeColor(Color.White, Color.Gray);
+            //button52.changeColor(Color.White, Color.Gray);
+            //button53.changeColor(Color.White, Color.Orange);
+            //button54.changeColor(Color.White, Color.Green);
 
             
             //listNhomHang = new ArrayList();
@@ -297,15 +297,15 @@ namespace WindowsFormsApplication4
             //myCash1.invoiceTotal = new DataTable();
             //myCash1.DeleteAll();
 
-            button45.changeColor(Color.White, Color.OrangeRed);
-            button46.changeColor(Color.White, Color.OrangeRed);
-            button47.changeColor(Color.White, Color.Orange);
-            button48.changeColor(Color.White, Color.Yellow);
-            button49.changeColor(Color.White, Color.OrangeRed);
-            button50.changeColor(Color.White, Color.Gray);
-            button52.changeColor(Color.White, Color.Gray);
-            button53.changeColor(Color.White, Color.Orange);
-            button54.changeColor(Color.White, Color.Green);
+            //button45.changeColor(Color.White, Color.OrangeRed);
+            //button46.changeColor(Color.White, Color.OrangeRed);
+            //button47.changeColor(Color.White, Color.Orange);
+            //button48.changeColor(Color.White, Color.Yellow);
+            //button49.changeColor(Color.White, Color.OrangeRed);
+            //button50.changeColor(Color.White, Color.Gray);
+            //button52.changeColor(Color.White, Color.Gray);
+            //button53.changeColor(Color.White, Color.Orange);
+            //button54.changeColor(Color.White, Color.Green);
 
 
             //listNhomHang = new ArrayList();
@@ -1213,6 +1213,7 @@ namespace WindowsFormsApplication4
 
                     myCash1.invoiceTotal.Rows[0]["Cashier_ID"] = StaticClass.cashierId;
                     myCash1.invoiceTotal.Rows[0]["DateTime"] = DateTime.Now;
+                    myCash1.invoiceTotal.Rows[0]["Orig_OnHoldID"] = tableName;
                     getGui.DeleteInvoiceItemized(StaticClass.storeId, this.invoiceNum);
                     if (myCash1.listInvoiceItem.Rows.Count == 0)
                     {
@@ -1243,7 +1244,7 @@ namespace WindowsFormsApplication4
                     //    printReceiptThread = new Thread(new ThreadStart(printThanhToan));
                     //    printReceiptThread.Start();
                     //}
-                    printThanhToan();
+                    printThanhToan(invoiceNum,tableName);
 
                     //SendToKitchen();
                     //frmPay.Dispose();
@@ -1258,7 +1259,7 @@ namespace WindowsFormsApplication4
             }
         }
 
-        private void printThanhToan()
+        private void printThanhToan(string invoiceNumber,string tableNumber)
         {
             Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
             if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
@@ -1344,7 +1345,7 @@ namespace WindowsFormsApplication4
                 Re_ThanhToan xxx = new Re_ThanhToan();
 
                 string[] pa = { "@Store_ID", "@Invoice_Number", "table" };
-                object[] value = { StaticClass.storeId, invoiceNum, tableName };
+                object[] value = { StaticClass.storeId, invoiceNumber, tableNumber };
                 serviceGet.FillDataReport(xxx, pa, value, true);
                 //xxx.PrintOptions.PrinterName = printer.Details;
 
@@ -1657,6 +1658,15 @@ namespace WindowsFormsApplication4
             if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
             {
                 Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+            }
+        }
+
+        private void button82_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = getGui.GetLastInvoice(StaticClass.stationId, StaticClass.storeId);
+            if(dataTable.Rows.Count > 0)
+            {
+                printThanhToan(dataTable.Rows[0]["Invoice_Number"].ToString(), dataTable.Rows[0]["Orig_OnHoldID"].ToString());
             }
         }
 

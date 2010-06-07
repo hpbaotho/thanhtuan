@@ -125,6 +125,7 @@
             this.button62 = new WindowsFormsApplication4.Controls.button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button81 = new WindowsFormsApplication4.Controls.button();
+            this.button82 = new WindowsFormsApplication4.Controls.button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -1035,7 +1036,7 @@
             // 
             // button47
             // 
-            this.button47.Color2 = System.Drawing.Color.Blue;
+            this.button47.Color2 = System.Drawing.Color.Orange;
             this.button47.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button47.Location = new System.Drawing.Point(672, 1);
             this.button47.Name = "button47";
@@ -1048,7 +1049,7 @@
             // 
             // button48
             // 
-            this.button48.Color2 = System.Drawing.Color.Blue;
+            this.button48.Color2 = System.Drawing.Color.Yellow;
             this.button48.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button48.Location = new System.Drawing.Point(789, 1);
             this.button48.Name = "button48";
@@ -1060,7 +1061,7 @@
             // 
             // button49
             // 
-            this.button49.Color2 = System.Drawing.Color.Blue;
+            this.button49.Color2 = System.Drawing.Color.Red;
             this.button49.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button49.Location = new System.Drawing.Point(908, 1);
             this.button49.Name = "button49";
@@ -1073,7 +1074,7 @@
             // 
             // button50
             // 
-            this.button50.Color2 = System.Drawing.Color.Blue;
+            this.button50.Color2 = System.Drawing.Color.Silver;
             this.button50.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button50.Location = new System.Drawing.Point(672, 616);
             this.button50.Name = "button50";
@@ -1099,7 +1100,7 @@
             // 
             // button52
             // 
-            this.button52.Color2 = System.Drawing.Color.Blue;
+            this.button52.Color2 = System.Drawing.Color.Silver;
             this.button52.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button52.Location = new System.Drawing.Point(783, 616);
             this.button52.Name = "button52";
@@ -1112,7 +1113,7 @@
             // 
             // button53
             // 
-            this.button53.Color2 = System.Drawing.Color.Blue;
+            this.button53.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button53.Location = new System.Drawing.Point(783, 688);
             this.button53.Name = "button53";
@@ -1125,7 +1126,7 @@
             // 
             // button54
             // 
-            this.button54.Color2 = System.Drawing.Color.Blue;
+            this.button54.Color2 = System.Drawing.Color.Lime;
             this.button54.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button54.Location = new System.Drawing.Point(893, 616);
             this.button54.Name = "button54";
@@ -1377,7 +1378,7 @@
             // 
             // button81
             // 
-            this.button81.Color2 = System.Drawing.Color.Cyan;
+            this.button81.Color2 = System.Drawing.Color.Fuchsia;
             this.button81.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button81.Location = new System.Drawing.Point(561, 688);
             this.button81.Name = "button81";
@@ -1388,12 +1389,26 @@
             this.button81.UseOwnColor = false;
             this.button81.Click += new System.EventHandler(this.button81_Click);
             // 
+            // button82
+            // 
+            this.button82.Color2 = System.Drawing.Color.Yellow;
+            this.button82.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button82.Location = new System.Drawing.Point(561, 616);
+            this.button82.Name = "button82";
+            this.button82.OwnDrawColor = System.Drawing.Color.White;
+            this.button82.Size = new System.Drawing.Size(105, 68);
+            this.button82.TabIndex = 20;
+            this.button82.Text = "In hóa đơn cuối cùng";
+            this.button82.UseOwnColor = false;
+            this.button82.Click += new System.EventHandler(this.button82_Click);
+            // 
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.button82);
             this.Controls.Add(this.button81);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel3);
@@ -1530,5 +1545,6 @@
         private WindowsFormsApplication4.Controls.button button69;
         private WindowsFormsApplication4.Controls.button button80;
         private WindowsFormsApplication4.Controls.button button81;
+        private WindowsFormsApplication4.Controls.button button82;
     }
 }
