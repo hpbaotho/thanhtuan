@@ -2294,6 +2294,16 @@ namespace Services
             return re;
         }
         #endregion
+
+        public DataTable GetLastInvoice(string stationID, string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = "Select TOP 1 * from Invoice_Totals where (Store_ID = '" + storeId + "') and (Station_ID = '"
+                                                               + stationID + "') ORDER BY DateTime DESC";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
         
 
     }
