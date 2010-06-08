@@ -26,7 +26,7 @@ namespace WindowsFormsApplication4
             {
                 FrmDelete requestconn = new FrmDelete();
                 requestconn.label1.Text =
-                "Chưa có kết nối database.\n Bạn có muốn chọn database không?";
+                    "Chưa có kết nối database.\n Bạn có muốn chọn database không?";
                 if (requestconn.ShowDialog() == DialogResult.OK)
                 {
                     FrmConfigDatabase frmConfigDatabase = new FrmConfigDatabase();
