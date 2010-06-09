@@ -2299,7 +2299,7 @@ namespace Services
         {
             cmd = new SqlCommand();
             string query = "Select TOP 1 * from Invoice_Totals where (Store_ID = '" + storeId + "') and (Station_ID = '"
-                                                               + stationID + "') ORDER BY DateTime DESC";
+                                                               + stationID + "') and Status = 'C' ORDER BY DateTime DESC";
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
