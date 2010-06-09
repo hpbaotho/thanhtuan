@@ -16,17 +16,19 @@ namespace WindowsFormsApplication4
     {
         private Service.ServiceGet serviceGet;
         public string Value;
+        public string Displaytest;
         public FrmSelectKitchenNote()
         {
             InitializeComponent();
             serviceGet = new ServiceGet();
+            Displaytest = "";
             Value = "";
         }
         public FrmSelectKitchenNote(string text)
         {
             InitializeComponent();
             serviceGet = new ServiceGet();
-            Value = text;
+            Displaytest = text;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,6 +50,7 @@ namespace WindowsFormsApplication4
             if(listBox1.SelectedItems.Count <= 0)
             {
                 this.Dispose();
+                return;
             }
             for (int i = 0; i < listBox1.SelectedItems.Count - 1 ; i++)
             {
@@ -59,7 +62,7 @@ namespace WindowsFormsApplication4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(Value);
+            FrmKeyBoard frmKeyBoard = new FrmKeyBoard(Displaytest);
             if(frmKeyBoard.ShowDialog() == DialogResult.OK)
             {
                 if(frmKeyBoard.value != "")

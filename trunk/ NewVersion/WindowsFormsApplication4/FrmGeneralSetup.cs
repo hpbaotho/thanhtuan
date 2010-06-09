@@ -85,6 +85,7 @@ namespace WindowsFormsApplication4
                     setup_Reason_CodesTableAdapter.InsertReasonCode(StaticClass.storeId, o.Code, ReasonCode.KitchenNote);
                 }
             }
+            this.Dispose();
         }
     }
 }

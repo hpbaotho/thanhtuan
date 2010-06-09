@@ -1391,12 +1391,13 @@
             // 
             // button82
             // 
-            this.button82.Color2 = System.Drawing.Color.Yellow;
+            this.button82.Color2 = System.Drawing.Color.GreenYellow;
             this.button82.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button82.ForeColor = System.Drawing.Color.Black;
             this.button82.Location = new System.Drawing.Point(561, 616);
             this.button82.Name = "button82";
             this.button82.OwnDrawColor = System.Drawing.Color.White;
-            this.button82.Size = new System.Drawing.Size(105, 68);
+            this.button82.Size = new System.Drawing.Size(105, 66);
             this.button82.TabIndex = 20;
             this.button82.Text = "In hóa đơn cuối cùng";
             this.button82.UseOwnColor = false;

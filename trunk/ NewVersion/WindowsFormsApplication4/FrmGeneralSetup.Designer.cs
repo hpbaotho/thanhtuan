@@ -30,11 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new WindowsFormsApplication4.Controls.button();
+            this.button1 = new WindowsFormsApplication4.Controls.button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button3 = new WindowsFormsApplication4.Controls.button();
             this.button4 = new WindowsFormsApplication4.Controls.button();
-            this.button2 = new WindowsFormsApplication4.Controls.button();
-            this.button1 = new WindowsFormsApplication4.Controls.button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -63,45 +63,9 @@
             this.tabPage1.Text = "Ghi chú mặt hàng";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // listBox1
-            // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 24;
-            this.listBox1.Location = new System.Drawing.Point(7, 7);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(399, 412);
-            this.listBox1.TabIndex = 0;
-            // 
-            // button3
-            // 
-            this.button3.Color2 = System.Drawing.Color.Blue;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(316, 477);
-            this.button3.Name = "button3";
-            this.button3.OwnDrawColor = System.Drawing.Color.White;
-            this.button3.Size = new System.Drawing.Size(106, 80);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Lưu";
-            this.button3.UseOwnColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Color2 = System.Drawing.Color.Blue;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(428, 477);
-            this.button4.Name = "button4";
-            this.button4.OwnDrawColor = System.Drawing.Color.White;
-            this.button4.Size = new System.Drawing.Size(106, 80);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Thoát";
-            this.button4.UseOwnColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button2
             // 
-            this.button2.Color2 = System.Drawing.Color.Blue;
+            this.button2.Color2 = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(421, 93);
             this.button2.Name = "button2";
@@ -114,7 +78,7 @@
             // 
             // button1
             // 
-            this.button1.Color2 = System.Drawing.Color.Blue;
+            this.button1.Color2 = System.Drawing.Color.YellowGreen;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(421, 7);
             this.button1.Name = "button1";
@@ -124,6 +88,42 @@
             this.button1.Text = "Thêm";
             this.button1.UseOwnColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 24;
+            this.listBox1.Location = new System.Drawing.Point(7, 7);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(399, 412);
+            this.listBox1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.Color2 = System.Drawing.Color.Lime;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(316, 477);
+            this.button3.Name = "button3";
+            this.button3.OwnDrawColor = System.Drawing.Color.White;
+            this.button3.Size = new System.Drawing.Size(106, 80);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Lưu";
+            this.button3.UseOwnColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Color2 = System.Drawing.Color.Red;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(428, 477);
+            this.button4.Name = "button4";
+            this.button4.OwnDrawColor = System.Drawing.Color.White;
+            this.button4.Size = new System.Drawing.Size(106, 80);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Thoát";
+            this.button4.UseOwnColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FrmGeneralSetup
             // 
