@@ -85,7 +85,6 @@ namespace WindowsFormsApplication4.Controls
 
         public void start()
         {
-            
             listInvoiceItem = new DataTable();
             invoiceTotal = new DataTable();
             multi_selected = true;
@@ -93,18 +92,28 @@ namespace WindowsFormsApplication4.Controls
             position = 0;
             pos_scroll_begin = 1;
             track = false;
+            vScrollBar1.Value = 0;
             int n_rows = (vScrollBar1.Height - myItem1.Height) / myItem1.Height + 2;
             
             int count = this.Controls.Count - 1;
             for (int j = count; j >= 0; j--)
             {
-                if (this.Controls[j].Name.StartsWith("myitems"))
+                if(this.Controls[j] is MyItem)
                 {
-                    var a = this.Controls[j];
-                    this.Controls.Remove(this.Controls[j]);
-                    a.Dispose();
-                    //j--;
+                    if (this.Controls[j].Name != "myItem1")
+                    {
+                        var a = this.Controls[j];
+                        this.Controls.Remove(this.Controls[j]);
+                        a.Dispose();
+                    }
                 }
+                //if (this.Controls[j].Name.StartsWith("myitems"))
+                //{
+                //    var a = this.Controls[j];
+                //    this.Controls.Remove(this.Controls[j]);
+                //    a.Dispose();
+                //    //j--;
+                //}
             }
             this.Invalidate();
             hash.Clear();
