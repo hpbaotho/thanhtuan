@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -39,6 +40,11 @@ namespace WindowsFormsApplication4
             if (MessBox2Choice.ShowBox("Bạn có muốn xóa tất cả \nhóa đơn không ?", Color.Red) == DialogResult.Yes)
             {
                 serviceGet.getGui.ClearAllInvoice(StaticClass.storeId);
+                string path = Application.StartupPath + @"\logfile.txt";
+                if(File.Exists(path) )
+                {
+                    File.Delete(path);
+                }
                 Alert.Show("Xóa thành công");
             }
         }
