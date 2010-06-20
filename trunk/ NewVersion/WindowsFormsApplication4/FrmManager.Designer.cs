@@ -804,9 +804,9 @@ namespace WindowsFormsApplication4
             this.button50.OwnDrawColor = System.Drawing.Color.White;
             this.button50.Size = new System.Drawing.Size(131, 71);
             this.button50.TabIndex = 30;
-            this.button50.Text = "Quản lý loại hàng";
+            this.button50.Text = "Xem lại hóa đơn cũ";
             this.button50.UseOwnColor = false;
-            this.button50.Visible = false;
+            this.button50.Click += new System.EventHandler(this.button50_Click);
             // 
             // button51
             // 
@@ -833,9 +833,9 @@ namespace WindowsFormsApplication4
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Name = "FrmManager";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

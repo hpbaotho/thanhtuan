@@ -81,6 +81,10 @@ namespace WindowsFormsApplication4
 
         private void FrmSearch_Load(object sender, EventArgs e)
         {
+            if(tableType == "Invoices")
+            {
+                btnSelect.Text = "In hóa đơn";
+            }
             dataGridView1.DataSource = View;
           
             for(int i=0;i<dataGridView1.Columns.Count;i++)
@@ -144,6 +148,10 @@ namespace WindowsFormsApplication4
             {
                 dataGridView1.DataSource = get_services.IndexSearchDepartment(textBox1.Text,StaticClass.storeId);
             }
+            else if (tableType == "Invoices")
+            {
+                dataGridView1.DataSource = get_services.IndexSearchInvoices(textBox1.Text, StaticClass.storeId);
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -161,6 +169,10 @@ namespace WindowsFormsApplication4
                 else if (tableType == "Department")
                 {
                     dataGridView1.DataSource = get_services.IndexSearchDepartment(textBox1.Text,StaticClass.storeId);
+                }
+                else if (tableType == "Invoices")
+                {
+                    dataGridView1.DataSource = get_services.IndexSearchInvoices(textBox1.Text, StaticClass.storeId);
                 }
             }
         }
