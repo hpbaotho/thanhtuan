@@ -34,6 +34,8 @@
             this.tbChucNang = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.cmbChooseCust = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.cmb_ThanhToan = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.cmb_TamTinh = new System.Windows.Forms.ComboBox();
@@ -125,8 +127,8 @@
             this.button10 = new WindowsFormsApplication4.Controls.button();
             this.button9 = new WindowsFormsApplication4.Controls.button();
             this.button8 = new WindowsFormsApplication4.Controls.button();
-            this.cmbChooseCust = new System.Windows.Forms.ComboBox();
-            this.label35 = new System.Windows.Forms.Label();
+            this.cmbRecallInvoices = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -201,6 +203,8 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.cmbRecallInvoices);
+            this.panel5.Controls.Add(this.label37);
             this.panel5.Controls.Add(this.cmbChooseCust);
             this.panel5.Controls.Add(this.label35);
             this.panel5.Controls.Add(this.cmb_ThanhToan);
@@ -232,6 +236,24 @@
             this.panel5.Size = new System.Drawing.Size(780, 208);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // cmbChooseCust
+            // 
+            this.cmbChooseCust.FormattingEnabled = true;
+            this.cmbChooseCust.Location = new System.Drawing.Point(628, 79);
+            this.cmbChooseCust.Name = "cmbChooseCust";
+            this.cmbChooseCust.Size = new System.Drawing.Size(149, 28);
+            this.cmbChooseCust.TabIndex = 88;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(532, 69);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(96, 40);
+            this.label35.TabIndex = 87;
+            this.label35.Text = "Chọn Khách\r\n hàng";
             // 
             // cmb_ThanhToan
             // 
@@ -1157,23 +1179,23 @@
             this.button8.UseOwnColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // cmbChooseCust
+            // cmbRecallInvoices
             // 
-            this.cmbChooseCust.FormattingEnabled = true;
-            this.cmbChooseCust.Location = new System.Drawing.Point(628, 79);
-            this.cmbChooseCust.Name = "cmbChooseCust";
-            this.cmbChooseCust.Size = new System.Drawing.Size(149, 28);
-            this.cmbChooseCust.TabIndex = 88;
+            this.cmbRecallInvoices.FormattingEnabled = true;
+            this.cmbRecallInvoices.Location = new System.Drawing.Point(628, 119);
+            this.cmbRecallInvoices.Name = "cmbRecallInvoices";
+            this.cmbRecallInvoices.Size = new System.Drawing.Size(149, 28);
+            this.cmbRecallInvoices.TabIndex = 90;
             // 
-            // label35
+            // label37
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(532, 69);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(96, 40);
-            this.label35.TabIndex = 87;
-            this.label35.Text = "Chọn Khách\r\n hàng";
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(532, 109);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(71, 40);
+            this.label37.TabIndex = 89;
+            this.label37.Text = "Xem lại\r\n hóa đơn";
             // 
             // FrmEmployee
             // 
@@ -1338,5 +1360,7 @@
         private System.Windows.Forms.Label lb_TamTinh;
         private System.Windows.Forms.ComboBox cmbChooseCust;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ComboBox cmbRecallInvoices;
+        private System.Windows.Forms.Label label37;
     }
 }

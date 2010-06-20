@@ -1351,16 +1351,18 @@ namespace WindowsFormsApplication4
 
                 xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
 
+                try
+                {
+                    Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+                }
+                catch (Exception)
+                {
+                    Alert.Show("Lỗi máy in", Color.Red);
+                    return;
+                }
                 Utilities.Utils.Print(xxx,Printer.PrinterHoadon);
-                //try
-                //{
-                //    xxx.PrintToPrinter(1, false, 0, 0);
-                //}
-                //catch (Exception)
-                //{
-                //    Alert.Show("Lỗi máy in", Color.Red);
-                //}
-                Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+                
+                
                 xxx.Dispose();
             }
         }

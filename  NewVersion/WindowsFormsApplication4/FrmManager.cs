@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CrystalDecisions.Shared;
 using WindowsFormsApplication4.Controls;
 using POSReport.Report;
 using WindowsFormsApplication4.Persistence;
@@ -16,10 +17,12 @@ namespace WindowsFormsApplication4
     public partial class FrmManager : FrmPOS
     {
         private string selectedButton;
+        public ServiceGet serviceGet;
         public FrmManager()
         {
             InitializeComponent();
             selectedButton = "";
+            serviceGet = new ServiceGet();
         }
         public void SelectChange(string select,string panelName)
         {
@@ -188,6 +191,54 @@ namespace WindowsFormsApplication4
         {
             FrmGeneralSetup frmGeneralSetup = new FrmGeneralSetup();
             frmGeneralSetup.ShowDialog();
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            if (!Employee.CheckGrant(StaticClass.storeId, StaticClass.cashierId, Employee.CFA_PULLBACK_INVOICE))
+            {
+                return;
+            }
+            DataTable invoices = serviceGet.getGui.GetAllInvoices(StaticClass.storeId);
+            string[] column = { "Invoice_Number", "Store_ID", "Grand_Total", "Cashier_ID", "Station_ID" };
+            FrmSearch search = new FrmSearch(invoices, column);
+            search.tableType = "Invoices";
+            //search.passdata = new FrmSearch.PassData(changeState);
+            if(search.ShowDialog() == DialogResult.OK)
+            {
+                string invoiceNum = search.selectRow.Cells["Invoice_Number"].Value.ToString();
+                string tableName = search.selectRow.Cells["Orig_OnHoldID"].Value.ToString();
+                printThanhToan(invoiceNum,tableName);
+            }
+        }
+
+        private void printThanhToan(string invoiceNumber, string tableNumber)
+        {
+            Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
+            if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
+            {
+
+                Re_ThanhToan xxx = new Re_ThanhToan();
+
+                string[] pa = { "@Store_ID", "@Invoice_Number", "table" };
+                object[] value = { StaticClass.storeId, invoiceNumber, tableNumber };
+                serviceGet.FillDataReport(xxx, pa, value, true);
+                //xxx.PrintOptions.PrinterName = printer.Details;
+
+                xxx.PrintOptions.ApplyPageMargins(new PageMargins(1, 2, 1, 0));
+
+                Utilities.Utils.Print(xxx, Printer.PrinterHoadon);
+                //try
+                //{
+                //    xxx.PrintToPrinter(1, false, 0, 0);
+                //}
+                //catch (Exception)
+                //{
+                //    Alert.Show("Lỗi máy in", Color.Red);
+                //}
+                //Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+                xxx.Dispose();
+            }
         }
     }
 }
