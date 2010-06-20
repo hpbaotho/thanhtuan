@@ -2275,6 +2275,18 @@ namespace Services
             return re;
         }
 
+        public DataTable IndexSearchInvoices(string key, string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = @"select * 
+                                from Invoice_Totals
+                                where (Invoice_Number like N'%" + key 
+                                + "%') and Store_ID = '" + storeId + "'";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
         public DataTable IndexSearchEmp(string key)
         {
             cmd = new SqlCommand();
@@ -2300,6 +2312,16 @@ namespace Services
             cmd = new SqlCommand();
             string query = "Select TOP 1 * from Invoice_Totals where (Store_ID = '" + storeId + "') and (Station_ID = '"
                                                                + stationID + "') and Status = 'C' ORDER BY DateTime DESC";
+            DataTable re = FillDataset3(cmd, CommandType.Text, query);
+            cmd.Dispose();
+            return re;
+        }
+
+        public DataTable GetAllInvoices( string storeId)
+        {
+            cmd = new SqlCommand();
+            string query = "Select * from Invoice_Totals where (Store_ID = '" + storeId 
+                                                               + "') and Status = 'C' ORDER BY DateTime DESC";
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
