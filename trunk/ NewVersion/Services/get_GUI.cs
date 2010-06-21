@@ -2275,13 +2275,13 @@ namespace Services
             return re;
         }
 
-        public DataTable IndexSearchInvoices(string key, string storeId)
+        public DataTable IndexSearchInvoices(string key, string storeId,string status)
         {
             cmd = new SqlCommand();
             string query = @"select * 
                                 from Invoice_Totals
                                 where (Invoice_Number like N'%" + key 
-                                + "%') and Store_ID = '" + storeId + "'";
+                                + "%') and Store_ID = '" + storeId + "' and Status ='"+status+"'";
             DataTable re = FillDataset3(cmd, CommandType.Text, query);
             cmd.Dispose();
             return re;
