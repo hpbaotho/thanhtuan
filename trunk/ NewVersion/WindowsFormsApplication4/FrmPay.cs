@@ -41,6 +41,7 @@ namespace WindowsFormsApplication4
                     tienThoi = Convert.ToDecimal(textBox1.Text) - Convert.ToDecimal(textBox2.Text);
                     hinhThucTra = "CA";
                     Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t ThanhToan   " + this.invoiceNum + "\t" + hinhThucTra + "    " + textBox2.Text);
+                    Alert.Show("Tiền trả lại:\n \n" + String.Format("{0:0,#}", tienThoi));
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -172,6 +173,7 @@ namespace WindowsFormsApplication4
                     tienThoi = Convert.ToDecimal(textBox1.Text) - Convert.ToDecimal(textBox2.Text);
                     hinhThucTra = "CA";
                     Utilities.Utils.WriteLogFile(StaticClass.cashierId + "\t ThanhToan   " + this.invoiceNum + "\t" + hinhThucTra + "    " + textBox2.Text);
+                    Alert.Show("Tiền trả lại:\n \n" + String.Format("{0:0,#}",tienThoi));
                     this.DialogResult = DialogResult.OK;
                 }
             }
