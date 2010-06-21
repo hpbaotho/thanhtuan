@@ -151,7 +151,7 @@ namespace WindowsFormsApplication4
             }
             else if (tableType == "Invoices")
             {
-                dataGridView1.DataSource = get_services.IndexSearchInvoices(textBox1.Text, StaticClass.storeId);
+                dataGridView1.DataSource = get_services.IndexSearchInvoices(textBox1.Text, StaticClass.storeId,"C");
             }
         }
 
@@ -173,7 +173,7 @@ namespace WindowsFormsApplication4
                 }
                 else if (tableType == "Invoices")
                 {
-                    dataGridView1.DataSource = get_services.IndexSearchInvoices(textBox1.Text, StaticClass.storeId);
+                    dataGridView1.DataSource = get_services.IndexSearchInvoices(textBox1.Text, StaticClass.storeId,"C");
                 }
             }
         }
