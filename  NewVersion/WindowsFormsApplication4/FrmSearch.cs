@@ -84,6 +84,7 @@ namespace WindowsFormsApplication4
             if(tableType == "Invoices")
             {
                 btnSelect.Text = "In hóa đơn";
+                label1.Text = "Nhập số hóa đơn cần tìm";
             }
             dataGridView1.DataSource = View;
           
@@ -179,20 +180,32 @@ namespace WindowsFormsApplication4
 
         private void textBox1_DoubleClick(object sender, EventArgs e)
         {
-            try
+            if(tableType == "Invoices")
             {
-                Process p = new Process();
-                //p.StartInfo.WorkingDirectory = @"C:\whatever";
-                p.StartInfo.FileName = Application.StartupPath + @"\FreeVK.exe";
-                p.StartInfo.CreateNoWindow = true;
-                p.Start();
-                textBox1.Focus();
-                //p.WaitForExit();
+                FrmKeyBoard frmKeyBoard = new FrmKeyBoard();
+                if(frmKeyBoard.ShowDialog() == DialogResult.OK)
+                {
+                    textBox1.Text = frmKeyBoard.value;
+                }
             }
-            catch (Exception)
+            else
             {
-                Alert.Show("Chương trình FreeVK.exe\n không tồn tại.", Color.Red);
+                try
+                {
+                    Process p = new Process();
+                    //p.StartInfo.WorkingDirectory = @"C:\whatever";
+                    p.StartInfo.FileName = Application.StartupPath + @"\FreeVK.exe";
+                    p.StartInfo.CreateNoWindow = true;
+                    p.Start();
+                    textBox1.Focus();
+                    //p.WaitForExit();
+                }
+                catch (Exception)
+                {
+                    Alert.Show("Chương trình FreeVK.exe\n không tồn tại.", Color.Red);
+                }
             }
+            
         }
     }
 }

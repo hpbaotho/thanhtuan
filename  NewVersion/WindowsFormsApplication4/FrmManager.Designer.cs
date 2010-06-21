@@ -791,9 +791,9 @@ namespace WindowsFormsApplication4
             this.button49.OwnDrawColor = System.Drawing.Color.White;
             this.button49.Size = new System.Drawing.Size(131, 71);
             this.button49.TabIndex = 31;
-            this.button49.Text = "Quản lý nhân viên";
+            this.button49.Text = "In hóa đơn cuối cùng";
             this.button49.UseOwnColor = false;
-            this.button49.Visible = false;
+            this.button49.Click += new System.EventHandler(this.button49_Click);
             // 
             // button50
             // 

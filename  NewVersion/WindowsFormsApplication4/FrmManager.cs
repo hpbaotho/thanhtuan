@@ -200,7 +200,7 @@ namespace WindowsFormsApplication4
                 return;
             }
             DataTable invoices = serviceGet.getGui.GetAllInvoices(StaticClass.storeId);
-            string[] column = { "Invoice_Number", "Store_ID", "Grand_Total", "Cashier_ID", "Station_ID" };
+            string[] column = { "Invoice_Number", "Station_ID", "Grand_Total", "Cashier_ID", "Store_ID" };
             FrmSearch search = new FrmSearch(invoices, column);
             search.tableType = "Invoices";
             //search.passdata = new FrmSearch.PassData(changeState);
@@ -238,6 +238,15 @@ namespace WindowsFormsApplication4
                 //}
                 //Service.CashdrawerService.OpenCashDrawer1(printer.Details);
                 xxx.Dispose();
+            }
+        }
+
+        private void button49_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = serviceGet.getGui.GetLastInvoice(StaticClass.stationId, StaticClass.storeId);
+            if (dataTable.Rows.Count > 0)
+            {
+                printThanhToan(dataTable.Rows[0]["Invoice_Number"].ToString(), dataTable.Rows[0]["Orig_OnHoldID"].ToString());
             }
         }
     }
