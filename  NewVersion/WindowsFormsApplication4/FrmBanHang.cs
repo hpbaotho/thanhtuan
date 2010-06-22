@@ -1244,7 +1244,7 @@ namespace WindowsFormsApplication4
                     //    printReceiptThread = new Thread(new ThreadStart(printThanhToan));
                     //    printReceiptThread.Start();
                     //}
-                    printThanhToan(invoiceNum,tableName);
+                    printThanhToan(invoiceNum,tableName,true);
 
                     //SendToKitchen();
                     //frmPay.Dispose();
@@ -1259,7 +1259,7 @@ namespace WindowsFormsApplication4
             }
         }
 
-        private void printThanhToan(string invoiceNumber,string tableNumber)
+        private void printThanhToan(string invoiceNumber,string tableNumber,bool cashdrawer)
         {
             Printer printer = serviceGet.GetPrinterByName(StaticClass.storeId, StaticClass.stationId, "Hóa đơn");
             if (!(printer == null || printer.Details == "NONE" || printer.Disable == true))
@@ -1353,7 +1353,11 @@ namespace WindowsFormsApplication4
 
                 try
                 {
-                    Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+                    if(cashdrawer)
+                    {
+                        Service.CashdrawerService.OpenCashDrawer1(printer.Details);
+                    }
+                    
                 }
                 catch (Exception)
                 {
@@ -1668,7 +1672,7 @@ namespace WindowsFormsApplication4
             DataTable dataTable = getGui.GetLastInvoice(StaticClass.stationId, StaticClass.storeId);
             if(dataTable.Rows.Count > 0)
             {
-                printThanhToan(dataTable.Rows[0]["Invoice_Number"].ToString(), dataTable.Rows[0]["Orig_OnHoldID"].ToString());
+                printThanhToan(dataTable.Rows[0]["Invoice_Number"].ToString(), dataTable.Rows[0]["Orig_OnHoldID"].ToString(),false);
             }
         }
 
