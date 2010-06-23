@@ -433,7 +433,7 @@ namespace WindowsFormsApplication4.Controls
         public ArrayList get_All_Rows()
         {
             ArrayList re = new ArrayList();
-            for (int k = 1; k <= hash.Count - 1 ; k++)
+            for (int k = 1; k <= hash.Count ; k++)
             {
                 MyItem item = (MyItem)hash[k];
                 if (item.Mota != null)
